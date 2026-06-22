@@ -1,6 +1,10 @@
 # 로컬 실제 vault 경로 — 절대 공개 금지
 tools/config.local.json
 
+# 내부 전략·운영 doc — 비공개
+SCORECARD.md
+HANDOFF.md
+
 # macOS
 .DS_Store
 
