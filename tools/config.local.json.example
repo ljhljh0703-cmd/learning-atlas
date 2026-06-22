@@ -1,0 +1,4 @@
+{
+  "_comment": "이 파일을 config.local.json 으로 복사한 뒤 vault_root 를 실제 경로로 바꾸세요. config.local.json 은 gitignore 됩니다.",
+  "vault_root": "/path/to/your/obsidian/vault"
+}

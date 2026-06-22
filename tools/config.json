@@ -1,0 +1,35 @@
+{
+  "_comment": "Learning Atlas export config (PUBLIC). vault(읽기전용) → public repo 단방향. 로컬 실제 경로는 config.local.json(gitignore)이 덮어씀. vault 절대 무수정.",
+  "vault_root": "/path/to/your/obsidian/vault",
+
+  "include_dirs": ["wiki/learnings/techniques", "wiki/learnings/methods"],
+  "include_root_glob": "wiki/learnings/*.md",
+  "include_files": [],
+  "exclude_basenames": ["index"],
+
+  "columns": {
+    "wiki/learnings/techniques": "techniques",
+    "wiki/learnings/methods": "methods",
+    "_root": "narrative"
+  },
+
+  "forbidden_dirs": ["me", "applications", "reflections", ".proposed-patches", "raw", "log-archive", "projects"],
+
+  "frontmatter_keep": ["created", "updated", "type", "tags", "source", "authors", "year", "doi", "category", "title"],
+  "frontmatter_drop": ["proposed_by", "confirmed_by", "proposed_date", "confirmed_date", "provenance", "related_to", "review_trigger", "status", "local_pdf", "local_repo"],
+
+  "private_link_prefixes": ["me/", "applications/", "reflections/", "projects/", ".proposed-patches"],
+  "private_link_basenames": ["identity", "values", "goals", "traits", "professional", "hot", "log", "status", "CLAUDE", "GEMINI", "AGENTS", "lessons", "index"],
+
+  "_forbidden_note": "HARD(exit 1) = 진짜 민감 누출. WARN(exit 0) = 내부 노이즈. proposed_by 등은 본문 컨벤션 설명이라 제외(frontmatter 는 스크럽).",
+  "forbidden_patterns": [
+    "[A-Za-z0-9._%+-]+@(gmail|naver|kakao|outlook|hotmail|icloud)\\.com",
+    "\\[\\[(wiki/)?(me|applications|reflections)/",
+    "\\[\\[(identity|values|goals|traits|professional)\\]\\]",
+    "(^|\\s)applications/[a-z]",
+    "/Users/[A-Za-z0-9]"
+  ],
+  "warn_patterns": ["\\.proposed-patches"],
+  "warn_neutralize": [["\\.proposed-patches(/[\\w\\-./]+)?", "스테이징 영역"]],
+  "extra_forbidden_literals": []
+}

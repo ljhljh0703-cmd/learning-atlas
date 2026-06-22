@@ -1,0 +1,9 @@
+# 로컬 실제 vault 경로 — 절대 공개 금지
+tools/config.local.json
+
+# macOS
+.DS_Store
+
+# 구 파이프라인 레이아웃(마이그레이션 잔재)
+out/
+export/
