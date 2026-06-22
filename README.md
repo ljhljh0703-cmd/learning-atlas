@@ -4,15 +4,17 @@
 > 각 글은 Obsidian 기반 개인 second-brain vault 에서 **누출 게이트를 통과한 것만** 단방향으로 내보내진다.
 > 파이프라인은 [`tools/`](tools/) 에 공개 — 무엇을 어떻게 정제해 내보내는지 전부 볼 수 있다.
 
-**180편** · Techniques 78 · Methods 100 · 경험 서사 2
+**182편** · Techniques 80 · Methods 100 · 경험 서사 2
 
 ## 🔬 Techniques
 
-*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 78편
+*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 80편
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [DCSS(Dungeon Crawl Stone Soup) 던전 디자인 — 다층·위험보상·함정·상호작용](techniques/dcss-dungeon-design.md) | https://github.com/crawl/crawl | 2026-06-22 |
 | [PerfectPixel Studio — AI × 결정론적 후처리 스프라이트 파이프라인](techniques/perfectpixel-sprite-pipeline.md) | https://github.com/gykim80/perfectpixel-studio | 2026-06-22 |
+| [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](techniques/woc-ai-gamedev-teardown.md) | https://github.com/levy-street/world-of-claud… | 2026-06-22 |
 | [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](techniques/apple-design-teardown.md) | https://www.apple.com/kr/iphone-17-pro/ | 2026-06-19 |
 | [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](techniques/awesome-design-md-teardown.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-19 |
 | [MLXP — Kubernetes LLM Serving 최적화 (NAVER, 정지윤·장혁진)](techniques/mlxp-k8s-llm-serving.md) | MLXP - Kubernetes LLM Serving 최적화 기술 도입기 | 2026-06-18 |
