@@ -31,5 +31,27 @@
   ],
   "warn_patterns": ["\\.proposed-patches"],
   "warn_neutralize": [["\\.proposed-patches(/[\\w\\-./]+)?", "스테이징 영역"]],
-  "extra_forbidden_literals": []
+  "extra_forbidden_literals": [],
+
+  "_index_groups_note": "README 가독성용 주제 그룹핑(공개·발표 전용). build_index.py 가 각 노트의 slug+title+frontmatter(tags) 를 소문자화해 rules 를 위에서부터 검사, 첫 매칭 그룹에 배치. 미매칭은 default. 키워드만 손봐서 튜닝.",
+  "index_groups": {
+    "default": "🧰 도구 · 방법론",
+    "order": [
+      "🎮 게임 · 로그라이크 · NPC AI",
+      "🤖 에이전트 하네스 · 자가개선",
+      "🧠 AI · LLM 연구",
+      "🎨 디자인 · 프론트엔드",
+      "🧰 도구 · 방법론"
+    ],
+    "rules": [
+      {"group": "🧰 도구 · 방법론", "match": ["toss", "앱인토스", "앱빌더"]},
+      {"group": "🧰 도구 · 방법론", "match": ["prompt-pattern", "prompt pattern"]},
+      {"group": "🧠 AI · LLM 연구", "match": ["mech-interp", "interpretability", "activation-steering", "persona-vector", "transformerlens"]},
+      {"group": "🧠 AI · LLM 연구", "match": ["model-welfare", "ai-welfare", "consciousness", "moral-patient", "ai-safety", "constitutional-ai", "agentic-misalignment", "llm-narrative-sim", "narrative-sim"]},
+      {"group": "🎨 디자인 · 프론트엔드", "match": ["design-system", "design-md", "getdesign", "designlang", "landing-page", "pixel-art", "sprite", "frontend", "typography", "editorial", "branding", "brand-identity", "brand-tone", "data-viz", "motion-graphics", "video-rendering", "video-production", "lottie", "illustration", "premium-ui", "premium design", "micro-interaction", "hyperframes", "html-ppt", "bento", "ui-ux", "ui/ux", "scroll-storytelling", "dithering", "aseprite", "color-ramp", "slides-grab"]},
+      {"group": "🎮 게임 · 로그라이크 · NPC AI", "match": ["roguelike", "libgdx", "rogue-os", "game-design", "game-ai", "game-dev", "gamedev", "game-asset", "game-art", "dungeon", "mafia", "werewolf", "social-deduction", "social-reasoning", "theory-of-mind", "role-playing", "role-llm", "ai-npc", "npc", "dcss", "berlin", "shadowcasting", "dijkstra", "pathfinding", "pcg", "cellular-automata", "map-generation", "enemy", "playtesting", "unity-ml", "claudecraft", "data-oriented", "spd", "game-refinement", "randomness", "unpredictability", "autotil", "flow-field", "desire-driven", "fov"]},
+      {"group": "🤖 에이전트 하네스 · 자가개선", "match": ["agent-harness", "harness", "recursive-self", "self-improving", "self-improvement", "autonomous-loop", "autoresearch", "auto-research", "orchestration", "scaffolding", "dispatch", "codex", "opencode", "ouroboros", "fable", "ralph", "goose", "hermes", "jawcode", "gnosis", "factory-ai", "loop-engineering", "goal-framework", "goal-ledger", "dynamic-workflows", "matt-pocock", "ml-intern", "pi-coding", "agent-scripts", "browser-harness", "agbrowse", "agent-architecture", "agentic-engineering", "vibe-coding", "sdlc", "agent-os", "coding-agent", "agent-sdk", "everything-claude-code", "claude-code-runtime", "claude-code-game", "behavioral-overlay", "behavior-injection", "ponytail", "fablecodex", "oh-my-openagent", "spec-gate", "spec-first", "spec-driven", "spec-to-prompt", "hotl", "de-anchoring", "ipabcd", "afk-agents"], "_removed": ["rsi(⊂sparsity)", "claude-code(⊂claude-code-skills)", "superpowers"]},
+      {"group": "🧠 AI · LLM 연구", "match": ["llm", "rag", "knowledge-graph", "graphrag", "agent-memory", "zep", "graphiti", "simulation", "multi-agent", "oasis", "emergence-world", "mirofish", "model-welfare", "ai-welfare", "welfare", "ethics", "ai-safety", "autonomous-research", "ai-scientist", "inference", "on-device", "long-context", "looped-model", "subquadratic", "ssa", "brain-inspired", "uncertainty", "cyber", "emotion", "persona", "dataset", "incremental-index", "vector-db", "cocoindex", "graph-db", "neo4j", "fine-tuning", "toolformer", "tool-use", "consciousness", "kv-cache", "ellm", "parcae", "singulari", "understand-anything", "minsync"]}
+    ]
+  }
 }
