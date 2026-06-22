@@ -13,7 +13,7 @@ PROJ = os.path.dirname(HERE)
 COLUMNS = [
     ("techniques", "🔬 Techniques", "논문 · 아키텍처 · 알고리즘 · 연구 기법"),
     ("methods",    "🛠️ Methods",    "도구 · 워크플로우 · 방법론 · 스킬"),
-    ("narrative",  "📖 경험 서사",   "부트캠프 등 경험이 섞인 학습"),
+    ("narrative",  "📖 경험 서사",   "경험과 지식이 함께 엮인 학습 (부트캠프 등)"),
 ]
 
 def load_groups():
@@ -85,9 +85,9 @@ def main():
     lines = [
         "# Learning Atlas",
         "",
-        "> 한 사람의 학습을 *지식 그래프*로 운영하는 공개 허브. 노트는 노드, 링크는 엣지.",
-        "> 각 글은 Obsidian 기반 개인 second-brain vault 에서 **누출 게이트를 통과한 것만** 단방향으로 내보내진다.",
-        "> 파이프라인은 [`tools/`](tools/) 에 공개 — 무엇을 어떻게 정제해 내보내는지 전부 볼 수 있다.",
+        "> **한 사람의 학습을 카탈로그가 아니라 지식 그래프로 운영하는 공개 허브.** 노트가 노드, 링크가 엣지다.",
+        "> 모든 글은 비공개 second-brain(Obsidian vault)에서 **누출 게이트를 통과한 것만** 공개 repo로 단방향 export 된다.",
+        "> 정제·게이트 파이프라인은 [`tools/`](tools/)에 전부 공개해 뒀다. 무엇을 어떻게 거르는지 숨기지 않는다.",
         "",
     ]
     counts = []
@@ -127,7 +127,7 @@ def main():
     lines += body
     lines.append("---")
     lines.append("")
-    lines.append("이 저장소는 자동 생성된다. 파이프라인: `tools/export.py`(vault→정제·누출게이트) → `tools/build_index.py`(목차). 자세한 원칙은 [`tools/PIPELINE.md`](tools/PIPELINE.md).")
+    lines.append("이 README는 자동 생성된다. vault가 자라면 게이트를 통과한 새 글이 그대로 따라 올라온다. 파이프라인: `tools/export.py`(vault→정제·누출 게이트) → `tools/build_index.py`(주제별 목차). 원칙은 [`tools/PIPELINE.md`](tools/PIPELINE.md).")
     lines.append("")
 
     with open(os.path.join(PROJ, "README.md"), "w", encoding="utf-8") as f:
