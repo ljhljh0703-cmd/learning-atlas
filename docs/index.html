@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- 학습 포트폴리오 — 과시형(영역·최신성·속도·소화). 인터랙티브 지식그래프 코어. self-contained. claude-ext 2026-06-28 rev. -->
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>학습 포트폴리오 — 최신 AI 지식을 공부해 내 지식으로 삼는 기반 · 이주형</title>
+<meta name="description" content="게임 AI·에이전트 하네스·LLM 연구·디자인·도구 다섯 영역에서 최근 3개월간 180여 편의 최신 논문·레포·도구를 해체해 지식그래프로 정리했습니다. 최신 이론을 공부해 도메인에 적용·응용합니다." />
+<meta property="og:title" content="학습 포트폴리오 — 최신 AI 지식을 공부해 내 지식으로 삼는 기반" />
+<meta property="og:description" content="다섯 영역 180여 편 · 2026 최신 논문·레포 · 출처와 함께 해체해 정리하고 실제 작업에 적용합니다." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233b6fff'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white'%3E%E2%9A%99%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f8fc; --bg-soft:#eef2f9; --surface:#ffffff;
+    --ink:#0e1525; --ink-soft:#42506b; --ink-faint:#7a87a3;
+    --line:#e3e9f3;
+    --brand:#3b6fff; --brand-2:#7a5cff; --accent:#00c2b8; --warn:#ff7a59; --gold:#f4b740;
+    --shadow:0 10px 40px -12px rgba(30,55,120,.18);
+    --shadow-lg:0 30px 80px -24px rgba(30,55,120,.30);
+    --radius:22px; --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans KR','Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  section{position:relative;padding:80px 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);background:linear-gradient(90deg,rgba(59,111,255,.10),rgba(122,92,255,.10));padding:7px 14px;border-radius:999px;border:1px solid rgba(59,111,255,.18)}
+  h2.section-title{font-size:clamp(27px,4vw,42px);font-weight:900;letter-spacing:-.02em;margin:18px 0 14px;line-height:1.16}
+  .section-sub{font-size:17px;color:var(--ink-soft);max-width:760px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);background:rgba(246,248,252,.78);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+  nav.scrolled{border-bottom:1px solid var(--line);background:rgba(246,248,252,.92)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.01em}
+  .brand .logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-size:15px;box-shadow:0 6px 16px -4px rgba(59,111,255,.55)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{font-size:14.5px;font-weight:600;color:var(--ink-soft);transition:color .2s}
+  .nav-links a:hover{color:var(--brand)}
+  .nav-cta{background:var(--ink);color:#fff;padding:9px 17px;border-radius:999px;font-size:14px;font-weight:700;transition:transform .2s,box-shadow .2s}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(14,21,37,.45)}
+  @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+  .hero{padding:140px 0 56px}
+  .hero .eyebrow{margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:900;letter-spacing:-.035em;line-height:1.06;margin-bottom:18px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--brand),var(--brand-2) 55%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18.5px;color:var(--ink-soft);max-width:700px;margin-bottom:18px}
+  .role-line{font-size:14.5px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);border-left:3px solid var(--brand);padding:10px 14px;border-radius:10px;max-width:640px;margin-bottom:26px}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:26px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:13px 24px;border-radius:14px;transition:transform .2s,box-shadow .25s;cursor:pointer;border:none}
+  .btn-primary{background:linear-gradient(120deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 14px 34px -12px rgba(59,111,255,.7)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px -12px rgba(59,111,255,.8)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .btn-ghost:hover{transform:translateY(-2px)}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-size:12.5px;font-weight:700;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);padding:7px 13px;border-radius:999px;display:inline-flex;gap:7px;align-items:center}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+
+  .xp-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:20px 20px 14px;position:relative}
+  .xp-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+  .xp-title{font-size:15px;font-weight:800}
+  .xp-title .live{font-size:11px;font-weight:800;color:#0a9a92;background:rgba(0,194,184,.12);border:1px solid rgba(0,194,184,.32);padding:3px 9px;border-radius:999px;margin-left:8px}
+  .xp-count{font-size:13px;color:var(--ink-soft);font-weight:600}
+  .xp-count b{font-family:'Inter';color:var(--ink);font-size:15px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .fchip{font-size:12.5px;font-weight:700;color:var(--ink-soft);background:var(--bg-soft);border:1px solid var(--line);padding:6px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .18s;user-select:none}
+  .fchip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .fchip:hover{border-color:var(--brand);color:var(--ink)}
+  .fchip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fchip .c{font-family:'Inter';opacity:.7;font-weight:800}
+  .kg-stage{position:relative;width:100%;background:radial-gradient(120% 120% at 50% 32%,#1a2545 0%,#0b1020 72%);border-radius:16px;overflow:hidden;border:1px solid #1c2748}
+  #kg{width:100%;height:auto;display:block;touch-action:none}
+  .kg-edge{stroke:#7e8fc0;stroke-width:.5;opacity:0;transition:stroke-dashoffset .6s ease,opacity .3s ease}
+  .kg-edge.shown{opacity:.12}
+  .kg-node{opacity:0;cursor:default;transition:opacity .45s ease,r .55s cubic-bezier(.18,1.25,.4,1)}
+  .kg-node.shown{opacity:.97}
+  .kg-node.anchor{cursor:pointer}
+  .dimmed{opacity:.05 !important}
+  #kgtip{position:absolute;pointer-events:none;z-index:5;background:#0e1525;color:#fff;font-size:12px;font-weight:600;padding:7px 11px;border-radius:9px;box-shadow:var(--shadow);opacity:0;transform:translateY(4px);transition:opacity .12s;max-width:260px;white-space:normal}
+  #kgtip .tg{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;opacity:.7;display:block;margin-bottom:2px}
+  #kgtip .ta{font-size:10.5px;color:#8fb0ff;margin-top:3px}
+  .xp-cap{font-size:12px;color:var(--ink-faint);margin-top:10px;text-align:center}
+
+  .stats{background:linear-gradient(120deg,#0e1525,#16203a);color:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-lg)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+  .stat .num{font-family:'Inter';font-size:clamp(28px,4.2vw,44px);font-weight:900;letter-spacing:-.03em;background:linear-gradient(120deg,#8fb0ff,#b7a3ff 60%,#5be0d8);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .stat .lab{font-size:13px;color:#aebbd6;margin-top:9px;font-weight:600}
+  @media(max-width:720px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:26px}}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .card h3{font-size:18.5px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--ink-soft)}
+  .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:13px;background:linear-gradient(135deg,rgba(59,111,255,.14),rgba(122,92,255,.12))}
+  @media(max-width:860px){.grid-3{grid-template-columns:1fr}}
+
+  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .gcard .gl{font-size:15px;font-weight:800}
+  .gcard .gd{font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+  .gcard .gex{font-size:11.5px;color:var(--ink-soft);margin-top:5px;line-height:1.45}
+  .gcard .gex b{color:var(--brand);font-weight:700}
+  .gcard .gn{font-family:'Inter';font-size:21px;font-weight:900;color:var(--brand)}
+  @media(max-width:860px){.groups{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.groups{grid-template-columns:1fr}}
+
+  .timeline{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px 24px 14px}
+  .timeline h4{font-size:15px;font-weight:800;margin-bottom:2px}
+  .timeline .tsub{font-size:13px;color:var(--ink-soft)}
+  .timeline .tcap{font-size:12px;color:var(--ink-faint);margin-top:6px}
+  .timeline svg{width:100%;height:auto;display:block;margin-top:8px}
+
+  .note-card{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+  .note-head{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:11px 18px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-faint);font-family:'JetBrains Mono',monospace}
+  .note-head .rd{width:10px;height:10px;border-radius:50%;background:#ff7a59;box-shadow:16px 0 0 #f4b740,32px 0 0 #00c2b8;margin-right:30px}
+  .note-body{padding:20px 22px}
+  .note-fm{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink-soft);background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px;line-height:1.75;white-space:pre-wrap;overflow-x:auto}
+  .note-fm .k{color:var(--brand-2);font-weight:700}
+  .note-body h4{font-size:18px;font-weight:800;letter-spacing:-.01em;margin:2px 0 8px}
+  .note-body p{font-size:14.5px;color:var(--ink-soft)}
+  .note-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+  .note-tags span{font-size:11px;font-weight:700;color:var(--brand);background:rgba(59,111,255,.08);border:1px solid rgba(59,111,255,.18);padding:3px 9px;border-radius:999px}
+  .note-link{font-size:12.5px;font-weight:700;color:var(--brand);margin-top:14px;display:inline-block}
+
+  .loop-ex{margin-top:22px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px}
+  .loop-ex .lx{padding:2px 6px}
+  .loop-ex .lk{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--brand)}
+  .loop-ex .lt{font-size:14.5px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
+  .loop-ex .ld{font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+  .loop-ex .lsep{display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:20px;padding:0 6px}
+  .loop-ex .tagline{grid-column:1/-1;border-top:1px dashed var(--line);margin-top:16px;padding-top:13px;font-size:12.5px;color:var(--ink-soft)}
+  .loop-ex .tagline b{color:var(--ink)}
+  @media(max-width:780px){.loop-ex{grid-template-columns:1fr}.loop-ex .lsep{transform:rotate(90deg);padding:8px 0}}
+
+  .how-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:14px 26px;max-width:840px}
+  .how-card .step{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .how-card .step:last-child{border-bottom:none}
+  .how-card .sn{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800;font-size:14px;display:grid;place-items:center;font-family:'Inter'}
+  .how-card .st{font-size:15.5px;font-weight:800}
+  .how-card .sd{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+
+  .whybox{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px}
+  .whybox h4{font-size:15.5px;font-weight:800;margin-bottom:8px}
+  .whybox p{font-size:14px;color:var(--ink-soft)}
+  .whybox ul{list-style:none;margin:12px 0 0;display:flex;flex-direction:column;gap:9px}
+  .whybox li{font-size:13.5px;color:var(--ink-soft);padding-left:16px;position:relative;line-height:1.55}
+  .whybox li::before{content:"\203a";position:absolute;left:0;color:var(--brand);font-weight:800}
+  .whybox li b{color:var(--ink)}
+  .whybox a{color:var(--brand);font-weight:700}
+  .whybox .why-note{font-size:12.5px;color:var(--ink-faint);margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+
+  .osdiag{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px}
+  .os-h{font-size:15.5px;font-weight:800;margin-bottom:4px}
+  .os-sub{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .os-ais{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .os-ai{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:var(--bg-soft)}
+  .os-ai .r{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+  .os-ai .nm{font-size:15px;font-weight:800;margin:3px 0 2px}
+  .os-ai .ds{font-size:12px;color:var(--ink-soft)}
+  .os-flow{display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:12.5px;font-weight:700;margin:10px 0}
+  .os-core{border-radius:12px;padding:14px 16px;text-align:center;background:linear-gradient(120deg,rgba(59,111,255,.10),rgba(122,92,255,.08));border:1px solid rgba(59,111,255,.30)}
+  .os-core .cn{font-size:16px;font-weight:900}
+  .os-core .cd{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .os-loop{display:flex;flex-wrap:wrap;margin-top:16px}
+  .os-step{flex:1;min-width:118px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+  .os-step .sn{font-size:11px;font-weight:800;color:var(--brand);letter-spacing:.05em}
+  .os-step .stp{font-size:13px;font-weight:800;margin-top:2px}
+  .os-step .sdd{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+  .os-sep{display:flex;align-items:center;color:var(--ink-faint);padding:0 7px}
+  .os-note{font-size:13px;color:var(--ink-soft);margin-top:16px}
+  .os-note b{color:var(--ink)}
+  .sol-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
+  .sol{font-size:12.5px;font-weight:700;color:var(--brand);background:rgba(59,111,255,.08);border:1px solid rgba(59,111,255,.20);padding:7px 13px;border-radius:999px}
+  @media(max-width:780px){.os-ais{grid-template-columns:1fr}.os-loop{flex-direction:column}.os-sep{transform:rotate(90deg);padding:5px 0}}
+
+  .sols{display:flex;flex-direction:column;gap:16px}
+  .solcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 24px;cursor:pointer;transition:box-shadow .25s,border-color .2s}
+  .solcard:hover{box-shadow:var(--shadow-lg);border-color:rgba(59,111,255,.35)}
+  .solcard:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .solhead{display:flex;gap:18px;align-items:flex-start}
+  .solcard .si{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,rgba(59,111,255,.14),rgba(122,92,255,.12))}
+  .solcard .sc{flex:1}
+  .solcard h3{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .solcard .sc p{font-size:14px;color:var(--ink-soft)}
+  .schev{align-self:center;color:var(--ink-faint);font-size:13px;transition:transform .25s}
+  .solcard.open .schev{transform:rotate(180deg)}
+  .soldetail{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  .solcard.open .soldetail{display:block;animation:soldrop .3s ease}
+  @keyframes soldrop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .sd-row{display:flex;gap:12px;margin-bottom:11px}
+  .sd-row:last-child{margin-bottom:0}
+  .sd-k{flex:none;width:60px;font-size:10.5px;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.05em;padding-top:3px}
+  .sd-row>p{font-size:13.5px;color:var(--ink-soft);margin:0;flex:1}
+  .sd-refs{display:flex;flex-wrap:wrap;gap:7px;flex:1}
+  .ref{font-size:11.5px;font-weight:600;color:var(--ink-soft);background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;padding:4px 9px}
+  .ref a{color:var(--brand);font-weight:700}
+  @media(max-width:600px){.sd-row{flex-direction:column;gap:4px}.sd-k{width:auto}}
+
+  .kg-halo{pointer-events:none;animation:kgtw 3.6s ease-in-out infinite}
+  @keyframes kgtw{0%,100%{opacity:.05}50%{opacity:.17}}
+
+  .kg-img{display:block;width:100%;max-width:620px;height:auto;margin:0 auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+  .kg-ph{display:none;align-items:center;justify-content:center;text-align:center;min-height:220px;border:1.5px dashed var(--line);border-radius:14px;color:var(--ink-faint);font-size:14px;padding:24px;line-height:1.7}
+  .kg-ph b{color:var(--brand)}
+
+  .digest{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 22px}
+  .dg-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .dg-h{font-size:14.5px;font-weight:800}
+  .dg-live{font-size:11.5px;font-weight:700;color:#0a9a92;background:rgba(0,194,184,.12);border:1px solid rgba(0,194,184,.3);padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+  .dg-live::before{content:"";width:6px;height:6px;border-radius:50%;background:#0a9a92;animation:dgpulse 1.8s infinite}
+  @keyframes dgpulse{0%,100%{opacity:.35}50%{opacity:1}}
+  .dg-list{list-style:none;display:flex;flex-direction:column}
+  .dg-list li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink);padding:8px 2px;border-bottom:1px solid var(--bg-soft);opacity:0}
+  .dg-list li:last-child{border-bottom:none}
+  .digest.in .dg-list li{animation:dgin .5s ease forwards}
+  .digest.in .dg-list li:nth-child(1){animation-delay:0.12s}
+  .digest.in .dg-list li:nth-child(2){animation-delay:0.19s}
+  .digest.in .dg-list li:nth-child(3){animation-delay:0.26s}
+  .digest.in .dg-list li:nth-child(4){animation-delay:0.33s}
+  .digest.in .dg-list li:nth-child(5){animation-delay:0.40s}
+  .digest.in .dg-list li:nth-child(6){animation-delay:0.47s}
+  .digest.in .dg-list li:nth-child(7){animation-delay:0.54s}
+  @keyframes dgin{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+  .dg-d{font-family:'Inter';font-size:11.5px;font-weight:700;color:var(--ink-faint);flex:none;width:38px}
+  .dg-dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .dg-t{flex:1}
+  .dg-g{font-size:11px;font-weight:700;color:var(--ink-faint);flex:none}
+  .dg-foot{font-size:12px;color:var(--ink-faint);margin-top:10px}
+
+  footer{background:#0c1222;color:#cdd7ea;padding:50px 0 40px;margin-top:30px}
+  footer .frow{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  footer a.flink{color:#9fb6ff;font-weight:700}
+  .foot-funnel{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;margin-top:14px}
+  .honest{font-size:12.5px;color:#7e8aa6;max-width:680px;line-height:1.7;margin-top:16px;border-top:1px solid #1d2740;padding-top:16px}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .lead-note{font-size:13px;color:var(--ink-faint);margin-top:14px}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="logo">⚙</span> 학습 포트폴리오</div>
+    <div class="nav-links">
+      <a href="#map">지식 지도</a>
+      <a href="#domains">파고드는 영역</a>
+      <a href="#how">학습법</a>
+      <a href="#absorb">소화</a>
+      <a href="#solutions">솔루션</a>
+      <a class="nav-cta" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">repo ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Learning Portfolio · 학습 역량</span>
+    <h1>최신 AI 지식을 공부해 <span class="grad">내 지식으로 삼는</span> 기반</h1>
+    <p class="lead">게임 · 에이전트 하네스 · LLM 연구 · 디자인 · 최신 이론 — <b>다섯 도메인</b>을 중심으로 공부했습니다. 논문·레포·도구를 직접 학습해 지식그래프로 정리했습니다. LLM Wiki로 기록하고, 지식그래프(grep·graphify) 기반 검색으로 실제 작업에 적용합니다.</p>
+    <p class="role-line">AI 엔지니어링 지향 — 최신 이론을 학습해 <b>실무에 적용하는 것을 목표로 합니다.</b></p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">📚 Learning Atlas — 공개 지식 아카이브</a>
+      <a class="btn btn-ghost" href="https://ljhljh0703-cmd.github.io/Park-Dal-Wiki" target="_blank" rel="noopener">⚙ 내가 만든 학습 운영 체계</a>
+    </div>
+    <div class="hero-badges">
+      <span class="chip"><span class="dot"></span> 5개 영역 집중</span>
+      <span class="chip"><span class="dot"></span> 3개월 180+편</span>
+      <span class="chip"><span class="dot"></span> 2026 최신 논문·레포</span>
+      <span class="chip"><span class="dot"></span> 출처까지 추적</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAP -->
+<section id="map" style="padding:8px 0 40px">
+  <div class="wrap">
+    <div class="xp-card reveal">
+      <div class="xp-top">
+        <div class="xp-title">🕸️ Graph Node</div>
+        <div class="xp-count">실제 Obsidian 지식그래프</div>
+      </div>
+      <img class="kg-img" src="subbrain-graph.png" alt="실제 Obsidian second-brain 지식그래프" onerror="this.style.display='none';var ph=document.getElementById('kgph');if(ph)ph.style.display='flex';">
+      <div id="kgph" class="kg-ph">📊 <b>subbrain-graph.png</b> 를 이 폴더(지식운영OS/)에 넣으면 실제 Obsidian 지식그래프가 표시됩니다.</div>
+      <p class="xp-cap">실제 second-brain(Obsidian) 지식그래프 — 노트가 노드, wikilink가 엣지.</p>
+    </div>
+    <div class="whybox reveal">
+      <h4>왜 지식그래프인가 — grep·그래프 검색이 더 정확합니다</h4>
+      <p>최신 실증 연구는 LLM 에이전트 검색에서 lexical(grep)·그래프 기반 검색이 벡터 RAG보다 정확도가 높다고 보고합니다. 그래서 벡터 임베딩 대신 grep과 지식그래프 탐색을 검색 기본값으로 씁니다.</p>
+      <ul>
+        <li><b>Is Grep All You Need?</b> (Sen et al., 2026 · <a href="https://arxiv.org/abs/2605.15184" target="_blank" rel="noopener">arXiv:2605.15184</a>) — LongMemEval 116문항 × 4개 에이전트 하네스에서 grep이 벡터 검색보다 대체로 높은 정확도. 다만 검색 방법보다 하네스 설계가 점수를 더 좌우한다는 단서도 함께 제시합니다.</li>
+        <li><b>Microsoft GraphRAG</b> (Edge et al., 2024 · <a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener">arXiv:2404.16130</a>) — 엔티티 지식그래프와 community 요약이, naive top-k 벡터 RAG가 약한 <i>corpus 전체 주제·관계</i> 질문에서 우위를 보입니다.</li>
+      </ul>
+      <p class="why-note">벡터 RAG를 전면 부정하는 것이 아니라, 이 규모·용도에서는 grep·그래프가 더 정확하고 가볍다는 판단에 따른 선택입니다.</p>
+    </div>
+    <div class="digest reveal">
+      <div class="dg-top"><span class="dg-h">🔄 최근 학습 다이제스트</span><span class="dg-live" id="dgLive">매주 자동 갱신</span></div>
+      <ul class="dg-list">
+        <li><span class="dg-d">06-28</span><span class="dg-dot" style="background:#7a5cff"></span><span class="dg-t">Building Effective Human-Agent Teams</span><span class="dg-g">하네스</span></li>
+        <li><span class="dg-d">06-28</span><span class="dg-dot" style="background:#00c2b8"></span><span class="dg-t">Is Grep All You Need? — grep vs 벡터 RAG</span><span class="dg-g">AI·LLM</span></li>
+        <li><span class="dg-d">06-28</span><span class="dg-dot" style="background:#00c2b8"></span><span class="dg-t">Neo4j Agent Memory — Context Graph</span><span class="dg-g">AI·LLM</span></li>
+        <li><span class="dg-d">06-28</span><span class="dg-dot" style="background:#7a5cff"></span><span class="dg-t">Loop Engineering (Addy Osmani)</span><span class="dg-g">하네스</span></li>
+        <li><span class="dg-d">06-17</span><span class="dg-dot" style="background:#7a5cff"></span><span class="dg-t">goose — 모델독립 에이전트 하네스</span><span class="dg-g">하네스</span></li>
+        <li><span class="dg-d">06-10</span><span class="dg-dot" style="background:#3b6fff"></span><span class="dg-t">Mini-Mafia — 소셜추론 NPC 벤치마크</span><span class="dg-g">게임</span></li>
+        <li><span class="dg-d">04-28</span><span class="dg-dot" style="background:#00c2b8"></span><span class="dg-t">Microsoft GraphRAG</span><span class="dg-g">AI·LLM</span></li>
+      </ul>
+      <div class="dg-foot">vault에 새 학습이 쌓이면, 게이트를 통과한 것만 여기에 더해집니다.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DOMAINS -->
+<section id="domains">
+  <div class="wrap">
+    <span class="eyebrow reveal">Domains · 파고드는 영역</span>
+    <h2 class="section-title reveal">도메인 지식</h2>
+    <p class="section-sub reveal" style="margin-bottom:26px">각 영역의 최신 자료를 숙지하고 논문을 분석해 지식을 구축해 나갑니다. 아는 만큼 보이는 법이라 생각합니다. AI를 잘 활용하기 위해 기본 역량부터 다집니다.</p>
+    <div class="groups">
+      <div class="gcard reveal"><div><div class="gl">🎮 게임 · 로그라이크 · NPC AI</div><div class="gd">던전·PCG·소셜추론 NPC</div><div class="gex">최신: <b>Generative Agents</b> · Mini-Mafia 벤치마크 · Dijkstra Maps</div></div><div class="gn">26</div></div>
+      <div class="gcard reveal"><div><div class="gl">🤖 에이전트 하네스 · 자가개선</div><div class="gd">오케스트레이션·RSI·코딩 에이전트</div><div class="gex">최신: <b>goose</b> · OpenAI Codex CLI · Ouroboros</div></div><div class="gn">40</div></div>
+      <div class="gcard reveal"><div><div class="gl">🧠 AI · LLM 연구</div><div class="gd">해석가능성·RAG·시뮬레이션</div><div class="gex">최신: <b>GraphRAG</b> · Zep/Graphiti · Persona Vectors</div></div><div class="gn">40</div></div>
+      <div class="gcard reveal"><div><div class="gl">🎨 디자인 · 프론트엔드</div><div class="gd">디자인시스템·픽셀아트·모션</div><div class="gex">최신: <b>DESIGN.md</b> · Apple 디자인 해체 · 픽셀아트 기법</div></div><div class="gn">34</div></div>
+      <div class="gcard reveal"><div><div class="gl">🧰 도구 · 방법론</div><div class="gd">플랫폼·프롬프트 패턴·워크플로우</div><div class="gex">최신: <b>토스 앱인토스</b> · 프롬프트 패턴 · Scrapling</div></div><div class="gn">40</div></div>
+      <div class="gcard reveal"><div><div class="gl">📖 경험 서사</div><div class="gd">경험과 지식이 엮인 학습</div><div class="gex">AI 엔지니어 NLP 부트캠프 · 프로덕트 디자인/UX</div></div><div class="gn">2</div></div>
+    </div>
+
+    <p class="section-sub reveal" style="margin:34px 0 0;font-weight:700;color:var(--ink)">LLM Wiki 자료 기록 예시 — SSOT 활용</p>
+    <div class="note-card reveal">
+      <div class="note-head"><span class="rd"></span> techniques/graphrag.md</div>
+      <div class="note-body">
+        <div class="note-fm"><span class="k">created</span>: 2026-04-28   ·   <span class="k">type</span>: learning   ·   <span class="k">category</span>: techniques
+<span class="k">source</span>: github.com/microsoft/graphrag
+<span class="k">authors</span>: Edge et al. (Microsoft Research, 2024)   ·   <span class="k">arXiv</span>: 2404.16130</div>
+        <h4>Microsoft GraphRAG — Query-Focused Summarization on Narrative Private Data</h4>
+        <p>100만 토큰 문서 corpus의 holistic 질문("주요 테마는?")에, 엔티티 지식그래프 + Leiden community 탐지 + map-reduce 요약으로 답하는 RAG. naive top-k 벡터 검색이 약한 <i>corpus 전체 주제·관계</i> 질문을 겨냥한다.</p>
+        <div class="note-tags"><span>#graphrag</span><span>#community-detection</span><span>#knowledge-graph</span><span>#rag</span></div>
+        <a class="note-link" href="https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/graphrag.md" target="_blank" rel="noopener">노트 전문 보기 ↗</a>
+        <p style="font-size:12.5px;color:var(--ink-faint);margin-top:12px">노트마다 출처·저자·연도를 함께 기록합니다(provenance). 요약만 보지 않고 원문을 통독해 정리합니다.</p>
+      </div>
+    </div>
+    <div class="osdiag reveal">
+      <div class="os-h">SSOT × 멀티-AI 운영 — 외부 AI와 이렇게 연결해 씁니다</div>
+      <div class="os-sub">LLM Wiki를 단일 진실 소스(SSOT)로 두고, 세 개의 AI를 역할로 나눠 같은 vault 위에서 협업시킵니다.</div>
+      <div class="os-ais">
+        <div class="os-ai"><div class="r" style="color:var(--brand-2)">Daily</div><div class="nm">Gemini</div><div class="ds">수집 · 청킹 · 초안·디벨롭</div></div>
+        <div class="os-ai"><div class="r" style="color:var(--brand)">Authority</div><div class="nm">Claude</div><div class="ds">SSOT 확정 · 게이트 · 결정</div></div>
+        <div class="os-ai"><div class="r" style="color:#0a9a92">Heavy</div><div class="nm">Codex</div><div class="ds">구현 · 리서치 · 코드</div></div>
+      </div>
+      <div class="os-flow">↓ 같은 SSOT 위에서 ↓</div>
+      <div class="os-core"><div class="cn">LLM Wiki — SSOT · 지식그래프</div><div class="cd">단일 진실 소스 · grep·graphify 검색 · 양방향 링크</div></div>
+      <div class="os-loop">
+        <div class="os-step"><div class="sn">STEP 1</div><div class="stp">Dispatch</div><div class="sdd">작업 전 vault 먼저 조회</div></div>
+        <div class="os-sep">→</div>
+        <div class="os-step"><div class="sn">STEP 2</div><div class="stp">작업</div><div class="sdd">외부 AI가 역할대로 산출</div></div>
+        <div class="os-sep">→</div>
+        <div class="os-step"><div class="sn">STEP 3</div><div class="stp">Gate</div><div class="sdd">헌법·결정·출처 대조 검증</div></div>
+        <div class="os-sep">→</div>
+        <div class="os-step"><div class="sn">STEP 4</div><div class="stp">Promote</div><div class="sdd">통과분만 SSOT에 반영</div></div>
+        <div class="os-sep">→</div>
+        <div class="os-step"><div class="sn">STEP 5</div><div class="stp">자가성장</div><div class="sdd">교훈·스킬로 축적</div></div>
+      </div>
+      <div class="os-note"><b>이 운영 방식은 그대로 이전 가능한 솔루션입니다.</b> 같은 골격으로 다른 조직에 다음을 설계·구축할 수 있습니다.</div>
+      <div class="sol-row">
+        <span class="sol">온톨로지 · 지식그래프 구축</span>
+        <span class="sol">Agentic RAG 솔루션</span>
+        <span class="sol">모델독립 에이전트 하네스</span>
+        <span class="sol">루프 엔지니어링(자동화)</span>
+        <span class="sol">자가성장(Hermes) 시스템</span>
+      </div>
+    </div>
+    <p class="lead-note reveal">전체 아카이브: <a class="mono" style="color:var(--brand)" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">github.com/ljhljh0703-cmd/learning-atlas</a></p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal">How I study</span>
+    <h2 class="section-title reveal">북마크가 아니라, 해체해서 내 것으로</h2>
+    <p class="section-sub reveal" style="margin-bottom:26px">요약만 보고 넘기지 않습니다. 논문·레포는 <b>전문을 통독</b>하고, 도구는 직접 뜯어봅니다. 그리고 거기서 끝내지 않고 실제 작업에 반영합니다.</p>
+    <div class="how-card reveal">
+      <div class="step"><div class="sn">1</div><div><div class="st">전문 통독 · 해체</div><div class="sd">논문·레포·도구를 끝까지 읽고 작동 원리와 파급효과, 인접 개념까지 뽑아냅니다. 요약 도구의 손실 압축에 맡기지 않습니다.</div></div></div>
+      <div class="step"><div class="sn">2</div><div><div class="st">지식그래프로 적재</div><div class="sd">비공개 지식그래프에 노드로 쌓고 관련 개념과 양방향으로 연결합니다. 흩어진 메모가 아니라 연결된 구조로 축적합니다.</div></div></div>
+      <div class="step"><div class="sn">3</div><div><div class="st">검증 후 공개</div><div class="sd">검증을 통과한 학습만 공개 아카이브(Learning Atlas)로 자동 발행합니다. 매주 자동으로 최신 상태를 유지합니다.</div></div></div>
+      <div class="step"><div class="sn">4</div><div><div class="st">시스템에 소화</div><div class="sd">배운 것을 실제 워크플로우·프로젝트·게임에 반영하는 데까지가 한 단위입니다. 이 과정을 직접 만든 운영 체계(Park-Dal-Wiki)로 운영합니다.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABSORB -->
+<section id="absorb">
+  <div class="wrap">
+    <span class="eyebrow reveal">Absorb → Apply</span>
+    <h2 class="section-title reveal">수집이 아니라 소화</h2>
+    <p class="section-sub reveal" style="margin-bottom:28px">읽은 양보다 <b>실제로 적용한 양</b>이 중요합니다. 학습이 시스템을 바꾼 사례와 누적 속도입니다.</p>
+
+    <div class="timeline reveal">
+      <h4>📈 흡수 속도 — 주별 누적</h4>
+      <p class="tsub">최근 3개월간 178편, 6월에 빠르게 증가했습니다. 매주 자동 발행으로 새 학습이 바로 반영됩니다.</p>
+      <svg viewBox="0 0 720 170" role="img" aria-label="주별 누적 정리 노트 곡선" id="tlsvg"></svg>
+      <p class="tcap">노트의 최종 정리·갱신 시점 기준 (날짜 기록된 178편). 실데이터.</p>
+    </div>
+
+    <div class="loop-ex reveal">
+      <div class="lx"><div class="lk">흡수</div><div class="lt">Karpathy의 LLM 코딩 4원칙</div><div class="ld">최신 베스트프랙티스를 전문 통독 — Think Before · Simplicity First · Surgical · Goal-Driven.</div></div>
+      <div class="lsep">→</div>
+      <div class="lx"><div class="lk">소화</div><div class="lt">근본 원인은 약한 기준·과복잡</div><div class="ld">토큰 낭비와 범위 이탈은 성공 기준이 약하고 구조가 과할 때 생긴다는 핵심을 뽑아냈습니다.</div></div>
+      <div class="lsep">→</div>
+      <div class="lx"><div class="lk">적용</div><div class="lt">내 3-AI 공통 규칙으로 박제</div><div class="ld">Claude·Gemini·Codex 공통 행동 규칙 + 모든 프로젝트 의사결정 잣대로 채택 → 재작업·범위이탈 감소.</div></div>
+      <div class="tagline">또 다른 예 — <b>goose</b>(2026 오픈소스 하네스)의 "매 턴 규율 주입" 학습 → 세션 후반 규율이 흐려지는 문제를 막는 설계에 곧장 차용.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal">Solutions · 제공 가능 솔루션</span>
+    <h2 class="section-title reveal">공부가 그대로 솔루션이 됩니다</h2>
+    <p class="section-sub reveal" style="margin-bottom:30px">아래 다섯 역량은 모두 위 학습 아카이브에서 나왔습니다. <b>카드를 누르면</b> 접근(이론)·하네스·레퍼런스(논문·아티클·발표)가 펼쳐집니다. 핵심 구현은 비공개입니다.</p>
+        <div class="sols">
+      <div class="solcard reveal" role="button" tabindex="0" aria-expanded="false">
+        <div class="solhead"><div class="si">🕸️</div><div class="sc"><h3>온톨로지 · 지식그래프 구축</h3><p>도메인 지식을 엔티티·관계 그래프로 구조화하고 community 요약·경로 질의로 탐색합니다.</p></div><div class="schev">▾</div></div>
+        <div class="soldetail">
+          <div class="sd-row"><span class="sd-k">접근</span><p>텍스트→엔티티·관계 추출로 지식그래프를 구성하고, Leiden community 계층 요약과 bi-temporal 메모리로 corpus 전체의 주제·관계 질의에 답하는 구조.</p></div>
+          <div class="sd-row"><span class="sd-k">하네스</span><p>노트=노드·wikilink=엣지로 vault를 그래프화하고, grep·graphify(커뮤니티 탐지·BFS/DFS 경로 질의)로 인출.</p></div>
+          <div class="sd-row"><span class="sd-k">레퍼런스</span><div class="sd-refs"><span class="ref">📄 GraphRAG · <a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener">arXiv:2404.16130</a></span><span class="ref">📄 Zep / Graphiti — Temporal KG for Agent Memory</span><span class="ref">🛠 Neo4j GraphRAG · Context Graph</span><span class="ref">📝 llm-wiki — 지식그래프 운영</span></div></div>
+        </div>
+      </div>
+      <div class="solcard reveal" role="button" tabindex="0" aria-expanded="false">
+        <div class="solhead"><div class="si">🔎</div><div class="sc"><h3>Agentic RAG</h3><p>단순 top-k 벡터를 넘어 grep·그래프·다중 신호 기반 검색–생성 파이프라인을 설계합니다.</p></div><div class="schev">▾</div></div>
+        <div class="soldetail">
+          <div class="sd-row"><span class="sd-k">접근</span><p>검색 전 sufficient-context 판정 → lexical(grep)·graph·structure 다중 신호 융합(벡터는 1신호)·self-correcting 인출. 멀티홉·cross-corpus 대응.</p></div>
+          <div class="sd-row"><span class="sd-k">하네스</span><p>grep·그래프 우선 + 충분컨텍스트 게이트, 증분 인덱싱으로 fresh 유지.</p></div>
+          <div class="sd-row"><span class="sd-k">레퍼런스</span><div class="sd-refs"><span class="ref">📄 Is Grep All You Need? · <a href="https://arxiv.org/abs/2605.15184" target="_blank" rel="noopener">arXiv:2605.15184</a></span><span class="ref">📄 GraphRAG · <a href="https://arxiv.org/abs/2404.16130" target="_blank" rel="noopener">arXiv:2404.16130</a></span><span class="ref">📝 Gemini Agentic RAG · Sufficient Context (Google)</span><span class="ref">🛠 MinSync — 증분 인덱싱</span></div></div>
+        </div>
+      </div>
+      <div class="solcard reveal" role="button" tabindex="0" aria-expanded="false">
+        <div class="solhead"><div class="si">🤖</div><div class="sc"><h3>모델독립 에이전트 하네스</h3><p>모델을 갈아끼워도 작동하는 도구·컨텍스트·게이트 레이어를 설계합니다.</p></div><div class="schev">▾</div></div>
+        <div class="soldetail">
+          <div class="sd-row"><span class="sd-k">접근</span><p>“Agent = Model + Harness” — 모델은 교체 가능, 가치는 도구·컨텍스트 조립·게이트에. 에러=프롬프트 복구 루프, MCP/ACP 도구 연결.</p></div>
+          <div class="sd-row"><span class="sd-k">하네스</span><p>per-turn 규율 주입(MOIM)·adversary 게이트·recipes/subagents·context revision(RTK) 레이어 조립.</p></div>
+          <div class="sd-row"><span class="sd-k">레퍼런스</span><div class="sd-refs"><span class="ref">🛠 goose — Block / Agentic AI Foundation · <a href="https://github.com/aaif-goose/goose" target="_blank" rel="noopener">repo</a></span><span class="ref">🛠 opencode — 모델독립 하네스</span><span class="ref">📝 The New SDLC with Vibe Coding — Addy Osmani (Google)</span><span class="ref">📝 Matt Pocock — 에이전틱 워크플로우</span></div></div>
+        </div>
+      </div>
+      <div class="solcard reveal" role="button" tabindex="0" aria-expanded="false">
+        <div class="solhead"><div class="si">🔁</div><div class="sc"><h3>루프 엔지니어링</h3><p>스케줄·트리거로 발동하는 자율 작업 루프와 done-gate 자동 검증을 구축합니다.</p></div><div class="schev">▾</div></div>
+        <div class="soldetail">
+          <div class="sd-row"><span class="sd-k">접근</span><p>검증가능 성공기준(done-gate)을 건 자율 루프 — fresh-context 재실행, 실패 시 자동 롤백·재시도, 스케줄·이벤트 발동.</p></div>
+          <div class="sd-row"><span class="sd-k">하네스</span><p>AutoResearch식 실험 루프 + spec→prompt closed-loop + E2E self-healing 검증으로 무인 반복.</p></div>
+          <div class="sd-row"><span class="sd-k">레퍼런스</span><div class="sd-refs"><span class="ref">📝 Loop Engineering — Addy Osmani</span><span class="ref">🛠 AutoResearch — Karpathy</span><span class="ref">🎤 Spec→Prompt Closed-loop — NAVER 발표</span><span class="ref">🎤 Playwright E2E 에이전트 하네스 — NAVER 발표</span></div></div>
+        </div>
+      </div>
+      <div class="solcard reveal" role="button" tabindex="0" aria-expanded="false">
+        <div class="solhead"><div class="si">🌱</div><div class="sc"><h3>자가성장 시스템 (Hermes)</h3><p>헌법·메모리·게이트로 학습이 시스템에 되먹여 스스로 개선되는 구조를 만듭니다.</p></div><div class="schev">▾</div></div>
+        <div class="soldetail">
+          <div class="sd-row"><span class="sd-k">접근</span><p>헌법(불변 규율)·메모리·게이트로 학습→반영 되먹임(RSI), dual-loop로 스킬을 증류·큐레이션해 운영체계가 스스로 성장.</p></div>
+          <div class="sd-row"><span class="sd-k">하네스</span><p>Dispatch→Gate(출처·환각·계약 대조)→Promote→Distill→Curate 회로 + provenance·HITL 스테이징.</p></div>
+          <div class="sd-row"><span class="sd-k">레퍼런스</span><div class="sd-refs"><span class="ref">🛠 Hermes Agent — Nous Research</span><span class="ref">📝 Recursive Self-Improvement — Anthropic</span><span class="ref">🛠 Gnosis — 자가개선 에이전트</span><span class="ref">🛠 Superpowers — obra</span></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="lead-note reveal" style="text-align:center">모든 뿌리 노트는 <a class="mono" style="color:var(--brand)" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">Learning Atlas</a>에 공개돼 있습니다.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:8px"><span class="logo">⚙</span> 학습 포트폴리오</div>
+        <div style="font-size:13.5px;color:#9aa7c4">최신 AI 지식을 공부해 내 지식으로 삼는 기반 · 이주형</div>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:14px">
+        <a class="flink" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">Learning Atlas 아카이브 ↗</a>
+        <a class="flink" href="https://ljhljh0703-cmd.github.io/Park-Dal-Wiki" target="_blank" rel="noopener">Park-Dal-Wiki ↗</a>
+      </div>
+    </div>
+    <div class="foot-funnel">
+      <span style="color:#7e8aa6">다른 작업 →</span>
+      <a class="flink" href="https://github.com/ljhljh0703-cmd" target="_blank" rel="noopener">GitHub 프로필</a>
+      <a class="flink" href="https://ljhljh0703-cmd.github.io/StarLink/portfolio.html" target="_blank" rel="noopener">StarLink · 실시간 통역</a>
+      <a class="flink" href="https://ljhljh0703-cmd.github.io/Medical-Chatbot/portfolio.html" target="_blank" rel="noopener">알려줄고양 · 의료 RAG 챗봇</a>
+    </div>
+    <p class="honest">개인 1인 산출물입니다. 출처는 공개 레포·라이브 사이트·git 이력 등 실재물에 한합니다. 편수·날짜는 공개 아카이브(Learning Atlas) 기준 사실값이며, 위 지식그래프는 실제 영역 구조를 반영한 개념 시각화입니다.</p>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.solcard').forEach(function(card){
+    function tg(){var o=card.classList.toggle('open');card.setAttribute('aria-expanded',o);}
+    card.addEventListener('click',function(e){if(e.target.closest('a'))return;tg();});
+    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg();}});
+  });
+  fetch('https://api.github.com/repos/ljhljh0703-cmd/learning-atlas/commits?per_page=1',{cache:'no-store'})
+    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(function(j){var dt=j&&j[0]&&j[0].commit&&j[0].commit.committer&&j[0].commit.committer.date; var el=document.getElementById('dgLive'); if(dt&&el) el.textContent='마지막 갱신 '+dt.slice(0,10);})
+    .catch(function(){});
+
+  // timeline
+  (function(){
+    const cum=[31,54,61,61,63,64,76,99,174,178], VW=720,VH=170,padL=12,padR=14,top=16,botLab=24;
+    const plotB=VH-botLab, plotW=VW-padL-padR, plotH=plotB-top, ymax=190;
+    const xs=cum.map((_,i)=>padL+i*plotW/(cum.length-1)), ys=cum.map(c=>plotB-(c/ymax)*plotH);
+    const line='M'+xs.map((x,i)=>x.toFixed(1)+','+ys[i].toFixed(1)).join(' L');
+    const area='M'+xs[0].toFixed(1)+','+plotB+' L'+xs.map((x,i)=>x.toFixed(1)+','+ys[i].toFixed(1)).join(' L')+' L'+xs[xs.length-1].toFixed(1)+','+plotB+' Z';
+    const svg=document.getElementById('tlsvg');
+    svg.innerHTML='<defs><linearGradient id="gtl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b6fff" stop-opacity="0.28"/><stop offset="1" stop-color="#3b6fff" stop-opacity="0"/></linearGradient></defs>'
+      +'<line x1="'+padL+'" y1="'+plotB+'" x2="'+(VW-padR)+'" y2="'+plotB+'" stroke="#e3e9f3"/>'
+      +'<path d="'+area+'" fill="url(#gtl)"/>'
+      +'<path d="'+line+'" fill="none" stroke="#3b6fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>'
+      +'<circle cx="'+xs[xs.length-1].toFixed(1)+'" cy="'+ys[ys.length-1].toFixed(1)+'" r="4.5" fill="#3b6fff" stroke="#fff" stroke-width="2"/>'
+      +'<text x="'+xs[xs.length-1].toFixed(1)+'" y="'+(ys[ys.length-1]-10).toFixed(1)+'" text-anchor="end" font-family="Inter" font-size="13" font-weight="800" fill="#0e1525">182편</text>'
+      +[[0,'4월'],[2,'5월'],[6,'6월']].map(m=>'<text x="'+xs[m[0]].toFixed(1)+'" y="'+(VH-6)+'" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#7a87a3">'+m[1]+'</text>').join('');
+  })();
+
+</script>
+</body>
+</html>
