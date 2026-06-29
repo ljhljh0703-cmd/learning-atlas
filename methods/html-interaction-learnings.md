@@ -1,6 +1,6 @@
 ---
 created: 2026-06-09
-updated: 2026-06-09
+updated: 2026-06-28
 type: learning
 category: methods
 tags: [html, css, animation, svg, pixel-perfect, premium-ui]

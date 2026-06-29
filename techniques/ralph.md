@@ -15,7 +15,7 @@ category: technique
 
 Ryan Carson(snarktank)의 [Geoffrey Huntley "Ralph" 패턴](https://ghuntley.com/ralph/) 구현. MIT. **bash `for` 루프가 매 iteration 마다 *깨끗한 컨텍스트의 새 AI 인스턴스*(Amp 또는 Claude Code)를 띄워 PRD 전부 끝날 때까지 반복**. 본체 = `ralph.sh` 한 장 + 프롬프트 1장 + 스킬 2개. **인프라 거의 0**(bash + jq + git).
 
-**왜 중요** — 작가가 agent-harness 로 *이론화*한 자율 루프의 *최소 실행체*. 특히 [GBrain — 개인 AI 지식 브레인 production 정본](gbrain.md)·[Loop Engineering (Addy Osmani) — 하네스 위 한 층, 스케줄 발동 loop (vault 수렴 ground-truth #6)](../methods/loop-engineering.md) 흡수 때마다 박은 "반복 미도입 delta = **자동화축**"의 infra-0 버전.
+**왜 중요** — 작가가 agent-harness 로 *이론화*한 자율 루프의 *최소 실행체*. 특히 [GBrain — 개인 AI 지식 브레인 production 정본](gbrain.md)·[Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](../methods/loop-engineering.md) 흡수 때마다 박은 "반복 미도입 delta = **자동화축**"의 infra-0 버전.
 
 ## 1. 루프 구조
 
@@ -41,7 +41,7 @@ Ryan Carson(snarktank)의 [Geoffrey Huntley "Ralph" 패턴](https://ghuntley.com
 
 ## 3. 🗝️ delta — 자동화축 최소 실현체
 
-- gbrain(DB/cron)·understand(pnpm/React) 무거움 없이 **bash for-loop 한 장**으로 자율 루프 = 작가가 미뤄온 "스케줄/루프 자동화"의 *가장 가벼운* 형태. [Loop Engineering (Addy Osmani) — 하네스 위 한 층, 스케줄 발동 loop (vault 수렴 ground-truth #6)](../methods/loop-engineering.md) Automations·[Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md) 측정축과 같은 수렴점이나 *실행 난이도 최저*.
+- gbrain(DB/cron)·understand(pnpm/React) 무거움 없이 **bash for-loop 한 장**으로 자율 루프 = 작가가 미뤄온 "스케줄/루프 자동화"의 *가장 가벼운* 형태. [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](../methods/loop-engineering.md) Automations·[Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md) 측정축과 같은 수렴점이나 *실행 난이도 최저*.
 - **prd.json = 머신체크 task list**(passes boolean) + per-story 게이트 + auto-commit = 작가 디스패치를 *루프용 다단계 실행*으로 확장한 형태. dispatch-builder 가 단발 master prompt 라면 Ralph 는 *그걸 루프로 감은 것*.
 
 ## 4. ⚠ Cold-verify — 결정적 충돌 1건

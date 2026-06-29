@@ -52,7 +52,7 @@ category: method
 
 - ✅ `skills/humanize-korean/SKILL.md` — Sunny 7 보조 패스 섹션 추가(2026-06-20)
 - ✅ 본 learnings 페이지 신설
-- ✅ 설치/플러그인 X — dissect-not-install-external-tools 규율 동일 적용
+- ✅ 설치/플러그인 X — [외부 도구는 설치 말고 해체해 흡수 (Dissect, Don't Install)](dissect-not-install-external-tools.md) 규율 동일 적용
 
 ## 연결된 페이지
 

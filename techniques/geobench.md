@@ -39,7 +39,7 @@ synthesizer LLM 이 *제품 정체(name/alias/romanization/도메인)를 절대 
 
 - **도구 자체 = infra-heavy** — DB(migrations)·6 provider API 비용·대시보드·browser automation(ToS 경고). 로컬 vault 설치는 infra-0 위반(Karpathy #2). 흡수 = 방법론.
 - **GEO 실천 = felt-need 미검증** — 작가는 아직 측정 대상 "브랜드" 아님. 단 *Track 3(포트폴리오/이름 가시성)* 에 미래 인출 가치(="LLM 이 내 게임/이름 언급하나"는 취업 관련 질문 될 수 있음) → backlog.
-- **메타발견 재확증** — 또 **측정축**([Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md)·[Loop Engineering (Addy Osmani) — 하네스 위 한 층, 스케줄 발동 loop (vault 수렴 ground-truth #6)](../methods/loop-engineering.md)·[GBrain — 개인 AI 지식 브레인 production 정본](gbrain.md) 에 이어 N번째). "반복 미도입 delta = 측정·자동화축" → 6/28 phase2 infra-0 경계 재평가 입력.
+- **메타발견 재확증** — 또 **측정축**([Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md)·[Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](../methods/loop-engineering.md)·[GBrain — 개인 AI 지식 브레인 production 정본](gbrain.md) 에 이어 N번째). "반복 미도입 delta = 측정·자동화축" → 6/28 phase2 infra-0 경계 재평가 입력.
 
 ## 5. 학습→반영 (학습→반영 루프, B 범위 실행)
 

@@ -1,6 +1,6 @@
 ---
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-06-28
 type: learning
 tags: [ai-npc, generative-agents, memory-stream, reflection, planning, park-2023, foundational]
 source:
@@ -193,6 +193,16 @@ category: technique
 - Park+2023의 GPT-3.5로도 **98.7% 정확**
 - 2026년 모델(Claude 3.5, GPT-4o)로는 더 낮아질 것
 - → "NPC 환각" 문제가 자주 거론되지만 **structured memory + retrieval**이면 현실적으로 관리 가능
+
+### F. Claim-gate 주의 (2026-06-28 보강 — [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](../methods/research-claim-gate.md))
+
+본 논문 수치를 인용·재사용할 때 강도를 낮춰 써야 하는 지점. 출처 = Codex 외주 통합 해체 ③Gate.
+
+- **"crowdworker 보다 높다" → human *maximal* baseline 아님.** crowdworker roleplay 대비 우위지 전문가/최적 인간 비교 아님 ([Research Claim Gate — 주장을 증거 등급에 묶는 운영법](../methods/research-claim-gate.md) §4 human baseline 규칙).
+- **"hallucination 1.3%" = 이 설정/질문/검증 방식의 값.** 일반 NPC hallucination rate 로 일반화 금지.
+- **retrieval score(recency/importance/relevance α=1, threshold 150 등) = 구현 knob.** 모델/언어/게임 장르 바뀌면 재검증 대상 — 박제된 상수 아님.
+- 추가 risk 축: **memory hacking / prompt hacking**(논문 limitation 언급) — 본 노트 §실패 양식에 더해 보안 관점으로 취급.
+- 본 아키텍처를 우리 프로젝트에 적용한 성능 주장은 [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](../methods/research-claim-gate.md) §1 의 등급(demo/repeatability/...)으로 표기. 대표 run = demo claim 고정.
 
 ---
 

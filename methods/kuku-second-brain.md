@@ -93,7 +93,7 @@ packages/contract(protobuf) · infra/docker(local/preview/prod, Cloudflare Tunne
 ## 내 생각 — vault 거버넌스 + Agent World 관점
 
 ### 직접 적용성: **낮음** (도구 도입 X)
-작가 SSOT는 Obsidian + CLI(Claude/Gemini/Codex)이고 infra-0 철학([Loop Engineering (Addy Osmani) — 하네스 위 한 층, 스케줄 발동 loop (vault 수렴 ground-truth #6)](loop-engineering.md) Automations 미도입 결정과 같은 결). kuku는 Tauri 앱·Go 서버·Postgres = 초중량 → 도입은 felt-need 미검증(cold-verify-before-adopt). **가치는 도구가 아니라 "내 거버넌스가 독립 제품으로 검증됐다"는 확증** + Agent World의 패턴 수확.
+작가 SSOT는 Obsidian + CLI(Claude/Gemini/Codex)이고 infra-0 철학([Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md) Automations 미도입 결정과 같은 결). kuku는 Tauri 앱·Go 서버·Postgres = 초중량 → 도입은 felt-need 미검증(cold-verify-before-adopt). **가치는 도구가 아니라 "내 거버넌스가 독립 제품으로 검증됐다"는 확증** + Agent World의 패턴 수확.
 
 ### 개념 수확 (이식 가능 발상)
 1. **하드 강제 > 소프트 규율** — FORBIDDEN 도구 리스트로 AI가 commit/apply를 *호출 불가*. 작가 환경(외부 CLI)엔 도구 배제가 불가하나, external-ai-grant-hardcontract(금지축 실명 재진술)가 등가 해법임을 재확인 + per-turn 주입([goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](../techniques/goose-agent-harness.md) MOIM)으로 강화 가능.

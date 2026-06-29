@@ -1,6 +1,6 @@
 ---
 created: 2026-04-25
-updated: 2026-06-16
+updated: 2026-06-28
 type: learning
 tags: [llm, npc, communication-game, werewolf, theory-of-mind, multi-agent, emergent-behavior]
 source: https://github.com/xuyuzhuang11/Werewolf
@@ -142,6 +142,26 @@ Trust, confrontation, camouflage, leadership — 모두 사전 코딩 없이 출
 → [Anthropic Model Welfare — AI의 도덕적 지위라는 열린 문제](anthropic-model-welfare.md) 의 "AI가 거짓말하는 게 윤리적인가" 질문과 교차. **내 답: 게임 픽션 안에서는 OK, 사용자 정보 보호 경계는 명시**.
 
 ---
+
+## 관련 연구 델타 (2026-06-28 보강 — Codex 외주 ③Gate)
+
+본 노트(Xu/Tsinghua, frozen GPT-3.5)에 없던 두 축. 별도 노트 대신 폴드(린 통합).
+
+### Werewolf Arena (arXiv:2407.13943, Google) — "언제 말하느냐"도 능력
+
+- 고정 turn order 대신 **bid-to-speak**: 각 turn 마다 말하고 싶은 정도를 **0~4 로 bid → highest bidder 가 다음 발언자**. 실세계 토론의 발언권 경쟁을 모사.
+- **관찰(검증됨)**: 언급된 플레이어의 **약 40% bid 가 max 4** — 자신이 언급되면 즉시 반응하려는 경향. synthetic vote 로 "대화 한 줄이 voting bloc 을 어떻게 바꾸는지" 추적.
+- 모델 비교: Gemini 1.5 Pro 가 양 역할 일관 강세(특히 Villager). **GPT-4 Werewolf 평균 3.13회/round 발언 vs Gemini 1.75회/round** — GPT-4 의 긴/협력적 말투가 Werewolf 일 때 오히려 의심 유발(verbosity = suspicious feature).
+- ⚠️ 한계: pair 당 **10게임** 수준(통계 약함) · simplified Werewolf · persuasion/deception 윤리 safeguard 필요.
+- **적용**: `bid_to_speak` 를 social deduction NPC action 후보로. 내용뿐 아니라 **timing/frequency/response-to-mention/verbosity** 평가. 발언 전후 synthetic vote/probability shift 저장 → 대화 영향도 측정.
+
+### RLupus (arXiv:2106.05018) — 통신 채널 = 협동의 구조 변수
+
+- LLM 논문 아님(RL emergent communication). 핵심: **communication channel 의 길이(SL)/범위(SR)가 협동·승률을 비선형으로 바꾼다.**
+- 어떤 communication 이든 no-communication 대비 성능↑. 단 **bit communication(SR=2)이 full-ranged signal 보다 더 좋은 결과** — bandwidth 넓힌다고 항상 좋아지는 게 아님.
+- **적용**: NPC 에게 "말 많이 하게"보다 **누가 누구에게 어떤 범위 신호를 보낼 수 있는가**가 근본 설계 변수. public chat/whisper/vote/bid/accusation/protect/investigate 는 모두 다른 channel — bandwidth knob 를 실험 변수로 분리.
+
+→ 평가 주장은 [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](../methods/research-claim-gate.md) 등급으로(대표 run = demo claim). 평가 축 분리 = [AgentBench — agent 평가는 task completion + failure taxonomy다](agentbench-evaluation-taxonomy.md).
 
 ## 한계
 

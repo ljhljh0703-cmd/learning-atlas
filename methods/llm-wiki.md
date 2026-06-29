@@ -219,6 +219,6 @@ fivetaku가 못 하는 것:
 
 3. **CLAUDE.md (Sub brain) query 파일백 위치 지정** — 가치 있는 대화 결과를 `wiki/reflections/` 또는 `wiki/queries/` 에 저장하는 convention 추가. 현재 암묵적.
 
-4. ** 페이지들 provenance 등급 점진 추가** — 새 학습 페이지부터 `provenance: extracted` frontmatter 의무화 (이미 `source/authors/year` 있음 — 등급만 추가). 기존은 다음 갱신 시 backfill.
+4. **index 페이지들 provenance 등급 점진 추가** — 새 학습 페이지부터 `provenance: extracted` frontmatter 의무화 (이미 `source/authors/year` 있음 — 등급만 추가). 기존은 다음 갱신 시 backfill.
 
 5. **aliases 개념 도입** — wikilink 표기가 흔들리는 곳(예: codegraph/CodeGraph, graphify/Graphify) `wiki/aliases.md` 신설. 소규모면 단일 파일로 충분.

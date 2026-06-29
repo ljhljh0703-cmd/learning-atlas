@@ -98,3 +98,4 @@ MATCH p = shortestPath((a:Note {title:'identity'})-[:LINKS_TO*]-(b:Note {title:'
 
 ## 연결된 페이지
 - graph-db-learning-brief(설계·로드맵 SSOT) · graphify(현 graph 도구·Phase 4 대조 기준) · [Microsoft GraphRAG — Query-Focused Summarization on Narrative Private Data](../techniques/graphrag.md)·[Zep / Graphiti — Temporal Knowledge Graph for Agent Memory](../techniques/zep-graphiti.md)·[CocoIndex — Incremental Data Pipeline for AI Agents](../techniques/cocoindex.md)(Phase 5 GraphRAG 참조) · resume-brief(Phase 6 자산화)
+- [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](neo4j-agent-memory-context-graph.md) — agent memory 3계층(대화·엔티티·추론) context graph 입문(공원나연 1/3). Phase 0/1 학습 입력 + Cypher 연습 스키마 스케치 제공.

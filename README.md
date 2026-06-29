@@ -4,20 +4,25 @@
 > 글은 비공개 Obsidian vault에 쌓고, 민감 정보를 걸러낸 것만 자동으로 이 repo로 내보낸다. 노트끼리 링크로 이어져 지식 그래프를 이룬다.
 > 내보내기·정제 파이프라인은 [`tools/`](tools/)에 있다.
 
-**182편** · Techniques 80 · Methods 100 · 경험 서사 2
+**201편** · Techniques 90 · Methods 109 · 경험 서사 2
 
 ## 🔬 Techniques
 
-*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 80편
+*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 90편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>23편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>27편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [AgentBench — agent 평가는 task completion + failure taxonomy다](techniques/agentbench-evaluation-taxonomy.md) | https://arxiv.org/abs/2308.03688 | 2026-06-28 |
+| [Generative Agents (Park et al. 2023) — AI NPC의 성경](techniques/generative-agents.md) |  | 2026-06-28 |
+| [OpenGame — 프롬프트 하나로 플레이 가능한 웹게임을 짓는 자가진화 에이전트 프레임워크](techniques/opengame.md) | https://github.com/leigest519/OpenGame | 2026-06-28 |
+| [ReAct + CoT — 추론 스캐폴드 계보](techniques/react-agent-loop.md) |  | 2026-06-28 |
+| [Werewolf LLM (Xu et al. 2023, Tsinghua)](techniques/werewolf-llm.md) | https://github.com/xuyuzhuang11/Werewolf | 2026-06-28 |
+| [MDA 프레임워크 — Mechanics, Dynamics, Aesthetics](techniques/mda-framework.md) | Hunicke, LeBlanc, Zubek (2004). MDA: A Formal… | 2026-06-27 |
 | [DCSS(Dungeon Crawl Stone Soup) 던전 디자인 — 다층·위험보상·함정·상호작용](techniques/dcss-dungeon-design.md) | https://github.com/crawl/crawl | 2026-06-22 |
 | [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](techniques/woc-ai-gamedev-teardown.md) | https://github.com/levy-street/world-of-claud… | 2026-06-22 |
 | [Nemotron-Personas-Korea — 활용 레포트](techniques/nemotron-personas-korea.md) | https://huggingface.co/datasets/nvidia/Nemotr… | 2026-06-17 |
-| [Werewolf LLM (Xu et al. 2023, Tsinghua)](techniques/werewolf-llm.md) | https://github.com/xuyuzhuang11/Werewolf | 2026-06-16 |
 | [Dijkstra Maps — 격자 로그라이크 적 AI 의 공유 거리 필드](techniques/dijkstra-maps.md) |  | 2026-06-10 |
 | [DVM — 추론/결정/발화 분리형 소셜추론 NPC 결정 체인](techniques/dvm-decision-chain-npc.md) |  | 2026-06-10 |
 | [Mini-Mafia — 기만/탐지/폭로 분해 벤치마크 + NPC 기만 데이터셋](techniques/mini-mafia-benchmark.md) |  | 2026-06-10 |
@@ -35,13 +40,14 @@
 | [Clever Hans or N-ToM? (Shapira et al. 2023) — LLM 사회 추론 능력의 진실](techniques/clever-hans-ntom.md) |  | 2026-04-25 |
 | [Mafia Game Refinement (Ri et al. 2022, JAIST)](techniques/mafia-game-refinement.md) |  | 2026-04-25 |
 | [RoleLLM (Wang et al. 2023) — 캐릭터 단위 역할극 LLM 표준화](techniques/role-llm.md) |  | 2026-04-25 |
-| [Generative Agents (Park et al. 2023) — AI NPC의 성경](techniques/generative-agents.md) |  | 2026-04-24 |
 | [Russell's Circumplex & PAD — 감정 모델링의 표준 어휘](techniques/emotion-models-circumplex-pad.md) | https://en.wikipedia.org/wiki/PAD_emotional_s… | 2026-04-22 |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>8편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>10편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](techniques/agentic-search-grep-vs-vector.md) | https://arxiv.org/abs/2605.15184 | 2026-06-28 |
+| [TradingCodex — "Codex-native 트레이딩 하네스" (자율봇이 아니다)](techniques/tradingcodex-harness.md) | https://github.com/monarchjuno/tradingcodex | 2026-06-28 |
 | [GBrain — 개인 AI 지식 브레인 production 정본](techniques/gbrain.md) | https://github.com/garrytan/gbrain | 2026-06-17 |
 | [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-06-17 |
 | [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](techniques/hermes-agent.md) |  | 2026-06-17 |
@@ -51,10 +57,12 @@
 | [Ralph — 자율 코딩 루프 최소 실현체 (snarktank)](techniques/ralph.md) | https://github.com/snarktank/ralph | 2026-06-17 |
 | [에이전트 스크립트 해체 — steipete/agent-scripts](techniques/agent-scripts.md) |  | 2026-06-13 |
 
-### 🧠 AI · LLM 연구 <sub>28편</sub>
+### 🧠 AI · LLM 연구 <sub>30편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [TradingAgents — LLM 멀티에이전트로 "트레이딩 회사"를 모사하는 프레임워크](techniques/tradingagents-multiagent.md) | https://github.com/TauricResearch/TradingAgents | 2026-06-28 |
+| [Emotion Concepts & Function in LLM — 언어 모델 내 감정 개념의 기하학적 표상과 기능적 인과성](techniques/emotion-concepts-function-llm.md) | https://www.anthropic.com/research/emotion-co… | 2026-06-26 |
 | [MLXP — Kubernetes LLM Serving 최적화 (NAVER, 정지윤·장혁진)](techniques/mlxp-k8s-llm-serving.md) | MLXP - Kubernetes LLM Serving 최적화 기술 도입기 | 2026-06-18 |
 | [Emergence World — 영속 멀티에이전트 사회 시뮬레이션 (코드 기반)](techniques/emergence-world.md) | https://github.com/EmergenceAI/Emergence-World | 2026-06-17 |
 | [geobench — GEO 가시성 벤치마크 (측정 엄밀성 정본)](techniques/geobench.md) | https://github.com/NomaDamas/geobench | 2026-06-17 |
@@ -84,13 +92,14 @@
 | [Parcae — Stable Looped Language Models](techniques/parcae-looped-lm.md) | https://github.com/sandyresearch/parcae | 2026-04-21 |
 | [Gemini Agentic RAG & Sufficient Context Implementation](techniques/gemini-agentic-rag.md) |  |  |
 
-### 🎨 디자인 · 프론트엔드 <sub>18편</sub>
+### 🎨 디자인 · 프론트엔드 <sub>19편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](techniques/awesome-design-md-teardown.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-25 |
+| [광고 SB 덱 스타일 시스템 — 무채색 에디토리얼](techniques/ad-storyboard-style-system.md) | 자생 흑삼 스카이틴 SB_Ver.01.pptx (작가 최종본) 분석 | 2026-06-23 |
 | [PerfectPixel Studio — AI × 결정론적 후처리 스프라이트 파이프라인](techniques/perfectpixel-sprite-pipeline.md) | https://github.com/gykim80/perfectpixel-studio | 2026-06-22 |
 | [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](techniques/apple-design-teardown.md) | https://www.apple.com/kr/iphone-17-pro/ | 2026-06-19 |
-| [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](techniques/awesome-design-md-teardown.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-19 |
 | [Brand Tone References (아카이브 — 검증 토큰값)](techniques/brand-tone-references.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-17 |
 | [text-to-lottie — 에이전트 Lottie 생성 하네스 (diffusion studio)](techniques/text-to-lottie.md) | https://github.com/diffusionstudio/lottie | 2026-06-17 |
 | [광고·영상 제작 파이프라인 (실전)](techniques/ad-video-production-pipeline.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-06-16 |
@@ -107,30 +116,35 @@
 | [픽셀아트 제작 기법 + 연구](techniques/pixel-art-techniques.md) |  | 2026-06-08 |
 | [getdesign.md AI 디자인 시스템 분석 보고서](techniques/getdesign-teardown.md) |  |  |
 
-### 🧰 도구 · 방법론 <sub>3편</sub>
+### 🧰 도구 · 방법론 <sub>4편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Interactive Weight Playground — "수식을 만져서 이해시키기"](techniques/interactive-weight-playground.md) |  | 2026-06-22 |
 | [Anthropic 데이터 자동화 및 스킬 아키텍처 분석](techniques/anthropic-automation-teardown.md) |  | 2026-06-14 |
 | [deep-interview 해체분석 및 Sub-brain 이식 전략](techniques/deep-interview.md) |  | 2026-06-14 |
 | [헤드룸 해체 및 Sub-brain 응용/강화 전략 — headroom-ai (chopratejas/headroom)](techniques/headroom-teardown.md) | https://github.com/chopratejas/headroom | 2026-06-13 |
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 100편
+*도구 · 워크플로우 · 방법론 · 스킬* — 109편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>3편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>5편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](methods/research-claim-gate.md) |  | 2026-06-28 |
+| [Game Planning AI Agent — 역질문 기반 게임 기획 에이전트](methods/game-planning-ai-agent.md) | ClaudeCraft repo docs/reverse-analysis/11~12 … | 2026-06-24 |
 | [Improving Playtesting Coverage via Curiosity-Driven RL Agents — 자동 커버리지 탐색](methods/automated-playtesting-shooterbot.md) |  | 2026-06-07 |
 | [Claude Code Game Studios — Claude Code 를 게임 스튜디오로 변환하는 49 agent 템플릿](methods/claude-code-game-studios.md) | https://github.com/Donchitos/Claude-Code-Game… | 2026-05-03 |
 | [Codex Game Dev Pipeline Lessons](methods/codex-game-dev-pipeline-lessons.md) |  |  |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>32편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>33편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Building Effective Human-Agent Teams — 인간-에이전트 협업 팀 구축 방법론](methods/building-effective-human-agent-teams.md) | https://claude.com/blog/building-effective-hu… | 2026-06-28 |
+| [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](methods/loop-engineering.md) |  | 2026-06-25 |
 | [Matt Pocock의 에이전틱 워크플로우 (하네스 공학)](methods/matt-pocock-agentic-workflow.md) | https://www.aihero.dev/ | 2026-06-22 |
 | [FableCodex — Fable 규율을 Codex 워크플로우로 구현한 플러그인](methods/fablecodex.md) | https://github.com/baskduf/FableCodex | 2026-06-21 |
 | [하네스 이력 — Harness History](methods/harness-history.md) |  | 2026-06-21 |
@@ -141,7 +155,6 @@
 | [스펙→프롬프트 Closed-loop — 스펙 변경이 프롬프트 자동 최적화로 흐르는 파이프라인 (NAVER, 정영훈·김규철·박세)](methods/spec-to-prompt-closed-loop.md) | 스펙만 바꾸면 프롬프트가 따라옵니다 - 답변 생성 모델 자동화 파이프라인 | 2026-06-18 |
 | [Factory AI — Droid 중심 "AI-native 개발 플랫폼" (vault 아키텍처의 업계 수렴 ground-truth #4)](methods/factory-ai.md) | https://docs.factory.ai/welcome | 2026-06-17 |
 | [Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](methods/gnosis-self-improving-agent.md) | https://www.youtube.com/watch?v=73H_ZCxbH7o | 2026-06-17 |
-| [Loop Engineering (Addy Osmani) — 하네스 위 한 층, 스케줄 발동 loop (vault 수렴 ground-truth #6)](methods/loop-engineering.md) | https://addyosmani.com/blog/loop-engineering/ | 2026-06-17 |
 | [Playwright E2E 에이전트 하네스 — 테스트=실행가능 명세, trace=user-facing 증빙 매체 (Naver 발표)](methods/playwright-e2e-agent-harness.md) | https://www.youtube.com/watch?v=wo0Rsh9hlTo | 2026-06-17 |
 | [Ponytail — "게으른 시니어 개발자"를 13개 코딩 에이전트에 이식하는 portable behavioral skill](methods/ponytail.md) | https://github.com/DietrichGebert/ponytail | 2026-06-17 |
 | [The New SDLC With Vibe Coding (Google / Addy Osmani)](methods/google-new-sdlc-vibe-coding.md) | https://drive.google.com/file/d/1wNEl8FMpTso8… | 2026-06-16 |
@@ -164,12 +177,13 @@
 | [Codex CLI Prompting — 내재화 노트](methods/codex-cli-prompting.md) | https://developers.openai.com/cookbook/exampl… | 2026-04-28 |
 | [Everything Claude Code (ECC) — 에이전트 harness 성능 최적화 시스템](methods/everything-claude-code.md) | https://github.com/affaan-m/everything-claude… | 2026-04-24 |
 
-### 🧠 AI · LLM 연구 <sub>12편</sub>
+### 🧠 AI · LLM 연구 <sub>13편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [codebase-memory-mcp](methods/codebase-memory-mcp.md) | https://github.com/DeusData/codebase-memory-mcp | 2026-06-28 |
+| [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](methods/neo4j-agent-memory-context-graph.md) | https://www.youtube.com/watch?v=tcVK3ufL36E | 2026-06-28 |
 | [insane-search 해체 분석 — 포기를 모르는 웹 접근 아키텍처](methods/insane-search.md) | https://github.com/fivetaku/insane-search | 2026-06-21 |
-| [codebase-memory-mcp](methods/codebase-memory-mcp.md) | https://github.com/DeusData/codebase-memory-mcp | 2026-06-20 |
 | [llm-wiki (fivetaku)](methods/llm-wiki.md) | https://github.com/fivetaku/llm-wiki | 2026-06-20 |
 | [Academic Research Skills (ARS) — 작가 거버넌스·검증 철학의 학술논문 도메인 쌍둥이](methods/academic-research-skills.md) | https://github.com/imbad0202/academic-researc… | 2026-06-18 |
 | [Graph DB / Neo4j — 지식 누적 노트 (학습 진행형)](methods/graph-db-neo4j.md) | https://neo4j.com/docs/ | 2026-06-18 |
@@ -181,10 +195,13 @@
 | [free-claude-code — Claude Code를 대체 LLM 프로바이더로 라우팅하는 프록시](methods/free-claude-code.md) | https://github.com/Alishahryar1/free-claude-code | 2026-04-24 |
 | [TransformerLens — mech-interp 실습 라이브러리](methods/transformerlens.md) | https://github.com/TransformerLensOrg/Transfo… | 2026-04-22 |
 
-### 🎨 디자인 · 프론트엔드 <sub>16편</sub>
+### 🎨 디자인 · 프론트엔드 <sub>18편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [agent-sprite-forge — Codex가 image_gen으로 그리고 스크립트가 다듬는 2D 게임 에셋 워크플로우](methods/agent-sprite-forge.md) | https://github.com/0x0funky/agent-sprite-forge | 2026-06-28 |
+| [Frontend Design Skill Selection Matrix — surface 분류 → 최소 스킬 라우터](methods/frontend-design-skill-selection-matrix.md) | https://www.youtube.com/watch?v=gkxv6PCaAhw | 2026-06-28 |
+| [HTML/CSS/JS Premium Interaction & Animation Learnings](methods/html-interaction-learnings.md) |  | 2026-06-28 |
 | [slides-grab](methods/slides-grab.md) | https://github.com/NomaDamas/slides-grab | 2026-06-20 |
 | [UI Skills — Design Engineer용 라우팅 + MUST/NEVER 교정 게이트 skill 모음 (ibelick)](methods/ui-skills-ibelick.md) | https://github.com/ibelick/ui-skills | 2026-06-18 |
 | [UI/UX Pro Max — 제품타입→디자인시스템 자동추천 reasoning DB 스킬 (NextLevelBuilder)](methods/ui-ux-pro-max-skill.md) | https://github.com/nextlevelbuilder/ui-ux-pro… | 2026-06-18 |
@@ -198,14 +215,16 @@
 | [sprite-gen 해체 — component-row 스프라이트 아틀라스 생산 파이프라인 (hatch-pet 일반화판)](methods/sprite-gen-skill.md) | https://github.com/aldegad/sprite-gen | 2026-06-16 |
 | [Comnyang 랜딩 해체분석 (Comnyang Teardown)](methods/comnyang-landing-teardown.md) | https://comnyang.com | 2026-06-12 |
 | [trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)](methods/trysmooth-landing-teardown.md) | https://www.trysmooth.ai/ko | 2026-06-12 |
-| [HTML/CSS/JS Premium Interaction & Animation Learnings](methods/html-interaction-learnings.md) |  | 2026-06-09 |
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>37편</sub>
+### 🧰 도구 · 방법론 <sub>40편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [외부 도구는 설치 말고 해체해 흡수 (Dissect, Don't Install)](methods/dissect-not-install-external-tools.md) |  | 2026-06-28 |
+| [Google Open Knowledge Format (OKF) v0.1 — 에이전트 지식 표준](methods/google-okf-knowledge-format.md) |  | 2026-06-27 |
+| [OpenAI WebRTC 기반 실시간 음성 에이전트 아키텍처 분석 (gpt-realtime-demo)](methods/openai-webrtc-realtime-teardown.md) |  | 2026-06-24 |
 | [im-not-strange-ai — Sunny 7 보조 패스 (humanize-korean 확장)](methods/im-not-strange-ai.md) | https://github.com/itssosunny/im-not-strange-ai | 2026-06-20 |
 | [Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](methods/humanize-korean.md) | https://github.com/epoko77-ai/im-not-ai | 2026-06-18 |
 | [Kuku — 작가 Sub-brain 거버넌스를 제품화한 로컬 Markdown 앱 (외부 ground-truth)](methods/kuku-second-brain.md) | https://github.com/kuku-mom/kuku | 2026-06-18 |

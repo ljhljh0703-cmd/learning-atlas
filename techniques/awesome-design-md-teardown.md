@@ -1,6 +1,6 @@
 ---
 created: 2026-06-19
-updated: 2026-06-19
+updated: 2026-06-25
 type: learning
 category: technique
 tags: [design-system, design-md, google-stitch, design-tokens, design-as-contract, llm-ui, reference]
@@ -58,3 +58,11 @@ authors: [VoltAgent/Bergside LLC]
 - **design-catalog**: `DESIGN.md(Stitch) 메서드`를 workflow-skills 엔트리로 추가(디자인=마크다운 계약).
 - **프로급 갭 메우기**(작가 진단): 이 3종의 *절제·실토큰·do_not·shadow 철학*이 우리 약점(절제·크래프트·색규율)의 구체 본보기. grade 하네스의 레퍼런스 기준으로 사용 가능(verify 대상).
 - **DESIGN.md 발행 후보**: 우리 ParkDal 시스템도 이 포맷으로 `DESIGN.md` 1장 작성 → 외부 에이전트가 작가 톤 재현(추후).
+
+## G. 도구화·유통 레이어 흡수 (2026-06-25, 작가 지시) — refero.design · oh-my-design
+> awesome-design-md가 *포맷+데이터*라면, 그 위에 **떠오는 두 도구**를 레퍼런스 보드(38선)에 편입(둘 다 dry 관측·근사 라벨, 메타 리소스 정직 표기).
+
+- **oh-my-design** (kwakseongjae, MIT · github) — *"awesome-design-md가 끝난 데서 시작"*(저자 명시). 58개 기업 시스템에서 **Google Stitch DESIGN.md를 생성**하는 클라이언트사이드 도구. **AI 호출 0**(키 불요). 흐름: ① 레퍼런스 선택 → ② A/B 취향(버튼·테이블·헤더·카드) → ③ 토큰(색·radius·다크) → ④ 컴포넌트 17종 가감 → ⑤ **DESIGN.md + shadcn/ui CSS 변수 + npx CLI** export. 데이터 출처=VoltAgent/awesome-design-md(=이 노드 §C·D). → **우리 9-섹션 스키마(§B)의 위저드화**: 정적 DESIGN.md를 *A/B로 커스텀*하는 상위 워크플로. design-presets의 "token-swap→theme file"(§F) 자동화 본보기.
+- **refero.design / styles** (Beta) — **2,000+ 제품 사이트의 AI-readable 디자인 시스템** 라이브러리 + **Refero MCP**(Cursor·Claude·Windsurf 연결). 스타일별 DESIGN.md(색·타이포·스페이싱·컴포넌트)와 라이브 영상 프리뷰. → **우리 레퍼런스 보드(36→)의 상위 소스**: 보드가 "느낌 빌릴 곳 38선"이라면 refero는 "그 38을 찾는 곳". MCP라 에이전트가 빌드 전 실제 제품 화면을 검색·학습 가능.
+- **흡수 결론**: 우리 파이프라인의 결손은 *데이터*가 아니라 **(a) DESIGN.md 커스텀 위저드(oh-my-design)** 와 **(b) MCP 기반 실시간 레퍼런스 검색(refero)**. 우리 design-presets/캐털로그는 정적 큐레이션 → 다음 L2는 oh-my-design식 *A/B 토큰 빌더*가 후보. 외부 자산은 사용·재배포 아님(링크·방법만 차용), 상표 각 권리자 소유.
+- 보드 반영: `docs/_publish/references.json`(+2 = 38) · `build_references.py` 카운트 동적화(__TOTAL__/__APPROX__) · `docs/design-references.html` 재빌드. 관련 [충실 추출 — Manavarya09/design-extract (designlang)](design-extract.md) · [getdesign.md AI 디자인 시스템 분석 보고서](getdesign-teardown.md) · design-index.
