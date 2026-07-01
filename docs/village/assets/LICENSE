@@ -1,0 +1,52 @@
+L0 마을 이력서에 번들한 이미지와 폰트 라이선스 요약입니다.
+
+Bundled map background:
+
+- File: assets/map-background.png
+- Source: generated original raster for this L0 village resume image-map integration.
+- Date: 2026-06-22
+- Use: project-owned original background image for this static resume hub.
+
+The code and resume content in this folder are not relicensed by this asset license file.
+
+Bundled interior backgrounds:
+
+- Files: assets/interiors/lab.png, assets/interiors/workshop.png, assets/interiors/game.png, assets/interiors/studio.png, assets/interiors/hall.png
+- Source: GPT-generated original interior raster images already placed in this project folder before this integration pass.
+- Date: 2026-06-22
+- Use: project-owned original modal backgrounds for this static resume hub.
+
+Bundled learning board background:
+
+- File: assets/interiors/board.png
+- Source: GPT-generated original raster image for the v16.1 learning-board prototype.
+- Author/owner: 이주형 project.
+- Date: 2026-06-30
+- Use: project-owned original modal background for the Learning Atlas board.
+- External assets: none.
+
+Bundled fonts:
+
+- Pretendard
+- Source: https://github.com/orioncactus/pretendard
+- Version: 1.3.9
+- Author: Kil Hyung-jin / orioncactus
+- License: SIL Open Font License 1.1
+- Full license: assets/fonts/Pretendard-OFL.txt
+
+- Galmuri
+- Source: https://github.com/quiple/galmuri
+- Version: 2.40.3
+- Author: Lee Minseo / quiple
+- License: SIL Open Font License 1.1
+- Full license: assets/fonts/OFL.txt
+
+Bundled BGM:
+
+- Go Lucky
+- Source: https://opengameart.org/content/go-lucky
+- Author: Chasersgaming
+- License: CC0 1.0 Universal
+- Original files: golucky.oggvorbis.ogg, golucky.mp3_0.mp3
+- Bundled files: assets/audio/village-bgm.ogg, assets/audio/village-bgm.mp3
+- Runtime: optional BGM toggle, OFF by default, user-activated only.

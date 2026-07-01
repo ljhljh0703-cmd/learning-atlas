@@ -1,8 +1,8 @@
 # Learning Atlas
 
-> 개인 학습 노트를 주제별로 정리해 공개하는 허브다. AI·에이전트·게임·디자인을 중심으로 논문·도구·방법론을 모았다.
-> 글은 비공개 Obsidian vault에 쌓고, 민감 정보를 걸러낸 것만 자동으로 이 repo로 내보낸다. 노트끼리 링크로 이어져 지식 그래프를 이룬다.
-> 내보내기·정제 파이프라인은 [`tools/`](tools/)에 있다.
+> 공부한 걸 주제별로 모아 공개하는 곳이에요. AI·에이전트·게임·디자인을 중심으로 논문·도구·방법론을 정리했어요.
+> 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
+> 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
 **201편** · Techniques 90 · Methods 109 · 경험 서사 2
 
@@ -274,4 +274,4 @@
 
 ---
 
-이 README는 자동 생성된다. vault가 자라면 게이트를 통과한 새 글이 그대로 따라 올라온다. 파이프라인: `tools/export.py`(vault→정제·누출 게이트) → `tools/build_index.py`(주제별 목차). 원칙은 [`tools/PIPELINE.md`](tools/PIPELINE.md).
+이 README는 자동으로 만들어져요. vault가 자라면 게이트를 통과한 새 글이 그대로 따라 올라와요. 파이프라인은 `tools/export.py`(vault→정제·누출 게이트) → `tools/build_index.py`(주제별 목차) 순서예요. 자세한 원칙은 [`tools/PIPELINE.md`](tools/PIPELINE.md)에 있어요.
