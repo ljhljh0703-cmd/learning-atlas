@@ -1,6 +1,6 @@
 ---
 created: 2026-04-25
-updated: 2026-04-25
+updated: 2026-07-02
 type: learning
 tags: [theory-of-mind, npc, social-reasoning, llm-limits, evaluation, shapira-2023]
 source:
@@ -176,6 +176,16 @@ unexpected transfer segment:
 - **Faux Pas (사회적 미묘함)** = 베이스라인 미달
 
 → 내 NPC 가 사회적 미묘함 (눈치, 분위기 파악) 을 **다룬다고 주장하면 안 됨**. 명시적 단순 belief 추적으로 한정.
+
+### G. 델타 — 작가 NotebookLM NPC 프롬프트 스키마 (③Gate 2026-07-02 추가)
+
+작가의 NotebookLM 추출본(`논문_리서치/논문 추출(notebook lm).pdf`, 마피아 게임 NPC용 Pydantic 스키마)이 본 논문의 Clever Hans 방지책을 **NPC 하네스 구현 레벨**로 내린 사례. 논문 중복이 아닌 응용 델타로 여기 박제.
+
+- **`objective_context_analysis`** — RAG 로 검색된 과거 메모리 스트림*만*으로 상황·타인 의도를 연역 분석. 현재 아는 정보와 그 플레이어가 당시 실제 접근 가능했던 정보(Epistemic State)를 분리해 억측 방지 + `(because of 1, 2, 3)` 메모리 인덱스 인용 강제([Generative Agents (Park et al. 2023) — AI NPC의 성경](generative-agents.md) 성찰 구조 차용). = 얕은 휴리스틱으로 찍는 Clever Hans 현상의 직접 방어.
+- **`applied_cognitive_bias`** — 위 객관 분석을 NPC 고유 인지 편향(확증·다수결 동조·최근 정보 편향) 필터로 *의도적으로 왜곡*하는 내면 독백 영역. 명백한 모순을 발견해도 다수 여론·기존 신뢰와 충돌하면 비합리적으로 합리화 — 객관 진실이 감정·정치 압력에 오염되는 인지적 타락 과정을 서술시킴.
+- **`objective_motive_analysis`** — 행동 동기의 ToM 추론 영역 (같은 분리 원칙 적용).
+
+**설계 원리 = 객관 분석과 편향 왜곡을 한 필드에 뭉치지 않고 2단 분리** — Layer 0 (§B) 의 "명시적 world state tracking" 요구와 정합. NPC eval 시 두 필드를 각각 채점 가능(§C 적대적 테스트와 결합 후보).
 
 ---
 

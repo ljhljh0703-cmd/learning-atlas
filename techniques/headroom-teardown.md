@@ -9,6 +9,8 @@ authors: [chopratejas]
 year: 2026
 ---
 
+<!-- chopratejas/headroom 컨텍스트 압축 분석 및 Sub-brain 비교/응용 연구서입니다. -->
+
 # 헤드룸 해체 및 Sub-brain 응용/강화 전략 — headroom-ai (chopratejas/headroom)
 
 > ✅ **확정(confirmed) 2026-06-14** — 세션 내 ③Gate 통과 + 작가 수용. (외부 미검증 세부는 본문 표기 유지.)

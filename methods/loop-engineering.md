@@ -129,5 +129,7 @@ graph TD
 
 - hermes-loop — Sub-brain의 자가 성장 및 스킬 정제 루프 SSOT.
 - agent-harness — 단일 세션 내 에이전트 격리 및 성공 조건 명세.
+- [EdgeBench — 환경 학습을 "시간-점수 곡선"으로 측정하는 벤치마크](edge-bench.md) — *측정 counterpart*. 여기(Loop Engineering)가 루프를 **설계**한다면, EdgeBench는 그 루프가 환경 피드백으로 실제 학습하는지 시간-점수 곡선으로 **측정**한다.
 - [Factory AI — Droid 중심 "AI-native 개발 플랫폼" (vault 아키텍처의 업계 수렴 ground-truth #4)](factory-ai.md) — 에이전틱 개발 플랫폼의 상용화 표준.
 - [SCA-Gate & Spike 1A RAG Failure Defense Specification](sca-gate-specification.md) — 객관적 static linter와 충분한 맥락 검증 게이트 사양.
+- [Matt Pocock의 에이전틱 워크플로우 (하네스 공학)](matt-pocock-agentic-workflow.md) · [pi 코딩 에이전트 CLI](pi-coding-agent.md) · [Ponytail — "게으른 시니어 개발자"를 13개 코딩 에이전트에 이식하는 portable behavioral skill](ponytail.md) — 모델 독립 에이전트 하네스 *실천 사례* 자매(loop 정련 / skills 워크플로우 / depth 하네스 / 정적 룰셋 주입)

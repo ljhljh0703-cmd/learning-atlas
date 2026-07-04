@@ -34,7 +34,7 @@ category: method
    - marketing → [DESIGN.md — 코딩 에이전트용 디자인 시스템 명세](design-md.md) · [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](../techniques/awesome-design-md-teardown.md) · [Codex CLI Prompting — 내재화 노트](codex-cli-prompting.md) §AI slop
    - functional → 프로젝트 디자인 시스템 (shadcn 은 repo 가 실제로 쓸 때만)
    - mobile → 플랫폼 스킬 (웹 축소 X)
-   - motion → [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](../techniques/hyperframes.md) · [Comnyang 랜딩 해체분석 (Comnyang Teardown)](comnyang-landing-teardown.md), 복잡도가 정당화될 때만 GSAP
+   - motion → [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](../techniques/hyperframes.md) · [Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처](../techniques/comnyang-landing-teardown.md), 복잡도가 정당화될 때만 GSAP
 
 3. **디자인 스킬 최대 2개** — 방향 1 (`frontend-design` / [UI/UX Pro Max — 제품타입→디자인시스템 자동추천 reasoning DB 스킬 (NextLevelBuilder)](ui-ux-pro-max-skill.md) / taste preset) + 구현 1 (shadcn / GSAP / Material 3 / SwiftUI / Expo). taste preset 은 *상호배타* — 하나만.
 
@@ -60,7 +60,7 @@ category: method
 
 - [UI/UX Pro Max — 제품타입→디자인시스템 자동추천 reasoning DB 스킬 (NextLevelBuilder)](ui-ux-pro-max-skill.md) — 제품타입→디자인시스템 추천 DB (방향 스킬의 한 옵션, 레버 창고)
 - [DESIGN.md — 코딩 에이전트용 디자인 시스템 명세](design-md.md) / [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](../techniques/awesome-design-md-teardown.md) — 디자인을 에이전트 가독 계약으로
-- [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](../techniques/hyperframes.md) / [Comnyang 랜딩 해체분석 (Comnyang Teardown)](comnyang-landing-teardown.md) — 모션을 결정적 계약·CSS/mp4 우선으로
+- [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](../techniques/hyperframes.md) / [Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처](../techniques/comnyang-landing-teardown.md) — 모션을 결정적 계약·CSS/mp4 우선으로
 - design-index — 본 라우터의 상위 자산 지도
 - 적용처: html-publish-guide — HTML 생성 전 surface 분류 + 최대 2스킬 게이트 (백로그)
 

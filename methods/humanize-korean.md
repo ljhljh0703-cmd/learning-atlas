@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- Humanize KR(im-not-ai) 전문통독 — 한글 AI 티 제거기. 작가 윤문 파이프라인 1차(de-AI 중립화) → juhyeong-voice 2차(개성화). ★순서 절대규칙: humanize 먼저, 역순 금지(E-4 단문·C-5 이모지가 작가 개성 깎음). MIT·clean-room. 도구 설치+워크플로우 박제. -->
+
 # Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문
 
 *epoko77-ai, MIT, Claude Code/Codex 스킬 · GitHub clone 전문통독(clean-room) · 작가 윤문 파이프라인 1차 단계로 채택*

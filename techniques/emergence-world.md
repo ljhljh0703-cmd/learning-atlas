@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Emergence-World(EmergenceAI) 전문통독 — 영속 멀티에이전트 사회 시뮬(코드 기반). 모델발산 측정=②Apply 사회판·AWI 측정·다층 인지·tools-as-interface. simulation-building-blocks 2번째 시드(코드형). clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "B로 해서 다 빨아먹어") — Claude 작성, repo clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). ⚠ **CC BY-NC 4.0(비상업·연구전용)** — vault 학습 인용 OK(출처 명기), 상업/모델학습 금지. repo=문서+데이터 공개(엔진 소스 비공개) → 구현 디테일은 docs 수준까지만(없는 내부 추측 X).
 
 # Emergence World — 영속 멀티에이전트 사회 시뮬레이션 (코드 기반)

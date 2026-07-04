@@ -8,6 +8,8 @@ source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 authors: [Massimo Vignelli, Josef Müller-Brockmann]
 ---
 
+<!-- 포트폴리오·문서 디자인의 그리드·타이포 정전 — Vignelli Canon + Müller-Brockmann grid 전문 충실. ParkDal 위 규율 레이어. -->
+
 > 출처: hyperagent-public-skills(alexmcdonnell-airtable) `vignelli-canon`·`muller-brockmann-grid` skill JSON **전문 직접 파악**(clone 후 documentation 통독, 2026-06-16). 원리=공개 디자인 정전. ParkDal `_tokens.css` 위 **규율 레이어**(토큰="무엇", canon="어떻게 절제"). ※ 1차 WebFetch 요약본은 부실해 폐기·재작성.
 
 # Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)

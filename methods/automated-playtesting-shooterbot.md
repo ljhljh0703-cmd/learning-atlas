@@ -11,6 +11,8 @@ doi: 10.1109/CoG52621.2021.9619048
 category: method
 ---
 
+<!-- Curiosity-Driven RL Playtesting (Gordillo et al., EA SEED 2021) 학습 노트 — libgdx-rogue-os 헤드리스 검증 근거 -->
+
 # Improving Playtesting Coverage via Curiosity-Driven RL Agents — 자동 커버리지 탐색
 
 *Camilo Gordillo, Joakim Bergdahl, Konrad Tollmar, Linus Gisslén (SEED · Electronic Arts, CoG 2021)*

@@ -335,3 +335,6 @@ NEW EDGE 가 EXISTING EDGES 와 중복 사실인지. 정확히 같지 않아도 
 - Zep service: getzep.com (commercial)
 - 학습 일자: 2026-04-28
 - 트리거: 작가가 PDF 추가 + [OASIS: Open Agent Social Interaction Simulations with One Million Agents](oasis.md) 학습 직후 (Zep 의 Graphiti 의존성을 정확화 필요)
+
+## 연결된 페이지
+- [Microsoft GraphRAG — Query-Focused Summarization on Narrative Private Data](graphrag.md) — Agent Memory·KG 시스템 자매(Graphiti 의 community subgraph 가 GraphRAG 영감 — graphrag 노트가 본 노트 정독 후 학습됨) · [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](hermes-agent.md) — Hermes recall 의 정밀 메모리 대안

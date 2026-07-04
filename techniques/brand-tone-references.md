@@ -7,6 +7,8 @@ category: technique
 source: https://github.com/VoltAgent/awesome-design-md
 ---
 
+<!-- [superseded] 단일톤 선정 접근 폐기 → design-md-composer 레버 조립으로 통합. 본 노트는 ④Gate 검증된 정밀 토큰값만 보존(아카이브). -->
+
 > ⛔ **superseded → [DESIGN.md 컴포저 — 레버 조립 템플릿](../methods/design-md-composer.md)** (2026-06-17). 본 노트는 "통합 DESIGN.md 톤을 *한 브랜드로 선정*" 하려던 접근이었으나, 작가가 **단일 박제 거부 → 레버형 유동 조립**으로 전환(design-flexible-template-not-lock). 톤 결정은 이제 컴포저 7레버로 *매번* 한다.
 > 아래 **검증된 정밀 토큰값 2종(Ferrari·Linear)** 만 아카이브로 보존 — research-relay Q2 ④Gate raw 스팟체크 일치(2026-06-16). 컴포저 본보기 셀의 raw 백업.
 
@@ -26,3 +28,4 @@ source: https://github.com/VoltAgent/awesome-design-md
 ## 연결
 - [DESIGN.md 컴포저 — 레버 조립 템플릿](../methods/design-md-composer.md) — 후속(레버 조립 템플릿)
 - [DESIGN.md — 코딩 에이전트용 디자인 시스템 명세](../methods/design-md.md) · [awesome-design-md — 브랜드별 DESIGN.md 69종 레퍼런스 컬렉션](../methods/awesome-design-md.md) · design-index
+- [trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)](../methods/trysmooth-landing-teardown.md) · [Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처](comnyang-landing-teardown.md) · [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](apple-design-teardown.md) — 디자인 시스템 레퍼런스/해체 코퍼스 자매

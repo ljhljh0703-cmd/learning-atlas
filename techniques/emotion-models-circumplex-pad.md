@@ -1,8 +1,8 @@
 ---
 created: 2026-04-22
-updated: 2026-04-22
+updated: 2026-07-04
 type: learning
-tags: [psychology, emotion, circumplex, PAD, NPC, affective-computing]
+tags: [psychology, emotion, circumplex, PAD, NPC, affective-computing, subtext]
 source: https://en.wikipedia.org/wiki/PAD_emotional_state_model
 category: technique
 ---
@@ -58,6 +58,18 @@ Russell + **Dominance (Controlling ↔ Submissive)** 추가.
 PA(2축)는 "core affect"로 유지, **D는 appraisal process**(상황 평가)의 일부로 재개념화. 즉:
 - 감정의 *느낌* = valence × arousal
 - 감정의 *맥락 해석* = dominance
+
+### 5. Deflection / Subtext 축 (표현된 감정 ≠ 작동 감정)
+
+<!-- proposed_by: external_ai (via codex) · confirmed_by: user · 2026-06-29 델타. [Emotion Concepts and their Function in a Large Language Model](anthropic-emotions-2026.md) 인문학 delta §4 에서 유입. -->
+
+PAD 좌표는 기본적으로 **"표현된 감정"**(surface_tone)을 다룬다. 하지만 [Emotion Concepts and their Function in a Large Language Model](anthropic-emotions-2026.md)의 **emotion deflection vector**(표현되지 않았지만 함축된 감정)는 표면 톤과 **작동 감정(operative emotion)이 어긋날 수 있음**을 보여준다 — 정중한 표면 아래의 coercive intent 등. 따라서 NPC 대화 좌표화 시 축을 하나 더 분리한다:
+
+- `surface_tone` — 발화가 겉으로 드러내는 PAD 좌표
+- `operative_emotion` — 문맥·의도가 실제로 작동시키는 감정
+- `deflected` — 함축·회피·위장되어 표면에 안 뜨는 감정
+
+세 채널은 **뭉개지 말고 분리 유지**(문학의 서브텍스트·아이러니·신뢰 불가 화자 계열). 창작에선 장치, 안전 하네스에선 concealment risk. → persona-tokens `subtext_visibility` 토큰으로 이식.
 
 ---
 

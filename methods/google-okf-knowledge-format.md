@@ -59,7 +59,7 @@ OKF v0.1이 open design space로 둔 3종에 대해 vault엔 *자체* 규약이 
 
 → 가치 = OKF 향후 버전이 이 영역 표준화 시 *참고 가능한 실무 사례*를 vault가 이미 굴려봤다는 것(입력 후보). 우월성 주장 X.
 
-## 6. 학습→반영 (학습→반영 루프)
+## 6. 학습→반영 ([학습→반영 루프 (Absorb-to-Apply)](../narrative/학습→반영 루프.md))
 1. **반영처 1 — Learning Atlas(대외 위성·vault외, hot.md Track 3) OKF-export 모드**(상호운용성 흡수의 실천): Atlas가 이미 vault→public markdown 변환 운영. **OKF 정합 export** 추가(wikilink→상대 md링크 변환[격리 `enterprise-ontology`의 `wikilink-to-okf.py` 발상 유효] + 예약필드 매핑 source→resource·created→timestamp) → 작가 지식이 *OKF 호환 번들*로 = 다른 에이전트도 읽는 상호운용 자산. backlog(felt-need 실측, infra-0 가드).
 2. **반영처 2 — 면접/포폴 서사**: "markdown+frontmatter+graph 지식 시스템을 Google 표준과 *독립 수렴* + 거버넌스(모순·신뢰·provenance) 실무 운영." ("앞섰다" X.)
 3. **과적용 가드(Karpathy #2/#3)**: vault를 OKF로 *리팩토링 금지* — wikilink=Obsidian 코어. OKF는 *export 타깃*이지 구조 교체 X. type만 강제하는 OKF로 vault frontmatter 다운그레이드 금지.

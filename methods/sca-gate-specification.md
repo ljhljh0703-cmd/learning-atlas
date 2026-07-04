@@ -5,6 +5,8 @@ type: learning
 category: method
 ---
 
+<!-- SCA-Gate(Sufficient Context Assessment) 서브브레인 이식 명세 + libgdx-rogue-os Spike 1A RAG 방어책. -->
+
 # SCA-Gate & Spike 1A RAG Failure Defense Specification
 
 > ✅ **확정(confirmed) 2026-06-14** — 세션 내 ③Gate 통과 + 작가 수용. (외부 미검증 세부는 본문 표기 유지.)

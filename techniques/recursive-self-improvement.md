@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Anthropic "When AI builds itself" (RSI) 리포트 충실 흡수 — AI가 AI 개발을 자동화·가속하는 폐쇄 루프의 증거·시나리오·거버넌스. -->
+
 # Recursive Self-Improvement — "When AI builds itself" (Anthropic)
 
 *Anthropic Institute · Marina Favaro, Jack Clark*

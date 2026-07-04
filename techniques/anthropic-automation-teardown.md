@@ -6,6 +6,8 @@ tags: [anthropic, agentic-analytics, skill-design, verification-first, knowledge
 category: technique
 ---
 
+<!-- Anthropic 데이터 자동화 및 스킬 아키텍처 분석 보고서입니다. -->
+
 # Anthropic 데이터 자동화 및 스킬 아키텍처 분석
 
 > ✅ **확정(confirmed) 2026-06-14** — 세션 내 ③Gate 통과 + 작가 수용. (외부 미검증 세부는 본문 표기 유지.)

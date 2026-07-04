@@ -11,6 +11,8 @@ year: 2005
 category: technique
 ---
 
+<!-- 적 아키타입 디자인 패턴 학습 노트 — libgdx-rogue-os 적 다양화 설계 근거 -->
+
 # 적 아키타입 디자인 패턴 — "스탯 묶음"이 아니라 "전술 질문"
 
 *Björk & Holopainen, Patterns in Game Design (Charles River Media, 2005) · Brogue (Brian Walker) stealth/combat 메커니즘*

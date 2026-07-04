@@ -8,6 +8,8 @@ source: https://github.com/lewislulu/html-ppt-skill
 authors: [lewis]
 ---
 
+<!-- lewislulu/html-ppt-skill 현행 전문 teardown — HTML 슬라이드 덱 스튜디오. 토큰 테마·레이아웃·애니·canvas FX·presenter mode+逐字稿. 아카이브된 구 로컬라이즈 대체. -->
+
 > 출처: `lewislulu/html-ppt-skill` **현행 clone 전문 통독**(2026-06-16, SKILL.md + references 6종 + assets). MIT. ⚠️ vault 구 기록 .archive/html-ppt-skill(2026-05-19 로컬라이즈)은 *얇고 일부 환각*(존재하지 않는 `ppt:create`/`convert`/`re-skin` CLI 지어냄) — 본 페이지가 정확판. 실제 설치는 `npx skills add https://github.com/lewislulu/html-ppt-skill`.
 
 # HTML PPT Studio (html-ppt) — 현행 teardown
@@ -50,3 +52,4 @@ authors: [lewis]
 - **`?preview=N` 픽셀-완벽 preview 패턴** = "preview=관객과 동일 렌더" 일반 기법(html-publish preview에 응용 가능).
 - **clean-room**: 카탈로그·패턴·아키텍처만 흡수. CSS/JS/템플릿 코드 복제 X(MIT지만 #2 #3 — 필요 시 npx 설치해 직접 사용).
 - 포폴 경로 영향: 작가 포폴은 *HTML 페이지(Visual-Scroll)* 확정(design-index) — 본 덱 스튜디오는 *발표 덱* 별개 도구. 발표/강연 필요 시 인출.
+- **Editorial Design Discipline 스택 자매**: [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](editorial-grid-design-canon.md) · [getdesign.md AI 디자인 시스템 분석 보고서](getdesign-teardown.md) · [NYT-discipline Data Visualization](nyt-data-viz.md) (에디토리얼 그리드·외부 스펙 게이트·데이터 비주얼).

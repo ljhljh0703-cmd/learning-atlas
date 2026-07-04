@@ -11,6 +11,8 @@ year: 2019
 category: technique
 ---
 
+<!-- Data-Oriented Design & Flecs (Sander Mertens) 학습 노트 — libgdx-rogue-os 메모리/GC 설계 -->
+
 # Data-Oriented Design & Flecs — 컴포넌트를 조밀 배열로 정렬하는 ECS
 
 *Sander Mertens (Flecs 저자), github.com/SanderMertens/flecs · flecs.dev*
@@ -92,6 +94,7 @@ public class PositionSystem {           // 컴포넌트를 primitive 배열로
 
 ## 연결된 페이지
 
+- java-art-archetype-ecs — 구현 명세(Archetype-ECS flat array·swap-remove·ART GC 0B, 본 이론의 libgdx 이식)
 - libgdx-rogue-os — 엔티티 데이터 레이어 설계 대상
 - [Dijkstra Maps — 격자 로그라이크 적 AI 의 공유 거리 필드](dijkstra-maps.md) — primitive 공유 배열 철학의 짝
 - [Improving Playtesting Coverage via Curiosity-Driven RL Agents — 자동 커버리지 탐색](../methods/automated-playtesting-shooterbot.md) — 결정론적 상태 전이 검증

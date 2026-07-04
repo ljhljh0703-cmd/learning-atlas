@@ -13,7 +13,11 @@ category: method
 
 *GitHub repo 직접 clone 통독(16M, MIT) · v2.5.0 · 멀티플랫폼 설치형 AI 스킬(Claude/Cursor/Codex/Gemini 등 18종, `uipro-cli`)*
 
-UI/UX 디자인 의사결정을 **CSV 데이터베이스 + BM25 검색 + 조건부 reasoning rule**로 자동화한 Claude Code 스킬. "뷰티 스파 랜딩 만들어줘" → 161개 제품타입 reasoning rule 매칭 → 스타일(67)·색팔레트(161)·폰트페어(57)·랜딩패턴·anti-pattern·pre-delivery 체크리스트를 한 번에 조립해 design system 출력. 작가 도메인(html-publish 빌더·design-index·게임UI)의 *레버 창고*(design-flexible-template-not-lock)로 직접 유용 — 단 ParkDal 단일톤 SSOT 와 결이 달라 빌더 즉시개조 아닌 *선택적 차용*.
+UI/UX 디자인 의사결정을 **CSV 데이터베이스 + BM25 검색 + 조건부 reasoning rule**로 자동화한 Claude Code 스킬. "뷰티 스파 랜딩 만들어줘" → 161개 제품타입 reasoning rule 매칭 → 스타일(67)·색팔레트(161)·폰트페어(57)·랜딩패턴·anti-pattern·pre-delivery 체크리스트를 한 번에 조립해 design system 출력. 작가 도메인(html-publish 빌더·design-index·게임UI)의 *레버 창고*(design-flexible-template-not-lock)로 직접 유용.
+
+## bespoke 적용 (2026-06-30 결정 C) — ParkDal 클램프 제거
+> 🔄 ParkDal 졸업(bespoke-html-direction)으로 **"선택적 차용" → bespoke 프로젝트별 *자유 팔레트·폰트 추천기*** 승격. Codex가 제안한 어댑터(ui-ux 추천 → ParkDal 4팔레트로 *번역*·"reject new font")는 **채택 X** — 그게 작가가 거부한 lock-in. bespoke는 추천 팔레트/폰트를 *그대로* 프로젝트 비주얼 세계로 씀(StarLink 청록·Medical 그린식). 161 reasoning rule = 프로젝트별 비주얼 출발점 추천 레버.
+> ⚠️ **stale**: vault 노트 v2.5.0 기준 → 현 repo **v2.6.2**(코퍼스 확장). 본격 활용 전 source 리프레시 권장.
 
 ---
 

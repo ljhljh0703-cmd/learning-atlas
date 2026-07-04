@@ -10,6 +10,8 @@ year: 2026
 category: technique
 ---
 
+<!-- comnyang.com 랜딩 teardown — 무라이브러리 모션 랜딩 아키텍처. raw HTML/CSS/JS 직접 분석(2026-06-08). 전이 가능 패턴 중심. -->
+
 # Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처
 
 *comnyang.com 의 raw `index.html` / `styles.css`(44KB) / `script.js`(21KB) 직접 분석. WebFetch 는 403, `curl + UA` 로는 200.*
@@ -227,3 +229,39 @@ mp4 로 대체되긴 했지만 코드엔 살아있는 패턴:
 | 카드 미리보기 깊이 | `build.py parse_page` summary(2단락) | ✅ |
 | `steps()` 도트 애니 (§4) | Pixel 아키타입(5번째) — `_slots.css html[data-archetype="pixel"]` steps() 깜빡 커서 + 하드섀도우 + `build_pixel()` | ✅ 2026-06-08 |
 | `size-adjust` 한·영 정렬 (§6) | mono 한글=`Nanum Gothic Coding`(Google, 머신무관) + 오프라인 폴백 D2Coding `size-adjust` | ✅ 2026-06-08 (mono only, 견고화) |
+
+---
+
+## 10. ParkDal(PDD) 이식 매핑 — 2차 정밀분석 통합 (Gemini 2026-06-12, 작가 confirmed)
+
+> 06-12 2차 해체분석(`proposed_by: gemini · confirmed_by: user`)을 본 노트로 통합(2026-06-30 다이어트, 중복본 archive). 중복 DOM/모션 분석은 §1~8로 흡수, 아래 *PDD 토큰 매핑·슬롯 매핑* 고유분만 보존.
+
+**PDD 변수 매핑** (하드코딩 배제 → 표준 토큰 바인딩):
+- 배경 `--c-bg` → `--p-color-bg-base` (또는 테마 크림 팔레트)
+- 잉크 `--c-ink` → `--p-color-text-base`
+- 액센트 `--c-accent` → `--p-color-accent`
+
+```css
+:root {
+  --c-bg: oklch(94% 0.025 86);
+  --c-ink: oklch(17% 0.018 75);
+  --c-panel: oklch(98% 0.015 86);
+  --c-accent: var(--p-color-accent);   /* PDD 토큰 매핑 */
+  --font-mono: var(--p-font-mono);
+  --ease-pixel: steps(2, end);
+  --shadow-card: 0 20px 0 oklch(17% 0.018 75 / 0.12);
+}
+```
+
+**빌더 재사용 슬롯 매핑** (원본 기능 → PDD 빌더 이식명):
+- 헤더(브랜드+언어 네비) → `top-commerce-nav`
+- 히어로(캐릭터 데스크톱 스테이지) → `hero-character-desktop`
+- 요금 카드($3.9+후원 체크아웃) → `checkout-card-lite`
+- 기능 그리드(15 픽셀모션) → `mood-feature-grid`
+- 소셜 스트립(IG/Threads/X) → `social-link-strip`
+- 구매 반복(하단 전환 재호출) → `closing-commerce-repeat`
+- 고정 CTA(하단 스티키 바) → `sticky-bottom-cta`
+- 푸터(약관+라이선스) → `footer-legal-grid`
+
+관련: ParkDal · archetype-rules
+- design-index — 디자인 시스템 허브 · [trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)](../methods/trysmooth-landing-teardown.md) · [Brand Tone References (아카이브 — 검증 토큰값)](brand-tone-references.md) · [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](apple-design-teardown.md) — 디자인 시스템 레퍼런스/해체 코퍼스 자매

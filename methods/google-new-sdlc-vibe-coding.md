@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- Google/Addy Osmani "The New SDLC With Vibe Coding"(2026-05) 전문 해체 — 우리 vault 아키텍처의 외부 ground-truth 확증 + 매핑. -->
+
 # The New SDLC With Vibe Coding (Google / Addy Osmani)
 
 > Google 발행, Addy Osmani 외 2인, 2026-05 (51p, 시리즈물 — Day3=Context Engineering, Day5=Spec-Driven Production). vault Claude 전문 통독(작가 직접 공유).

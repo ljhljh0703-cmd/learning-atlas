@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- Anthropic 공식 Fable 5 프롬프팅 가이드 흡수 — 작가의 모든 AI(Codex/Gemini/Claude) 운영에 적용 가능한 ground truth. research-relay ④Gate에서 GPT 누락분을 vault Claude가 WebFetch 직접 확인·흡수. -->
+
 # Fable 5 프롬프팅 (공식 가이드)
 
 > **한줄**: Anthropic이 공개한 Claude Fable 5 고유 프롬프팅·스캐폴딩 패턴. agent-harness의 **ground truth** — 우리가 Fable 산출에서 역추출한 하네스가 이 공식 원천과 수렴함을 확인(RSI 검증). 작가의 *모든 AI* 운영에 적용.

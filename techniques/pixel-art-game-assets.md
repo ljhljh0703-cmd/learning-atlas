@@ -15,6 +15,8 @@ year: 2024
 category: technique
 ---
 
+<!-- 픽셀아트 게임 에셋 제작 심화 — research-relay 2차(GPT) → Gate → 흡수. 애니메이션·타일셋·라이팅·폰트·AI생성·디더링 + libGDX 적용. -->
+
 # 픽셀아트 게임 에셋 제작 심화
 
 > research-relay 2차(GPT) → ③Gate PASS → 흡수. 1차([픽셀아트 제작 기법 + 연구](pixel-art-techniques.md))=기법 일반, 본 노트=게임 에셋 제작 실전(libGDX 적용). 공용 규칙 pixel-art-production-spec, 게임 핸드오프 libgdx-rogue-os-art-guide.

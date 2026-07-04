@@ -201,3 +201,6 @@ MiroFish 데모가 보여주는 것:
 - 의존: OASIS (CAMEL-AI), Zep Cloud, Qwen-plus (Alibaba)
 - 학습 일자: 2026-04-28
 - 트리거: 작가가 "거대한 시뮬레이션 세계 구축" 비전을 명시적으로 선언한 시점
+
+## 연결된 페이지
+- [Generative Agents (Park et al. 2023) — AI NPC의 성경](generative-agents.md) · [Emergence World — 영속 멀티에이전트 사회 시뮬레이션 (코드 기반)](emergence-world.md) — 멀티에이전트 사회 시뮬레이션 자매(본 페이지=MiroFish/OASIS 여론 시뮬 / Stanford 25인 마을 / 창발 세계)

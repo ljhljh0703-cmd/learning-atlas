@@ -6,6 +6,8 @@ tags: [agent-scripts, agent-rules, agents-md, git-hook, symlink, scaffolding, li
 category: technique
 ---
 
+<!-- steipete/agent-scripts 리포지토리의 에이전트 공유 규칙 및 자동화 가드레일 분석서입니다. -->
+
 # 에이전트 스크립트 해체 — steipete/agent-scripts
 
 > ✅ **확정(confirmed) 2026-06-14** — 세션 내 ③Gate 통과 + 작가 수용. (외부 미검증 세부는 본문 표기 유지.)

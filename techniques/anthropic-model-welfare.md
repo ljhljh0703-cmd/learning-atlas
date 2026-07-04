@@ -160,3 +160,6 @@ traits "개별화" — 각 캐릭터를 고유 개체로 본다는 강점.
 - 종합: [EA Forum — Exploring AI Welfare](https://forum.effectivealtruism.org/posts/rruncFrT9LwAN8jXq/exploring-ai-welfare-kyle-fish-on-consciousness-moral)
 - 매체: [TIME — Kyle Fish in TIME 100 AI 2025](https://time.com/collections/time100-ai-2025/7305847/kyle-fish/)
 - Eleos AI: <https://eleosai.org/research/>
+
+## 연결된 페이지
+- [Taking AI Welfare Seriously — Layer 0의 학술 토대](taking-ai-welfare-seriously.md) · [Emotion Concepts and their Function in a Large Language Model](anthropic-emotions-2026.md) — AI Welfare 연구 클러스터 자매(본 페이지=Anthropic welfare 실무 프로그램 Kyle Fish / 도덕지위 정초 논문 / 감정 유사 메커니즘 행동영향)

@@ -10,6 +10,8 @@ year: 2019
 category: technique
 ---
 
+<!-- Mark R. Johnson, The Unpredictability of Gameplay (2019) 학습 노트 — 결정론적 전투/RNG 설계 근거 -->
+
 # The Unpredictability of Gameplay — 무작위성을 randomness / chance / luck 로 분해
 
 *Mark R. Johnson (Bloomsbury Academic, 2019)*

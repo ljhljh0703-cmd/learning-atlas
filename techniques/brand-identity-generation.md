@@ -7,6 +7,8 @@ category: technique
 source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 ---
 
+<!-- 브랜드 아이덴티티 생성 방법론 — 3 divergent route + 현행 트렌드 + 하드룰. ad-storyboard 브랜드 작업·신규 브랜드에 적용. -->
+
 > 출처: hyperagent-public-skills `brand-book-generator` skill 전문 직접 파악(2026-06-16). 한 줄 앱 설명 → *3 radically distinct 브랜드 route*를 no-scroll bento 1화면으로. 방법론(트렌드·divergence·하드룰)을 흡수 — 산출 템플릿/스크립트는 clean-room(복제 X).
 
 # Brand Identity Generation — 3-route 방법론

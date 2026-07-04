@@ -266,3 +266,4 @@ _write_origin = ContextVar("skill_write_origin", default="foreground")
 - [Autoresearch — Karpathy의 자동 연구 루프](../methods/autoresearch-karpathy.md) — 야간 자율 루프 패턴
 - skill-sync-strategy — 연결된 맥락 기반 스킬 전략
 - [Sakana AI "AI Scientist" — 자율 연구 에이전트가 ICLR workshop 심사 통과](sakana-ai-scientist.md) — 자가 연구 에이전트 (비교)
+- [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](goose-agent-harness.md) · [Jawcode (jwc) — 코딩 에이전트 하네스 (IPABCD)](jawcode.md) — 모델 독립 하네스 정본 자매(본 페이지=Hermes 자가성장 회로 / goose=production breadth / jawcode)

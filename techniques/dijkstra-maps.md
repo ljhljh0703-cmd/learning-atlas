@@ -12,6 +12,8 @@ year: 2011
 category: technique
 ---
 
+<!-- Brian Walker(Brogue)의 Dijkstra Maps 기법 학습 노트 — libgdx-rogue-os 격자 적 AI 핵심 -->
+
 # Dijkstra Maps — 격자 로그라이크 적 AI 의 공유 거리 필드
 
 *Brian Walker (Brogue 개발자), "The Incredible Power of Dijkstra Maps", RogueBasin 2011*
@@ -144,6 +146,7 @@ public Direction getNextStep(Position e, float wChase, float wFlee, float wItem)
 
 ## 연결된 페이지
 
+- dijkstra-maps-synthesis — 구현 명세(flee 재스캔·아키타입 가중치표·GC-free Java, 본 이론의 libgdx 이식)
 - libgdx-rogue-os — 적 AI 직접 적용 대상
 - [Data-Oriented Design & Flecs — 컴포넌트를 조밀 배열로 정렬하는 ECS](ecs-data-oriented-design.md) — primitive 배열 공유 철학의 짝
 - [Improving Playtesting Coverage via Curiosity-Driven RL Agents — 자동 커버리지 탐색](../methods/automated-playtesting-shooterbot.md) — 결정론적 적 이동의 헤드리스 검증

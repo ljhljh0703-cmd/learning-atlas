@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- im-not-strange-ai(itssosunny) — im-not-ai 포크. 추가분 핵심 = Sunny 7 규칙(문장 단위 역할 점검). humanize-korean 스킬 보조 패스로 흡수(2026-06-20). -->
+
 # im-not-strange-ai — Sunny 7 보조 패스 (humanize-korean 확장)
 
 *itssosunny, MIT, 2026-06-20 clone 통독·해체 흡수. 설치 X.*

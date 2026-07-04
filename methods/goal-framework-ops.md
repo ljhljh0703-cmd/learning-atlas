@@ -6,6 +6,8 @@ tags: [goal-framework, agentic-os, aios, scaffolding, swarm-architecture, agent-
 category: method
 ---
 
+<!-- GOAL 프레임워크 규격 및 Fable 5 기반 에이전트 OS(AIOS) 연동 아키텍처 설계서입니다. -->
+
 # GOAL 프레임워크와 에이전트 OS 아키텍처 (GOAL Framework & AIOS)
 
 > ⚠️ **임시(provisional)** — Gemini 영상 해체분석 기반. 작가 명시 컨펌 전. 방법론(§2~4)은 흡수 가치 확정, 출처는 영상 1건.

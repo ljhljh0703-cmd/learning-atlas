@@ -11,7 +11,7 @@ category: technique
 
 *Anthropic Interpretability Team (April 2, 2026)*
 
-> ⚠️ **임시 (Provisional)**: 본 문서는 외부 AI(Antigravity)에 의해 작성된 초안이며, 작가의 검토 및 컨펌을 대기 중입니다.
+> 🔄 **SUPERSEDED 2026-07-04 → [Emotion Concepts and their Function in a Large Language Model](anthropic-emotions-2026.md)** — 동일 논문의 더 풍부한 SSOT(mechanism + 인문학 delta + NPC 상세)로 통합됨. 고유했던 *안전가드 각도*(Methodical Cheating→하네스 done-gate·Verifier 격리)는 [Emotion Concepts and their Function in a Large Language Model](anthropic-emotions-2026.md) §안전성 함의로 흡수 완료. 본 노트 = 역사 참조(폐기된 Gemini/antigravity 작성). curator archive 후보(inbound 링크 정리 후).
 > ✅ **출처 검증 (vault Claude, 2026-06-27)**: 원문 실존 확인(2026-04-02). 수치 전건 일치 — Claude Sonnet 4.5·171 감정개념·협박 22%·Desperate/Calm/Methodical/reward hacking. 환각 0.
 
 ---

@@ -13,6 +13,8 @@ year: 2010
 category: technique
 ---
 
+<!-- 적 의사결정 AI(Utility AI + GOAP 하이브리드) 학습 노트 — libgdx-rogue-os "무엇을 하나" -->
+
 # 적 의사결정 — Utility AI + GOAP 하이브리드 ("무엇을 하나")
 
 *Dave Mark & Kevin Dill, "Improving AI Decision Modeling Through Utility Theory" (GDC 2010) · Jeff Orkin, "Three States and a Plan: The A.I. of F.E.A.R." (GDC 2006)*
@@ -97,6 +99,7 @@ category: technique
 
 ## 연결된 페이지
 
+- goap-utility-hybrid-ai — 구현 명세(Utility Scorer + GOAP Planner 하이브리드, GC-free 비트마스크, 본 이론의 libgdx 이식)
 - libgdx-rogue-os — 적 행동 AI 직접 적용
 - [Dijkstra Maps — 격자 로그라이크 적 AI 의 공유 거리 필드](dijkstra-maps.md) — "어디로"(이동) 담당, 본 노트는 "무엇을"(행동)
 - [Recursive Shadowcasting — 격자 로그라이크 FOV 의 표준](fov-recursive-shadowcasting.md) — 적 인지 게이트

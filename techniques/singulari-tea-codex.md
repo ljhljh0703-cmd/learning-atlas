@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Singulari-Tea Codex(lemos999, 아마추어작) 전문통독 — Gemini용 모듈형 LLM 서사 시뮬레이션 엔진. SRP 프롬프트 분리·SHN 상태 SSOT 사례. 시뮬 building blocks 추출원. clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "B r") — Claude 작성, repo clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). 작가 개인 관심(시뮬레이션) + 비전 B(MiroFish) 인접. **아마추어작(작가·제작자 둘 다 인정)** — 흡수 = *아키텍처 패턴*이지 프롬프트/도구 아님. building blocks 추출 정본 = [시뮬레이션 구축 Building Blocks (체크리스트)](../methods/simulation-building-blocks.md).
 
 # Singulari-Tea Codex — LLM 서사 시뮬레이션 아키텍처 사례

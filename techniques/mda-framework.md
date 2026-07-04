@@ -6,6 +6,8 @@ tags: [game-design, academic-theory, mda, framework, aesthetics]
 source: "Hunicke, LeBlanc, Zubek (2004). MDA: A Formal Approach to Game Design and Game Research. AAAI Workshop on Challenges in Game AI."
 ---
 
+<!-- 한국어 원라인 헤더. MDA 프레임워크 — 게임 디자인의 3계층 분해 모델 원론 학습 노트. -->
+
 # MDA 프레임워크 — Mechanics, Dynamics, Aesthetics
 
 ## 1. 논문 기본 정보

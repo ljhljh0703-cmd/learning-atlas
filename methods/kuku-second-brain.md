@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- Kuku(kuku-mom) 전문통독 — 작가 Sub-brain 거버넌스를 제품화한 오픈소스 Markdown 앱. AI=제안만/merge=인간을 도구 레지스트리 차단으로 *하드 강제*. HITL 스테이징·AI 결정 origin·CJK 인덱서의 외부 ground-truth. + Agent World(vault를 복셀 RPG 마을로·노트 stats→직업). clean-room(MIT). 도구 도입 아닌 개념 수확. -->
+
 # Kuku — 작가 Sub-brain 거버넌스를 제품화한 로컬 Markdown 앱 (외부 ground-truth)
 
 *kuku-mom, MIT, Tauri + SolidJS macOS 앱 (Rust 47% / TS 40% / Go) · GitHub clone 전문통독(clean-room)*
@@ -128,4 +130,5 @@ packages/contract(protobuf) · infra/docker(local/preview/prod, Cloudflare Tunne
 ## 연결된 페이지
 
 - CLAUDE.md (HITL 스테이징·AI 결정 origin·Dual-Track — kuku가 제품 확증) · goose-harness-groundtruth (하네스 정본 ↔ 본 페이지 거버넌스 정본) · [AI Employee Obsidian Stack — 파운더 운영 자동화 5피스 (2026-05-15 archive)](ai-employee-obsidian-stack.md) (Obsidian AI 스택) · graphify (인덱서 인접)
+- [지식 하네스 레지스트리 — Knowledge Harness Registry](knowledge-harness-registry.md) · [llm-wiki (fivetaku)](llm-wiki.md) — 지식 거버넌스·세컨드브레인 운영 패턴 자매(본 페이지=제품 거버넌스 확증 / registry=코드지식 레지스트리 / llm-wiki=위키 스키마 원리)
 - *(external-ai-grant-hardcontract·cold-verify-before-adopt·learning→반영 루프 = 작가 운영 메모리, 본 학습이 외부 확증)*

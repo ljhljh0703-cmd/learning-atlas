@@ -5,7 +5,7 @@ type: learning
 tags: [pixel-art, sprite, signal-processing, game-dev, ai-pipeline, deterministic]
 source: https://github.com/gykim80/perfectpixel-studio
 authors: [gykim80]
-year: 2025
+year: 2026
 category: technique
 ---
 

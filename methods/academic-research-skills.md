@@ -10,6 +10,8 @@ doi: 10.5281/zenodo.20696614
 category: method
 ---
 
+<!-- ARS(academic-research-skills, imbad0202) 전문통독 — 작가 거버넌스·검증·하네스 철학의 학술논문 도메인 쌍둥이. 4스킬/27모드 Claude Code 슈트. delta=concession threshold·intent detection·calibration FNR/FPR·결정론 citation 게이트·7실패모드·cross-model(31% 환각 same-model 통과). ground-truth isolation은 작가 data_access 등가. CC BY-NC 4.0. 도구 도입 아닌 메커니즘 수확. clean-room. -->
+
 # Academic Research Skills (ARS) — 작가 거버넌스·검증 철학의 학술논문 도메인 쌍둥이
 
 *Cheng-I Wu(吳政宜), CC BY-NC 4.0, Zenodo DOI · Claude Code 스킬 슈트 4종/27모드 v3.12.1 · GitHub clone 전문통독(핵심 메커니즘 중심, clean-room)*

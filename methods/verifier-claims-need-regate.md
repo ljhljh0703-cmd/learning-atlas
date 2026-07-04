@@ -31,3 +31,4 @@ Adversarial verification(생성자≠검증자)으로 외부 AI(Gemini·GPT·다
 
 - hermes-loop (③Gate — 본 원칙이 검증자 단계에 적용) · [Dynamic Workflows — 작업마다 하네스 (Claude Code)](dynamic-workflows-harness.md) (사고 발생 맥락) · [Claude Code 런타임 내부 (Layer C)](claude-code-runtime-internals.md) (훼손 위험 정본)
 - [Karpathy Guidelines — LLM 코딩 함정 4 원칙 (behavioral overlay skill)](karpathy-guidelines.md) (#1 가정 표면화)
+- [리서치는 전문 통독 — 인접한 것까지 뽑아 박제](research-thoroughly-extract-adjacent.md) · [WebFetch 는 lossy 요약 — 충실 학습은 clone 통독](webfetch-is-lossy-clone-for-fidelity.md) — 학습 충실성 운영 원칙 3종의 자매(검증자 재-Gate / 흡수 깊이 / 출처 충실). 셋 다 "외부 입력을 그대로 믿지 말고 1차로 검증·통독하라"의 다른 국면

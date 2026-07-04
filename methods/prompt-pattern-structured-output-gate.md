@@ -6,6 +6,8 @@ tags: [prompt-pattern, structured-output, constraints, guardrail]
 category: method
 ---
 
+<!-- 프롬프트 패턴: LLM 출력을 스키마 유효 구조로 강제하는 게이트 -->
+
 # Pattern: Structured Output Gate (구조화 출력 게이트)
 
 > ⚠️ **임시 (provisional)** — Claude 가 Hub 의 빈 "Constraints" 슬롯을 채우려 신설. 작가 컨펌 전.
@@ -63,5 +65,5 @@ Output MUST match this schema. No prose, no code fence, no trailing comma.
 ---
 
 ## 연결된 페이지
-- index
-- log
+- [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](research-claim-gate.md) · [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) · [Playwright E2E 에이전트 하네스 — 테스트=실행가능 명세, trace=user-facing 증빙 매체 (Naver 발표)](playwright-e2e-agent-harness.md) — 게이트 기반 검증 방법론 자매(본 패턴=출력 *구조* 강제 / research-claim=증거 등급 / forge=spec·test / playwright=E2E 관측)
+- [Ouroboros — Spec-First Agent OS](ouroboros.md) (Evaluate 게이트 단계) · agent-harness (하네스 검증 레이어)

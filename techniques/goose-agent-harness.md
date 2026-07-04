@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- goose(Block→AAIF/Linux Foundation) 전문 해체 — "Agent=Model+Harness"의 production 오픈소스 정본. 모델독립 하네스·RSI ②Apply 외부증거. clean-room 통독(코드복제 X). -->
+
 > ✅ **confirmed** (2026-06-17, 작가 확정) — Claude 작성, clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드 복제 X).
 
 # goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)

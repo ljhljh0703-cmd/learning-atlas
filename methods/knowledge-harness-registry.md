@@ -258,3 +258,4 @@ ai_harness:
 ## 연결
 
 index · agent-harness-rsi · index · hermes-loop · [하네스 이력 — Harness History](harness-history.md)
+- [Kuku — 작가 Sub-brain 거버넌스를 제품화한 로컬 Markdown 앱 (외부 ground-truth)](kuku-second-brain.md) · [llm-wiki (fivetaku)](llm-wiki.md) — 지식 거버넌스·세컨드브레인 운영 패턴 자매(본 페이지=코드지식 레지스트리 / kuku=제품 거버넌스 확증 / llm-wiki=위키 스키마 원리)

@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- text-to-lottie(diffusion studio) 전문통독 재분석 — 코딩 에이전트가 skill로 Lottie를 생성하고 라이브 Skia 플레이어로 검증하는 하네스. 기존 GPT 외주 오분석(agentic-lottie-html-integration) 대체. clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "A ㄱㄱ" — 전면 재작성) — vault Claude *repo 직접 clean-room 통독* 기반 ③Gate PASS. **기존 agentic-lottie-html-integration(GPT 외주, 2026-06-12)를 대체** — 그건 repo 미독 일반 Lottie 지식 합성이라 정체·아키텍처를 오분석했고, repo SKILL 이 *금지한 안티패턴(hand-rolled lottie-web viewer)*을 정답으로 박았음. 본 페이지가 정정.
 
 # text-to-lottie — 에이전트 Lottie 생성 하네스 (diffusion studio)

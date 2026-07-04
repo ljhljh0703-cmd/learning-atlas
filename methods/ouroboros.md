@@ -11,6 +11,7 @@ tags: [ouroboros, agent-os, spec-first, evaluation-gate, nine-minds, claude-code
 
 > Q00/ouroboros, MIT, PyPI `ouroboros-ai`, Python 3.12+. *"Stop prompting. Start specifying."*
 > AI 코딩의 병목은 AI 능력이 아니라 인간 명료성이라는 가설 위의 runtime layer. Claude Code / Codex CLI / OpenCode / Hermes 4개 환경에서 작동.
+> **연결**: `Interview` 단계의 Socratic 가정 노출 = [deep-interview 해체분석 및 Sub-brain 이식 전략](../techniques/deep-interview.md) 와 동일 기법 — deep-interview 는 *암묵지→wiki 지식*, ouroboros 는 *가정→immutable spec* 으로 산출만 다르다. 작가 dispatch-builder 역면접도 같은 소크라테스 인터뷰 계열(하나의 기법, 세 산출처).
 
 ## 1. 핵심 루프
 

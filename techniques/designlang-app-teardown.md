@@ -6,6 +6,8 @@ tags: [design-system, landing-page, teardown, bento-grid, dark-theme, typography
 category: technique
 ---
 
+<!-- designlang.app 랜딩 페이지의 프리미엄 레이아웃, 그래디언트 노이즈, Bento Grid 디자인 분석서입니다. -->
+
 # 디자인 해체 — designlang.app 랜딩 페이지 (Landing Teardown)
 
 > **한줄**: 다크 모드 배경 속에서 강렬한 Molten-Orange 포인트 컬러와 노이즈 그래디언트, 정보 밀도가 높은 Bento Grid를 조화롭게 구성한 개발자 친화적 랜딩 디자인.

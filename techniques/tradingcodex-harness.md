@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- TradingCodex(monarchjuno) 해체 — "Codex-native 트레이딩 하네스". 자율봇 아님=harness OS(roles/MCP실행경계/Django state) + Guardrails + Improvement loop. 현수봇 흡수원 #2. 핵심 수확=improvement loop(재귀개선·성장·학습) 형식화 + 실행경계 가드레일. agent-harness 북극성의 트레이딩 도메인 결정체. clean-room README+docs(improvement-loop.md/harness.md) 통독. -->
+
 # TradingCodex — "Codex-native 트레이딩 하네스" (자율봇이 아니다)
 
 *monarchjuno (Apache-2.0 open-core)*

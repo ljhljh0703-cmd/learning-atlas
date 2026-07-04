@@ -1,11 +1,13 @@
 ---
 created: 2026-06-18
-updated: 2026-06-18
+updated: 2026-06-30
 type: learning
 tags: [graph-db, neo4j, cypher, graph-theory, gds, learning-notes, in-progress]
 category: method
 source: https://neo4j.com/docs/
 ---
+
+<!-- Graph DB / Neo4j 지식 누적 노트 — 작가 학습 발판(기초 시드) + 작가가 공부하며 알아낸 것 누적처 + 작가 입력 수신 구조. brief=설계SSOT, 본 노트=지식 누적(살아있는 문서). vault Claude 시드 지식은 검증 전 참고용(작가 공부로 확정). -->
 
 # Graph DB / Neo4j — 지식 누적 노트 (학습 진행형)
 
@@ -54,6 +56,37 @@ MATCH p = shortestPath((a:Note {title:'identity'})-[:LINKS_TO*]-(b:Note {title:'
 - [Microsoft GraphRAG — Query-Focused Summarization on Narrative Private Data](../techniques/graphrag.md)(MS) = graph + LLM 검색. [Zep / Graphiti — Temporal Knowledge Graph for Agent Memory](../techniques/zep-graphiti.md) = temporal KG 에이전트 메모리. [CocoIndex — Incremental Data Pipeline for AI Agents](../techniques/cocoindex.md) = 증분 인덱싱.
 - Neo4j는 vector index도 내장 → graph traversal + 임베딩 검색 결합 가능.
 
+### 0.6 Cypher 정비(repair) 치트시트 + AI-생성 그래프 정정 루프 (Phase 1·3 보강 시드)
+
+> 출처: Bloom AI(공원나연) YouTube "AI가 잘못 만든 지식 지도를 수정하는 방법 (Update & Delete)" (2026-06-27, [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](neo4j-agent-memory-context-graph.md) 시리즈 후속) → Codex 외주 ③Gate(해시 7/7·Cypher 의미 공식문서 200 교차확인·환각0, 2026-06-30). **시드 = 작가 공부로 검증 대상.**
+
+LLM이 자동 추출한 그래프는 필연적으로 오류가 생긴다 — **중복 엔티티 · 잘못된 관계 · 잘못된 라벨 · 누락 속성**. graph DB 운영의 첫 실무는 "멋진 GraphRAG 질의"가 아니라 **정정·삭제·충돌해결 절차**다.
+
+정비 문법 (§0.3 치트시트 확장 — `DETACH DELETE`/`REMOVE`/`UNWIND`/`LIMIT` 신규):
+```cypher
+// 속성/라벨 정정 (누락 필드 보강)
+MATCH (n:Entity) WHERE n.id IN $ids SET n.name = n.id RETURN n
+// 멱등 삽입 (반복 추출 환경 기본값 = CREATE 아닌 MERGE)
+MERGE (n:Entity {id:$id}) SET n.type = $type, n.name = $name
+// 관계도 MERGE — 틀어진 edge 재배선
+MATCH (a {id:$from}), (b {id:$to}) MERGE (a)-[r:REL]->(b) SET r.source = $src
+// 노드+연결관계 삭제 (관계 남은 노드는 DELETE 단독 실패)
+MATCH (n:Entity {id:$id}) DETACH DELETE n   // ⚠ 강함 — 먼저 RETURN/count dry-run
+// 속성·라벨만 제거 (노드 보존)
+REMOVE n.tmp, n:Draft
+// 대량 정비: 리스트→행 (batch ingest·duplicate resolution)
+UNWIND $nodes AS row MERGE (n:Entity {id:row.id}) SET n += row.props
+```
+키워드 추가: `DETACH DELETE`(연결관계 있는 노드 삭제) · `REMOVE`(속성/라벨 제거, 노드 X) · `UNWIND`(리스트→행) · `LIMIT`(조회 범위 제한) · `WITH`(중간결과 파이프).
+
+**AI-생성 그래프 정정 루프** (agent memory·GraphRAG 적재 공통):
+`Extract → Inspect → Repair → Verify → Tombstone/Promote`
+- Extract: LLM/파서가 노드·관계 생성 → Inspect: 중복·잘못된 edge·누락속성·orphan 탐색 → Repair: 위 정비 문법 → Verify: count·sample path·source evidence·duplicate scan → Tombstone/Promote: 삭제 vs 병합 vs 승격 결정.
+
+**운영 원칙 2종**:
+- **MERGE-first ingest** — 반복 추출 환경에선 기본 삽입을 `CREATE` 아닌 `MERGE`로(중복 차단). 단 기준 속성(`id`) 정규화·alias 처리·canonical title이 선행돼야 멱등성 안 깨짐 → uniqueness constraint 필요.
+- **tombstone-before-delete** — 지식 자산을 `DETACH DELETE`로 날리면 provenance 소실. 삭제보다 `deprecated`/`merged_into`/`superseded_by`/`confidence: rejected` tombstone 속성이 안전. 🔗 **vault 거버넌스와 수렴**: vault가 이미 `status: superseded`·`proposed_by`/`confirmed_by`·D-NNN supersede로 실천 중인 패턴(헌법 AI 결정 origin §) → graph DB 이주 시 그대로 node/edge 속성으로 이식 가능.
+
 ---
 
 ## 1. 학습 로드맵 (실행판 — brief §3 구체화)
@@ -93,6 +126,7 @@ MATCH p = shortestPath((a:Note {title:'identity'})-[:LINKS_TO*]-(b:Note {title:'
 - ~~B-2 graphify ↔ Neo4j 역할 경계~~ **정리됨**(brief §4 B-2): graphify=휘발 즉석분석 / Neo4j=영속 쿼리백엔드, 보완. Phase 4서 god node↔PageRank 대조.
 - vault 규모(수백 노트) 적재 성능·증분 갱신 → [CocoIndex — Incremental Data Pipeline for AI Agents](../techniques/cocoindex.md) 증분 패턴(Phase 3 참조).
 - 기존 흡수 자산 Phase 연결 = brief §4 B-3 표(graphrag·zep-graphiti→P5, cocoindex→P3, codegraph→P2).
+- **(신규 2026-06-30)** Cypher constraints/indexes — `MERGE`를 안전하게(멱등) 쓰려면 uniqueness constraint 선행 필요(§0.6 MERGE-first 단서). Phase 1·3서 실습 후보. + 정정 루프(`Extract→Inspect→Repair→Verify→Tombstone`)를 vault 적재 파이프라인(Phase 3)에 반영처로 검토.
 
 ---
 

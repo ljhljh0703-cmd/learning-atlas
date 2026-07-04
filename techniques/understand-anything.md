@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Understand-Anything(Egonex) 전문통독 — Karpathy-wiki→지식그래프 플러그인. graphify 직접 경쟁 도구 비교. 결론: graphify가 코어에서 더 강하고, understand delta는 소비/교육 레이어. 업계수렴 확증. clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "배울만한 거 배워. A로") — Claude 작성, repo clean-room 전문통독 + graphify 페이지 대조 grounding 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). **흡수 = graphify 비교 + 진짜 delta만**(도구 자체는 graphify 중복 → infra-0).
 
 # Understand-Anything — Karpathy-wiki→그래프 플러그인 (graphify 비교)

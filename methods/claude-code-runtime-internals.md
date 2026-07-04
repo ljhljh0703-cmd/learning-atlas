@@ -9,6 +9,8 @@ year: 2026
 category: method
 ---
 
+<!-- Claude Code / Agent SDK 런타임 내부(Layer C) 정본 — 공식 docs 확증 Tier A + 비공식 논문 Tier B 격리. research-relay GPT ④Gate. -->
+
 # Claude Code 런타임 내부 (Layer C)
 
 > **한줄**: 자율 에이전트를 *안전·장기* 구동하는 Claude Code/Agent SDK 내부 — 권한·샌드박스·컴팩션·MCP/tool_search·세션·서브에이전트. Fable-as-harness 5층 중 **Layer C(런타임 환경)** 정본. **Tier A = 공식 docs 확증**(권위), **Tier B = 비공식 논문 후보**(미확정, 격리).

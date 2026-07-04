@@ -7,6 +7,8 @@ category: technique
 source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 ---
 
+<!-- NYT/Upshot급 데이터 시각화 규율 — 정적 차트 + 인터랙티브 D3 대시보드. 포트폴리오·리포트 차트 품질 상향. -->
+
 > 출처: hyperagent-public-skills `nyt-data-viz` skill 전문 직접 파악(2026-06-16, 70KB 최대 파일). 기본 Plotly/Chart.js 출력을 NYT graphics desk급으로 끌어올리는 하우스 규율. 포폴/리포트의 모든 차트에 적용.
 
 # NYT-discipline Data Visualization

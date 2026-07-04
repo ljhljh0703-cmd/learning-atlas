@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- opencode(sst, TS/Bun/Effect) 전문 해체 — 모델독립 하네스 #2 대조군. goose=breadth/features, opencode=depth/rigor(System Context 대수·durable session core·capability-scoped tools). clean-room 통독(코드복제 X). -->
+
 > ⚠️ **임시(provisional)** — Claude 작성, 작가 컨펌 전. clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드 복제 X). 컨펌 시 `status: confirmed`.
 
 # opencode — 모델독립 에이전트 하네스 #2 (컨텍스트 조립 *엄밀성* 정본)

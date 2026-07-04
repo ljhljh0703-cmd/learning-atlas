@@ -10,6 +10,8 @@ year: 2008
 category: technique
 ---
 
+<!-- 로그라이크 장르 정의 표준 문서 'Berlin Interpretation' 학습 노트 — libgdx-rogue-os 기획 정체성 근거 -->
+
 # Berlin Interpretation — 로그라이크 장르 정의의 사실상 표준
 
 *International Roguelike Development Conference (IRDC) 2008 / RogueBasin 커뮤니티 문서*

@@ -9,9 +9,11 @@ year: 2025
 category: method
 ---
 
+<!-- obra/superpowers(코딩 에이전트 스킬 프레임워크) 해체분석 — 메타 패턴 추출 및 vault 차용 후보 명세. -->
+
 # Superpowers 해체분석 (obra/superpowers)
 
-> ⚠️ **임시(provisional)** — 2026-06-16 vault Claude 직접 해체(WebFetch). 작가 명시 컨펌 전. 출처 = 공개 repo README + 5개 SKILL.md raw. clean-room(우리 분석·표현, 텍스트 복사 X). star 229k/fork 20.4k = 표시값(외부 재검증 안 함).
+> ✅ **confirmed 2026-06-28** — 2026-06-16 vault Claude 직접 해체(WebFetch), 작가 컨펌 완료(frontmatter status: confirmed). 출처 = 공개 repo README + 5개 SKILL.md raw. clean-room(우리 분석·표현, 텍스트 복사 X). star 229k/fork 20.4k = 표시값(외부 재검증 안 함).
 
 > **한 줄**: 코딩 에이전트용 *합성 가능한 스킬 13종 + 워크플로우 강제* 방법론. 마켓플레이스 플러그인으로 배포되나 본질은 public plain-markdown 스킬 — 잠금 없이 차용 가능.
 > **핵심 발견**: 진짜 "superpower"는 개별 스킬이 아니라 **모든 discipline 스킬을 관통하는 1개 메타 패턴**(아래 §2).

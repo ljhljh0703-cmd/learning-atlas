@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- oh-my-openagent(OmO, code-yeongyu/Sisyphus Labs) 전문통독 — opencode 위 하네스 레이어 정본. 3층 오케스트레이션·hyperplan 적대팀·skill A/B eval(skillopt)·54+ 훅. HITL=failure 철학 충돌. clean-room. SUL-1.0. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "B ㄱㄱ") — Claude 작성, repo clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). ⚠ **SUL-1.0(Sustainable Use License — source-available·non-compete, OSI 오픈소스 아님)**. 흡수=패턴/개념(도구 도입 X). **후속**: 같은 제작자 Codex판 LazyCodex 예정(작가 예고) → 그때 본 페이지에 이어붙임.
 
 # Oh My OpenAgent (OmO) — opencode 위 하네스 레이어

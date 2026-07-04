@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- GBrain(Garry Tan/YC) 전문통독 — 개인 AI 지식브레인 production 정본. Sub-brain 도메인 직결: 강한 수렴 검증 + compiled-truth/timeline 2존 신규 차용. clean-room(코드복제 X). -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "2종 세팅해") — Claude 작성, clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드 복제 X). 흡수 범위 = *개념·철학*(인프라 코드 X — infra-0).
 
 # GBrain — 개인 AI 지식 브레인 production 정본

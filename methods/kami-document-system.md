@@ -8,6 +8,8 @@ source: https://github.com/tw93/Kami
 authors: [tw93]
 ---
 
+<!-- tw93/Kami 운영 teardown — AI 에이전트용 문서 생성 시스템(이력서·포폴·슬라이드·백서 등 9종). ParkDal 부모, 작가 취업 직결. 기존 kami-design-system(철학)의 운영 보강. -->
+
 > 출처: `tw93/Kami` v1.7.4 **clone 전문 통독**(2026-06-16, SKILL.md 535 + references 8종 + tokens). 기존 kami-design-system은 *디자인 철학*만 — 본 페이지는 *운영 실체*(9 문서타입·이력서 전략·writing 품질바·14 다이어그램). **Kami = ParkDal의 부모**(tokens 일치), **diagram-design([Diagram-Design Skill — Editorial 다이어그램을 자동화한 Claude Code skill](diagram-design-skill.md)) 크레딧**. 🎯 **작가 취업 직결**(이력서/포폴 생성 + 한국어 템플릿 존재). 방법론만 흡수(코드 clean-room).
 
 # Kami (紙) — AI 문서 생성 시스템 운영 teardown

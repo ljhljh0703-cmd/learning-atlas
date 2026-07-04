@@ -7,6 +7,8 @@ source: "ClaudeCraft repo docs/reverse-analysis/11~12 + docs/harness/skill-candi
 category: method
 ---
 
+<!-- 게임 기획을 역질문으로 잠그고 구현 가능한 디스패치로 바꾸는 AI 에이전트 방법론. -->
+
 # Game Planning AI Agent — 역질문 기반 게임 기획 에이전트
 
 > ⚠️ **임시 (provisional)** — Codex(외부 AI)가 ClaudeCraft repo 산출물(`docs/reverse-analysis/11~12` + skill-candidate)에서 추출, vault Claude ③Gate 검증 통과(출처·환각·계약 대조). 단 작가 명시 컨펌 전이라 `confirmed` 아님 — 권위 결정으로 인용 금지. 작가 컨펌 시 `status: confirmed` 전환.

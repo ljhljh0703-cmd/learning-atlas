@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Ralph(snarktank/Ryan Carson, Huntley 패턴) 전문통독 — 자율 코딩 루프 최소 실현체(bash+fresh context+3 메모리). 작가 하네스/dual-track/granularity/done-gate 수렴 + 자동화축 delta. dangerous-auto 충돌 가드. clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "B ㄱㄱ") — Claude 작성, repo clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). [Ouroboros — Spec-First Agent OS](../methods/ouroboros.md) 가 언급만 했던 Ralph 패턴의 실물.
 
 # Ralph — 자율 코딩 루프 최소 실현체 (snarktank)

@@ -7,6 +7,8 @@ source: https://www.trysmooth.ai/ko
 category: method
 ---
 
+<!-- trysmooth.ai 한국어 랜딩 페이지 해체분석 및 ParkDal Design System 이식 매핑 가이드입니다. -->
+
 # trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)
 
 > **한줄**: 실시간 AI 미팅 비서 서비스의 다크 SaaS 랜딩 페이지 UI/UX 해체 및 ParkDal Design System(PDD) 이식 매핑 가이드.
@@ -203,3 +205,8 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 | 요금제 | 가격 플랜 3종 카드 | `pricing-card-grid` |
 | FAQ | 아코디언 질문 리스트 | `accordion-faq` |
 | 마감 CTA | 최종 클릭 유도 섹션 | `closing-headline` |
+
+---
+
+## 연결된 페이지
+- design-index — 디자인 시스템 허브 · [Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처](../techniques/comnyang-landing-teardown.md) · [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](../techniques/apple-design-teardown.md) · [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](../techniques/awesome-design-md-teardown.md) — 디자인 시스템 레퍼런스/해체 코퍼스 자매(랜딩 해체→아키타입 추출)

@@ -15,11 +15,13 @@ doi: 10.1145/2010324.1964994   # Depixelizing Pixel Art (대표 논문)
 category: technique
 ---
 
+<!-- 픽셀아트 제작 기법 + 연구 정리. GPT 1차 외주(research-relay) → Claude Gate → 흡수. SVG/코드 픽셀아트 생성 관점 중심. -->
+
 # 픽셀아트 제작 기법 + 연구
 
 > **한 줄**: 픽셀아트 "조악함 vs 프로"를 가르는 건 ① 제한 팔레트 + **컬러 램프** ② **hue shifting** ③ 안티에일리어싱 ④ readability(실루엣 우선) ⑤ 일관된 광원. 출처: GPT 1차 외주(research-relay) → Gate 통과 흡수. 자기지식 코어가 아닌 외부 지식 — origin 표기됨.
 
-작가 적용 맥락: 래스터 툴(Aseprite) 없이 **SVG(`<rect>` 격자 + `shape-rendering:crispEdges`)·코드로 픽셀아트 생성**. 빌더 반영은 html-publish GUIDE §13. 관련: [Comnyang 랜딩 해체분석 (Comnyang Teardown)](../methods/comnyang-landing-teardown.md)(픽셀 모션·하드섀도우) · [SPD UI Clean-Room — 5개 클래스의 *역할*만](spd-ui-clean-room.md)(픽셀 UI 역할분리) · **libgdx-rogue-os**(픽셀 게임 — actor/enemy 아트 차단 OQ-007/004, 본 학습이 에셋 가이드 기반).
+작가 적용 맥락: 래스터 툴(Aseprite) 없이 **SVG(`<rect>` 격자 + `shape-rendering:crispEdges`)·코드로 픽셀아트 생성**. 빌더 반영은 html-publish GUIDE §13. 관련: [Comnyang 랜딩 Teardown — "무라이브러리 모션" 아키텍처](comnyang-landing-teardown.md)(픽셀 모션·하드섀도우) · [SPD UI Clean-Room — 5개 클래스의 *역할*만](spd-ui-clean-room.md)(픽셀 UI 역할분리) · **libgdx-rogue-os**(픽셀 게임 — actor/enemy 아트 차단 OQ-007/004, 본 학습이 에셋 가이드 기반).
 
 ---
 

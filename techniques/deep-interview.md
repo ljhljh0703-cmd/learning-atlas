@@ -6,6 +6,8 @@ tags: [deep-interview, socratic-questioning, knowledge-acquisition, staging-firs
 category: technique
 ---
 
+<!-- deep-interview 스킬의 지식 추출 절차 및 Sub-brain 이식 연구서입니다. -->
+
 # deep-interview 해체분석 및 Sub-brain 이식 전략
 
 > ✅ **확정(confirmed) 2026-06-14** — 세션 내 ③Gate 통과 + 작가 수용. (외부 미검증 세부는 본문 표기 유지.)

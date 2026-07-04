@@ -11,6 +11,8 @@ year: 2001
 category: technique
 ---
 
+<!-- 격자 FOV(recursive shadowcasting) 학습 노트 — libgdx-rogue-os 시야/안개/적 인지 -->
+
 # Recursive Shadowcasting — 격자 로그라이크 FOV 의 표준
 
 *Björn Bergström, "FOV using recursive shadowcasting" (RogueBasin, 2001) · Jice 비교연구(2009)*

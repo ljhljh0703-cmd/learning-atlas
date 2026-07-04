@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- WoC v0.9.1 전 소스 통독 역기획(01~10)에서 추출한 AI 게임 생산 방법론 농축 인출본. 전문=ClaudeCraft repo. -->
+
 # WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)
 
 > WoC v0.9.1(MIT, 원저자 허락) **전 소스 직접 통독**(src 150,520 LOC + 개발 docs 19,244 LOC) 역분석 종합. world-of-claudecraft-teardown-brief §3 Phase 1 산출(외주 계획 → 실제는 직접 통독으로 수행).

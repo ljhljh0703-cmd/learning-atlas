@@ -9,6 +9,8 @@ year: 2025
 category: technique
 ---
 
+<!-- TradingAgents(TauricResearch) 해체 — LLM 멀티에이전트 트레이딩 회사 모사. 현수봇 흡수원 #1. 핵심 수확=반성·기억 루프(BM25, 무비용). clean-room README+소스 일부 통독(reflection.py/memory.py 직접 확인). -->
+
 # TradingAgents — LLM 멀티에이전트로 "트레이딩 회사"를 모사하는 프레임워크
 
 *Tauric Research (Yijia Xiao 외, arXiv 2412.20138, q-fin.TR)*

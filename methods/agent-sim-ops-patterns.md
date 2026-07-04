@@ -7,6 +7,8 @@ category: method
 source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 ---
 
+<!-- 장기 에이전트 운영·시뮬·작업추적 패턴 — hyperagent 3스킬(business-sim/kanban/landscaping)의 vault-adjacent 추출. 당장 안 써도 운영 토대에 연관. -->
+
 > 출처: hyperagent-public-skills 3스킬(`business-simulation-operator-method`·`airtable-kanban-work-tracker`·`landscaping-design-and-quote`) 전문 통독(clone, 2026-06-16). 광고/포폴 직결은 아니나, *장기 에이전트 운영* 패턴이 vault 운영(sim·dual-track·decisions·memory)과 강하게 adjacent — "당장 안 써도 연관되면 박제"(작가 지시).
 
 # Agent Sim/Ops Patterns (vault-adjacent)

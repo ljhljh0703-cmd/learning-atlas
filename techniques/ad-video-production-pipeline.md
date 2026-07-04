@@ -7,6 +7,8 @@ category: technique
 source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 ---
 
+<!-- 광고·영상 제작 실전 파이프라인 — hyperagent 5스킬(subway/trailer/veo-hyperframes/claymation×2) 전문 흡수. ad-storyboard·video-use 직결. -->
+
 > 출처: hyperagent-public-skills 5스킬(`nyc-subway-campaign`·`briefing-trailer`·`veo-hyperframes`·`claymation-explainer`·`claymation-podcast-clips`) **전문 직접 통독**(clone, 2026-06-16). 실전서 디버깅된 파이프라인·함정 모음. ad-storyboard(기획·스토리보드)의 *실제 영상 제작* 단계 + [video-use — 영상을 *읽는* 에이전트 스킬](../methods/video-use.md) 보강.
 
 # 광고·영상 제작 파이프라인 (실전)

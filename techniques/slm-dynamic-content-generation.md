@@ -11,6 +11,8 @@ doi: arXiv:2511.10277
 category: technique
 ---
 
+<!-- Fixed-Persona SLMs with Modular Memory (Braas & Esterle 2025) 학습 노트 — libgdx-rogue-os NPC 대화 -->
+
 # Fixed-Persona SLMs with Modular Memory — 소비자급 하드웨어 다중 NPC 대화
 
 *Martin Braas, Lukas Esterle (arXiv:2511.10277, 2025)*

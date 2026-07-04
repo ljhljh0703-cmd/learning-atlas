@@ -10,6 +10,8 @@ year: 2016
 category: technique
 ---
 
+<!-- Cellular Automata 동굴 생성(RogueBasin) + BSP 합성 학습 노트 — libgdx-rogue-os PCG -->
+
 # Cellular Automata 동굴 생성 (+ BSP 합성) — 정합성 보장형 격자 지형
 
 *RogueBasin, "Cellular Automata Method for Generating Random Cave-Like Levels"*

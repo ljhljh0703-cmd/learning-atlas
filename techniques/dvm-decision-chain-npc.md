@@ -10,6 +10,8 @@ year: 2025
 category: technique
 ---
 
+<!-- DVM: 소셜추론 NPC를 추론(Predictor)/결정(Decider)/발화(Discussor)로 분리하고 보상으로 난이도를 제어하는 결정 체인 -->
+
 # DVM — 추론/결정/발화 분리형 소셜추론 NPC 결정 체인
 
 > 한 줄: 사회적 추론 게임 NPC를 **Predictor(관계·정체성 추론) → Decider(규칙·승률 제약 하 행동선택) → Discussor(행동의 자연어 발화화)**로 분리. "머릿속 추론"과 "겉 발화"를 같은 LLM 출력에 안 섞어, 게임 시스템이 Decider 단계에서 난이도·합법행동을 제어한다.

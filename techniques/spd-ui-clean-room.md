@@ -10,6 +10,8 @@ year: 2024
 category: technique
 ---
 
+<!-- SPD UI clean-room 학습 — GameScene/PixelScene/StatusPane/Toolbar/GameLog 역할만. GPL 코드 복사 X -->
+
 # SPD UI Clean-Room — 5개 클래스의 *역할*만
 
 *Shattered Pixel Dungeon (00-Evan, GPLv3) UI 아키텍처 참조*

@@ -132,3 +132,4 @@ mlagents-learn config/ppo/3DBall.yaml --run-id=ball-01 --env=builds/3DBall
 - SKILL.md — Curriculum 평가 게이트 reference (D-052 짝)
 - hwiglija-tower-design-agenda 토픽 13 — OpenHands + ml-agents 양쪽 reference 비교 후보
 - hwiglija-tower-gdd D-022 / D-024 — Mataios Reflection 메모리 단계 (Curriculum 매핑 가능)
+- roadmap · blog-draft-rl-first-steps — RL 학습 경로 자매(로드맵 / 첫 실험 스텝 / 본 페이지=게임 RL 적용)

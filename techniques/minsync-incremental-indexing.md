@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- Git 없이 manifest+content-hash 로 벡터 인덱스를 증분·crash-safe 갱신하는 MinSync 기법 — 경량 흡수(전이 개념 2개) + 향후 응용 대비 기술 기록. -->
+
 # MinSync — 증분 벡터 인덱싱 기법 (경량 흡수 + 응용 대비 기록)
 
 > **한줄**: Git 없이 `manifest.json`(size+mtime+SHA-256)로 변경을 탐지하고, **변경 청크만 재임베딩** + `seen_token` mark-and-sweep 으로 stale 벡터를 제거하며, txn/cursor 로 crash-safe 재개하는 Rust CLI(LanceDB). 검색 알고리즘이 아니라 **"인덱스를 안전·저렴하게 최신 유지하는 runtime"**.

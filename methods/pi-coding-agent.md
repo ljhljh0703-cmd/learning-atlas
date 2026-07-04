@@ -6,6 +6,8 @@ tags: [coding-agent, cli, harness, extensions, skills, typescript, badlogic]
 source: https://github.com/earendil-works/pi/tree/main/packages/coding-agent/docs
 ---
 
+<!-- pi 코딩 에이전트 CLI (earendil-works) — 미니멀 코어 + TypeScript 확장 모델 학습 노트 -->
+
 > ⚠️ **임시 (provisional)** — Claude 가 작성, 작가 컨펌 전. 사실 검토 후 `status: confirmed` 로 전환.
 
 # pi 코딩 에이전트 CLI

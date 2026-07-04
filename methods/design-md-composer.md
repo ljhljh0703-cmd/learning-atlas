@@ -7,6 +7,8 @@ source: https://github.com/VoltAgent/awesome-design-md
 category: method
 ---
 
+<!-- DESIGN.md 컴포저: 72종 브랜드 창고에서 레버별로 꺼내 조립하는 유동 템플릿 (단일 브랜드 박제 X) -->
+
 # DESIGN.md 컴포저 — 레버 조립 템플릿
 
 > **원칙**: 한 브랜드 톤을 *박제하지 않는다*. [awesome-design-md — 브랜드별 DESIGN.md 69종 레퍼런스 컬렉션](awesome-design-md.md) 72종은 *부품 창고*. 매 작업마다 아래 레버를 돌려 필요한 값을 꺼내 조립한다. 스키마·레버 = 고정(권위), 값 = 유동(authority-with-flexibility).

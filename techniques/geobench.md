@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- geobench(NomaDamas) 전문통독 — GEO(LLM 답변 내 브랜드 가시성) 벤치마크. 측정 엄밀 4종 + leakage guard = 작가 ③Gate·clean-room 규율의 정량/알고리즘 형식. clean-room(코드복제 X). -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "B로 해 — 충돌·성능·효율 저하 없는 선") — Claude 작성, clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드 복제 X). 흡수 = *방법론*(도구 자체는 infra-0 제외).
 
 # geobench — GEO 가시성 벤치마크 (측정 엄밀성 정본)

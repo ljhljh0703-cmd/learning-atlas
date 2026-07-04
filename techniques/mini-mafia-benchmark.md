@@ -10,6 +10,8 @@ year: 2025
 category: technique
 ---
 
+<!-- Mini-Mafia: LLM 마피아 상호작용을 기만/탐지/폭로로 분해 평가하고 기만탐지 데이터셋을 뽑는 축소 벤치마크 -->
+
 # Mini-Mafia — 기만/탐지/폭로 분해 벤치마크 + NPC 기만 데이터셋
 
 > 한 줄: LLM 마피아 상호작용을 **mafioso의 Deception · detective의 Disclosure · villager의 Detection** 으로 분해. 4인 게임을 고정 night + 단일 day discussion/vote로 축소해, 역할별 능력을 $\text{logit}(p) = v\times(m-d)$ 라는 해석 가능한 식으로 추정한다.

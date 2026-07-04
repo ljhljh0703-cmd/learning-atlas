@@ -68,3 +68,4 @@ AI 가 코드를 빨리 쓰니 PR 이 폭증(227→3408건/9개월)했지만 사
 - agent-harness (H-14 user-facing 증빙 — 본 페이지가 trace OBSERVE 매체 보강) · dispatch-builder (done-gate E2E modality) · [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) (spec=test)
 - [browser-harness — LLM 에 Chrome CDP 직결, 에이전트가 스스로 자라는 thin harness](browser-harness.md) (browser-use CDP 자가치유 thin harness — *인접 다른 도구*, "에이전트가 도구 쓰며 도구 키움" 동형) · [The New SDLC With Vibe Coding (Google / Addy Osmani)](google-new-sdlc-vibe-coding.md) · [Factory AI — Droid 중심 "AI-native 개발 플랫폼" (vault 아키텍처의 업계 수렴 ground-truth #4)](factory-ai.md) (Agent=Model+Harness ground-truth 군)
 - agent-harness-rsi-brief (자가개선 루프 = ②Apply)
+- [Research Claim Gate — 주장을 증거 등급에 묶는 운영법](research-claim-gate.md) · [Pattern: Structured Output Gate (구조화 출력 게이트)](prompt-pattern-structured-output-gate.md) — 게이트 기반 검증 방법론 자매(본 페이지=E2E 관측 게이트 / 증거 등급 / 출력 구조 강제)

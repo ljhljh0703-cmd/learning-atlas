@@ -9,6 +9,8 @@ year: 2026
 category: technique
 ---
 
+<!-- jawcode/jwc(lidge-jun, gajae-code 포크) 전문통독 — 코딩 에이전트 하네스. IPABCD 워크플로우·HOTL·5 role agent·correction de-anchoring. 작가 북극성 하네스 정본군 추가. 응용 지향 흡수. clean-room. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "하네스로 분류 B로, 제대로 흡수, 내 것으로 삼아 응용") — Claude 작성, repo clean-room 전문통독 기반 ③Gate PASS(출처 실존·환각0·코드복제 X). **시뮬 아님 = 에이전트 하네스**(작가 최초 분류 정정). beta/실험작.
 
 # Jawcode (jwc) — 코딩 에이전트 하네스 (IPABCD)

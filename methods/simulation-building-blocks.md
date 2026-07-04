@@ -6,6 +6,8 @@ tags: [simulation, building-blocks, checklist, ssot, turn-loop, world-engine, sa
 category: method
 ---
 
+<!-- 시뮬레이션 구축 재사용 체크리스트 — 시뮬 만들 때 필요한 building blocks(코어 8 + 사회규모 5). 작가 요청("필요한 것들 모아보게"). 시드=Singulari-Tea(프롬프트형)+Emergence-World(코드형), 확장형. -->
+
 > ✅ **confirmed** (2026-06-17, 작가 "필요한 것들 모아보게" → "B r" → "B로 다 빨아먹어") — 작가 시뮬레이션 프로젝트의 *출발 체크리스트*. **시드 2건**: [Singulari-Tea Codex — LLM 서사 시뮬레이션 아키텍처 사례](../techniques/singulari-tea-codex.md)(LLM 프롬프트형) + [Emergence World — 영속 멀티에이전트 사회 시뮬레이션 (코드 기반)](../techniques/emergence-world.md)(코드 기반 에이전트 사회형). 확장형(추가 sim 레퍼런스 흡수 시 보강). 전건 정설 아님.
 
 # 시뮬레이션 구축 Building Blocks (체크리스트)
