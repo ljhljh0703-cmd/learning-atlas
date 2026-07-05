@@ -21,13 +21,18 @@ if git ls-files --error-unmatch tools/config.local.json >/dev/null 2>&1; then
   echo "❌ config.local.json 이 추적됨 — 중단(비공개 경로 누출)."; exit 1
 fi
 
-# 5) 변경 없으면 종료
-if [ -z "$(git status --porcelain)" ]; then
-  echo "✓ 변경 없음 — push 생략."; exit 0
+# 5) 원격 상태 최신화(밀린 커밋 판정용) + 작업트리 변경 있으면 commit
+git fetch origin main --quiet 2>/dev/null || true
+if [ -n "$(git status --porcelain)" ]; then
+  git add -A
+  git commit -m "content: vault 학습 재export ($(date +%Y-%m-%d))"
 fi
 
-# 6) commit + push (인증 = gh credential helper, 사전 `gh auth setup-git` 1회)
-git add -A
-git commit -m "content: vault 학습 재export ($(date +%Y-%m-%d))"
-git push
-echo "✅ 발행 완료 → $(git remote get-url origin)"
+# 6) 미푸시 커밋 있으면 push (작업트리 변경 없이 '밀린 커밋'만 있어도 발행 — 샌드박스에서 커밋만 된 경우 등)
+#    인증 = gh credential helper, 사전 `gh auth setup-git` 1회
+if [ -n "$(git rev-list origin/main..HEAD 2>/dev/null)" ]; then
+  git push
+  echo "✅ 발행 완료 → $(git remote get-url origin)"
+else
+  echo "✓ 변경·미푸시 커밋 없음 — push 생략."
+fi
