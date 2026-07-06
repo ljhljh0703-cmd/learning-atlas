@@ -1,10 +1,14 @@
-<!-- 마을 이력서 v13 가독성, BGM, 네이밍 패치본입니다. -->
+<!-- 마을 이력서 v18 퍼널 디벨롭 패치본입니다. -->
 <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
+  <meta name="description" content="이주형의 AI 프로젝트와 지식 운영 방식을 마을 지도, 온보딩 퍼널, Learning Atlas 대표 CTA로 둘러보는 인터랙티브 이력서입니다.">
+  <meta property="og:title" content="주형 월드 - 이력서 지도">
+  <meta property="og:description" content="AI 프로젝트, Sub-brain, Agent Harness, Evaluation Gate 흐름과 Learning Atlas를 연결한 이주형의 마을형 이력서입니다.">
+  <meta property="og:type" content="website">
   <link rel="icon" href="data:,">
   <title>주형 월드 - 이력서 지도</title>
   <style>
@@ -103,6 +107,50 @@
 
     .skip-link:focus {
       transform: translateY(0);
+    }
+
+    .quick-actions {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 24;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+      max-width: min(620px, calc(100vw - 24px));
+    }
+
+    .guide-reopen,
+    .quick-link,
+    .quick-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 10px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--accent);
+      cursor: pointer;
+      font: 400 12px/1 var(--font-pixel);
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .quick-link[data-primary="true"] {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .guide-reopen:hover,
+    .guide-reopen:focus-visible,
+    .quick-link:hover,
+    .quick-link:focus-visible,
+    .quick-button:hover,
+    .quick-button:focus-visible {
+      background: #fff9e9;
+      color: var(--accent);
     }
 
     .shell {
@@ -1242,6 +1290,172 @@
       word-break: keep-all;
     }
 
+    .onboarding-backdrop[hidden] {
+      display: none;
+    }
+
+    .onboarding-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 36;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(44, 38, 32, .9);
+      backdrop-filter: blur(4px);
+    }
+
+    .onboarding-modal {
+      width: min(740px, 100%);
+      max-height: min(86vh, 760px);
+      overflow: auto;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 6px 6px 0 #6b4a2e;
+      animation: onboarding-enter 260ms steps(4, end) both;
+    }
+
+    @keyframes onboarding-enter {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .onboarding-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: 18px;
+      border-bottom: 2px solid var(--ink);
+      background: #e4cbd0;
+    }
+
+    .onboarding-kicker {
+      display: block;
+      margin: 0 0 8px;
+      color: var(--accent);
+      font: 400 11px/1 var(--font-pixel);
+    }
+
+    .onboarding-head h2 {
+      margin: 0;
+      color: var(--accent);
+      font: 400 25px/1.25 var(--font-body);
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .onboarding-close {
+      width: 33px;
+      height: 33px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font: 400 18px/1 var(--font-body);
+    }
+
+    .onboarding-body {
+      display: grid;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .onboarding-copy {
+      margin: 0;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.65;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .tutorial-icon {
+      justify-self: start;
+      display: grid;
+      place-items: center;
+      width: 96px;
+      aspect-ratio: 1;
+      border: 2px solid var(--ink);
+      background: #fff9e9;
+      box-shadow: 3px 3px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .tutorial-icon[hidden] {
+      display: none;
+    }
+
+    .tutorial-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tutorial-progress {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font: 400 12px/1 var(--font-pixel);
+    }
+
+    .tutorial-dot {
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+
+    .tutorial-dot[data-active="true"] {
+      background: var(--accent);
+    }
+
+    .onboarding-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .onboarding-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 12px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font: 400 16px/1.2 var(--font-body);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .onboarding-action[data-primary="true"] {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .onboarding-action[disabled] {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .onboarding-anchor {
+      border-color: var(--board);
+      background: #e9f0d2;
+      color: var(--ink);
+    }
+
     .reward-backdrop[hidden] {
       display: none;
     }
@@ -1257,7 +1471,7 @@
     }
 
     .reward-modal {
-      width: min(620px, 100%);
+      width: min(700px, 100%);
       max-height: min(84vh, 720px);
       overflow: auto;
       border: 2px solid var(--ink);
@@ -1329,14 +1543,14 @@
     }
 
     .reward-actions {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       gap: 8px;
     }
 
     .reward-action {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       min-height: 42px;
       padding: 0 12px;
       border: 2px solid var(--ink);
@@ -1349,8 +1563,52 @@
     }
 
     .reward-action[data-primary="true"] {
+      min-height: 50px;
       background: var(--accent);
       color: var(--paper);
+      font-size: 18px;
+    }
+
+    .reward-secondary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .reward-secondary .reward-action {
+      min-height: 36px;
+      font-size: 15px;
+    }
+
+    .member-proof {
+      display: grid;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .member-proof-row {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      padding: 8px;
+      border: 2px solid var(--ink);
+      background: #fff9e9;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .member-proof-key {
+      color: var(--accent);
+      font: 400 11px/1.35 var(--font-pixel);
+      word-break: keep-all;
+    }
+
+    .member-proof-value {
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
     }
 
     .archive-index-icon {
@@ -1428,11 +1686,28 @@
     @media (max-width: 680px) {
       .shell {
         width: min(1180px, calc(100% - 20px));
-        padding-top: 11px;
+        padding-top: 94px;
       }
 
       .topbar {
         padding-top: 11px;
+      }
+
+      .quick-actions {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        justify-content: stretch;
+        max-width: none;
+      }
+
+      .guide-reopen,
+      .quick-link,
+      .quick-button {
+        flex: 1 1 calc(50% - 4px);
+        min-width: 0;
+        padding: 0 7px;
+        font-size: 11px;
       }
 
       .status-strip {
@@ -1479,6 +1754,22 @@
         overflow: auto;
       }
 
+      .onboarding-backdrop {
+        align-items: start;
+        padding: 11px;
+        overflow: auto;
+      }
+
+      .onboarding-modal {
+        max-height: none;
+        margin: 11px 0;
+      }
+
+      .onboarding-head,
+      .onboarding-body {
+        padding: 14px;
+      }
+
       .district-modal {
         max-height: none;
         margin: 11px 0;
@@ -1502,6 +1793,10 @@
 
       .archive-index {
         min-height: auto;
+      }
+
+      .member-proof-row {
+        grid-template-columns: 1fr;
       }
 
       .resume-open {
@@ -1551,6 +1846,8 @@
       }
 
       .modal-backdrop:not([hidden]),
+      .onboarding-backdrop:not([hidden]),
+      .onboarding-modal,
       .district-modal {
         animation: none !important;
       }
@@ -1567,6 +1864,11 @@
 </head>
 <body data-view="map">
   <a class="skip-link" href="#main">본문으로 이동</a>
+  <nav class="quick-actions" aria-label="빠른 이동">
+    <a class="quick-link" data-primary="true" id="quick-atlas" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">대표: Learning Atlas</a>
+    <button class="quick-button" type="button" id="quick-resume">이력서 안내</button>
+    <button class="guide-reopen" type="button" id="guide-reopen">체험 가이드</button>
+  </nav>
   <div class="shell">
     <header class="topbar">
       <div>
@@ -1601,7 +1903,7 @@
             </div>
             <div class="map-frame">
               <div class="map-stage" id="village-map" role="region" aria-label="주형 월드 구역 지도">
-                <img class="map-background" src="./assets/map-background.png" alt="주형 월드 지도 - 6개 구역과 중앙 광장" draggable="false" decoding="async">
+                <img class="map-background" src="./assets/map-background.png" alt="주형 월드 지도 - 6개 구역과 중앙 광장" loading="lazy" draggable="false" decoding="async">
                 <div class="ambient-layer" aria-hidden="true">
                   <span class="fountain-jet fountain-jet--a"></span>
                   <span class="fountain-jet fountain-jet--b"></span>
@@ -1668,6 +1970,19 @@
     </main>
   </div>
 
+  <div class="onboarding-backdrop" id="onboarding" hidden>
+    <section class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" aria-describedby="onboarding-copy">
+      <header class="onboarding-head">
+        <div>
+          <span class="onboarding-kicker" id="onboarding-kicker">ENTRY</span>
+          <h2 id="onboarding-title">주형 월드에 오신 걸 환영해요</h2>
+        </div>
+        <button class="onboarding-close" type="button" id="onboarding-close" aria-label="체험 가이드 닫기">×</button>
+      </header>
+      <div class="onboarding-body" id="onboarding-body"></div>
+    </section>
+  </div>
+
   <div class="modal-backdrop" id="district-modal" hidden>
     <section class="district-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-summary">
       <header class="modal-head">
@@ -1698,14 +2013,19 @@
       <div class="reward-body">
         <div class="reward-trophy" aria-hidden="true">◆</div>
         <p id="reward-copy">끝까지 둘러보셨네요. 아래 세 줄이 이 마을의 핵심입니다.</p>
+        <p id="reward-funnel-summary"></p>
         <ul>
           <li>RAG·추천·평가를 직접 설계하고 검증합니다.</li>
           <li>학습을 공개 그래프로 꾸준히 남깁니다.</li>
           <li>게임·콘텐츠·도구 제작을 한 흐름으로 연결합니다.</li>
         </ul>
         <div class="reward-actions">
-          <a class="reward-action" data-primary="true" id="reward-resume" href="./Resume_LeeJuHyeong.html" target="_blank" rel="noopener">함께 일해요 → 이력서 연락 채널 보기</a>
-          <button class="reward-action" type="button" id="reward-share">주형 월드 링크 복사</button>
+          <a class="reward-action" data-primary="true" id="reward-atlas" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">Learning Atlas 보기</a>
+          <div class="reward-secondary">
+            <a class="reward-action" id="reward-bookemon" href="https://ljhljh0703-cmd.github.io/AI-Book-Curation/portfolio.html" target="_blank" rel="noopener">북켓몬 케이스</a>
+            <button class="reward-action" type="button" id="reward-resume-inline">이력서 안내</button>
+            <button class="reward-action" type="button" id="skill-card-save" aria-label="연락처 없는 역량 요약 카드 PNG 저장">역량 카드 저장</button>
+          </div>
         </div>
       </div>
     </section>
@@ -1716,7 +2036,7 @@
     <source src="./assets/audio/village-bgm.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="./village-config.js"></script>
+  <script src="./village-config.js?v=18"></script>
   <script>
     (() => {
       const config = window.VILLAGE_RESUME_CONFIG;
@@ -1726,6 +2046,9 @@
         defaultNoticeTitle: "건물을 눌러보세요.",
         defaultNoticeBody: "건물 안에서 작업을 고르면 자세한 설명이 열립니다."
       };
+      const onboardingConfig = config.onboarding || {};
+      const onboardingSteps = Array.isArray(onboardingConfig.steps) ? onboardingConfig.steps : [];
+      const onboardingStorageKey = onboardingConfig.storageKey || "jw_seen_intro";
       const statusMeta = {
         open: { icon: "✅", label: "공개" },
         construction: { icon: "🚧", label: "준비 중" },
@@ -1751,6 +2074,10 @@
       };
       const allMembers = config.groups.flatMap((group) => group.members || []);
       const groupMap = new Map(config.groups.map((group) => [group.id, group]));
+      const memberMap = new Map(allMembers.map((member) => [member.slug, member]));
+      const boardGroup = groupMap.get("board");
+      const learningAtlasHref = boardGroup?.atlas?.link || "https://github.com/ljhljh0703-cmd/learning-atlas";
+      const bookemonHref = memberMap.get("bookemon")?.link || "https://ljhljh0703-cmd.github.io/AI-Book-Curation/portfolio.html";
       const stampTargets = config.groups
         .filter((group) => group.id !== "plaza")
         .map((group) => group.id);
@@ -1824,6 +2151,15 @@
       const textMode = document.getElementById("text-mode");
       const soundToggle = document.getElementById("sound-toggle");
       const villageBgm = document.getElementById("village-bgm");
+      const quickAtlas = document.getElementById("quick-atlas");
+      const quickResume = document.getElementById("quick-resume");
+      const guideReopen = document.getElementById("guide-reopen");
+      const onboardingBackdrop = document.getElementById("onboarding");
+      const onboardingDialog = onboardingBackdrop.querySelector(".onboarding-modal");
+      const onboardingKicker = document.getElementById("onboarding-kicker");
+      const onboardingTitle = document.getElementById("onboarding-title");
+      const onboardingBody = document.getElementById("onboarding-body");
+      const onboardingClose = document.getElementById("onboarding-close");
       const modalBackdrop = document.getElementById("district-modal");
       const modalDialog = modalBackdrop.querySelector(".district-modal");
       const modalTitle = document.getElementById("modal-title");
@@ -1839,11 +2175,17 @@
       const rewardBackdrop = document.getElementById("tour-reward");
       const rewardDialog = rewardBackdrop.querySelector(".reward-modal");
       const rewardClose = document.getElementById("reward-close");
-      const rewardResume = document.getElementById("reward-resume");
-      const rewardShare = document.getElementById("reward-share");
+      const rewardAtlas = document.getElementById("reward-atlas");
+      const rewardBookemon = document.getElementById("reward-bookemon");
+      const rewardResumeInline = document.getElementById("reward-resume-inline");
+      const skillCardSave = document.getElementById("skill-card-save");
+      const rewardFunnelSummary = document.getElementById("reward-funnel-summary");
       let lastModalTrigger = null;
       let lastMemberTrigger = null;
       let lastRewardTrigger = null;
+      let lastOnboardingTrigger = null;
+      let funnelState = "explore";
+      let tutorialStepIndex = 0;
       let stampRewardShown = false;
       const earnedStamps = new Set(loadStoredStamps());
       villageBgm.volume = 0.22;
@@ -1853,7 +2195,10 @@
       document.getElementById("map-note").textContent = uiCopy.mapNote;
       resumeLink.href = config.resumeHref;
       resumeFrame.dataset.src = config.resumeHref;
-      rewardResume.href = config.resumeHref;
+      quickAtlas.href = learningAtlasHref;
+      rewardAtlas.href = learningAtlasHref;
+      rewardBookemon.href = bookemonHref;
+      rewardFunnelSummary.textContent = onboardingConfig.resultSummary || "";
 
       const statusCounts = allMembers.reduce((acc, member) => {
         acc[member.status] = (acc[member.status] || 0) + 1;
@@ -1876,6 +2221,14 @@
       mapMode.addEventListener("click", () => setView("map"));
       textMode.addEventListener("click", () => setView("text"));
       soundToggle.addEventListener("click", toggleSound);
+      quickResume.addEventListener("click", () => openResumeGuide(quickResume));
+      guideReopen.addEventListener("click", () => openOnboarding("tutorial", guideReopen));
+      onboardingClose.addEventListener("click", () => closeOnboarding({ markSeen: true }));
+      onboardingBackdrop.addEventListener("click", (event) => {
+        if (event.target === onboardingBackdrop) {
+          closeOnboarding({ markSeen: true });
+        }
+      });
       stampReset.addEventListener("click", resetStamps);
       rewardOpen.addEventListener("click", () => openRewardModal(rewardOpen));
       rewardClose.addEventListener("click", closeRewardModal);
@@ -1884,7 +2237,11 @@
           closeRewardModal();
         }
       });
-      rewardShare.addEventListener("click", copyShareLink);
+      rewardResumeInline.addEventListener("click", () => {
+        closeRewardModal({ restoreFocus: false });
+        openResumeGuide(rewardResumeInline);
+      });
+      skillCardSave.addEventListener("click", saveSkillCard);
       modalClose.addEventListener("click", closeModal);
       modalBackdrop.addEventListener("click", (event) => {
         if (event.target === modalBackdrop) {
@@ -1897,6 +2254,10 @@
         }
       });
       document.addEventListener("keydown", (event) => {
+        if (!onboardingBackdrop.hidden && event.key === "Tab") {
+          trapFocusWithin(event, onboardingDialog);
+          return;
+        }
         if (!rewardBackdrop.hidden && event.key === "Tab") {
           trapFocusWithin(event, rewardDialog);
           return;
@@ -1911,7 +2272,9 @@
           return;
         }
         if (event.key === "Escape") {
-          if (!rewardBackdrop.hidden) {
+          if (!onboardingBackdrop.hidden) {
+            closeOnboarding({ markSeen: true });
+          } else if (!rewardBackdrop.hidden) {
             closeRewardModal();
           } else if (memberPopup) {
             closeMemberPopup();
@@ -1922,6 +2285,225 @@
           }
         }
       });
+      if (!hasSeenIntro()) {
+        window.setTimeout(() => openOnboarding("entry"), 90);
+      }
+
+      function hasSeenIntro() {
+        try {
+          return localStorage.getItem(onboardingStorageKey) === "true";
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function markIntroSeen() {
+        try {
+          localStorage.setItem(onboardingStorageKey, "true");
+        } catch (error) {
+          // 저장소가 막혀도 현재 세션에서는 닫힌 상태로 계속 진행합니다.
+        }
+      }
+
+      function openOnboarding(state = "entry", trigger = document.activeElement) {
+        lastOnboardingTrigger = trigger;
+        if (!modalBackdrop.hidden) {
+          closeModal();
+        }
+        if (!rewardBackdrop.hidden) {
+          closeRewardModal();
+        }
+        closeMemberPopup({ restoreFocus: false });
+        tutorialStepIndex = state === "tutorial" ? 0 : tutorialStepIndex;
+        funnelState = state;
+        onboardingBackdrop.hidden = false;
+        renderOnboarding();
+        const focusTarget = onboardingBody.querySelector("[data-primary='true']") || onboardingClose;
+        focusTarget.focus({ preventScroll: true });
+      }
+
+      function closeOnboarding(options = {}) {
+        const { markSeen = false, restoreFocus = true } = options;
+        if (markSeen) {
+          markIntroSeen();
+        }
+        if (onboardingBackdrop.hidden) {
+          return;
+        }
+        onboardingBackdrop.hidden = true;
+        onboardingBody.innerHTML = "";
+        funnelState = "explore";
+        if (restoreFocus && lastOnboardingTrigger && typeof lastOnboardingTrigger.focus === "function") {
+          lastOnboardingTrigger.focus({ preventScroll: true });
+        }
+        lastOnboardingTrigger = null;
+      }
+
+      function startExploreFromOnboarding() {
+        markIntroSeen();
+        closeOnboarding({ restoreFocus: false });
+        setView("map");
+        setNotice({
+          title: uiCopy.defaultNoticeTitle,
+          body: uiCopy.defaultNoticeBody
+        });
+        const firstTarget = mapEl.querySelector(".map-hotspot");
+        if (firstTarget) {
+          firstTarget.focus({ preventScroll: true });
+        } else {
+          guideReopen.focus({ preventScroll: true });
+        }
+      }
+
+      function renderOnboarding() {
+        onboardingBody.innerHTML = "";
+        onboardingDialog.dataset.state = funnelState;
+        if (funnelState === "entry") {
+          renderOnboardingEntry();
+          return;
+        }
+        renderOnboardingTutorial();
+      }
+
+      function renderOnboardingEntry() {
+        const entry = onboardingConfig.entry || {};
+        onboardingKicker.textContent = "ENTRY";
+        onboardingTitle.textContent = entry.title || "";
+        const copy = document.createElement("p");
+        copy.className = "onboarding-copy";
+        copy.id = "onboarding-copy";
+        copy.textContent = entry.body || "";
+        const actions = document.createElement("div");
+        actions.className = "onboarding-actions";
+        const start = createOnboardingButton(entry.startLabel || "체험 시작", true, () => {
+          markIntroSeen();
+          funnelState = "tutorial";
+          tutorialStepIndex = 0;
+          renderOnboarding();
+          const focusTarget = onboardingBody.querySelector("[data-primary='true']") || onboardingClose;
+          focusTarget.focus({ preventScroll: true });
+        });
+        const skip = createOnboardingButton(entry.skipLabel || "바로 둘러보기", false, startExploreFromOnboarding);
+        actions.append(start, skip);
+        onboardingBody.append(copy, actions);
+      }
+
+      function renderOnboardingTutorial() {
+        if (!onboardingSteps.length) {
+          startExploreFromOnboarding();
+          return;
+        }
+        const lastIndex = onboardingSteps.length - 1;
+        const step = onboardingSteps[Math.min(tutorialStepIndex, lastIndex)];
+        onboardingKicker.textContent = `${tutorialStepIndex + 1}/${onboardingSteps.length}`;
+        onboardingTitle.textContent = step.title;
+
+        const iconHost = document.createElement("div");
+        iconHost.className = "tutorial-icon";
+        iconHost.hidden = true;
+        renderTutorialIcon(step, iconHost);
+
+        const progress = document.createElement("div");
+        progress.className = "tutorial-progress";
+        progress.setAttribute("aria-label", `튜토리얼 ${tutorialStepIndex + 1}/${onboardingSteps.length}`);
+        onboardingSteps.forEach((_, index) => {
+          const dot = document.createElement("span");
+          dot.className = "tutorial-dot";
+          dot.dataset.active = String(index === tutorialStepIndex);
+          dot.setAttribute("aria-hidden", "true");
+          progress.appendChild(dot);
+        });
+        const count = document.createElement("span");
+        count.textContent = `${tutorialStepIndex + 1}/${onboardingSteps.length}`;
+        progress.appendChild(count);
+
+        const copy = document.createElement("p");
+        copy.className = "onboarding-copy";
+        copy.id = "onboarding-copy";
+        copy.textContent = step.body;
+
+        const actions = document.createElement("div");
+        actions.className = "onboarding-actions";
+        const prev = createOnboardingButton("이전", false, () => {
+          tutorialStepIndex = Math.max(0, tutorialStepIndex - 1);
+          renderOnboarding();
+          onboardingBody.querySelector("[data-primary='true']")?.focus({ preventScroll: true });
+        });
+        prev.disabled = tutorialStepIndex === 0;
+        const anchor = step.anchor
+          ? createOnboardingButton(step.anchor.label, false, () => openOnboardingAnchor(step.anchor))
+          : null;
+        if (anchor) {
+          anchor.classList.add("onboarding-anchor");
+        }
+        const skip = createOnboardingButton(onboardingConfig.entry?.skipLabel || "바로 둘러보기", false, startExploreFromOnboarding);
+        const isLast = tutorialStepIndex === lastIndex;
+        const next = createOnboardingButton(isLast ? (step.ctaLabel || "마을 둘러보기 시작") : "다음", true, () => {
+          if (isLast) {
+            startExploreFromOnboarding();
+            return;
+          }
+          tutorialStepIndex += 1;
+          renderOnboarding();
+          const focusTarget = onboardingBody.querySelector("[data-primary='true']") || onboardingClose;
+          focusTarget.focus({ preventScroll: true });
+        });
+        actions.append(prev);
+        if (anchor) {
+          actions.append(anchor);
+        }
+        actions.append(skip, next);
+        onboardingBody.append(iconHost, progress, copy, actions);
+      }
+
+      function openOnboardingAnchor(anchor) {
+        if (!anchor || !anchor.group) {
+          return;
+        }
+        markIntroSeen();
+        closeOnboarding({ restoreFocus: false });
+        const trigger = mapEl.querySelector(`.map-hotspot[data-group="${CSS.escape(anchor.group)}"]`) || guideReopen;
+        openModal(anchor.group, trigger);
+        if (anchor.member) {
+          const member = memberMap.get(anchor.member);
+          const memberTrigger = modalIndex.querySelector(`.archive-index-button[data-slug="${CSS.escape(anchor.member)}"]`);
+          if (member && memberTrigger) {
+            openMemberPopup(member, memberTrigger);
+          }
+        }
+      }
+
+      function renderTutorialIcon(step, host) {
+        if (!onboardingConfig.iconsReady || !step.icon) {
+          return;
+        }
+        const image = new Image();
+        image.alt = "";
+        image.decoding = "async";
+        image.draggable = false;
+        image.onload = () => {
+          host.hidden = false;
+          host.innerHTML = "";
+          host.appendChild(image);
+        };
+        image.onerror = () => {
+          host.hidden = true;
+          host.innerHTML = "";
+        };
+        image.src = step.icon;
+      }
+
+      function createOnboardingButton(label, primary, handler) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "onboarding-action";
+        button.textContent = label;
+        if (primary) {
+          button.dataset.primary = "true";
+        }
+        button.addEventListener("click", handler);
+        return button;
+      }
 
       function renderMapHotspot(group) {
         const button = document.createElement("button");
@@ -2082,37 +2664,137 @@
       }
 
       function openRewardModal(trigger) {
+        funnelState = "result";
         lastRewardTrigger = trigger || document.activeElement;
         rewardBackdrop.hidden = false;
         rewardClose.focus({ preventScroll: true });
       }
 
-      function closeRewardModal() {
+      function closeRewardModal(options = {}) {
+        const { restoreFocus = true } = options;
         if (rewardBackdrop.hidden) {
           return;
         }
         rewardBackdrop.hidden = true;
-        if (lastRewardTrigger && typeof lastRewardTrigger.focus === "function") {
+        if (restoreFocus && lastRewardTrigger && typeof lastRewardTrigger.focus === "function") {
           lastRewardTrigger.focus({ preventScroll: true });
         }
         lastRewardTrigger = null;
       }
 
-      async function copyShareLink() {
-        const url = window.location.href.split("#")[0];
-        try {
-          await navigator.clipboard.writeText(url);
-          rewardShare.textContent = "링크 복사 완료";
+      function openResumeGuide(trigger) {
+        setView("text");
+        setNotice({
+          title: "이력서 안내",
+          body: "아래 텍스트 이력서 안내본을 마을 안에서 확인할 수 있습니다."
+        });
+        document.getElementById("text-view").scrollIntoView({ block: "start", behavior: "smooth" });
+        window.setTimeout(() => {
+          const focusTarget = resumeLink || trigger;
+          focusTarget?.focus({ preventScroll: true });
+        }, 80);
+      }
+
+      function saveSkillCard() {
+        const card = onboardingConfig.skillCard;
+        if (!card) {
           setNotice({
-            title: "공유 링크 복사",
-            body: "주형 월드 주소를 클립보드에 복사했습니다."
+            title: "역량 카드 준비 중",
+            body: "카드 데이터가 아직 연결되지 않았습니다."
           });
-        } catch (error) {
-          rewardShare.textContent = "주소창 링크를 복사해 주세요";
+          return;
+        }
+        const canvas = document.createElement("canvas");
+        canvas.width = 1200;
+        canvas.height = 760;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
           setNotice({
-            title: "복사 권한 없음",
-            body: "브라우저가 클립보드 접근을 막았습니다. 주소창 링크를 직접 복사해 주세요."
+            title: "카드 저장 불가",
+            body: "이 브라우저에서 canvas 렌더링을 사용할 수 없습니다."
           });
+          return;
+        }
+        drawSkillCard(ctx, canvas.width, canvas.height, card);
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            setNotice({
+              title: "카드 저장 불가",
+              body: "다운로드가 막히면 이미지를 길게 눌러 저장해 주세요."
+            });
+            return;
+          }
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = card.filename || "주형-역량카드.png";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+          setNotice({
+            title: "역량 카드 저장",
+            body: "연락처 없이 이름·직무·3역량·대표 링크만 담은 PNG를 생성했습니다."
+          });
+        }, "image/png");
+      }
+
+      function drawSkillCard(ctx, width, height, card) {
+        ctx.fillStyle = "#f4ead2";
+        ctx.fillRect(0, 0, width, height);
+        ctx.strokeStyle = "#2c2620";
+        ctx.lineWidth = 8;
+        ctx.strokeRect(28, 28, width - 56, height - 56);
+        ctx.fillStyle = "#7a1f2d";
+        ctx.fillRect(52, 52, width - 104, 116);
+        ctx.fillStyle = "#f4ead2";
+        ctx.font = "700 50px Pretendard, sans-serif";
+        ctx.fillText(card.name, 82, 122);
+        ctx.font = "400 24px Pretendard, sans-serif";
+        wrapCanvasText(ctx, card.role, 270, 88, width - 350, 34);
+
+        ctx.fillStyle = "#2c2620";
+        ctx.font = "700 28px Pretendard, sans-serif";
+        ctx.fillText("핵심 역량", 82, 230);
+        const competencies = Array.isArray(card.competencies) ? card.competencies : [];
+        competencies.forEach((text, index) => {
+          const y = 278 + index * 118;
+          ctx.fillStyle = index % 2 === 0 ? "#fff9e9" : "#eadbbd";
+          ctx.fillRect(82, y - 44, width - 164, 84);
+          ctx.strokeStyle = "#2c2620";
+          ctx.lineWidth = 4;
+          ctx.strokeRect(82, y - 44, width - 164, 84);
+          ctx.fillStyle = "#7a1f2d";
+          ctx.font = "700 24px Pretendard, sans-serif";
+          ctx.fillText(`0${index + 1}`, 112, y + 8);
+          ctx.fillStyle = "#2c2620";
+          ctx.font = "400 27px Pretendard, sans-serif";
+          wrapCanvasText(ctx, text, 168, y + 8, width - 290, 34);
+        });
+
+        ctx.fillStyle = "#3f6b57";
+        ctx.fillRect(82, height - 134, width - 164, 58);
+        ctx.fillStyle = "#f4ead2";
+        ctx.font = "400 25px Pretendard, sans-serif";
+        ctx.fillText(card.representativeLink, 112, height - 96);
+      }
+
+      function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = String(text).split(" ");
+        let line = "";
+        let lineY = y;
+        words.forEach((word) => {
+          const test = line ? `${line} ${word}` : word;
+          if (ctx.measureText(test).width > maxWidth && line) {
+            ctx.fillText(line, x, lineY);
+            line = word;
+            lineY += lineHeight;
+          } else {
+            line = test;
+          }
+        });
+        if (line) {
+          ctx.fillText(line, x, lineY);
         }
       }
 
@@ -2137,6 +2819,7 @@
           image.src = interiorSrc;
           image.alt = `${group.label} 건물 안 배경`;
           image.decoding = "async";
+          image.loading = "lazy";
           image.draggable = false;
           modalMembers.appendChild(image);
           return;
@@ -2260,6 +2943,9 @@
           </div>
           <p class="member-detail-stage">${escapeHtml(displayStage(member.stage))}</p>
           <p class="member-detail-hook">${escapeHtml(member.hook)}</p>
+          <dl class="member-proof">
+            ${renderMemberProofRows(member)}
+          </dl>
           <div class="member-detail-actions"></div>
         `;
 
@@ -2291,6 +2977,20 @@
         popup.querySelector(".member-detail-close").addEventListener("click", () => closeMemberPopup());
         modalMembers.appendChild(popup);
         popup.querySelector(".member-detail-close").focus({ preventScroll: true });
+      }
+
+      function renderMemberProofRows(member) {
+        const axes = member.evidenceAxes || {};
+        return [
+          ["문제", axes.problem],
+          ["결정·로직", axes.decision],
+          ["결과", axes.result]
+        ].map(([label, value]) => `
+          <div class="member-proof-row">
+            <dt class="member-proof-key">${escapeHtml(label)}</dt>
+            <dd class="member-proof-value">${escapeHtml(value || "요약 준비 중")}</dd>
+          </div>
+        `).join("");
       }
 
       function closeMemberPopup(options = {}) {

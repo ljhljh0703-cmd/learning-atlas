@@ -4,7 +4,7 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**227편** · Techniques 98 · Methods 124 · 경험 서사 5
+**228편** · Techniques 98 · Methods 125 · 경험 서사 5
 
 ## 🔬 Techniques
 
@@ -135,7 +135,7 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 124편
+*도구 · 워크플로우 · 방법론 · 스킬* — 125편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>9편</sub>
 
@@ -236,10 +236,11 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>45편</sub>
+### 🧰 도구 · 방법론 <sub>46편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [GitHub Profile README 구축 시스템](methods/github-profile-readme-system.md) | https://github.com/ljhljh0703-cmd/ljhljh0703-cmd | 2026-07-06 |
 | [Agent Production Lifecycle (spec→eval→trace→gate)](methods/agent-production-lifecycle.md) | https://github.com/google/agents-cli | 2026-07-04 |
 | [APK/WebView 게임 정적 해체 방법론](methods/apk-webview-game-teardown.md) |  | 2026-07-04 |
 | [이미지 프롬프트 컴파일러 규칙 — gpt-image-2 긍정형 제약 체계](methods/image-prompt-compiler-rules.md) | https://github.com/kimsh-1/gongnyang-prompt-kit | 2026-07-04 |

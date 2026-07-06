@@ -33,6 +33,16 @@ No Stardew Valley original art, game-ripped assets, paid assets, CC-BY/BY-SA/NC/
 - Content constraints: no readable baked text, no people/characters, no copied game-ripped asset, no external hotlink.
 - Use in this project: learning board modal background behind DOM Learning Atlas links.
 
+## tutorial/*.png
+
+- Files: `assets/tutorial/sub-brain.png`, `assets/tutorial/harness.png`, `assets/tutorial/gate.png`
+- Source: author-provided GPT-generated original raster icons for the v17 onboarding tutorial.
+- Author/owner: 이주형 project.
+- Date: 2026-07-01
+- License/use: project-owned original tutorial icons for this static resume hub.
+- Content constraints: no readable baked text, no people/characters, no copied game-ripped asset, no external hotlink.
+- Use in this project: three onboarding tutorial step icons.
+
 ## Pretendard
 
 - Source: https://github.com/orioncactus/pretendard

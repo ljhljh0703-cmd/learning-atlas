@@ -64,7 +64,7 @@ Obsidian vault (Action Tracker / Decision Log / Client files)
 
 > "If your vault lives in a local folder, it's stuck on one machine. Put it in Google Drive (or Dropbox, or iCloud) and it syncs everywhere."
 
-**작가 현황**: vault 가 로컬 (`<local-path> AGENT/Obsidian/Sub brain/Sub brain`).
+**작가 현황**: vault 가 로컬 (`<vault>`).
 **적용 여지**: 작가 멀티머신 사용 여부 확인 필요. 단일 머신이면 *불필요* (#3 Surgical — 가설 적용 금지).
 **리스크**: Drive sync 가 .obsidian/ workspace 파일 충돌 유발 가능. 적용 시 sync 제외 규칙 필요.
 

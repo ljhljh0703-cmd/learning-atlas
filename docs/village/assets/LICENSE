@@ -25,6 +25,15 @@ Bundled learning board background:
 - Use: project-owned original modal background for the Learning Atlas board.
 - External assets: none.
 
+Bundled tutorial icons:
+
+- Files: assets/tutorial/sub-brain.png, assets/tutorial/harness.png, assets/tutorial/gate.png
+- Source: author-provided GPT-generated original raster icons for the v17 onboarding tutorial.
+- Author/owner: 이주형 project.
+- Date: 2026-07-01
+- Use: project-owned original tutorial icons for this static resume hub.
+- External assets: none.
+
 Bundled fonts:
 
 - Pretendard
