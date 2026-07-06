@@ -10,6 +10,8 @@
   <meta property="og:description" content="은하별 프로젝트 목록, Sub-brain, Agent Harness, Evaluation Gate 흐름과 Learning Atlas를 연결한 이주형의 우주형 이력서입니다.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ljhljh0703-cmd.github.io/learning-atlas/village/">
+  <meta property="og:image" content="https://ljhljh0703-cmd.github.io/learning-atlas/village/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://ljhljh0703-cmd.github.io/learning-atlas/village/">
   <link rel="icon" href="data:,">
   <title>주형 유니버스 — 인터랙티브 이력서</title>
@@ -2532,6 +2534,68 @@
     /* 완주 보상 트로피 아이콘 박스 — 크림 잔재 제거 */
     .reward-trophy { background: rgba(13, 17, 38, 0.92); }
 
+    /* v26 */
+    /* T1: KPI proof 티커 (status-strip 오른쪽 셀) */
+    .kpi-ticker { position: relative; overflow: hidden; }
+    .kpi-ticker-list { list-style: none; margin: 0; padding: 0; display: grid; }
+    .kpi-ticker-item {
+      grid-area: 1 / 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+      display: grid;
+      gap: 2px;
+    }
+    .kpi-ticker-item[data-active="true"] {
+      opacity: 1;
+      visibility: visible;
+    }
+    .kpi-ticker-text {
+      display: block;
+      color: var(--accent);
+      font: 400 16px/1.35 var(--font-mono);
+      word-break: keep-all;
+    }
+    .kpi-ticker-source {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* T5: 공사중 카드 디밍 (텍스트 가독 유지 — 완전 회색화 금지) */
+    .work-item-surface.is-construction {
+      opacity: 0.6;
+      padding: 10px;
+    }
+    .work-item-surface.is-construction .work-item-title {
+      font-size: 16px;
+    }
+    .archive-index-button.is-construction {
+      opacity: 0.6;
+      padding: 8px;
+    }
+    .archive-index-button.is-construction .archive-index-text {
+      font-size: 16px;
+    }
+
+    /* T4: 폴드 압축 — 데스크톱만, map-frame 첫 페인트 노출 확대 (내용 삭제 없이 여백만 축소) */
+    @media (min-width: 769px) {
+      .shell { padding: 14px 0 44px; }
+      .topbar { padding: 10px 0 8px; gap: 12px; }
+      .eyebrow { margin: 0 0 4px; }
+      h1 { font-size: 30px; }
+      .role-line { margin: 6px 0 0; font-size: 16px; }
+      .intro-copy { margin: 4px 0 0; font-size: 15px; line-height: 1.4; }
+      .status-strip { margin: 8px 0 0; }
+      .stat { min-height: 44px; padding: 6px 11px; }
+      .stat strong { margin-bottom: 2px; font-size: 15px; }
+      .stat span { font-size: 13px; line-height: 1.3; }
+      .kpi-ticker-text { font-size: 13px; }
+      .kpi-ticker-source { font-size: 11px; }
+      .map-head { padding: 6px 18px; }
+      .map-note { font-size: 13px; }
+    }
+
   </style>
 </head>
 <body data-view="map">
@@ -2540,6 +2604,7 @@
     <a class="quick-link" data-primary="true" id="quick-atlas" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">대표: Learning Atlas</a>
     <button class="quick-button" type="button" id="quick-resume">이력서 안내</button>
     <button class="guide-reopen" type="button" id="guide-reopen">체험 가이드</button>
+    <a class="quick-link" id="quick-github" href="https://github.com/ljhljh0703-cmd" target="_blank" rel="noopener">GitHub</a>
   </nav>
   <div class="shell">
     <header class="topbar">
@@ -2557,7 +2622,9 @@
 
     <section class="status-strip" aria-label="유니버스 상태 요약">
       <div class="stat"><strong id="open-count">0</strong><span>지금 볼 수 있는 작업</span></div>
-      <div class="stat"><strong>RAG·추천·평가</strong><span>직접 설계하고 데이터로 검증한 대표 작업을 먼저 보여줍니다.</span></div>
+      <div class="stat kpi-ticker" id="kpi-ticker" role="group" aria-label="검증 지표 순환 표시">
+        <ul class="kpi-ticker-list" id="kpi-ticker-list"></ul>
+      </div>
     </section>
 
     <main id="main">
@@ -2582,7 +2649,7 @@
                 </div>
                 <button class="recent-badge" type="button" id="recent-badge" hidden aria-label="최근 공개 업데이트 보기">
                   <span class="recent-badge__mark" aria-hidden="true">!</span>
-                  <span class="recent-badge__text">업데이트</span>
+                  <span class="recent-badge__text" id="recent-badge-text">업데이트</span>
                 </button>
               </div>
             </div>
@@ -3440,8 +3507,9 @@
         const li = document.createElement("li");
         li.className = "work-item";
         const isLive = item.status === "open" && Boolean(item.link);
+        const isConstruction = item.status === "construction";
         const surface = document.createElement(isLive ? "a" : "div");
-        surface.className = `work-item-surface${isLive ? "" : " is-disabled"}`;
+        surface.className = `work-item-surface${isLive ? "" : " is-disabled"}${isConstruction ? " is-construction" : ""}`;
         if (isLive) {
           surface.href = item.link;
           surface.target = "_blank";
@@ -3832,7 +3900,7 @@
         const item = document.createElement("li");
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "archive-index-button";
+        button.className = `archive-index-button${member.status === "construction" ? " is-construction" : ""}`;
         button.dataset.slug = member.slug;
         button.dataset.status = member.status;
         button.setAttribute("aria-pressed", "false");
@@ -4402,6 +4470,8 @@
         recentBadge.style.left = `${plot.x2 - 7}%`;
         recentBadge.style.top = `${plot.y1 + 2}%`;
         recentBadge.hidden = false;
+        const recentBadgeText = document.getElementById("recent-badge-text");
+        if (recentBadgeText) { recentBadgeText.textContent = `최근 공개 ${recentItems.length}`; }
         recentWorkList.innerHTML = "";
         recentItems.forEach((member) => {
           const item = document.createElement("li");
@@ -4435,6 +4505,36 @@
         recentBackdrop.addEventListener("click", (event) => {
           if (event.target === recentBackdrop) { closeRecentPopup(); }
         });
+      })();
+
+      // ── KPI proof 티커 (status-strip 오른쪽 셀 — 4초 회전·hover 정지·reduced-motion 정적)
+      (function initKpiTicker() {
+        const tickerEl = document.getElementById("kpi-ticker");
+        const listEl = document.getElementById("kpi-ticker-list");
+        const items = (config.kpiTicker || []);
+        if (!tickerEl || !listEl || !items.length) { return; }
+        listEl.innerHTML = items.map((entry, i) => `
+          <li class="kpi-ticker-item"${i === 0 ? ' data-active="true"' : ""}>
+            <span class="kpi-ticker-text">${escapeHtml(entry.text)}</span>
+            <span class="kpi-ticker-source">${escapeHtml(entry.source)}</span>
+          </li>
+        `).join("");
+        const liList = Array.from(listEl.children);
+        if (liList.length <= 1) { return; }
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) { return; }
+        let activeIndex = 0;
+        let paused = false;
+        let timer = setInterval(() => {
+          if (paused) { return; }
+          liList[activeIndex].removeAttribute("data-active");
+          activeIndex = (activeIndex + 1) % liList.length;
+          liList[activeIndex].setAttribute("data-active", "true");
+        }, 4000);
+        tickerEl.addEventListener("mouseenter", () => { paused = true; });
+        tickerEl.addEventListener("mouseleave", () => { paused = false; });
+        tickerEl.addEventListener("focusin", () => { paused = true; });
+        tickerEl.addEventListener("focusout", () => { paused = false; });
       })();
 
       function openRecentPopup(trigger) {

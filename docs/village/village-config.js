@@ -2,6 +2,13 @@
 // v20 리테마: 표현 레이어(이름·테마색·아이콘)만 변경 — status/link/stage/hook/domains/recent 데이터 불변.
 const VILLAGE_RESUME_CONFIG = {
   resumeHref: "./Resume_LeeJuHyeong.html",
+  kpiTicker: [
+    { text: "최종 운영 조합 Top-5 Precision 100% · Bad Rate 0%", source: "북켓몬" },
+    { text: "EM 0.71 · BERTScore 0.73 — 3원 통제 평가", source: "알려줄고양" },
+    { text: "dry-run 평가 100% — 실 P&L 무주장", source: "현수봇" },
+    { text: "몬테카를로 200판 회피 불가 스폰 0.00%", source: "지켜줘! 젤리 패닉" },
+    { text: "학습 노트 182편 공개 · 누출 0", source: "Learning Atlas" }
+  ],
   intro: {
     title: "주형 유니버스",
     copy: "주형 유니버스에 오신 걸 환영합니다. 은하를 눌러 작업을 둘러보세요.",
@@ -88,7 +95,7 @@ const VILLAGE_RESUME_CONFIG = {
       id: "lab",
       label: "평가·RAG 은하",
       status: "hero",
-      mapLabel: "RAG 은하",
+      mapLabel: "평가·RAG",
       theme: "#4ecdc4",
       x: 42,
       y: 19,
@@ -249,7 +256,7 @@ const VILLAGE_RESUME_CONFIG = {
       id: "game",
       label: "AI 게임 은하",
       status: "construction",
-      mapLabel: "게임",
+      mapLabel: "AI 게임",
       theme: "#fb7185",
       x: 78,
       y: 51,
@@ -337,7 +344,7 @@ const VILLAGE_RESUME_CONFIG = {
       id: "studio",
       label: "콘텐츠·디자인 은하",
       status: "construction",
-      mapLabel: "디자인",
+      mapLabel: "콘텐츠·디자인",
       theme: "#34d399",
       x: 29,
       y: 83,
@@ -393,7 +400,7 @@ const VILLAGE_RESUME_CONFIG = {
       id: "hall",
       label: "어바웃 코어",
       status: "construction",
-      mapLabel: "코어",
+      mapLabel: "어바웃",
       theme: "#f4a261",
       x: 71,
       y: 83,
