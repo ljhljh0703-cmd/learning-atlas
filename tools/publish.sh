@@ -15,6 +15,9 @@ python3 export.py
 # 3) 자동 인덱스
 python3 build_index.py
 
+# 3b) 포폴 페이지(docs/index.html)의 '최근 학습 다이제스트' 최신 N편으로 자동 갱신
+python3 update_digest.py
+
 # 4) 비공개 경로 누출 안전 재확인
 cd "$REPO"
 if git ls-files --error-unmatch tools/config.local.json >/dev/null 2>&1; then
