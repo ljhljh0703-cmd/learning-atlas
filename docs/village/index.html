@@ -2596,6 +2596,9 @@
       .map-note { font-size: 13px; }
     }
 
+    /* v27 */
+    .game-teaser { margin: -4px 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; opacity: 0.85; }
+
   </style>
 </head>
 <body data-view="map">
@@ -2774,7 +2777,7 @@
           <ul>
             <li>RAG 평가를 3원 통제로 설계한 이유 (알려줄고양)</li>
             <li>통계 게이트가 AI 제안을 거부하는 구조 (현수봇)</li>
-            <li>Claude·Gemini·Codex 3-AI 분업 운영 방식 (학습 은하)</li>
+            <li>3-AI 분업을 2-AI(Claude·Codex)로 재편한 이유 (학습 은하)</li>
           </ul>
         </div>
         <div class="reward-actions">
@@ -2806,6 +2809,7 @@
       <button class="game-x" type="button" id="game-x" aria-label="퀘스트 닫기">×</button>
       <h2 id="game-title">은하 퀘스트</h2>
       <p class="game-howto" id="game-howto"></p>
+      <p class="game-teaser" id="game-teaser" hidden></p>
       <canvas id="game-canvas" width="480" height="640" hidden></canvas>
       <div class="game-msg" id="game-msg" hidden></div>
       <div class="game-actions" id="game-actions"></div>
@@ -4559,6 +4563,7 @@
       const gameDialog = gameBackdrop.querySelector(".game-dialog");
       const gameTitle = document.getElementById("game-title");
       const gameHowto = document.getElementById("game-howto");
+      const gameTeaser = document.getElementById("game-teaser");
       const gameCanvas = document.getElementById("game-canvas");
       const gameMsg = document.getElementById("game-msg");
       const gameActions = document.getElementById("game-actions");
@@ -4622,6 +4627,13 @@
         stopGameMount();
         gameHowto.hidden = false;
         gameHowto.textContent = currentQuest.meta.howto;
+        if (currentQuest.meta.teaserLine) {
+          gameTeaser.hidden = false;
+          gameTeaser.textContent = currentQuest.meta.teaserLine;
+        } else {
+          gameTeaser.hidden = true;
+          gameTeaser.textContent = "";
+        }
         gameCanvas.hidden = true;
         gameMsg.hidden = true;
         gameActions.replaceChildren(
@@ -4632,6 +4644,7 @@
       function startGame() {
         stopGameMount();
         gameHowto.hidden = false;
+        gameTeaser.hidden = true;
         gameMsg.hidden = true;
         gameCanvas.hidden = false;
         gameActions.replaceChildren(gameActionButton("닫기", false, closeGameModal));
@@ -4821,7 +4834,7 @@
           if (!localStorage.getItem("jw_seen_3d_hint")) {
             setNotice({
               title: "3D 은하도 있어요",
-              body: "지도의 [3D 은하] 버튼으로 3D 우주를 볼 수 있어요. 데스크톱 브라우저에서 가장 부드럽게 돌아갑니다."
+              body: "지도의 [3D 은하] 버튼으로 3D 우주를 볼 수 있어요. 모바일에서도 되지만, 데스크톱 브라우저가 더 부드러워요."
             });
             localStorage.setItem("jw_seen_3d_hint", "true");
           }

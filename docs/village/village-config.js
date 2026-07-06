@@ -17,10 +17,10 @@ const VILLAGE_RESUME_CONFIG = {
   onboarding: {
     storageKey: "jw_seen_intro",
     iconsReady: true,
-    // v22 1차안 — 작가 워싱 예정
+    // v27 워싱 완료
     entry: {
       title: "주형 유니버스 — 인터랙티브 이력서",
-      body: "AI 응용 엔지니어 이주형의 작업들을 은하로 탐험하는 공간이에요. 모든 작업은 실제 라이브 프로젝트로 연결되고, 은하마다 작은 게임 퀘스트가 숨어 있어요.",
+      body: "AI 응용 엔지니어 이주형의 실제 작업을 은하로 둘러보는 공간이에요. 모든 은하는 라이브 프로젝트로 이어지고, 곳곳에 작은 게임 퀘스트가 숨어 있어요. 게임은 나중에 언제든 열 수 있어요.",
       startLabel: "🎮 콘텐츠 체험하기 (약 3분)",
       skipLabel: "바로 조회하기"
     },
@@ -323,8 +323,7 @@ const VILLAGE_RESUME_CONFIG = {
           hook: "libGDX 로그라이크 (AI Game suite)",
           stage: "공개 데모",
           domains: ["gameai"],
-          // [임시 카피 — 작가 워싱 대기]
-          teaser: "libGDX(Java) 로그라이크 — 플레이 빌드와 기술 해설 페이지 공개."
+          teaser: "libGDX(Java)로 직접 구현한 로그라이크 — 플레이 빌드·기술 해설 공개."
         },
         {
           slug: "godot-backroom",
@@ -335,8 +334,7 @@ const VILLAGE_RESUME_CONFIG = {
           hook: "고돗 백룸 (AI Game suite)",
           stage: "공개 데모",
           domains: ["gameai"],
-          // [임시 카피 — 작가 워싱 대기]
-          teaser: "Godot 엔진 백룸 Level 0 — 플레이 빌드와 포트폴리오 해설 공개."
+          teaser: "Godot으로 직접 구현한 백룸 Level 0 — 플레이 빌드·포트폴리오 해설 공개."
         }
       ]
     },
