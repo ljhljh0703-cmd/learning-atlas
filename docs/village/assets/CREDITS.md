@@ -5,8 +5,8 @@ L0 마을 이력서에 번들한 이미지와 폰트 출처를 기록합니다.
 ## map-background.png
 
 - Source: generated original raster for this L0 village resume image-map integration.
-- Generator/context: Codex generated a local 16:10 pixel-map PNG from the v9 layout brief because no separate author-provided `map-background.png` was present in the target folder.
-- Date: 2026-06-22
+- Generator/context: author-provided GPT-generated v19 village map with a visible Learning Atlas board district, replacing the earlier placeholder/integration map.
+- Date: 2026-07-01
 - License/use: project-owned original image for this static resume hub.
 - Content constraints: no text, no person/character, no copied game-ripped asset, no external hotlink.
 - Use in this project: single background image behind the DOM overlay click zones.
@@ -71,3 +71,7 @@ The font files are self-hosted and loaded through `@font-face`; no external font
 - Original files: `golucky.oggvorbis.ogg`, `golucky.mp3_0.mp3`
 - Bundled files: `assets/audio/village-bgm.ogg`, `assets/audio/village-bgm.mp3`
 - Runtime behavior: the optional BGM toggle is OFF by default and plays only after user activation.
+
+## v21 — 3D 은하 뷰
+- Three.js r165 (MIT License, © 2010-2024 Three.js Authors) — `universe-3d.js`에 esbuild로 번들. https://github.com/mrdoob/three.js/blob/dev/LICENSE
+- 3D 씬 코드(셰이더·컨트롤·트윈·라벨 투영)는 자작(주형월드 그린필드 빌드 이식).

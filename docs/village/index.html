@@ -1,16 +1,18 @@
-<!-- 마을 이력서 v18 퍼널 디벨롭 패치본입니다. -->
+<!-- 주형 유니버스 v20 — 우주 리테마 + 은하 퀘스트 (v19 공개 허브 위 표현 레이어 업데이트) -->
 <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="description" content="이주형의 AI 프로젝트와 지식 운영 방식을 마을 지도, 온보딩 퍼널, Learning Atlas 대표 CTA로 둘러보는 인터랙티브 이력서입니다.">
-  <meta property="og:title" content="주형 월드 - 이력서 지도">
-  <meta property="og:description" content="AI 프로젝트, Sub-brain, Agent Harness, Evaluation Gate 흐름과 Learning Atlas를 연결한 이주형의 마을형 이력서입니다.">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="유니버스 지도, 은하별 작업 목록, 도메인별 전체 작업 필터로 이주형의 프로젝트를 둘러보는 공개 구인구직 허브입니다.">
+  <meta property="og:title" content="주형 유니버스 — 인터랙티브 이력서">
+  <meta property="og:description" content="은하별 프로젝트 목록, Sub-brain, Agent Harness, Evaluation Gate 흐름과 Learning Atlas를 연결한 이주형의 우주형 이력서입니다.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ljhljh0703-cmd.github.io/learning-atlas/village/">
+  <link rel="canonical" href="https://ljhljh0703-cmd.github.io/learning-atlas/village/">
   <link rel="icon" href="data:,">
-  <title>주형 월드 - 이력서 지도</title>
+  <title>주형 유니버스 — 인터랙티브 이력서</title>
   <style>
     @font-face {
       font-family: "Pretendard";
@@ -266,6 +268,44 @@
       line-height: 1.6;
     }
 
+    .work-hub {
+      margin-top: 22px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .work-hub-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+      padding: 14px 18px;
+      border-bottom: 2px solid var(--ink);
+      background: #fff9e9;
+    }
+
+    .work-hub-head h2 {
+      margin: 0;
+      color: var(--accent);
+      font: 400 22px/1.2 var(--font-body);
+      word-break: keep-all;
+    }
+
+    .work-hub-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      word-break: keep-all;
+    }
+
+    .work-count {
+      color: var(--accent);
+      font: 400 11px/1.2 var(--font-pixel);
+      white-space: nowrap;
+    }
+
     .stat-link {
       display: inline-flex;
       align-items: center;
@@ -378,7 +418,7 @@
     .map-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 1672 / 941;
       min-height: 640px;
       overflow: hidden;
       background: #79a95a;
@@ -631,6 +671,147 @@
     }
 
     .building-list li {
+      font-size: 18px;
+    }
+
+    .domain-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 18px;
+      border-bottom: 2px solid var(--ink);
+      background: var(--paper-2);
+    }
+
+    .domain-chip {
+      min-height: 34px;
+      padding: 0 10px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      font: 400 14px/1.2 var(--font-body);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .domain-chip[aria-pressed="true"] {
+      background: var(--accent);
+      color: var(--paper);
+    }
+
+    .work-groups {
+      display: grid;
+      gap: 1px;
+      background: var(--ink);
+    }
+
+    .work-group {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      background: var(--paper);
+    }
+
+    .work-group-head {
+      padding: 14px;
+      border-right: 2px solid var(--ink);
+      background: #fff9e9;
+    }
+
+    .work-group-head h3 {
+      margin: 0;
+      color: var(--accent);
+      font: 400 18px/1.3 var(--font-body);
+      word-break: keep-all;
+    }
+
+    .work-group-head p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font: 400 11px/1.4 var(--font-pixel);
+    }
+
+    .work-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+      background: var(--ink);
+      list-style: none;
+    }
+
+    .work-item {
+      min-width: 0;
+      background: var(--paper);
+    }
+
+    .work-item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
+    .work-item-surface {
+      display: grid;
+      gap: 8px;
+      height: 100%;
+      min-height: 156px;
+      padding: 14px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    a.work-item-surface:hover,
+    a.work-item-surface:focus-visible {
+      background: #fff9e9;
+    }
+
+    .work-item-surface.is-disabled {
+      color: var(--ink);
+    }
+
+    .work-item-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .work-item-title {
+      color: var(--accent);
+      font: 400 18px/1.3 var(--font-body);
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .work-item-hook {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .work-domain-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .domain-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 23px;
+      padding: 0 6px;
+      border: 1px solid var(--muted);
+      color: var(--muted);
+      font: 400 11px/1 var(--font-body);
+    }
+
+    .work-empty {
+      padding: 18px;
+      background: var(--paper);
+      color: var(--muted);
       font-size: 18px;
     }
 
@@ -1626,6 +1807,14 @@
       overflow: hidden;
     }
 
+    .text-head-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-self: end;
+    }
+
     .resume-open {
       display: inline-flex;
       align-items: center;
@@ -1674,6 +1863,15 @@
         border-bottom: 0;
       }
 
+      .work-group {
+        grid-template-columns: 1fr;
+      }
+
+      .work-group-head {
+        border-right: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
       .building-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1712,6 +1910,26 @@
 
       .status-strip {
         grid-template-columns: 1fr;
+      }
+
+      .work-hub-head {
+        grid-template-columns: 1fr;
+      }
+
+      .work-items {
+        grid-template-columns: 1fr;
+      }
+
+      .work-item-surface {
+        min-height: 0;
+      }
+
+      .domain-filter {
+        padding: 11px;
+      }
+
+      .domain-chip {
+        flex: 1 1 100%;
       }
 
       .stat {
@@ -1860,6 +2078,460 @@
         animation-iteration-count: 1 !important;
       }
     }
+
+    /* ═══════════ v20 주형 유니버스 테마 오버라이드 (추가 레이어 — 원본 규칙 무수정) ═══════════ */
+    :root {
+      --star-gold: #f2d76b;
+      --space-ink: #0b0f22;
+      --space-line: rgba(210, 220, 255, 0.35);
+    }
+
+    html {
+      background: #070a18;
+    }
+
+    body {
+      background:
+        radial-gradient(1100px 520px at 78% -6%, rgba(38, 48, 96, 0.55) 0%, transparent 62%),
+        radial-gradient(900px 460px at 8% 34%, rgba(28, 34, 72, 0.5) 0%, transparent 58%),
+        #070a18;
+    }
+
+    /* 페이지 배경(우주) 위에 직접 놓인 텍스트만 라이트닝 — 크림 패널 내부는 원본 유지 */
+    .topbar { border-bottom-color: var(--space-line); }
+    h1 { color: #f4f6ff; text-shadow: 0 0 22px rgba(130, 150, 255, 0.35); }
+    .eyebrow { color: var(--star-gold); }
+    .role-line { color: #ffd166; }
+    .intro-copy { color: #c8d2ee; }
+    .side-section > h2 { color: #e8ecf8; }
+    .legend li { color: #c8d2ee; }
+    .notice { color: var(--ink); }
+    .work-hub-head h2, .work-hub-head p { color: inherit; }
+
+    /* 유니버스 지도 — 코스모스 캔버스 */
+    .map-frame { background: #04050d; }
+    .map-stage { background: #04060f; }
+    #cosmos-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      image-rendering: auto;
+    }
+
+    /* ❗ 최근 공개 배지 (학습 은하) */
+    .recent-badge {
+      position: absolute;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 8px;
+      border: 2px solid var(--space-ink);
+      background: #ffd166;
+      color: var(--space-ink);
+      cursor: pointer;
+      font: 400 10px/1 var(--font-pixel);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6);
+      animation: recent-pulse 1200ms steps(2, end) infinite;
+    }
+    .recent-badge__mark {
+      display: inline-grid;
+      place-items: center;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--space-ink);
+      background: #fff4d8;
+      font: 400 11px/1 var(--font-pixel);
+    }
+    .recent-badge:hover, .recent-badge:focus-visible { transform: translateY(-2px); }
+    @keyframes recent-pulse {
+      0%, 100% { box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 209, 102, 0.7); }
+      50% { box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6), 0 0 0 7px rgba(255, 209, 102, 0); }
+    }
+
+    /* 최근 공개 팝업 */
+    .recent-backdrop, .game-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 46;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(4, 6, 16, 0.78);
+    }
+    .recent-backdrop[hidden], .game-backdrop[hidden] { display: none; }
+    .recent-dialog, .game-dialog {
+      position: relative;
+      width: min(560px, 100%);
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      color: var(--ink);
+    }
+    .recent-dialog h2, .game-dialog h2 {
+      margin: 0 30px 6px 0;
+      font: 400 18px/1.3 var(--font-display);
+    }
+    .recent-note { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    .recent-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 8px; }
+    .recent-list a {
+      display: block;
+      padding: 10px 12px;
+      border: 2px solid var(--ink);
+      background: #fff9e9;
+      text-decoration: none;
+      box-shadow: var(--shadow-soft);
+    }
+    .recent-list a:hover, .recent-list a:focus-visible { background: #fff4d8; transform: translateY(-2px); }
+    .recent-item-title { display: block; font: 400 13px/1.3 var(--font-pixel); color: var(--accent); }
+    .recent-item-meta { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); }
+    .recent-close, .game-x {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      cursor: pointer;
+      font: 400 13px/1 var(--font-pixel);
+    }
+
+    /* 은하 퀘스트 (모달 헤더 버튼 + 게임 모달) */
+    .quest-play {
+      min-height: 34px;
+      margin-right: 8px;
+      padding: 0 10px;
+      border: 2px solid var(--ink);
+      background: #ffd166;
+      color: var(--space-ink);
+      cursor: pointer;
+      font: 400 11px/1 var(--font-pixel);
+      box-shadow: var(--shadow-soft);
+    }
+    .quest-play[data-earned="true"] { background: #dce7b8; }
+    .quest-play:hover, .quest-play:focus-visible { transform: translateY(-2px); }
+    .game-howto { margin: 0 0 10px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    #game-canvas {
+      display: block;
+      width: min(420px, 100%);
+      aspect-ratio: 3 / 4;
+      height: auto;
+      margin: 0 auto;
+      border: 2px solid var(--ink);
+      background: radial-gradient(ellipse at 50% 28%, #10173a 0%, #05060f 75%);
+      touch-action: manipulation;
+      image-rendering: auto;
+    }
+    .game-msg { padding: 18px 6px; text-align: center; }
+    .game-msg strong { display: block; margin-bottom: 8px; font: 400 16px/1.4 var(--font-display); color: var(--accent); }
+    .game-msg p { margin: 0; font-size: 14px; line-height: 1.6; }
+    .game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+    .game-actions button {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      cursor: pointer;
+      font: 400 12px/1 var(--font-pixel);
+      box-shadow: var(--shadow-soft);
+    }
+    .game-actions button[data-primary="true"] { background: #ffd166; }
+    .game-actions button:hover, .game-actions button:focus-visible { transform: translateY(-2px); }
+
+    /* 탐사 기록 — 퀘스트 별 */
+    .stamp-slot { position: relative; }
+    .stamp-slot[data-quest="true"]::after {
+      content: "★";
+      position: absolute;
+      top: -7px;
+      right: -5px;
+      color: var(--star-gold);
+      text-shadow: 0 0 6px rgba(242, 215, 107, 0.8), 1px 1px 0 var(--space-ink);
+      font-size: 13px;
+    }
+
+    /* 은하 내부(모달) — 코드 연출 우주 씬 */
+    .interior-map.is-space::before,
+    .interior-map.is-space::after { content: none; }
+    .interior-map.is-space {
+      border-color: #1a2342;
+      box-shadow: 4px 4px 0 #01020a;
+    }
+    .interior-map.is-space {
+      background:
+        radial-gradient(360px 200px at 22% 24%, rgba(64, 78, 160, 0.4) 0%, transparent 60%),
+        radial-gradient(300px 180px at 80% 70%, rgba(52, 96, 130, 0.35) 0%, transparent 58%),
+        #070b1e;
+    }
+    .space-star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #dfe6ff;
+      box-shadow: 0 0 4px rgba(220, 230, 255, 0.9);
+      animation: space-twinkle 2600ms steps(3, end) infinite;
+    }
+    @keyframes space-twinkle { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+    .space-orb {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background:
+        radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 34%),
+        radial-gradient(circle at 50% 50%, var(--modal-theme, #ffd166) 0%, rgba(8, 10, 26, 0.9) 88%);
+      box-shadow: 0 0 42px 4px color-mix(in srgb, var(--modal-theme, #ffd166) 45%, transparent);
+    }
+    .space-orb::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 190px;
+      height: 54px;
+      border: 2px solid color-mix(in srgb, var(--modal-theme, #ffd166) 55%, transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-16deg);
+    }
+    .interior-map.is-space .interior-room-label {
+      color: #c8d2ee;
+      border-color: rgba(200, 210, 238, 0.4);
+      background: rgba(9, 12, 30, 0.75);
+    }
+
+
+    /* ── v21 3D 은하 뷰 ── */
+    #universe-3d {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+    #universe-3d canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .u3d-labels {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .u3d-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 5px 8px;
+      border: 2px solid var(--space-ink);
+      border-left: 4px solid var(--zone-color, #ffd166);
+      background: rgba(9, 12, 30, 0.82);
+      color: #e8ecf8;
+      cursor: pointer;
+      pointer-events: auto;
+      white-space: nowrap;
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.55);
+    }
+    .u3d-label:hover, .u3d-label:focus-visible {
+      border-color: var(--focus);
+      background: rgba(14, 18, 44, 0.95);
+    }
+    .u3d-label__name { font: 400 11px/1.2 var(--font-pixel); }
+    .u3d-label__stage { font: 400 9px/1.2 var(--font-pixel); color: #9aa5c4; }
+    .u3d-label--center .u3d-label__name { color: var(--star-gold); font-size: 13px; }
+    .map-stage[data-mode3d="true"] .map-hotspot { display: none; }
+    .map-stage[data-mode3d="true"] .recent-badge { left: auto; right: 12px; top: 12px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .recent-badge, .space-star { animation: none; }
+    }
+
+    /* v22 */
+    .course-chip {
+      position: absolute;
+      z-index: 6;
+      top: 8px;
+      right: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 4px;
+      border: 2px solid var(--space-ink);
+      background: var(--star-gold, #ffd166);
+      color: var(--space-ink);
+      font: 700 12px/1 var(--font-pixel);
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+    }
+    .map-stage[data-mode3d="true"] .course-chip { display: none; }
+    .course-badge {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 1px 5px;
+      border: 1px solid var(--space-ink);
+      background: var(--star-gold, #ffd166);
+      color: var(--space-ink);
+      font: 700 9px/1.4 var(--font-pixel);
+    }
+    .teaser-line {
+      margin: 6px 0 0;
+      color: #9aa5c4;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .interview-hooks {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2px dashed var(--ink);
+      font-size: 14px;
+    }
+    .interview-hooks ul {
+      display: grid;
+      gap: 6px;
+      margin: 6px 0 0;
+      padding: 0 0 0 20px;
+    }
+    .interview-hooks li { font-size: 14px; line-height: 1.5; }
+
+    /* ═══ v23 관제 HUD 유니파이 ═══ */
+    /* 크림/브라운 픽셀 패널 → 다크 글래스 HUD. 각진 모서리·하드 섀도·Galmuri 제목은 유지, 색만 재정의. */
+    :root {
+      --paper: #10162e;
+      --paper-2: #0b1024;
+      --ink: #e8ecf8;
+      --muted: #9aa5c4;
+      --rule: rgba(165, 180, 235, 0.32);
+      --accent: #ffd166;
+      --accent-soft: rgba(255, 209, 102, 0.16);
+      --open: #4ade80;
+      --work: #fbbf24;
+      --pending: #94a3b8;
+      --board: #60a5fa;
+      --shadow: 3px 3px 0 rgba(0, 0, 0, 0.55);
+      --shadow-soft: 2px 2px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    /* 골드 배경 위 텍스트는 항상 다크 잉크로 고정 (--paper 반전 대비) */
+    .quick-link[data-primary="true"],
+    .sound-toggle[aria-pressed="true"],
+    .mode-switch button[aria-pressed="true"],
+    .domain-chip[aria-pressed="true"],
+    .onboarding-action[data-primary="true"],
+    .work-hub-head h2,
+    .quest-play,
+    .game-actions button[data-primary="true"] {
+      color: #0b0f22;
+    }
+
+    /* 호버/보조 배경 — 구 크림(#fff9e9 등) → 다크 서피스 */
+    .guide-reopen:hover, .guide-reopen:focus-visible,
+    .quick-link:hover, .quick-link:focus-visible,
+    .quick-button:hover, .quick-button:focus-visible,
+    .mode-switch #text-mode:not([aria-pressed="true"]),
+    .work-hub-head,
+    .work-group-head,
+    a.work-item-surface:hover, a.work-item-surface:focus-visible,
+    .notice,
+    .stamp-section,
+    .member-proof-row,
+    .archive-index-note,
+    .archive-index-button,
+    .recent-list a,
+    .onboarding-kicker {
+      background: rgba(13, 17, 38, 0.92);
+    }
+    .mode-switch #text-mode:not([aria-pressed="true"]) { color: var(--accent); }
+
+    .archive-index-button[aria-pressed="true"],
+    .archive-index-button:hover,
+    .archive-index-button:focus-visible,
+    .recent-list a:hover, .recent-list a:focus-visible,
+    .learning-link:hover, .learning-link:focus-visible {
+      background: rgba(20, 26, 54, 0.96);
+    }
+
+    .learning-link,
+    .learning-source-note,
+    .onboarding-anchor {
+      background: rgba(13, 17, 38, 0.92);
+      border-color: var(--board);
+    }
+
+    .stamp-slot { background: rgba(11, 16, 36, 0.9); }
+    .stamp-slot[data-earned="true"] { background: rgba(255, 209, 102, 0.16); }
+    .quest-play[data-earned="true"] { background: rgba(74, 222, 128, 0.22); color: var(--ink); }
+
+    /* 모달 헤더 — 은하별 테마색을 다크 위 얇은 컬러 바 + 라이트 텍스트로 통일 */
+    .modal-head,
+    .onboarding-head,
+    .reward-head {
+      background: rgba(11, 16, 36, 0.95);
+    }
+    .district-modal[data-group="lab"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #60a5fa; }
+    .district-modal[data-group="workshop"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #fbbf24; }
+    .district-modal[data-group="game"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #b8a7d8; }
+    .district-modal[data-group="studio"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #86efac; }
+    .district-modal[data-group="hall"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #d5d0c1; }
+    .district-modal[data-group="board"] .modal-head { background: rgba(11, 16, 36, 0.95); border-bottom-color: #86efac; }
+    .modal-head h2 { color: var(--ink); }
+    .reward-head h2 { color: var(--accent); }
+
+    /* 은하 소속 카드 — 좌측 3px 테마색 바 */
+    .member-detail-popup,
+    .archive-index-button,
+    .recent-list a {
+      border-left: 3px solid var(--modal-theme, var(--accent));
+    }
+
+    /* 멤버 팝업 sigil / action-disabled / proof row */
+    .member-detail-sigil,
+    .member-detail-action[aria-disabled="true"] {
+      background: rgba(13, 17, 38, 0.92);
+      color: var(--ink);
+    }
+    .member-detail-popup {
+      box-shadow: inset 0 0 0 4px rgba(255, 209, 102, 0.12), var(--shadow);
+    }
+
+    /* work-hub head 밑줄 아이콘 배경(district-modal 헤더 테마칩) 톤 다운 */
+    .badge { background: rgba(13, 17, 38, 0.9); }
+
+    /* 지도 프레임 / 존 라벨 다크 통일 (지도 위 호버 툴팁도 예외 없이 통일) */
+    .map-frame { background: #060815; }
+    .zone-label { background: rgba(11, 16, 36, 0.94); }
+
+    /* 티저 라인 — 청록 이탤릭 유지 */
+    .teaser-line { color: #7dd3fc; }
+
+    /* onboarding / reward backdrop — 우주 배경과 어울리게 톤 다운 */
+    .onboarding-backdrop { background: rgba(4, 6, 16, 0.82); }
+    .reward-backdrop { background: rgba(4, 6, 16, 0.86); }
+    .modal-backdrop { background: rgba(4, 6, 16, 0.82); }
+
+    /* 텍스트 이력서 패널 헤더부 */
+    .text-head { background: rgba(11, 16, 36, 0.95); }
+
+    /* 완주 보상 트로피 아이콘 박스 — 크림 잔재 제거 */
+    .reward-trophy { background: rgba(13, 17, 38, 0.92); }
+
   </style>
 </head>
 <body data-view="map">
@@ -1873,9 +2545,9 @@
     <header class="topbar">
       <div>
         <p class="eyebrow">이주형 · AI 응용 엔지니어</p>
-        <h1 id="page-title">주형 월드</h1>
-        <p class="role-line" id="role-line">RAG·추천·평가를 직접 설계하고 데이터로 검증하는 AI 엔지니어</p>
-        <p class="intro-copy" id="intro-copy">주형 월드에 오신 걸 환영합니다. 건물을 눌러 작업을 둘러보세요.</p>
+        <h1 id="page-title">주형 유니버스</h1>
+        <p class="role-line" id="role-line">기획 역량으로 도메인별 특화 AI 하네스를 설계하는 AI 엔지니어</p>
+        <p class="intro-copy" id="intro-copy">주형 유니버스에 오신 걸 환영합니다. 은하를 눌러 작업을 둘러보세요.</p>
       </div>
       <div class="mode-switch" aria-label="보기 모드">
         <button type="button" id="map-mode" aria-pressed="true">2D 지도</button>
@@ -1883,7 +2555,7 @@
       </div>
     </header>
 
-    <section class="status-strip" aria-label="마을 상태 요약">
+    <section class="status-strip" aria-label="유니버스 상태 요약">
       <div class="stat"><strong id="open-count">0</strong><span>지금 볼 수 있는 작업</span></div>
       <div class="stat"><strong>RAG·추천·평가</strong><span>직접 설계하고 데이터로 검증한 대표 작업을 먼저 보여줍니다.</span></div>
     </section>
@@ -1894,27 +2566,24 @@
           <section class="map-panel" aria-labelledby="map-title">
             <div class="map-head">
               <div>
-                <h2 id="map-title">마을 지도</h2>
-                <p class="map-note" id="map-note">완성된 건물은 새 탭으로 열립니다.</p>
+                <h2 id="map-title">유니버스 지도</h2>
+                <p class="map-note" id="map-note">공개된 작업은 새 탭으로 열립니다.</p>
               </div>
               <div class="map-tools">
+                <button class="sound-toggle" type="button" id="map-3d-toggle" aria-pressed="false">3D 은하 OFF</button>
                 <button class="sound-toggle" type="button" id="sound-toggle" aria-pressed="false">BGM OFF</button>
               </div>
             </div>
             <div class="map-frame">
-              <div class="map-stage" id="village-map" role="region" aria-label="주형 월드 구역 지도">
-                <img class="map-background" src="./assets/map-background.png" alt="주형 월드 지도 - 6개 구역과 중앙 광장" loading="lazy" draggable="false" decoding="async">
-                <div class="ambient-layer" aria-hidden="true">
-                  <span class="fountain-jet fountain-jet--a"></span>
-                  <span class="fountain-jet fountain-jet--b"></span>
-                  <span class="fountain-jet fountain-jet--c"></span>
-                  <span class="petal petal--1"></span>
-                  <span class="petal petal--2"></span>
-                  <span class="petal petal--3"></span>
-                  <span class="petal petal--4"></span>
-                  <span class="petal petal--5"></span>
-                  <span class="petal petal--6"></span>
+              <div class="map-stage" id="village-map" role="region" aria-label="주형 유니버스 은하 지도">
+                <canvas class="map-background" id="cosmos-canvas" role="img" aria-label="주형 유니버스 지도 - 학습 은하를 포함한 7개 은하와 관제 스테이션"></canvas>
+                <div id="universe-3d" hidden aria-label="주형 유니버스 3D 은하 뷰" role="region">
+                  <div class="u3d-labels" id="u3d-labels"></div>
                 </div>
+                <button class="recent-badge" type="button" id="recent-badge" hidden aria-label="최근 공개 업데이트 보기">
+                  <span class="recent-badge__mark" aria-hidden="true">!</span>
+                  <span class="recent-badge__text">업데이트</span>
+                </button>
               </div>
             </div>
           </section>
@@ -1925,36 +2594,44 @@
               <ul class="legend">
                 <li><b>✅</b><span>공개 링크</span></li>
                 <li><b>🚧</b><span>준비 중</span></li>
-                <li><b>📌</b><span>학습 게시판</span></li>
+                <li><b>📌</b><span>학습 은하</span></li>
               </ul>
             </div>
             <div class="side-section">
               <h2>선택 안내</h2>
               <div class="notice" id="notice" role="status" aria-live="polite">
-                <strong>건물을 눌러보세요.</strong>
-                <p>건물 안에서 작업을 고르면 자세한 설명이 열립니다.</p>
+                <strong>은하를 눌러보세요.</strong>
+                <p>은하 안에서 작업을 고르면 자세한 설명이 열립니다.</p>
               </div>
             </div>
             <div class="side-section stamp-section" aria-labelledby="stamp-title">
-              <h2 id="stamp-title">스탬프 투어</h2>
+              <h2 id="stamp-title">탐사 기록</h2>
               <div class="stamp-card">
                 <div class="stamp-progress" id="stamp-progress" aria-live="polite">
                   <strong>0/6</strong>
-                  <span>건물에 들어가면 도장이 찍힙니다.</span>
+                  <span>은하에 들어가면 탐사 도장이 찍힙니다.</span>
                 </div>
-                <div class="stamp-grid" id="stamp-grid" aria-label="구역별 방문 도장"></div>
+                <div class="stamp-grid" id="stamp-grid" aria-label="은하별 탐사 도장"></div>
                 <div class="stamp-actions">
                   <button type="button" id="stamp-reset">도장 초기화</button>
                   <button type="button" id="reward-open" data-primary="true" hidden>완주 보상 보기</button>
                 </div>
               </div>
             </div>
-            <div class="side-section">
-              <h2>전체 작업</h2>
-              <ul class="building-list" id="building-list"></ul>
-            </div>
           </aside>
         </div>
+
+        <section class="work-hub" aria-labelledby="work-hub-title">
+          <header class="work-hub-head">
+            <div>
+              <h2 id="work-hub-title">전체 작업</h2>
+              <p>은하별 작업을 도메인 칩으로 걸러 봅니다. 준비 중 작업도 stage를 그대로 표시합니다.</p>
+            </div>
+            <span class="work-count" id="domain-result-count" aria-live="polite">전체</span>
+          </header>
+          <div class="domain-filter" id="domain-filter" aria-label="도메인 필터"></div>
+          <div class="work-groups" id="work-groups" aria-live="polite"></div>
+        </section>
       </section>
 
       <section id="text-view" class="view text-panel" aria-labelledby="text-title">
@@ -1963,7 +2640,10 @@
             <h2 id="text-title">텍스트 이력서</h2>
             <p class="map-note">기존 이력서 사본을 바로 확인할 수 있습니다.</p>
           </div>
-          <a class="resume-open" id="resume-link" href="./Resume_LeeJuHyeong.html" target="_blank" rel="noopener">새 탭 열기</a>
+          <div class="text-head-actions">
+            <a class="resume-open" id="resume-link" href="./Resume_LeeJuHyeong.html" target="_blank" rel="noopener">새 탭 열기</a>
+            <a class="resume-open" id="text-page-link" href="./text.html" target="_blank" rel="noopener">텍스트 전용 페이지로 보기</a>
+          </div>
         </div>
         <iframe class="resume-frame" id="resume-frame" title="Resume_LeeJuHyeong.html"></iframe>
       </section>
@@ -1975,7 +2655,7 @@
       <header class="onboarding-head">
         <div>
           <span class="onboarding-kicker" id="onboarding-kicker">ENTRY</span>
-          <h2 id="onboarding-title">주형 월드에 오신 걸 환영해요</h2>
+          <h2 id="onboarding-title">주형 유니버스에 오신 걸 환영해요</h2>
         </div>
         <button class="onboarding-close" type="button" id="onboarding-close" aria-label="체험 가이드 닫기">×</button>
       </header>
@@ -1987,14 +2667,17 @@
     <section class="district-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-summary">
       <header class="modal-head">
         <div>
-          <h2 id="modal-title">건물 안</h2>
+          <h2 id="modal-title">은하 내부</h2>
           <p id="modal-summary">작업을 선택하세요.</p>
         </div>
-        <button class="modal-close" type="button" id="modal-close" aria-label="모달 닫기">×</button>
+        <div class="modal-head-actions">
+          <button class="quest-play" type="button" id="quest-play" hidden>🎮 은하 퀘스트</button>
+          <button class="modal-close" type="button" id="modal-close" aria-label="모달 닫기">×</button>
+        </div>
       </header>
       <div class="modal-body">
         <div class="interior-shell">
-          <div class="interior-map" id="modal-members" aria-label="건물 안 작업"></div>
+          <div class="interior-map" id="modal-members" aria-label="은하 안 작업"></div>
           <aside class="archive-index" aria-label="작업 목록">
             <h3 id="modal-index-title">작업 목록</h3>
             <ul class="archive-index-list" id="modal-index"></ul>
@@ -2007,27 +2690,58 @@
   <div class="reward-backdrop" id="tour-reward" hidden>
     <section class="reward-modal" role="dialog" aria-modal="true" aria-labelledby="reward-title" aria-describedby="reward-copy">
       <header class="reward-head">
-        <h2 id="reward-title">주형 월드 완주</h2>
+        <h2 id="reward-title">주형 유니버스 완주</h2>
         <button class="reward-close" type="button" id="reward-close" aria-label="완주 보상 닫기">×</button>
       </header>
       <div class="reward-body">
         <div class="reward-trophy" aria-hidden="true">◆</div>
-        <p id="reward-copy">끝까지 둘러보셨네요. 아래 세 줄이 이 마을의 핵심입니다.</p>
+        <p id="reward-copy">끝까지 둘러보셨네요. 아래 세 줄이 이 유니버스의 핵심입니다.</p>
         <p id="reward-funnel-summary"></p>
         <ul>
           <li>RAG·추천·평가를 직접 설계하고 검증합니다.</li>
           <li>학습을 공개 그래프로 꾸준히 남깁니다.</li>
           <li>게임·콘텐츠·도구 제작을 한 흐름으로 연결합니다.</li>
         </ul>
+        <div class="interview-hooks">
+          <strong>면접에서 이런 걸 물어보시면 재밌습니다</strong>
+          <ul>
+            <li>RAG 평가를 3원 통제로 설계한 이유 (알려줄고양)</li>
+            <li>통계 게이트가 AI 제안을 거부하는 구조 (현수봇)</li>
+            <li>Claude·Gemini·Codex 3-AI 분업 운영 방식 (학습 은하)</li>
+          </ul>
+        </div>
         <div class="reward-actions">
           <a class="reward-action" data-primary="true" id="reward-atlas" href="https://github.com/ljhljh0703-cmd/learning-atlas" target="_blank" rel="noopener">Learning Atlas 보기</a>
           <div class="reward-secondary">
             <a class="reward-action" id="reward-bookemon" href="https://ljhljh0703-cmd.github.io/AI-Book-Curation/portfolio.html" target="_blank" rel="noopener">북켓몬 케이스</a>
             <button class="reward-action" type="button" id="reward-resume-inline">이력서 안내</button>
             <button class="reward-action" type="button" id="skill-card-save" aria-label="연락처 없는 역량 요약 카드 PNG 저장">역량 카드 저장</button>
+            <a class="reward-action" id="reward-github" href="https://github.com/ljhljh0703-cmd" target="_blank" rel="noopener">GitHub 전체 보기</a>
           </div>
         </div>
       </div>
+    </section>
+  </div>
+
+  <div class="recent-backdrop" id="recent-backdrop" hidden>
+    <section class="recent-dialog" role="dialog" aria-modal="true" aria-labelledby="recent-title">
+      <button class="recent-close" type="button" id="recent-close" aria-label="최근 공개 팝업 닫기">×</button>
+      <h2 id="recent-title">❗ 업데이트 — 최근 공개</h2>
+      <p class="recent-note">유니버스에 새로 공개된 작업과 학습 노트입니다. stage 라벨은 실제 상태 그대로입니다.</p>
+      <ul class="recent-list" id="recent-work-list"></ul>
+      <h2 class="recent-sub">최근 학습 노트</h2>
+      <ul class="recent-list" id="recent-learning-list"></ul>
+    </section>
+  </div>
+
+  <div class="game-backdrop" id="game-backdrop" hidden>
+    <section class="game-dialog" role="dialog" aria-modal="true" aria-labelledby="game-title">
+      <button class="game-x" type="button" id="game-x" aria-label="퀘스트 닫기">×</button>
+      <h2 id="game-title">은하 퀘스트</h2>
+      <p class="game-howto" id="game-howto"></p>
+      <canvas id="game-canvas" width="480" height="640" hidden></canvas>
+      <div class="game-msg" id="game-msg" hidden></div>
+      <div class="game-actions" id="game-actions"></div>
     </section>
   </div>
 
@@ -2036,40 +2750,66 @@
     <source src="./assets/audio/village-bgm.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="./village-config.js?v=18"></script>
+  <script src="./village-config.js?v=20"></script>
+  <script src="./universe-games.js?v=20"></script>
   <script>
     (() => {
       const config = window.VILLAGE_RESUME_CONFIG;
       const uiCopy = {
-        intro: "주형 월드에 오신 걸 환영합니다. 건물을 눌러 작업을 둘러보세요.",
-        mapNote: "건물을 누르면 그 안의 작업을 볼 수 있어요.",
-        defaultNoticeTitle: "건물을 눌러보세요.",
-        defaultNoticeBody: "건물 안에서 작업을 고르면 자세한 설명이 열립니다."
+        intro: "주형 유니버스에 오신 걸 환영합니다. 은하를 눌러 작업을 둘러보세요.",
+        mapNote: "은하를 누르면 그 안의 작업을 볼 수 있어요.",
+        defaultNoticeTitle: "은하를 눌러보세요.",
+        defaultNoticeBody: "은하 안에서 작업을 고르면 자세한 설명이 열립니다."
       };
       const onboardingConfig = config.onboarding || {};
       const onboardingSteps = Array.isArray(onboardingConfig.steps) ? onboardingConfig.steps : [];
       const onboardingStorageKey = onboardingConfig.storageKey || "jw_seen_intro";
+
+      // v22: ?path 코스 딥링크 (D1) — eval|agent|game
+      const courseDefs = {
+        eval: { zones: ["lab", "game", "board"], label: "평가·신뢰" },
+        agent: { zones: ["workshop", "board", "lab"], label: "에이전트·자동화" },
+        game: { zones: ["game", "studio", "workshop"], label: "게임·콘텐츠" }
+      };
+      const requestedPath = new URLSearchParams(window.location.search).get("path") || "";
+      const activeCourse = courseDefs[requestedPath] || null;
+      const courseOrderByZone = new Map();
+      if (activeCourse) {
+        activeCourse.zones.forEach((zoneId, index) => courseOrderByZone.set(zoneId, index + 1));
+      }
+      const courseOrdinals = ["①", "②", "③"];
       const statusMeta = {
         open: { icon: "✅", label: "공개" },
         construction: { icon: "🚧", label: "준비 중" },
         pending: { icon: "🅟", label: "예정" }
       };
       const overlayPlots = {
-        lab: { x1: 36, y1: 4, x2: 58, y2: 28 },
-        board: { x1: 63, y1: 5, x2: 82, y2: 26 },
-        workshop: { x1: 12, y1: 22, x2: 33, y2: 50 },
-        plaza: { x1: 40, y1: 40, x2: 55, y2: 57 },
-        game: { x1: 60, y1: 31, x2: 82, y2: 55 },
-        studio: { x1: 16, y1: 58, x2: 42, y2: 82 },
-        hall: { x1: 52, y1: 60, x2: 78, y2: 92 }
+        lab: { x1: 36, y1: 3, x2: 61, y2: 39 },
+        board: { x1: 61, y1: 4, x2: 83, y2: 32 },
+        workshop: { x1: 12, y1: 25, x2: 37, y2: 58 },
+        plaza: { x1: 41, y1: 45, x2: 56, y2: 70 },
+        game: { x1: 65, y1: 35, x2: 86, y2: 62 },
+        studio: { x1: 13, y1: 63, x2: 44, y2: 93 },
+        hall: { x1: 57, y1: 64, x2: 78, y2: 94 }
       };
+      const domainTaxonomy = [
+        { id: "rag", label: "RAG·검색 QA" },
+        { id: "recsys", label: "추천 시스템" },
+        { id: "agent", label: "AI 에이전트·오케스트레이션" },
+        { id: "eval", label: "평가·Evaluation" },
+        { id: "realtime", label: "실시간·음성" },
+        { id: "designtool", label: "디자인 시스템·도구" },
+        { id: "gameai", label: "게임 AI" },
+        { id: "content", label: "콘텐츠·글" }
+      ];
+      const domainMap = new Map(domainTaxonomy.map((domain) => [domain.id, domain.label]));
       const interiorLabels = {
-        plaza: ["guide", "map", "entry"],
-        lab: ["lab", "eval", "rag"],
-        workshop: ["forge", "bench", "ops"],
-        game: ["arcade", "run", "bot"],
-        studio: ["canvas", "copy", "garden"],
-        hall: ["archive", "spine", "atlas"],
+        plaza: ["dock", "guide", "signal"],
+        lab: ["probe", "eval", "rag"],
+        workshop: ["forge", "orbit", "ops"],
+        game: ["arcade", "sim", "npc"],
+        studio: ["canvas", "token", "tool"],
+        hall: ["core", "about", "atlas"],
         board: ["atlas", "notes", "graph"]
       };
       const allMembers = config.groups.flatMap((group) => group.members || []);
@@ -2082,14 +2822,7 @@
         .filter((group) => group.id !== "plaza")
         .map((group) => group.id);
       const stampStorageKey = "juhyung-world-stamps-v1";
-      const interiorAssets = {
-        lab: "./assets/interiors/lab.png",
-        workshop: "./assets/interiors/workshop.png",
-        game: "./assets/interiors/game.png",
-        studio: "./assets/interiors/studio.png",
-        hall: "./assets/interiors/hall.png",
-        board: "./assets/interiors/board.png"
-      };
+      // v20: 인테리어 이미지 의존 제거 — renderInteriorScaffold가 코드 연출 우주 씬을 그린다.
       const objectCodes = {
         bookemon: "BK",
         "medical-chatbot": "RAG",
@@ -2143,7 +2876,9 @@
       };
       const mapEl = document.getElementById("village-map");
       const minimapEl = document.getElementById("minimap");
-      const listEl = document.getElementById("building-list");
+      const domainFilter = document.getElementById("domain-filter");
+      const workGroups = document.getElementById("work-groups");
+      const domainResultCount = document.getElementById("domain-result-count");
       const noticeEl = document.getElementById("notice");
       const resumeLink = document.getElementById("resume-link");
       const resumeFrame = document.getElementById("resume-frame");
@@ -2187,6 +2922,8 @@
       let funnelState = "explore";
       let tutorialStepIndex = 0;
       let stampRewardShown = false;
+      let activeDomain = initialDomain();
+      var questEarned; // v20 은하 퀘스트 (호이스팅 필요 — 초기 렌더 가드)
       const earnedStamps = new Set(loadStoredStamps());
       villageBgm.volume = 0.22;
 
@@ -2213,9 +2950,8 @@
         }
       });
 
-      allMembers.forEach((member) => {
-        listEl.appendChild(renderListItem(member));
-      });
+      renderDomainFilters();
+      renderWorkHub();
       renderStampBoard();
 
       mapMode.addEventListener("click", () => setView("map"));
@@ -2343,16 +3079,54 @@
         markIntroSeen();
         closeOnboarding({ restoreFocus: false });
         setView("map");
-        setNotice({
-          title: uiCopy.defaultNoticeTitle,
-          body: uiCopy.defaultNoticeBody
-        });
+        showEntryNotice();
         const firstTarget = mapEl.querySelector(".map-hotspot");
         if (firstTarget) {
           firstTarget.focus({ preventScroll: true });
         } else {
           guideReopen.focus({ preventScroll: true });
         }
+      }
+
+      // v22: explore 진입 시 우선순위 안내 — 코스 배지 > 퀘스트 힌트(체험 모드 1회) > 기본
+      function showEntryNotice() {
+        if (activeCourse) {
+          try {
+            if (!localStorage.getItem("jw_seen_course_hint")) {
+              const steps = activeCourse.zones
+                .map((zoneId, index) => `${courseOrdinals[index]}${displayGroupLabel(findGroup(zoneId))}`)
+                .join(" → ");
+              setNotice({
+                title: `${activeCourse.label} 코스 추천 순서`,
+                body: `${steps} 순서로 둘러보면 좋아요.`
+              });
+              localStorage.setItem("jw_seen_course_hint", "true");
+              return;
+            }
+          } catch (error) { /* 저장소 불가 — 기본 안내로 진행 */ }
+        }
+        let visitMode = "";
+        try { visitMode = localStorage.getItem("jw_visit_mode") || ""; } catch (error) { /* no-op */ }
+        if (visitMode === "experience") {
+          try {
+            if (!localStorage.getItem("jw_seen_quest_hint")) {
+              setNotice({
+                title: "은하마다 🎮 퀘스트가 있어요",
+                body: "클리어하면 탐사 기록에 ★이 켜집니다."
+              });
+              localStorage.setItem("jw_seen_quest_hint", "true");
+              return;
+            }
+          } catch (error) { /* 저장소 불가 — 기본 안내로 진행 */ }
+        }
+        setNotice({
+          title: uiCopy.defaultNoticeTitle,
+          body: uiCopy.defaultNoticeBody
+        });
+      }
+
+      function findGroup(groupId) {
+        return config.groups.find((group) => group.id === groupId) || { id: groupId, representative: {} };
       }
 
       function renderOnboarding() {
@@ -2377,13 +3151,17 @@
         actions.className = "onboarding-actions";
         const start = createOnboardingButton(entry.startLabel || "체험 시작", true, () => {
           markIntroSeen();
+          try { localStorage.setItem("jw_visit_mode", "experience"); } catch (error) { /* 세션 한정 */ }
           funnelState = "tutorial";
           tutorialStepIndex = 0;
           renderOnboarding();
           const focusTarget = onboardingBody.querySelector("[data-primary='true']") || onboardingClose;
           focusTarget.focus({ preventScroll: true });
         });
-        const skip = createOnboardingButton(entry.skipLabel || "바로 둘러보기", false, startExploreFromOnboarding);
+        const skip = createOnboardingButton(entry.skipLabel || "바로 둘러보기", false, () => {
+          try { localStorage.setItem("jw_visit_mode", "browse"); } catch (error) { /* 세션 한정 */ }
+          startExploreFromOnboarding();
+        });
         actions.append(start, skip);
         onboardingBody.append(copy, actions);
       }
@@ -2438,7 +3216,7 @@
         }
         const skip = createOnboardingButton(onboardingConfig.entry?.skipLabel || "바로 둘러보기", false, startExploreFromOnboarding);
         const isLast = tutorialStepIndex === lastIndex;
-        const next = createOnboardingButton(isLast ? (step.ctaLabel || "마을 둘러보기 시작") : "다음", true, () => {
+        const next = createOnboardingButton(isLast ? (step.ctaLabel || "유니버스 탐험 시작") : "다음", true, () => {
           if (isLast) {
             startExploreFromOnboarding();
             return;
@@ -2505,6 +3283,190 @@
         return button;
       }
 
+      function initialDomain() {
+        try {
+          const domain = new URLSearchParams(window.location.search).get("domain") || "";
+          return domainMap.has(domain) ? domain : "";
+        } catch (error) {
+          return "";
+        }
+      }
+
+      function renderDomainFilters() {
+        domainFilter.innerHTML = "";
+        const allButton = createDomainChip("", "전체");
+        domainFilter.appendChild(allButton);
+        domainTaxonomy.forEach((domain) => {
+          domainFilter.appendChild(createDomainChip(domain.id, domain.label));
+        });
+      }
+
+      function createDomainChip(domain, label) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "domain-chip";
+        button.dataset.domain = domain;
+        button.textContent = label;
+        button.setAttribute("aria-pressed", String(activeDomain === domain));
+        button.addEventListener("click", () => {
+          setActiveDomain(domain);
+        });
+        return button;
+      }
+
+      function setActiveDomain(domain) {
+        activeDomain = domainMap.has(domain) ? domain : "";
+        domainFilter.querySelectorAll(".domain-chip").forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.domain === activeDomain));
+        });
+        syncDomainParam();
+        renderWorkHub();
+      }
+
+      function syncDomainParam() {
+        try {
+          const url = new URL(window.location.href);
+          if (activeDomain) {
+            url.searchParams.set("domain", activeDomain);
+          } else {
+            url.searchParams.delete("domain");
+          }
+          window.history.replaceState({}, "", url);
+        } catch (error) {
+          // URL 갱신이 막힌 환경에서는 화면 필터만 유지합니다.
+        }
+      }
+
+      function renderWorkHub() {
+        workGroups.innerHTML = "";
+        let visibleCount = 0;
+        config.groups
+          .filter((group) => group.id !== "plaza")
+          .forEach((group) => {
+            const items = workItemsForGroup(group).filter((item) => {
+              return !activeDomain || (item.domains || []).includes(activeDomain);
+            });
+            if (!items.length) {
+              return;
+            }
+            visibleCount += items.length;
+            workGroups.appendChild(renderWorkGroup(group, items));
+          });
+
+        const activeLabel = activeDomain ? domainMap.get(activeDomain) : "전체";
+        domainResultCount.textContent = `${activeLabel} · ${visibleCount}개`;
+        if (!visibleCount) {
+          const empty = document.createElement("p");
+          empty.className = "work-empty";
+          empty.textContent = "선택한 도메인에 연결된 작업이 아직 없습니다.";
+          workGroups.appendChild(empty);
+        }
+      }
+
+      function workItemsForGroup(group) {
+        if (group.id === "board") {
+          const atlas = group.atlas
+            ? [{
+                slug: "learning-atlas-board",
+                status: "open",
+                link: group.atlas.link,
+                label: group.atlas.label,
+                hook: group.atlas.note || "공개 학습 허브",
+                stage: "Learning Atlas",
+                domains: []
+              }]
+            : [];
+          const cards = (group.learningCards || []).map((card) => ({
+            slug: card.slug,
+            status: "open",
+            link: card.link,
+            label: card.title,
+            hook: card.hook,
+            stage: card.tag || "학습",
+            domains: []
+          }));
+          return [...atlas, ...cards];
+        }
+        return sortWorkItems(group.members || []);
+      }
+
+      function sortWorkItems(items) {
+        return [...items].sort((a, b) => {
+          const rankDiff = workItemRank(a) - workItemRank(b);
+          if (rankDiff) {
+            return rankDiff;
+          }
+          return 0;
+        });
+      }
+
+      function workItemRank(item) {
+        if (item.recent === true) {
+          return 0;
+        }
+        if (item.status === "open" && item.link) {
+          return 1;
+        }
+        if (item.status === "open") {
+          return 2;
+        }
+        if (item.status === "construction") {
+          return 3;
+        }
+        return 4;
+      }
+
+      function renderWorkGroup(group, items) {
+        const section = document.createElement("section");
+        section.className = "work-group";
+        section.dataset.group = group.id;
+        section.innerHTML = `
+          <div class="work-group-head">
+            <h3>${escapeHtml(displayGroupLabel(group))}</h3>
+            <p>${items.length}개 작업</p>
+          </div>
+        `;
+        const list = document.createElement("ul");
+        list.className = "work-items";
+        items.forEach((item) => {
+          list.appendChild(renderWorkItem(item, group));
+        });
+        section.appendChild(list);
+        return section;
+      }
+
+      function renderWorkItem(item, group) {
+        const meta = statusMeta[item.status] || statusMeta.open;
+        const li = document.createElement("li");
+        li.className = "work-item";
+        const isLive = item.status === "open" && Boolean(item.link);
+        const surface = document.createElement(isLive ? "a" : "div");
+        surface.className = `work-item-surface${isLive ? "" : " is-disabled"}`;
+        if (isLive) {
+          surface.href = item.link;
+          surface.target = "_blank";
+          surface.rel = "noopener";
+          surface.setAttribute("aria-label", `${displayItemLabel(item)} 새 탭에서 열기. ${displayStage(item.stage)}.`);
+        } else {
+          surface.setAttribute("role", "group");
+          surface.setAttribute("aria-label", `${displayItemLabel(item)}. ${displayStage(item.stage)}.`);
+        }
+        const domainTags = (item.domains || [])
+          .map((domain) => `<span class="domain-tag">${escapeHtml(domainMap.get(domain) || domain)}</span>`)
+          .join("");
+        surface.innerHTML = `
+          <div class="work-item-top">
+            <span class="work-item-title">${escapeHtml(displayItemLabel(item))}</span>
+            <span class="badge">${meta.icon} ${escapeHtml(displayStage(item.stage))}</span>
+          </div>
+          <p class="work-item-hook">${escapeHtml(item.hook || "요약 준비 중")}</p>
+          ${isLive && item.teaser ? `<p class="teaser-line">✦ ${escapeHtml(item.teaser)}</p>` : ""}
+          <div class="work-domain-list">${domainTags || `<span class="domain-tag">${escapeHtml(group.id === "board" ? "Learning Atlas" : "도메인 미지정")}</span>`}</div>
+        `;
+        li.appendChild(surface);
+        return li;
+      }
+
       function renderMapHotspot(group) {
         const button = document.createElement("button");
         const counts = memberCounts(group.members || []);
@@ -2517,10 +3479,19 @@
         button.dataset.status = group.status;
         button.style.setProperty("--theme", group.theme || "var(--accent)");
         applyPlot(button, plot);
-        button.setAttribute("aria-label", `${displayGroupLabel(group)} 건물 선택. ${ariaCount}`);
+        button.setAttribute("aria-label", `${displayGroupLabel(group)} 은하 선택. ${ariaCount}`);
+        const courseOrder = courseOrderByZone.get(group.id);
+        const courseBadgeHtml = courseOrder
+          ? `<span class="course-badge">추천 ${courseOrdinals[courseOrder - 1]}</span>`
+          : "";
+        const courseChipHtml = courseOrder
+          ? `<span class="course-chip" aria-hidden="true">${courseOrdinals[courseOrder - 1]}</span>`
+          : "";
         button.innerHTML = `
+          ${courseChipHtml}
           <span class="zone-label" aria-hidden="true">
             <span class="zone-title">${escapeHtml(displayGroupLabel(group))}</span>
+            ${courseBadgeHtml}
             <span class="zone-stage">${escapeHtml(displayStage(group.representative.stage))}</span>
             <span class="zone-counts">${badgeText}</span>
           </span>
@@ -2553,7 +3524,7 @@
         button.dataset.status = group.status;
         applyPlot(button, plot);
         button.innerHTML = `<span>${escapeHtml(displayGroupMapLabel(group))}</span>`;
-        button.setAttribute("aria-label", `${displayGroupLabel(group)} 건물로 이동`);
+        button.setAttribute("aria-label", `${displayGroupLabel(group)} 은하로 이동`);
         button.addEventListener("click", () => {
           const target = mapEl.querySelector(`.map-hotspot[data-group="${CSS.escape(group.id)}"]`);
           if (target) {
@@ -2603,8 +3574,9 @@
           button.className = "stamp-slot";
           button.dataset.stamp = groupId;
           button.dataset.earned = String(earned);
+          button.dataset.quest = String(Boolean(questEarned && questEarned.has(groupId)));
           button.textContent = displayGroupMapLabel(group);
-          button.setAttribute("aria-label", `${displayGroupLabel(group)} 도장 ${earned ? "획득됨" : "미획득"}. 건물 열기`);
+          button.setAttribute("aria-label", `${displayGroupLabel(group)} 도장 ${earned ? "획득됨" : "미획득"}. 은하 열기`);
           if (newStampId === groupId) {
             button.classList.add("is-new");
           }
@@ -2619,7 +3591,7 @@
         const total = stampTargets.length;
         stampProgress.innerHTML = `
           <strong>${earnedCount}/${total}</strong>
-          <span>${earnedCount === total ? "전 구역 완주. 보상을 확인할 수 있습니다." : "건물에 들어가면 도장이 찍힙니다."}</span>
+          <span>${earnedCount === total ? "전 은하 탐사 완료. 보상을 확인할 수 있습니다." : "은하에 들어가면 탐사 도장이 찍힙니다."}</span>
         `;
         rewardOpen.hidden = earnedCount !== total;
       }
@@ -2686,7 +3658,7 @@
         setView("text");
         setNotice({
           title: "이력서 안내",
-          body: "아래 텍스트 이력서 안내본을 마을 안에서 확인할 수 있습니다."
+          body: "아래 텍스트 이력서 안내본을 유니버스 안에서 확인할 수 있습니다."
         });
         document.getElementById("text-view").scrollIntoView({ block: "start", behavior: "smooth" });
         window.setTimeout(() => {
@@ -2772,6 +3744,15 @@
           wrapCanvasText(ctx, text, 168, y + 8, width - 290, 34);
         });
 
+        // v22: 은하 퀘스트 진행도 (D3)
+        if (typeof questEarned !== "undefined") {
+          const questCount = questEarned.size;
+          const questY = 278 + competencies.length * 118 + 20;
+          ctx.fillStyle = "#2c2620";
+          ctx.font = "700 22px Pretendard, sans-serif";
+          ctx.fillText(`은하 퀘스트 ★${questCount}/4 완료`, 82, questY);
+        }
+
         ctx.fillStyle = "#3f6b57";
         ctx.fillRect(82, height - 134, width - 164, 58);
         ctx.fillStyle = "#f4ead2";
@@ -2810,37 +3791,39 @@
       }
 
       function renderInteriorScaffold(group) {
+        // v20: GPT 인테리어 이미지 → 코드 연출 우주 씬 (이미지 의존 0)
         modalMembers.dataset.group = group.id;
-        const interiorSrc = interiorAssets[group.id];
-        modalMembers.classList.toggle("has-interior-image", Boolean(interiorSrc));
-        if (interiorSrc) {
-          const image = document.createElement("img");
-          image.className = "interior-background";
-          image.src = interiorSrc;
-          image.alt = `${group.label} 건물 안 배경`;
-          image.decoding = "async";
-          image.loading = "lazy";
-          image.draggable = false;
-          modalMembers.appendChild(image);
-          return;
+        modalMembers.classList.remove("has-interior-image");
+        modalMembers.classList.add("is-space");
+        const sceneRng = miniRng(hashCode(group.id) ^ 20260702);
+        for (let i = 0; i < 26; i++) {
+          const star = document.createElement("span");
+          star.className = "space-star";
+          star.style.left = `${4 + sceneRng() * 92}%`;
+          star.style.top = `${4 + sceneRng() * 90}%`;
+          star.style.animationDelay = `${Math.floor(sceneRng() * 2400)}ms`;
+          star.setAttribute("aria-hidden", "true");
+          modalMembers.appendChild(star);
         }
-        (interiorLabels[group.id] || interiorLabels.board).forEach((label) => {
+        const orb = document.createElement("span");
+        orb.className = "space-orb";
+        orb.setAttribute("aria-hidden", "true");
+        modalMembers.appendChild(orb);
+        const labelSpots = [
+          { left: "24px", top: "20px", right: "", bottom: "" },
+          { left: "", top: "20px", right: "24px", bottom: "" },
+          { left: "24px", top: "", right: "", bottom: "26px" }
+        ];
+        (interiorLabels[group.id] || interiorLabels.board).forEach((label, index) => {
           const roomLabel = document.createElement("span");
           roomLabel.className = "interior-room-label";
           roomLabel.textContent = label;
+          const spot = labelSpots[index % labelSpots.length];
+          if (spot.left) { roomLabel.style.left = spot.left; }
+          if (spot.right) { roomLabel.style.right = spot.right; }
+          if (spot.top) { roomLabel.style.top = spot.top; }
+          if (spot.bottom) { roomLabel.style.bottom = spot.bottom; }
           modalMembers.appendChild(roomLabel);
-        });
-
-        [...commonInteriorProps, ...(propLayouts[group.id] || [])].forEach((prop) => {
-          const el = document.createElement("span");
-          el.className = "interior-prop";
-          el.dataset.kind = prop.kind;
-          el.style.setProperty("--prop-x", prop.x);
-          el.style.setProperty("--prop-y", prop.y);
-          el.style.setProperty("--prop-w", prop.w);
-          el.style.setProperty("--prop-h", prop.h);
-          el.setAttribute("aria-hidden", "true");
-          modalMembers.appendChild(el);
         });
       }
 
@@ -2865,7 +3848,7 @@
 
       function renderBoardIndex(group) {
         const note = document.createElement("li");
-        note.innerHTML = `<span class="learning-source-note">시범 배경은 GPT 이미지 생성으로 만든 v16.1 학습 게시판 픽셀 에셋입니다.</span>`;
+        note.innerHTML = `<span class="learning-source-note">학습 은하 — Learning Atlas 공개 노트와 연결됩니다.</span>`;
         modalIndex.appendChild(note);
 
         const atlas = group.atlas;
@@ -2943,6 +3926,7 @@
           </div>
           <p class="member-detail-stage">${escapeHtml(displayStage(member.stage))}</p>
           <p class="member-detail-hook">${escapeHtml(member.hook)}</p>
+          ${member.teaser ? `<p class="teaser-line">✦ ${escapeHtml(member.teaser)}</p>` : ""}
           <dl class="member-proof">
             ${renderMemberProofRows(member)}
           </dl>
@@ -3033,6 +4017,7 @@
         modalIndexTitle.textContent = group.id === "board" ? "학습 카드" : "작업 목록";
         lastMemberTrigger = null;
         renderInteriorScaffold(group);
+        updateQuestButton(group);
         awardStamp(group, trigger);
         if (group.id === "board") {
           renderBoardIndex(group);
@@ -3045,7 +4030,7 @@
           item.innerHTML = `<span class="archive-index-note">${escapeHtml(uiCopy.mapNote)}</span>`;
           modalIndex.appendChild(item);
         } else {
-          group.members.forEach((member) => {
+          sortWorkItems(group.members).forEach((member) => {
             modalIndex.appendChild(renderArchiveItem(member));
           });
         }
@@ -3125,9 +4110,9 @@
           return uiCopy.intro;
         }
         if (group.id === "board") {
-          return "최근 학습 지식과 기술 노트를 Learning Atlas로 연결하는 게시판입니다.";
+          return "최근 학습 지식과 기술 노트를 Learning Atlas로 연결하는 학습 은하입니다.";
         }
-        return `건물 안의 작업입니다. 오른쪽 작업 목록에서 항목을 선택하면 상세가 하나씩 열립니다. ${countText(counts)}.`;
+        return `은하 안의 작업입니다. 오른쪽 작업 목록에서 항목을 선택하면 상세가 하나씩 열립니다. ${countText(counts)}.`;
       }
 
       function setNotice(payload) {
@@ -3156,6 +4141,10 @@
           "sim-thesis": "시뮬레이션 통합"
         };
         return labels[member.slug] || member.label;
+      }
+
+      function displayItemLabel(item) {
+        return item.label || item.title || item.slug;
       }
 
       function displayGroupLabel(group) {
@@ -3203,6 +4192,542 @@
         soundToggle.textContent = "BGM OFF";
         soundToggle.setAttribute("aria-pressed", "false");
       }
+
+
+      /* ═══════════ v20 주형 유니버스 — 코스모스 맵·최근공개 배지·은하 퀘스트 ═══════════ */
+
+      function hashCode(str) {
+        let h = 0;
+        for (const ch of String(str)) { h = (h * 31 + ch.charCodeAt(0)) | 0; }
+        return h >>> 0;
+      }
+      function miniRng(seedValue) {
+        let a = seedValue >>> 0;
+        return function () {
+          a |= 0; a = (a + 0x6d2b79f5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      // ── 코스모스 맵 렌더러 (시드 결정론 — 로드마다 동일 우주)
+      const cosmosCanvas = document.getElementById("cosmos-canvas");
+      (function initCosmos() {
+        if (!cosmosCanvas) { return; }
+        const ctx = cosmosCanvas.getContext("2d");
+        const stage = cosmosCanvas.parentElement;
+        const rng = miniRng(20260702);
+        const stars = [];
+        for (let i = 0; i < 210; i++) {
+          stars.push({ x: rng(), y: rng(), r: 0.6 + rng() * 1.5, ph: rng() * Math.PI * 2 });
+        }
+        const blobs = [
+          { x: 0.24, y: 0.3, r: 0.34, c: "rgba(64, 78, 168, 0.30)" },
+          { x: 0.74, y: 0.2, r: 0.3, c: "rgba(94, 60, 130, 0.26)" },
+          { x: 0.62, y: 0.78, r: 0.36, c: "rgba(40, 96, 110, 0.24)" },
+          { x: 0.14, y: 0.82, r: 0.26, c: "rgba(120, 62, 92, 0.22)" }
+        ];
+        const zones = config.groups.map((group) => {
+          const plot = overlayPlots[group.id];
+          const cx = (plot.x1 + plot.x2) / 200;
+          const cy = (plot.y1 + plot.y2) / 200;
+          const span = Math.min(plot.x2 - plot.x1, plot.y2 - plot.y1) / 100;
+          const zoneRng = miniRng(hashCode(group.id) ^ 77);
+          const dots = [];
+          const arms = 2 + Math.floor(zoneRng() * 2);
+          for (let i = 0; i < 46; i++) {
+            const arm = i % arms;
+            const d = 0.12 + (i / 46) * 0.92;
+            dots.push({
+              d,
+              base: (arm / arms) * Math.PI * 2 + d * 2.6 + zoneRng() * 0.35,
+              size: 1 + zoneRng() * 1.7,
+              tw: zoneRng() * Math.PI * 2
+            });
+          }
+          return { group, cx, cy, span, dots };
+        });
+        const plazaZone = zones.find((zone) => zone.group.id === "plaza");
+
+        function resize() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          cosmosCanvas.width = Math.max(1, Math.round(stage.clientWidth * dpr));
+          cosmosCanvas.height = Math.max(1, Math.round(stage.clientHeight * dpr));
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function draw(t) {
+          const w = stage.clientWidth;
+          const h = stage.clientHeight;
+          ctx.clearRect(0, 0, w, h);
+          const bg = ctx.createLinearGradient(0, 0, 0, h);
+          bg.addColorStop(0, "#060a1d");
+          bg.addColorStop(1, "#03040c");
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, w, h);
+          blobs.forEach((blob) => {
+            const g = ctx.createRadialGradient(blob.x * w, blob.y * h, 0, blob.x * w, blob.y * h, blob.r * w);
+            g.addColorStop(0, blob.c);
+            g.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, w, h);
+          });
+          stars.forEach((star) => {
+            const alpha = 0.35 + 0.55 * (0.5 + 0.5 * Math.sin(t * 0.9 + star.ph));
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = "#dfe6ff";
+            ctx.beginPath();
+            ctx.arc(star.x * w, star.y * h, star.r, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+
+          // 은하 → 관제 스테이션 연결선
+          if (plazaZone) {
+            ctx.setLineDash([3, 7]);
+            ctx.lineWidth = 1;
+            zones.forEach((zone) => {
+              if (zone === plazaZone) { return; }
+              ctx.strokeStyle = "rgba(190, 205, 255, 0.16)";
+              ctx.beginPath();
+              ctx.moveTo(zone.cx * w, zone.cy * h);
+              ctx.lineTo(plazaZone.cx * w, plazaZone.cy * h);
+              ctx.stroke();
+            });
+            ctx.setLineDash([]);
+          }
+
+          zones.forEach((zone) => {
+            const cx = zone.cx * w;
+            const cy = zone.cy * h;
+            const radius = zone.span * Math.min(w, h) * 0.52;
+            const theme = zone.group.theme || "#ffd166";
+            const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.25);
+            halo.addColorStop(0, theme + "55");
+            halo.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = halo;
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius * 1.25, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (zone.group.id === "plaza") {
+              ctx.strokeStyle = theme;
+              ctx.lineWidth = 2;
+              ctx.beginPath();
+              ctx.arc(cx, cy, radius * 0.55, 0, Math.PI * 2);
+              ctx.stroke();
+              ctx.beginPath();
+              ctx.ellipse(cx, cy, radius * 0.95, radius * 0.34, t * 0.12, 0, Math.PI * 2);
+              ctx.stroke();
+              ctx.fillStyle = "#fff4d8";
+              ctx.beginPath();
+              ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              zone.dots.forEach((dot) => {
+                const angle = dot.base + t * 0.05;
+                const px = cx + Math.cos(angle) * dot.d * radius;
+                const py = cy + Math.sin(angle) * dot.d * radius * 0.62;
+                const twinkle = 0.55 + 0.45 * Math.sin(t * 1.4 + dot.tw);
+                ctx.globalAlpha = twinkle;
+                ctx.fillStyle = theme;
+                ctx.beginPath();
+                ctx.arc(px, py, dot.size, 0, Math.PI * 2);
+                ctx.fill();
+              });
+              ctx.globalAlpha = 1;
+              ctx.fillStyle = "#fff4d8";
+              ctx.beginPath();
+              ctx.arc(cx, cy, 3.2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+
+            ctx.font = "400 12px 'Galmuri9', sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillStyle = "rgba(232, 236, 248, 0.88)";
+            ctx.fillText(displayGroupMapLabel(zone.group), cx, cy + radius * 0.95 + 15);
+          });
+        }
+
+        let rafId = 0;
+        function loop(now) {
+          rafId = window.requestAnimationFrame(loop);
+          draw(now / 1000);
+        }
+        resize();
+        if (reducedMotionQuery.matches) {
+          draw(0);
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => draw(0));
+          }
+        } else {
+          rafId = window.requestAnimationFrame(loop);
+        }
+        if (typeof ResizeObserver !== "undefined") {
+          new ResizeObserver(() => {
+            resize();
+            if (reducedMotionQuery.matches) { draw(0); }
+          }).observe(stage);
+        } else {
+          window.addEventListener("resize", () => {
+            resize();
+            if (reducedMotionQuery.matches) { draw(0); }
+          });
+        }
+        document.addEventListener("visibilitychange", () => {
+          if (reducedMotionQuery.matches) { return; }
+          if (document.hidden) {
+            window.cancelAnimationFrame(rafId);
+          } else {
+            rafId = window.requestAnimationFrame(loop);
+          }
+        });
+      })();
+
+      // ── ❗ 최근 공개 배지 + 팝업 (recent:true = Job Hub 잠금 데이터 그대로)
+      const recentBadge = document.getElementById("recent-badge");
+      const recentBackdrop = document.getElementById("recent-backdrop");
+      const recentDialog = recentBackdrop.querySelector(".recent-dialog");
+      const recentCloseBtn = document.getElementById("recent-close");
+      const recentWorkList = document.getElementById("recent-work-list");
+      const recentLearningList = document.getElementById("recent-learning-list");
+      const recentItems = allMembers.filter((member) => member.recent === true && member.status === "open");
+      let lastRecentTrigger = null;
+
+      (function initRecentBadge() {
+        if (!recentItems.length) { return; }
+        const plot = overlayPlots.board;
+        recentBadge.style.left = `${plot.x2 - 7}%`;
+        recentBadge.style.top = `${plot.y1 + 2}%`;
+        recentBadge.hidden = false;
+        recentWorkList.innerHTML = "";
+        recentItems.forEach((member) => {
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = member.link;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.innerHTML = `
+            <span class="recent-item-title">${escapeHtml(displayLabel(member))}</span>
+            <span class="recent-item-meta">${escapeHtml(member.stage)} · ${escapeHtml(member.hook)}</span>
+          `;
+          item.appendChild(link);
+          recentWorkList.appendChild(item);
+        });
+        recentLearningList.innerHTML = "";
+        ((boardGroup && boardGroup.learningCards) || []).forEach((card) => {
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = card.link;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.innerHTML = `
+            <span class="recent-item-title">${escapeHtml(card.title)}</span>
+            <span class="recent-item-meta">${escapeHtml(card.tag)} · ${escapeHtml(card.date || "학습")} · ${escapeHtml(card.hook)}</span>
+          `;
+          item.appendChild(link);
+          recentLearningList.appendChild(item);
+        });
+        recentBadge.addEventListener("click", () => openRecentPopup(recentBadge));
+        recentCloseBtn.addEventListener("click", closeRecentPopup);
+        recentBackdrop.addEventListener("click", (event) => {
+          if (event.target === recentBackdrop) { closeRecentPopup(); }
+        });
+      })();
+
+      function openRecentPopup(trigger) {
+        lastRecentTrigger = trigger || document.activeElement;
+        recentBackdrop.hidden = false;
+        recentCloseBtn.focus();
+      }
+      function closeRecentPopup() {
+        if (recentBackdrop.hidden) { return; }
+        recentBackdrop.hidden = true;
+        if (lastRecentTrigger && typeof lastRecentTrigger.focus === "function") {
+          lastRecentTrigger.focus({ preventScroll: true });
+        }
+      }
+
+      // ── 은하 퀘스트 (미니게임 = 도전 보너스 · 콘텐츠는 잠기지 않음)
+      const QUEST_GAMES = { lab: "blast", workshop: "shooter", game: "runner", studio: "merge" };
+      const questStorageKey = "jw_universe_quests_v1";
+      questEarned = new Set(loadStoredQuests());
+      const questButton = document.getElementById("quest-play");
+      const gameBackdrop = document.getElementById("game-backdrop");
+      const gameDialog = gameBackdrop.querySelector(".game-dialog");
+      const gameTitle = document.getElementById("game-title");
+      const gameHowto = document.getElementById("game-howto");
+      const gameCanvas = document.getElementById("game-canvas");
+      const gameMsg = document.getElementById("game-msg");
+      const gameActions = document.getElementById("game-actions");
+      const gameCloseBtn = document.getElementById("game-x");
+      let currentQuest = null;
+      let gameMount = null;
+      let lastGameTrigger = null;
+
+      function loadStoredQuests() {
+        try {
+          const stored = JSON.parse(localStorage.getItem(questStorageKey) || "[]");
+          return Array.isArray(stored) ? stored.filter((id) => QUEST_GAMES[id]) : [];
+        } catch (error) {
+          return [];
+        }
+      }
+      function saveQuests() {
+        try {
+          localStorage.setItem(questStorageKey, JSON.stringify([...questEarned]));
+        } catch (error) { /* 저장 불가 환경 — 세션 한정 유지 */ }
+      }
+
+      function updateQuestButton(group) {
+        if (!questButton) { return; }
+        const gameId = QUEST_GAMES[group.id];
+        const hasGames = Boolean(window.JW_GAMES && window.JW_GAMES.games);
+        if (!gameId || !hasGames) {
+          questButton.hidden = true;
+          return;
+        }
+        const earned = questEarned.has(group.id);
+        questButton.hidden = false;
+        questButton.dataset.earned = String(earned);
+        questButton.textContent = earned ? "⭐ 퀘스트 완료 — 다시 도전" : "🎮 은하 퀘스트";
+        questButton.onclick = () => openGameModal(group, questButton);
+      }
+
+      function stopGameMount() {
+        if (gameMount) { gameMount.dispose(); gameMount = null; }
+      }
+      function gameActionButton(label, primary, handler) {
+        const button = document.createElement("button");
+        button.type = "button";
+        if (primary) { button.dataset.primary = "true"; }
+        button.textContent = label;
+        button.addEventListener("click", handler);
+        return button;
+      }
+
+      function openGameModal(group, trigger) {
+        const gameId = QUEST_GAMES[group.id];
+        const meta = window.JW_GAMES.meta[gameId];
+        lastGameTrigger = trigger || document.activeElement;
+        currentQuest = { group, gameId, meta, attempt: 0 };
+        gameBackdrop.hidden = false;
+        gameTitle.textContent = `${displayGroupLabel(group)} — ${meta.title}`;
+        showGameIntro();
+        gameCloseBtn.focus();
+      }
+      function showGameIntro() {
+        stopGameMount();
+        gameHowto.hidden = false;
+        gameHowto.textContent = currentQuest.meta.howto;
+        gameCanvas.hidden = true;
+        gameMsg.hidden = true;
+        gameActions.replaceChildren(
+          gameActionButton("시작", true, startGame),
+          gameActionButton("닫기", false, closeGameModal)
+        );
+      }
+      function startGame() {
+        stopGameMount();
+        gameHowto.hidden = false;
+        gameMsg.hidden = true;
+        gameCanvas.hidden = false;
+        gameActions.replaceChildren(gameActionButton("닫기", false, closeGameModal));
+        currentQuest.attempt += 1;
+        const seedValue = (hashCode(currentQuest.group.id) ^ 20260702) + currentQuest.attempt * 7919;
+        gameMount = window.JW_GAMES.mountGame(
+          gameCanvas,
+          window.JW_GAMES.games[currentQuest.gameId],
+          seedValue >>> 0,
+          "ko",
+          {
+            reduced: reducedMotionQuery.matches,
+            onEnd: (result) => (result === "won" ? showGameWin() : showGameLose())
+          }
+        );
+      }
+      function showGameWin() {
+        stopGameMount();
+        gameCanvas.hidden = true;
+        gameHowto.hidden = true;
+        const group = currentQuest.group;
+        const isNew = !questEarned.has(group.id);
+        questEarned.add(group.id);
+        saveQuests();
+        renderStampBoard();
+        gameMsg.hidden = false;
+        gameMsg.innerHTML = `
+          <strong>퀘스트 완료! ⭐</strong>
+          <p>${escapeHtml(currentQuest.meta.bridge)}</p>
+        `;
+        gameActions.replaceChildren(gameActionButton("확인", true, closeGameModal));
+        const clearedCount = Object.keys(QUEST_GAMES).filter((id) => questEarned.has(id)).length;
+        if (isNew) {
+          setNotice({
+            title: "은하 퀘스트 완료",
+            body: clearedCount === Object.keys(QUEST_GAMES).length
+              ? "네 은하 퀘스트를 전부 완주했습니다. 탐사 기록에 ★가 모두 켜졌어요."
+              : `${displayGroupLabel(group)} 퀘스트 완료. 진행도 ${clearedCount}/${Object.keys(QUEST_GAMES).length}.`
+          });
+        }
+      }
+      function showGameLose() {
+        stopGameMount();
+        gameCanvas.hidden = true;
+        gameHowto.hidden = true;
+        gameMsg.hidden = false;
+        gameMsg.innerHTML = `
+          <strong>아쉽다 —</strong>
+          <p>${escapeHtml(currentQuest.meta.howto)}</p>
+        `;
+        gameActions.replaceChildren(
+          gameActionButton("재시도", true, startGame),
+          gameActionButton("닫기", false, closeGameModal)
+        );
+      }
+      function closeGameModal() {
+        stopGameMount();
+        if (gameBackdrop.hidden) { return; }
+        gameBackdrop.hidden = true;
+        if (lastGameTrigger && typeof lastGameTrigger.focus === "function") {
+          lastGameTrigger.focus({ preventScroll: true });
+        }
+      }
+      gameCloseBtn.addEventListener("click", closeGameModal);
+      gameBackdrop.addEventListener("click", (event) => {
+        if (event.target === gameBackdrop) { closeGameModal(); }
+      });
+
+      // 새 다이얼로그 키보드 처리 — 기존 핸들러보다 먼저(캡처) 처리해 충돌 방지
+      document.addEventListener("keydown", (event) => {
+        const gameOpen = !gameBackdrop.hidden;
+        const recentOpen = !recentBackdrop.hidden;
+        if (!gameOpen && !recentOpen) { return; }
+        if (event.key === "Tab") {
+          trapFocusWithin(event, gameOpen ? gameDialog : recentDialog);
+          event.stopImmediatePropagation();
+          return;
+        }
+        if (event.key === "Escape") {
+          event.stopImmediatePropagation();
+          if (gameOpen) { closeGameModal(); } else { closeRecentPopup(); }
+          return;
+        }
+        // v24: 머지 게임 데스크톱 방향키 지원 — 게임 모달이 열려 있고 머지가 마운트된 경우만
+        if (gameOpen && gameMount && currentQuest && currentQuest.gameId === "merge") {
+          const arrowDir = { ArrowLeft: "left", ArrowRight: "right", ArrowUp: "up", ArrowDown: "down" }[event.key];
+          if (arrowDir && gameMount.logic && gameMount.logic.swipe) {
+            event.preventDefault();
+            gameMount.logic.swipe(arrowDir);
+          }
+        }
+      }, true);
+
+      // 퀘스트 별 반영해 탐사 기록 다시 그림
+      renderStampBoard();
+
+      /* ── v21: 2D/3D 은하 뷰 토글 (3D = 그린필드 Three.js 이식, 지연 로드) ── */
+      const map3dToggle = document.getElementById("map-3d-toggle");
+      const u3dContainer = document.getElementById("universe-3d");
+      const u3dLabels = document.getElementById("u3d-labels");
+      const mapModeStorageKey = "jw_universe_map_mode";
+      let u3dApi = null;
+      let u3dLoading = false;
+
+      function set3DMode(on, save = true) {
+        mapEl.dataset.mode3d = String(on);
+        map3dToggle.setAttribute("aria-pressed", String(on));
+        map3dToggle.textContent = on ? "3D 은하 ON" : "3D 은하 OFF";
+        u3dContainer.hidden = !on;
+        if (cosmosCanvas) { cosmosCanvas.style.visibility = on ? "hidden" : ""; }
+        if (save) {
+          try { localStorage.setItem(mapModeStorageKey, on ? "3d" : "2d"); } catch (error) { /* 세션 한정 */ }
+        }
+        if (on) { ensure3D(); }
+        else if (u3dApi) { u3dApi.pause(); }
+      }
+
+      function boot3D() {
+        if (!(window.JW_UNIVERSE_3D && window.JW_UNIVERSE_3D.webglAvailable())) {
+          setNotice({ title: "3D를 열 수 없어요", body: "이 기기에서 WebGL을 쓸 수 없어 2D 지도로 계속 봅니다." });
+          set3DMode(false);
+          u3dLoading = false;
+          return;
+        }
+        const nodes = config.groups.map((group) => {
+          const plot = overlayPlots[group.id];
+          const courseOrder = courseOrderByZone.get(group.id);
+          const nodeName = courseOrder
+            ? `${courseOrdinals[courseOrder - 1]} ${displayGroupLabel(group)}`
+            : displayGroupLabel(group);
+          return {
+            id: group.id,
+            name: nodeName,
+            stage: displayStage(group.representative.stage),
+            theme: group.theme || "#ffd166",
+            plotX: (plot.x1 + plot.x2) / 2,
+            plotY: (plot.y1 + plot.y2) / 2,
+            isCenter: group.id === "plaza"
+          };
+        });
+        u3dApi = window.JW_UNIVERSE_3D.mount(u3dContainer, u3dLabels, nodes, {
+          reducedMotion: reducedMotionQuery.matches,
+          onActivate: (id) => openModal(id, document.activeElement || map3dToggle)
+        });
+        u3dLoading = false;
+      }
+
+      function ensure3D() {
+        if (u3dApi) { u3dApi.resume(); u3dApi.resize(); return; }
+        if (u3dLoading) { return; }
+        u3dLoading = true;
+        if (window.JW_UNIVERSE_3D) { boot3D(); return; }
+        const script = document.createElement("script");
+        script.src = "./universe-3d.js?v=21";
+        script.onload = boot3D;
+        script.onerror = () => {
+          u3dLoading = false;
+          setNotice({ title: "3D 로드 실패", body: "3D 모듈을 불러오지 못했어요. 2D 지도로 계속 봅니다." });
+          set3DMode(false);
+        };
+        document.body.appendChild(script);
+      }
+
+      map3dToggle.addEventListener("click", () => set3DMode(mapEl.dataset.mode3d !== "true"));
+      textMode.addEventListener("click", () => { if (u3dApi) { u3dApi.pause(); } });
+      mapMode.addEventListener("click", () => {
+        if (u3dApi && mapEl.dataset.mode3d === "true") { u3dApi.resume(); u3dApi.resize(); }
+      });
+
+      // v22: 데스크톱 기본 3D + 모바일 안내 (D0)
+      const isCoarsePointerQuery = window.matchMedia("(pointer: coarse)");
+      const isMobileViewport = window.innerWidth <= 640 || isCoarsePointerQuery.matches;
+      const isDesktopAutoEligible = !isMobileViewport && !reducedMotionQuery.matches;
+
+      // 저장된 지도 모드 복원 (reduced-motion 환경은 2D 기본 유지 — 원하면 수동 토글)
+      try {
+        const savedMapMode = localStorage.getItem(mapModeStorageKey);
+        if (savedMapMode === "3d" && !reducedMotionQuery.matches) {
+          set3DMode(true, false);
+        } else if (isDesktopAutoEligible && savedMapMode !== "2d") {
+          set3DMode(true, false);
+        }
+      } catch (error) { /* 저장소 불가 — 기본 2D */ }
+
+      if (isMobileViewport) {
+        try {
+          if (!localStorage.getItem("jw_seen_3d_hint")) {
+            setNotice({
+              title: "3D 은하도 있어요",
+              body: "지도의 [3D 은하] 버튼으로 3D 우주를 볼 수 있어요. 데스크톱 브라우저에서 가장 부드럽게 돌아갑니다."
+            });
+            localStorage.setItem("jw_seen_3d_hint", "true");
+          }
+        } catch (error) { /* 저장소 불가 — 안내 생략 */ }
+      }
+
 
       function escapeHtml(value) {
         return String(value)

@@ -1,28 +1,30 @@
-// 마을 이력서의 건물, 작업, 링크 정본 config입니다.
+// 주형 유니버스(구 마을 이력서)의 은하, 작업, 링크 정본 config입니다.
+// v20 리테마: 표현 레이어(이름·테마색·아이콘)만 변경 — status/link/stage/hook/domains/recent 데이터 불변.
 const VILLAGE_RESUME_CONFIG = {
   resumeHref: "./Resume_LeeJuHyeong.html",
   intro: {
-    title: "주형 월드",
-    copy: "주형 월드에 오신 걸 환영합니다. 건물을 눌러 작업을 둘러보세요.",
-    note: "건물을 누르면 그 안의 작업을 볼 수 있어요."
+    title: "주형 유니버스",
+    copy: "주형 유니버스에 오신 걸 환영합니다. 은하를 눌러 작업을 둘러보세요.",
+    note: "은하를 누르면 그 안의 작업을 볼 수 있어요."
   },
   onboarding: {
     storageKey: "jw_seen_intro",
     iconsReady: true,
+    // v22 1차안 — 작가 워싱 예정
     entry: {
-      title: "주형 월드에 오신 걸 환영해요",
-      body: "여긴 제가 AI와 함께 일하는 방식을 직접 걸어보는 마을이에요. 건물마다 실제 프로젝트가 있고, 다 둘러보면 제가 무엇을 할 수 있는 사람인지 한눈에 정리돼요.",
-      startLabel: "체험 시작",
-      skipLabel: "바로 둘러보기"
+      title: "주형 유니버스 — 인터랙티브 이력서",
+      body: "AI 응용 엔지니어 이주형의 작업들을 은하로 탐험하는 공간이에요. 모든 작업은 실제 라이브 프로젝트로 연결되고, 은하마다 작은 게임 퀘스트가 숨어 있어요.",
+      startLabel: "🎮 콘텐츠 체험하기 (약 3분)",
+      skipLabel: "바로 조회하기"
     },
     steps: [
       {
         id: "sub-brain",
         icon: "./assets/tutorial/sub-brain.png",
         title: "① Sub-brain — 제 지식을 굴리는 엔진",
-        body: "공부하고 결정한 걸 흩어두지 않고 하나의 지식 그래프로 운영해요. 검증하는 엔진과 기록하는 엔진의 역할을 나누고, 충돌이 나면 단일 기준(SSOT)으로 정리해요. 이 마을의 게시판이 그 지식이 밖으로 나온 창구예요.",
+        body: "공부하고 결정한 걸 흩어두지 않고 하나의 지식 그래프로 운영해요. 검증하는 엔진과 기록하는 엔진의 역할을 나누고, 충돌이 나면 단일 기준(SSOT)으로 정리해요. 이 유니버스의 학습 은하가 그 지식이 밖으로 나온 창구예요.",
         anchor: {
-          label: "게시판에서 실제로 보기",
+          label: "학습 은하에서 실제로 보기",
           group: "board"
         }
       },
@@ -41,8 +43,8 @@ const VILLAGE_RESUME_CONFIG = {
         id: "gate",
         icon: "./assets/tutorial/gate.png",
         title: "③ Evaluation Gate — 받은 결과를 그대로 안 믿어요",
-        body: "AI가 준 산출을 바로 수용하지 않아요. 경로·검증 노트·해시를 묶은 증거 꾸러미로 포장해, 기계가 자동으로 볼 수 있는 검사와 사람의 판단을 나눠서 통과시켜요. 이 마을도 그렇게 검증하고 붙였어요.",
-        ctaLabel: "마을 둘러보기 시작",
+        body: "AI가 준 산출을 바로 수용하지 않아요. 경로·검증 노트·해시를 묶은 증거 꾸러미로 포장해, 기계가 자동으로 볼 수 있는 검사와 사람의 판단을 나눠서 통과시켜요. 이 유니버스도 그렇게 검증하고 붙였어요.",
+        ctaLabel: "유니버스 탐험 시작",
         anchor: {
           label: "북켓몬 케이스에서 실제로 보기",
           group: "lab",
@@ -66,10 +68,10 @@ const VILLAGE_RESUME_CONFIG = {
   groups: [
     {
       id: "plaza",
-      label: "입구/광장",
+      label: "관제 스테이션",
       status: "landmark",
-      mapLabel: "입구",
-      theme: "#7a1f2d",
+      mapLabel: "관제소",
+      theme: "#ffd166",
       x: 50,
       y: 50,
       w: 24,
@@ -77,17 +79,17 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "plaza",
         sprite: "water-fountain.png",
-        label: "입구/광장",
+        label: "관제 스테이션",
         stage: "안내"
       },
       members: []
     },
     {
       id: "lab",
-      label: "평가·RAG 연구소",
+      label: "평가·RAG 은하",
       status: "hero",
-      mapLabel: "연구소",
-      theme: "#566978",
+      mapLabel: "RAG 은하",
+      theme: "#4ecdc4",
       x: 42,
       y: 19,
       w: 52,
@@ -95,7 +97,7 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "building",
         sprite: "business-building.png",
-        label: "평가·RAG 연구소",
+        label: "평가·RAG 은하",
         stage: "입장가능"
       },
       members: [
@@ -105,27 +107,31 @@ const VILLAGE_RESUME_CONFIG = {
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/AI-Book-Curation/portfolio.html",
           label: "북켓몬",
-          hook: "추천 수식 직접 설계·ablation 검증 (Precision 97.8%)",
-          stage: "입장가능",
+          hook: "추천 파이프라인 다이어그램 + 룰 ON/OFF ablation 비교표를 60초 안에.",
+          stage: "데모(오프라인 평가 완료)",
+          domains: ["rag", "recsys", "eval"],
           evidenceAxes: {
-            problem: "추천 작업",
-            decision: "추천 수식 직접 설계·ablation 검증",
-            result: "Precision 97.8%"
-          }
+            problem: "단순 코사인 유사도 추천의 리텐션 한계, 대규모 유저·도서 매칭의 O(N²) 복잡도 — 정확도와 레이턴시가 동시에 임계점을 넘는 구조.",
+            decision: "Qdrant 도입으로 매칭을 O(N·K)로 최적화. 쿼리 변형 4종·리트리버 3종·룰 on/off를 각각 평가해 llm_search_query·dense·룰 재정렬 채택(dense+BM25 RRF는 Top-10/20 급락으로 기각). 선호·대중성·최신성 결합 수식 S_personal 직접 설계, 임베딩은 KURE vs CLOVA 벤치로 선택.",
+            result: "[실측] 룰 ablation으로 Top-5 Bad Rate 15.56%→2.22%·Precision 84.44%→97.78%(오프라인 18쿼리). 최종 운영 조합(llm_search_query·dense·룰 재정렬) Top-5 Precision 100%·Bad Rate 0%·평균 지연 577ms. KURE vs CLOVA Precision@50 91.14% vs 90.09%(+590ms). LightFM(test) 긍정 선호 90.52%·비선호 노출 1.45%."
+          },
+          teaser: "추천 수식을 직접 설계하고 ablation으로 증명한 도서 큐레이션."
         },
         {
           slug: "medical-chatbot",
           group: "lab",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/Medical-Chatbot/portfolio.html",
-          label: "의료 자문 챗봇",
-          hook: "RAG 정공법 + 3원 통제 (EM 0.71·BERT 0.73)",
-          stage: "입장가능",
+          label: "알려줄고양",
+          hook: "Mode A/B/C 3원 통제 비교 결과 + RedFlag 안전필터 코드 설계.",
+          stage: "데모",
+          domains: ["rag", "eval"],
           evidenceAxes: {
-            problem: "의료 자문 챗봇",
-            decision: "RAG 정공법 + 3원 통제",
-            result: "EM 0.71·BERT 0.73"
-          }
+            problem: "의료 자문은 오답 비용이 크다 — 생성이 그럴듯한 것만으로는 신뢰할 수 없고, 근거 인용과 응급 상황 차단을 구조로 보장해야 한다.",
+            decision: "Qwen2.5-7B를 QLoRA(r=16·4-bit nf4)로 내과 도메인에 적응, Dense+BM25 Hybrid RAG로 근거를 인용. 설계 기여도는 Mode A/B/C 3원 통제 비교로 분리 검증, RedFlag 응급 키워드는 안내문이 아닌 코드(Emergency Exit)로 차단.",
+            result: "[실측] 객관식 EM 0.71 · 서술형 BERTScore 0.73. 안전선을 UX 라이팅과 코드 양쪽에 내장."
+          },
+          teaser: "EM 0.71 · BERTScore 0.73 — 3원 통제로 측정한 의료 RAG."
         },
         {
           slug: "starlink",
@@ -133,22 +139,24 @@ const VILLAGE_RESUME_CONFIG = {
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/StarLink/portfolio.html",
           label: "StarLink",
-          hook: "실시간 통역·보청기 라우팅 (작동 프로토타입)",
+          hook: "실기기 통역 데모 + WebRTC 보청기 라우팅 아키텍처 다이어그램.",
           stage: "작동 프로토타입",
+          domains: ["realtime"],
           evidenceAxes: {
-            problem: "실시간 통역·보청기 라우팅",
-            decision: "작동 프로토타입",
-            result: "요약 준비 중"
-          }
+            problem: "청각장애인에게 외국어 대면 대화는 이중 장벽 — 기존 통역 앱은 폰 화면을 손에 들고 봐야 한다. 화면 없이 보청기로 듣는 핸즈프리 통역이 필요.",
+            decision: "Gemini Live가 연속 스트리밍 모델임을 파악해 turn-taking 인프라를 비활성화. LiveKit의 AVAudioSession 리셋을 LKRTCAudioSession 수동 락으로 막아 보청기 라우팅 보존, 재유입 에코는 반이중 마이크 제어(500ms 버퍼)로 차단.",
+            result: "13개 디버깅 포스트모템 끝에 번역+음성출력+보청기 라우팅 연속 동작. EN·JA·ZH→KO 3개 언어쌍, MFi 보청기·AirPods·BT 지원. 작동 프로토타입 — 'sub-second 지연'은 설계 목표이며 독립 벤치마크 미수행."
+          },
+          teaser: "보청기로 듣는 핸즈프리 실시간 통역 — 당사자가 만든 접근성 AI."
         }
       ]
     },
     {
       id: "workshop",
-      label: "에이전트 공방",
+      label: "에이전트 은하",
       status: "construction",
-      mapLabel: "공방",
-      theme: "#7c532e",
+      mapLabel: "에이전트",
+      theme: "#a78bfa",
       x: 21,
       y: 51,
       w: 30,
@@ -156,7 +164,7 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "building",
         sprite: "house-3.png",
-        label: "에이전트 공방",
+        label: "에이전트 은하",
         stage: "일부 입장가능"
       },
       members: [
@@ -167,7 +175,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "G-Sight",
           hook: "Game-PM suite 윤곽 공개 준비 중",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["agent"]
         },
         {
           slug: "pm-agent",
@@ -176,7 +185,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "PM-Agent",
           hook: "Game-PM suite 윤곽 공개 준비 중",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["agent"]
         },
         {
           slug: "policy-axis",
@@ -185,7 +195,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "POLICY-AXIS",
           hook: "Game-PM suite 윤곽 공개 준비 중",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["agent"]
         },
         {
           slug: "mapae",
@@ -194,7 +205,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "Mapae",
           hook: "Game-PM suite 윤곽 공개 준비 중",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["agent"]
         },
         {
           slug: "agentforge",
@@ -204,34 +216,41 @@ const VILLAGE_RESUME_CONFIG = {
           label: "AgentForge",
           hook: "AI 게임 스튜디오 — Codex CLI 오케스트레이션 (작동 프로토타입)",
           stage: "작동 프로토타입",
+          recent: true,
+          domains: ["agent", "gameai"],
           evidenceAxes: {
             problem: "AI 게임 생성 파이프라인",
             decision: "Codex CLI 오케스트레이션·self-contained 배포",
             result: "브라우저 플레이 게임 2종 (작동 프로토타입)"
-          }
+          },
+          // v22 1차안 — 작가 워싱 예정
+          teaser: "생성된 게임 2종을 라이브에서 바로 플레이할 수 있습니다."
         },
         {
           slug: "hyunsubot",
           group: "workshop",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/hyunsoo-bot/portfolio.html",
-          label: "현수봇",
-          hook: "재귀개선 자동매매 (model+harness) · dry-run 기본·실 P&L 미주장",
-          stage: "dry-run",
+          label: "현수봇 / QuantLeap",
+          hook: "model+harness 아키텍처 다이어그램 + dry-run 백테스트 리포트.",
+          stage: "작동 프로토타입 · dry-run",
+          recent: true,
+          domains: ["agent"],
           evidenceAxes: {
-            problem: "자동매매 재귀개선 (model+harness)",
-            decision: "RSI 루프·dry-run eval",
-            result: "dry-run eval 100% (실 P&L 미주장)"
-          }
+            problem: "LLM에게 매매를 통째로 맡기면 비결정성·환각이 실손실로 직결 — 자율성과 안전성이 상충한다.",
+            decision: "판단(LLM·JSON 스키마)과 실행(결정론적 코드)을 분리한 model+harness 구조. 리스크 레이어+HITL 승인을 비협상 안전장치로 두고, 재귀개선 루프가 로그를 분석해 전략을 갱신.",
+            result: "[실측·모의] dry-run 평가 100% 통과 — 실 P&L·수익률은 주장하지 않는다(작동 프로토타입). 시크릿은 코드에 0(별도 repo 분리)."
+          },
+          teaser: "판단은 LLM, 실행은 코드 — dry-run 100%의 자동매매 에이전트."
         }
       ]
     },
     {
       id: "game",
-      label: "AI 게임존",
+      label: "AI 게임 은하",
       status: "construction",
       mapLabel: "게임",
-      theme: "#605e9c",
+      theme: "#fb7185",
       x: 78,
       y: 51,
       w: 31,
@@ -239,59 +258,87 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "building",
         sprite: "old-coffee-shop.png",
-        label: "AI 게임존",
+        label: "AI 게임 은하",
         stage: "일부 입장가능"
       },
       members: [
-        {
-          slug: "rogueos",
-          group: "game",
-          status: "construction",
-          link: "",
-          label: "로그라이크(RogueOS)",
-          hook: "AI Game suite 공개 준비 중",
-          stage: "공사중"
-        },
-        {
-          slug: "hwigi-tower",
-          group: "game",
-          status: "construction",
-          link: "",
-          label: "회귀자타워",
-          hook: "AI Game suite 공개 준비 중",
-          stage: "공사중"
-        },
-        {
-          slug: "godot-backroom",
-          group: "game",
-          status: "construction",
-          link: "",
-          label: "고돗백룸",
-          hook: "AI Game suite 공개 준비 중",
-          stage: "공사중"
-        },
         {
           slug: "rocketdan",
           group: "game",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/ai-npc-social-reasoning-harness/",
-          label: "로켓단 (사회추론 시뮬)",
-          hook: "늑대인간 LLM NPC 평가 — 탐색적 연구 (N=20)",
-          stage: "탐색적 연구 (N=20)",
+          label: "AI 사회추론 시뮬레이션",
+          hook: "7인 늑대인간 시뮬 데모 + 시드 고정 하네스 결과표(RT2.3)를 한 화면에.",
+          stage: "탐색 연구 (claim gate 미통과·탐색적 경향)",
+          recent: true,
+          domains: ["gameai", "eval"],
           evidenceAxes: {
-            problem: "사회추론 LLM NPC 평가",
-            decision: "늑대인간 시뮬 하네스·N=20 탐색",
-            result: "탐색적 연구 (N=20)"
-          }
+            problem: "LLM NPC의 발화 '그럴듯함'과 실제 사회추론을 분리 검증해야 한다. Werewolf-LLM 계보를 이어받되 인문학 스캐폴드·시드 고정 비교·raw/display 경계·출력 품질 gate를 명시적으로 분리.",
+            decision: "발화·여론·수혜자 분석·심문 전략을 NPC의 공개 추론 frame으로 구조화(인문학 기반). 같은 seed·같은 7인 역할 구성에서 baseline vs scaffold를 비교하고, 강한 성능 주장은 claim gate로 통제.",
+            result: "최종 RT2.3(N=20)은 품질 통제 하 양의 방향 — strong claim gate 미통과로 일반적 우월성 주장이 아닌 탐색적 경향으로만 보고(정직). 다음 단계: 독립 human annotation·belief-state table·다중 모델 재현."
+          },
+          teaser: "인문학을 학습한 AI는 늑대인간 게임에서 더 잘 추리할까."
+        },
+        {
+          slug: "hwigi-tower",
+          group: "game",
+          status: "open",
+          link: "https://ljhljh0703-cmd.github.io/hwigi-tower-portfolio/Docs/Portfolio/hwigi-tower-steam-portfolio.html",
+          label: "회귀자는 탑을 오른다",
+          hook: "Unity 6 Android 로그라이크 플레이어블 프로토타입 + AI NPC 학습 케이스 (vertical slice)",
+          stage: "작동 프로토타입 (playable vertical slice)",
+          domains: ["gameai"],
+          evidenceAxes: {
+            problem: "SLM 도입 시 BPE 토큰 매칭 오류와 비결정적 생성으로 밸런스 시뮬 재현 검증 불가, 지연이 인터랙션 임계점 초과.",
+            decision: "EXAONE 3.5 2.4B + QLoRA(r=32·α=64) 대화 학습. Seed 기반 결정론 생성·Deterministic Caching 재현성. Mataios=결정론 동행자(장식 NPC 아님, 플레이어/동행자 행동 분리). ML-Agents=전투 설계 프로브(AttackSpam·SkillSpam 열화 전략 노출→결정론 동행자 정책). 멀티에이전트 생산 파이프라인(clean worktree·evidence gate·아티팩트 SHA·배포검증).",
+            result: "플레이어블 Unity 6 Android 프로토타입(루트·이벤트·2인 전투·보상·상점/휴식·보스) → 공개 포폴 HTML·AI NPC 케이스·APK 패키징. 26턴+ 멀티턴 한국어 유지율 100%·BIW 차단·토크나이저 진단 증거. RoguelikeSim headless + RunPolicy 5종 + BalanceMetrics 정량 집계."
+          },
+          teaser: "SLM 비결정성을 결정론으로 통제한 AI NPC 게임."
+        },
+        {
+          slug: "jelly-panic",
+          group: "game",
+          status: "open",
+          link: "https://ljhljh0703-cmd.github.io/jelly-panic/",
+          label: "지켜줘! 젤리 패닉",
+          hook: "\"모든 위협은 예고된다\" — 반사신경 대신 수읽기를 겨루는 순수 JS 퍼즐 디펜스",
+          stage: "공개 데모",
+          recent: true,
+          domains: ["gameai"],
+          teaser: "결정론 로직 테스트 90/90 · DOM smoke 16/16 · 몬테카를로 200판 회피 불가 스폰 0.00%."
+        },
+        {
+          slug: "rogueos",
+          group: "game",
+          status: "open",
+          link: "https://ljhljh0703-cmd.github.io/bone-trail/",
+          label: "Bone Trail (libGDX 로그라이크)",
+          hook: "libGDX 로그라이크 (AI Game suite)",
+          stage: "공개 데모",
+          domains: ["gameai"],
+          // [임시 카피 — 작가 워싱 대기]
+          teaser: "libGDX(Java) 로그라이크 — 플레이 빌드와 기술 해설 페이지 공개."
+        },
+        {
+          slug: "godot-backroom",
+          group: "game",
+          status: "open",
+          link: "https://ljhljh0703-cmd.github.io/backroom-level-0-godot/portfolio.html",
+          label: "BackRoom Level 0 (고돗 백룸)",
+          hook: "고돗 백룸 (AI Game suite)",
+          stage: "공개 데모",
+          domains: ["gameai"],
+          // [임시 카피 — 작가 워싱 대기]
+          teaser: "Godot 엔진 백룸 Level 0 — 플레이 빌드와 포트폴리오 해설 공개."
         }
       ]
     },
     {
       id: "studio",
-      label: "콘텐츠·디자인 스튜디오",
+      label: "콘텐츠·디자인 은하",
       status: "construction",
-      mapLabel: "스튜디오",
-      theme: "#768d4a",
+      mapLabel: "디자인",
+      theme: "#34d399",
       x: 29,
       y: 83,
       w: 36,
@@ -299,7 +346,7 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "building",
         sprite: "house-2.png",
-        label: "콘텐츠·디자인 스튜디오",
+        label: "콘텐츠·디자인 은하",
         stage: "일부 입장가능"
       },
       members: [
@@ -310,7 +357,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "트루빈스 VD",
           hook: "누적 17억 케이스 정리 예정",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["designtool"]
         },
         {
           slug: "writing",
@@ -319,7 +367,8 @@ const VILLAGE_RESUME_CONFIG = {
           link: "",
           label: "글 작가 활동",
           hook: "콘텐츠·디자인 스튜디오 공개 준비 중",
-          stage: "공사중"
+          stage: "공사중",
+          domains: ["content"]
         },
         {
           slug: "vds",
@@ -329,20 +378,23 @@ const VILLAGE_RESUME_CONFIG = {
           label: "VDS (Vibe Design Studio)",
           hook: "바이브 코더용 디자인 시스템 스튜디오 (공개 도구)",
           stage: "작동(공개 도구)",
+          recent: true,
+          domains: ["designtool"],
           evidenceAxes: {
             problem: "바이브 코더용 디자인 시스템",
             decision: "6페이지 도구·카탈로그/프리셋/효과 DB",
             result: "공개 도구 배포"
-          }
+          },
+          teaser: "디렉토리 38·카탈로그 77·프리셋 33·효과 66 — 복붙 DESIGN.md."
         }
       ]
     },
     {
       id: "hall",
-      label: "마을 회관 About",
+      label: "어바웃 코어",
       status: "construction",
-      mapLabel: "회관",
-      theme: "#7a1f2d",
+      mapLabel: "코어",
+      theme: "#f4a261",
       x: 71,
       y: 83,
       w: 36,
@@ -350,7 +402,7 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "building",
         sprite: "house-1.png",
-        label: "마을 회관 About",
+        label: "어바웃 코어",
         stage: "일부 입장가능"
       },
       members: [
@@ -360,7 +412,7 @@ const VILLAGE_RESUME_CONFIG = {
           status: "construction",
           link: "",
           label: "시뮬레이션 통합",
-          hook: "마을 회관 About 공개 준비 중",
+          hook: "어바웃 코어 공개 준비 중",
           stage: "공사중"
         },
         {
@@ -370,16 +422,18 @@ const VILLAGE_RESUME_CONFIG = {
           link: "https://github.com/ljhljh0703-cmd/learning-atlas",
           label: "sub-brain 지식 OS (Learning Atlas)",
           hook: "지식그래프(LLM-Wiki) 약 180편 공개 발행·자동 인덱스 (Phase 1 라이브)",
-          stage: "Phase 1 라이브"
+          stage: "운영 중(매주 자동 갱신)",
+          domains: ["agent"],
+          teaser: "graph-native·누출게이트·RSI 거버넌스 — 182편·누출 0."
         }
       ]
     },
     {
       id: "board",
-      label: "학습 게시판",
+      label: "학습 은하",
       status: "board",
-      mapLabel: "게시판",
-      theme: "#3f6b57",
+      mapLabel: "학습",
+      theme: "#60a5fa",
       x: 87,
       y: 18,
       w: 20,
@@ -387,7 +441,7 @@ const VILLAGE_RESUME_CONFIG = {
       representative: {
         kind: "sign",
         sprite: "sign-1.png",
-        label: "학습 게시판",
+        label: "학습 은하",
         stage: "Learning Atlas"
       },
       atlas: {
