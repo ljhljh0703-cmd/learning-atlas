@@ -309,8 +309,6 @@
 |----|------|-----------|
 | [강제 규율 4부 골격 (Discipline Skeleton)](narrative/강제 규율 4부 골격.md) |  | 2026-07-03 |
 | [학습→반영 루프 (Absorb-to-Apply)](narrative/학습→반영 루프.md) |  | 2026-07-03 |
-| [포트폴리오 포지셔닝 피드백 (멋사 멘토)](narrative/portfolio-positioning-feedback.md) | https://likelion.notion.site/35944860a4f480f8… | 2026-07-02 |
-
 ---
 
 이 README는 자동으로 만들어져요. vault가 자라면 게이트를 통과한 새 글이 그대로 따라 올라와요. 파이프라인은 `tools/export.py`(vault→정제·누출 게이트) → `tools/build_index.py`(주제별 목차) 순서예요. 자세한 원칙은 [`tools/PIPELINE.md`](tools/PIPELINE.md)에 있어요.
