@@ -216,7 +216,7 @@ const VILLAGE_RESUME_CONFIG = {
           domains: ["agent"]
         },
         {
-          slug: "agentforge",
+          slug: "agent-forge",
           group: "workshop",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/agent-forge/portfolio.html",
@@ -249,6 +249,18 @@ const VILLAGE_RESUME_CONFIG = {
             result: "[실측·모의] dry-run 평가 100% 통과 — 실 P&L·수익률은 주장하지 않는다(작동 프로토타입). 시크릿은 코드에 0(별도 repo 분리)."
           },
           teaser: "판단은 LLM, 실행은 코드 — dry-run 100%의 자동매매 에이전트."
+        },
+        {
+          slug: "asset-forge",
+          group: "workshop",
+          status: "open",
+          link: "https://ljhljh0703-cmd.github.io/codex-asset-forge/",
+          label: "Codex Asset Forge",
+          hook: "생성 이미지를 게임 자산으로 바꾸는 자동화 파이프라인",
+          stage: "케이스스터디 (공개 draft — DRAFT_NOT_ACCEPTED 라벨 유지)",
+          domains: ["agent", "gameai"],
+          recent: true,
+          teaser: "5 atlases · 27 frames · 11/11 ClaudeCraft 스프라이트 렌더 증명."
         }
       ]
     },
@@ -315,7 +327,7 @@ const VILLAGE_RESUME_CONFIG = {
           teaser: "결정론 로직 테스트 90/90 · DOM smoke 16/16 · 몬테카를로 200판 회피 불가 스폰 0.00%."
         },
         {
-          slug: "rogueos",
+          slug: "bone-trail",
           group: "game",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/bone-trail/",
@@ -326,7 +338,7 @@ const VILLAGE_RESUME_CONFIG = {
           teaser: "libGDX(Java)로 직접 구현한 로그라이크 — 플레이 빌드·기술 해설 공개."
         },
         {
-          slug: "godot-backroom",
+          slug: "backroom",
           group: "game",
           status: "open",
           link: "https://ljhljh0703-cmd.github.io/backroom-level-0-godot/portfolio.html",

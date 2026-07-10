@@ -2599,6 +2599,21 @@
     /* v27 */
     .game-teaser { margin: -4px 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; opacity: 0.85; }
 
+    /* v29 — 모달 행성 씬 캔버스 렌더러 (.space-orb 대체, 원본 규칙 무수정 보존) */
+    .space-planet-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      object-fit: cover; /* v29.1: 고정 논리 해상도(1189×744)를 왜곡 없이 크롭 스케일 */
+    }
+    /* v29.1 레이아웃 가드 — aspect-ratio가 긴 작업 목록 높이 × 1.6으로 폭을 그리드 셀(777px) 밖까지
+       밀어내던 잠복 버그 봉쇄(게임·공방 은하에서 행성 잘림의 실원인). 셀 폭 준수, 높이는 리스트에 동기. */
+    .interior-map.is-space {
+      aspect-ratio: auto;
+    }
+
   </style>
 </head>
 <body data-view="map">
@@ -2902,10 +2917,10 @@
         "pm-agent": "PM",
         "policy-axis": "PA",
         mapae: "MP",
-        agentforge: "AF",
-        rogueos: "RO",
+        "agent-forge": "AF",
+        "bone-trail": "RO",
         "hwigi-tower": "HT",
-        "godot-backroom": "GB",
+        backroom: "GB",
         hyunsubot: "HS",
         "trubins-vd": "VD",
         writing: "WR",
@@ -3867,6 +3882,12 @@
         modalMembers.dataset.group = group.id;
         modalMembers.classList.remove("has-interior-image");
         modalMembers.classList.add("is-space");
+        // v29: .space-orb blob → 캔버스 행성 렌더러 (셰이딩·링·위성·원경)
+        const planetCanvas = document.createElement("canvas");
+        planetCanvas.className = "space-planet-canvas";
+        planetCanvas.setAttribute("aria-hidden", "true");
+        modalMembers.appendChild(planetCanvas);
+        drawPlanetScene(planetCanvas, group);
         const sceneRng = miniRng(hashCode(group.id) ^ 20260702);
         for (let i = 0; i < 26; i++) {
           const star = document.createElement("span");
@@ -3877,10 +3898,6 @@
           star.setAttribute("aria-hidden", "true");
           modalMembers.appendChild(star);
         }
-        const orb = document.createElement("span");
-        orb.className = "space-orb";
-        orb.setAttribute("aria-hidden", "true");
-        modalMembers.appendChild(orb);
         const labelSpots = [
           { left: "24px", top: "20px", right: "", bottom: "" },
           { left: "", top: "20px", right: "24px", bottom: "" },
@@ -3897,6 +3914,230 @@
           if (spot.bottom) { roomLabel.style.bottom = spot.bottom; }
           modalMembers.appendChild(roomLabel);
         });
+      }
+
+      // v29: 헥스 색 보간(라이트/셰이드 톤 생성) — theme 헥스 하나로 3톤 셰이딩을 만든다
+      function mixHex(hexA, hexB, t, alpha) {
+        const parse = (hex) => {
+          const v = hex.replace("#", "");
+          const full = v.length === 3 ? v.split("").map((c) => c + c).join("") : v;
+          const num = parseInt(full, 16) || 0;
+          return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+        };
+        const a = parse(hexA);
+        const b = parse(hexB);
+        const r = Math.round(a.r + (b.r - a.r) * t);
+        const g = Math.round(a.g + (b.g - a.g) * t);
+        const bl = Math.round(a.b + (b.b - a.b) * t);
+        return `rgba(${r}, ${g}, ${bl}, ${alpha === undefined ? 1 : alpha})`;
+      }
+
+      // v29: 은하 모달 우주 씬 — 코드로 그리는 행성(구형 셰이딩·터미네이터·링 가림·위성·원경).
+      // 시드 결정론: hashCode(group.id) ^ 20260702 (지도 코스모스 캔버스와 동일 시드 규칙 차용)
+      function drawPlanetScene(canvas, group) {
+        // v29.1: 고정 논리 해상도 — 모달 레이아웃 타이밍과 무관하게 결정론 렌더(CSS 스케일, 종횡비 1586/992 동일)
+        const w = 1189;
+        const h = 744;
+        const dpr = 2;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, w, h);
+
+        const rng = miniRng(hashCode(group.id) ^ 20260702);
+        const theme = group.theme || "#ffd166";
+        const deepNavy = "#050814";
+        const lightMix = mixHex(theme, "#ffffff", 0.55, 1);
+        const darkMix = mixHex(theme, deepNavy, 0.72, 1);
+
+        // 배치 파라미터 — 전부 seed 변주 (7은하가 서로 다른 행성이 되는 지점)
+        const hasRing = rng() < 0.27; // 7개 중 3~4개만 링
+        const diameter = h * (0.45 + rng() * 0.15);
+        const radius = diameter / 2;
+        const cx = w / 2 + (rng() - 0.5) * 0.16 * w;
+        const cy = h * (0.48 + rng() * 0.06); // 중앙~약간 아래
+        const lightAngle = (-135 + (rng() - 0.5) * 40) * (Math.PI / 180); // 좌상단 광원, 시드로 미세 회전
+        const dx = Math.cos(lightAngle);
+        const dy = Math.sin(lightAngle);
+        let ringTilt = 0, ringRx = 0, ringRy = 0, ringColorOuter = "", ringColorInner = "";
+        if (hasRing) {
+          ringTilt = (-20 + rng() * 14) * (Math.PI / 180);
+          ringRx = radius * (1.55 + rng() * 0.35);
+          ringRy = ringRx * (0.22 + rng() * 0.1);
+          ringColorOuter = mixHex(theme, "#ffffff", 0.15, 0.55);
+          ringColorInner = mixHex(theme, "#ffffff", 0.35, 0.85);
+        }
+        const ringPath = () => {
+          ctx.beginPath();
+          ctx.ellipse(cx, cy, ringRx, ringRy, ringTilt, 0, Math.PI * 2);
+        };
+
+        // ── 별(캔버스 정적 미세 별 30~50개, DOM 트윙클 26개와 별개)
+        const starCount = 30 + Math.floor(rng() * 21);
+        for (let i = 0; i < starCount; i++) {
+          const sx = rng() * w;
+          const sy = rng() * h;
+          const sAlpha = (0.25 + rng() * 0.55).toFixed(2);
+          ctx.fillStyle = `rgba(223, 230, 255, ${sAlpha})`;
+          ctx.fillRect(sx, sy, 1, 1);
+        }
+
+        // ── 원경: 테마색 성운 wisp 1~2개
+        const wispCount = 1 + Math.round(rng());
+        for (let i = 0; i < wispCount; i++) {
+          const wx = rng() * w;
+          const wy = rng() * h;
+          const wr = w * (0.3 + rng() * 0.25);
+          const wAlpha = 0.06 + rng() * 0.06;
+          const wg = ctx.createRadialGradient(wx, wy, 0, wx, wy, wr);
+          wg.addColorStop(0, mixHex(theme, "#ffffff", 0.2, wAlpha));
+          wg.addColorStop(1, mixHex(theme, "#ffffff", 0.2, 0));
+          ctx.fillStyle = wg;
+          ctx.fillRect(0, 0, w, h);
+        }
+
+        // ── 원경: 먼 미니 행성 실루엣 1개 (본체와 겹치지 않게 재시도)
+        {
+          let fx = 0, fy = 0, tries = 0;
+          do {
+            fx = 10 + rng() * (w - 20);
+            fy = 10 + rng() * (h * 0.7);
+            tries++;
+          } while (Math.hypot(fx - cx, fy - cy) < radius * 1.4 && tries < 6);
+          const fr = 5 + rng() * 6;
+          ctx.beginPath();
+          ctx.arc(fx, fy, fr, 0, Math.PI * 2);
+          ctx.fillStyle = mixHex(theme, "#0a0e22", 0.5, 0.35);
+          ctx.fill();
+        }
+
+        // ── 링 뒤쪽 절반 (행성 중심선 위쪽만 노출 — 본체가 아래쪽을 가릴 예정)
+        if (hasRing) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(cx - ringRx - 12, cy - ringRx - 12, (ringRx + 12) * 2, ringRx + 12);
+          ctx.clip();
+          ctx.lineWidth = Math.max(2, radius * 0.05);
+          ctx.strokeStyle = ringColorOuter;
+          ringPath();
+          ctx.stroke();
+          ctx.lineWidth = Math.max(1, radius * 0.02);
+          ctx.strokeStyle = ringColorInner;
+          ringPath();
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // ── 행성 본체: 구형 셰이딩(3겹) + 터미네이터 + 위도 밴드 + 크레이터
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.clip();
+
+        const lightX = cx + dx * radius * 0.9;
+        const lightY = cy + dy * radius * 0.9;
+        const baseGrad = ctx.createRadialGradient(lightX, lightY, radius * 0.05, cx, cy, radius * 1.15);
+        baseGrad.addColorStop(0, lightMix);
+        baseGrad.addColorStop(0.42, theme);
+        baseGrad.addColorStop(1, darkMix);
+        ctx.fillStyle = baseGrad;
+        ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
+        // 터미네이터(명암 경계) — 광원 반대쪽으로 갈수록 짙어지는 대각 오버레이
+        const nearX = cx + dx * radius;
+        const nearY = cy + dy * radius;
+        const farX = cx - dx * radius;
+        const farY = cy - dy * radius;
+        const termGrad = ctx.createLinearGradient(nearX, nearY, farX, farY);
+        termGrad.addColorStop(0, "rgba(3, 6, 20, 0)");
+        termGrad.addColorStop(0.5, "rgba(3, 6, 20, 0)");
+        termGrad.addColorStop(0.62, "rgba(3, 6, 20, 0.5)");
+        termGrad.addColorStop(1, "rgba(3, 6, 20, 0.82)");
+        ctx.fillStyle = termGrad;
+        ctx.fillRect(cx - radius, cy - radius, radius * 2, radius * 2);
+
+        // 위도 밴드 2~4개
+        const bandCount = 2 + Math.floor(rng() * 3);
+        for (let i = 0; i < bandCount; i++) {
+          const by = cy + (rng() - 0.5) * radius * 1.4;
+          const bTilt = (rng() - 0.5) * 0.35;
+          const bRy = radius * (0.05 + rng() * 0.05);
+          const bAlpha = (0.1 + rng() * 0.15).toFixed(2);
+          ctx.beginPath();
+          ctx.ellipse(cx, by, radius * (0.9 + rng() * 0.15), bRy, bTilt, 0, Math.PI * 2);
+          ctx.fillStyle = rng() > 0.5 ? `rgba(255, 255, 255, ${bAlpha})` : `rgba(10, 14, 30, ${bAlpha})`;
+          ctx.fill();
+        }
+
+        // 크레이터/반점 3~6개 (어두운 원 + 밝은 가장자리 1px)
+        const spotCount = 3 + Math.floor(rng() * 4);
+        for (let i = 0; i < spotCount; i++) {
+          const ang = rng() * Math.PI * 2;
+          const dist = rng() * radius * 0.78;
+          const sx = cx + Math.cos(ang) * dist;
+          const sy = cy + Math.sin(ang) * dist * 0.92;
+          const sr = radius * (0.045 + rng() * 0.07);
+          ctx.beginPath();
+          ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(6, 8, 20, 0.32)";
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(sx - sr * 0.35, sy - sr * 0.35, sr, 0, Math.PI * 2);
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // ── 대기 림 글로우 (실루엣 바깥 2~6px)
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.lineWidth = 2 + rng() * 4;
+        ctx.strokeStyle = theme;
+        ctx.shadowColor = theme;
+        ctx.shadowBlur = 10 + rng() * 8;
+        ctx.globalAlpha = 0.6;
+        ctx.stroke();
+        ctx.restore();
+
+        // ── 링 앞쪽 절반 (본체 위에 덮어 가림 관계 완성)
+        if (hasRing) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(cx - ringRx - 12, cy, (ringRx + 12) * 2, ringRx + 12);
+          ctx.clip();
+          ctx.lineWidth = Math.max(2, radius * 0.05);
+          ctx.strokeStyle = ringColorOuter;
+          ringPath();
+          ctx.stroke();
+          ctx.lineWidth = Math.max(1, radius * 0.02);
+          ctx.strokeStyle = ringColorInner;
+          ringPath();
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // ── 위성 1~2개 (본체 축소판 셰이딩)
+        const moonCount = 1 + Math.round(rng());
+        for (let i = 0; i < moonCount; i++) {
+          const mAngle = rng() * Math.PI * 2;
+          const mDist = radius * (1.5 + rng() * 0.9);
+          const mr = 3 + rng() * 4;
+          const mx = Math.min(Math.max(cx + Math.cos(mAngle) * mDist, mr + 4), w - mr - 4);
+          const my = Math.min(Math.max(cy + Math.sin(mAngle) * mDist * 0.7, mr + 4), h - mr - 4);
+          const mLightX = mx + dx * mr * 0.8;
+          const mLightY = my + dy * mr * 0.8;
+          const mGrad = ctx.createRadialGradient(mLightX, mLightY, mr * 0.1, mx, my, mr * 1.05);
+          mGrad.addColorStop(0, mixHex(theme, "#ffffff", 0.6, 1));
+          mGrad.addColorStop(0.5, mixHex(theme, "#ffffff", 0.1, 1));
+          mGrad.addColorStop(1, mixHex(theme, deepNavy, 0.7, 1));
+          ctx.beginPath();
+          ctx.arc(mx, my, mr, 0, Math.PI * 2);
+          ctx.fillStyle = mGrad;
+          ctx.fill();
+        }
       }
 
       function renderArchiveItem(member) {
