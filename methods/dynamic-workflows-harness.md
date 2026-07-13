@@ -78,6 +78,7 @@ Anthropic 공식 발표. 코딩에 최적화된 *단일 기본 하네스* 대신
 - 패턴별 *상세* 프롬프팅이 결정적
 - `/loop`(반복)·`/goal`(완료 강제)와 결합
 - classifier 모델 라우팅 → 작업 복잡도별 지능 할당 최적화
+- 채팅만 보는 판정자(judge)에게는 "테스트 통과"만으론 불충분 — proof가 판정자 컨텍스트에 실제로 붙어야 "완료"가 claim이 아니라 proof가 된다(cf. exm7777 X Article — Fable Loop Library, via Codex teardown 2026-07-06). RETURN 증거·Codex 최종보고 관행과 동일 원리.
 
 ## 작가 시스템 응용 (외부 AI 운영 — Codex/Antigravity 중심)
 

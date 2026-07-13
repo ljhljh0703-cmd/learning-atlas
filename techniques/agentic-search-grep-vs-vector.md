@@ -37,3 +37,9 @@ category: technique
 
 ## 연결된 페이지
 - [codebase-memory-mcp](../methods/codebase-memory-mcp.md) · agent-harness · graphify · [Google Open Knowledge Format (OKF) v0.1 — 에이전트 지식 표준](../methods/google-okf-knowledge-format.md) · cold-verify-before-adopt
+
+## 사설 KB production release-gate (park addendum, 2026-07-11 codex-gate)
+<!-- private-knowledge-base-8-layers PARK 델타(grep>vector 재도출은 중복, release-gate만 신규). 트리거 발동 전 참조. -->
+> ⚠ **조건부** — vault는 grep+router+graphify 유지(벡터 RAG 미도입, 본 규율 불변). 아래는 *만약* 사설 KB/RAG 파일럿이 greenlight될 때만 적용하는 production release-gate 체크(검색 품질 *너머*의 축):
+- **ACL leakage rate**(권한 밖 문서 노출) · **authorized recall@k**(권한 내 재현율) · **evidence-provenance**(응답↔소스 추적) · **replay**(질의 재현) · corpus ownership·identity/ingestion control·bounded-agent state machine.
+- 근거: production RAG는 retrieval 정확도가 아니라 *ACL·provenance·retractability*에서 깨진다. 트리거: RAG 파일럿 greenlight 시. (지금 신규 SSOT/결정 X.)

@@ -37,7 +37,7 @@ graph TD
 ### 1.2 SCA Evaluator 프롬프트 템플릿 (Appendix C.1 커스텀)
 우리 Sub-brain의 `wiki_graph_lint.py` 또는 에이전트 사전 실행(Preflight) 단계에서 가동할 autorater 프롬프트 스펙입니다.
 
-```markdown
+````markdown
 You are an expert evaluator assessing the sufficiency of the retrieved context to answer a developer query or construct a code block without introducing hallucinations.
 
 [INPUT]
@@ -71,7 +71,7 @@ Your output MUST follow this format exactly:
   "Suggested Search Query": "query to retrieve missing information"
 }
 ```
-```
+````
 
 ---
 

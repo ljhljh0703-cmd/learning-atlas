@@ -40,6 +40,16 @@ AI 시대에는 코드가 빠르게 생성되는 만큼, 보안 취약점도 빠
 
 ---
 
+## 4. 운영 사고 방지 체크 (2026-07-10 codex-gate 흡수)
+<!-- practical-engineering-checkpoints 패킷 merge-small(δ 4종만 — 나머지는 dispatch-builder RAG guard·ponytail·karpathy·loop-engineering 기보유). proposed_by: external_ai (via codex), 판정 by claude. -->
+자주 새는 저수준 운영 규칙(일반 industry best-practice, 델타만):
+- **백업 복원 테스트 = done-evidence**: 백업 *존재*가 아니라 *복원 성공*을 증거로. 복원 미검증 백업은 백업 아님.
+- **soft-delete `deleted_at` 일반 규칙**: 삭제는 flag(감사·복구), 단 개인정보는 법정 파기와 분리([App Privacy Risk Red Flags — 게임·앱 개인정보 리스크 게이트](app-privacy-risk-redflags.md) 제21조).
+- **시각은 UTC 저장 / 유저 TZ 표시**: 로컬 TZ 저장 금지(집계·정렬 버그원).
+- **금액은 정수 산술**: `9900 * 90 / 100`(정수) — float 곱셈(`9900 * 0.9`) 반올림 오차 금지.
+
+---
+
 ## 적용 방법
 - 새로운 웹 기능 개발 시, 위 보안 문구를 프롬프트의 **Constraint(제약 사항)** 섹션에 삽입한다.
 - DB 스키마 설계 시 Supabase Native 접근 방식을 우선 검토한다.

@@ -72,3 +72,8 @@ Spec → Scaffold → Build → Orchestrate → Evaluate → Deploy → Publish 
 - source: https://github.com/google/agents-cli · docs: https://google.github.io/agents-cli/
 - 해체 packet: `~/Documents/Codex/2026-07-03/agents-cli-critical-adoption/outputs/` (RETURN + asset + sha256.tsv). skill_candidate: `agents-cli-lite-for-ai-npc`(승인 대기, `skills/.incubator/` 후보 — 직접 생성 금지).
 - source anchors(asset §Source Anchors): `README.md:20,60-70,74-111,141-148,173-180` · `lifecycle.html:1972-2037,2097-2100,2117-2132` · `evaluation.html:1948-1997,2029-2031,2040-2071` · `skill-eval.md:39-75,356-368,423-424` · `RELEASE_NOTES.md:5-10,18-24`.
+
+## 외부 확증 + AgentKit 라이프사이클 watch (2026-07-11, codex-gate)
+<!-- openai-agentic-systems-video PARK 델타 흡수(~90%는 기보유). proposed_by: external_ai (via codex), 판정 by claude. -->
+- **외부 확증**: OpenAI Build Hours "Agentic Systems"가 본 노트의 4레이어(work-unit 계약 → replayable workflow → context/memory governance → evaluate-before-optimize)를 *공개적으로 같은 순서*로 지시. vault 하네스 명제의 외부 ground-truth 1건 추가(신규 method 아님).
+- ⚠ **watch(휘발성)**: OpenAI AgentKit / Agent Builder+Evals = **2026-11-30 wind-down** 예고(소프트앵커 — 공식 페이지 403, 인용 전 재확인). 해당 도구 의존 설계 시 만료 인지.

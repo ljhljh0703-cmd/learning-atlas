@@ -75,7 +75,7 @@ year: 2026
 - "빈 도화지 후 한 겹씩" = skill-curator + CLAUDE.md 비대화 경계(Karpathy #2) 확증.
 
 **delta (신규 — 반영 후보)**:
-1. **`disable-model-invocation: true`** — 스킬 description 컨텍스트 누수 차단으로 토큰 63%↓. 우리 스킬은 `origin/state` provenance 는 있어도 *invocation 제어*는 없음. → RTK 강화 반영 후보(아래 §4).
+1. **`disable-model-invocation: true`** — 스킬 description 컨텍스트 누수 차단으로 토큰 63%↓. 우리 스킬은 `origin/state` provenance 는 있어도 *invocation 제어*는 없음. → RTK 강화 반영 후보(아래 §4). (⚠️ caveat, 2026-07-06, davidondrej/skills @ 42dfc3d MIT: 이 플래그는 클라이언트에 따라 자동 invocation *만* 막을 뿐 일부 클라이언트는 description을 여전히 컨텍스트에 주입할 수 있다 — 라우팅 제어가 1차 목적, 토큰절감은 2차·환경별 측정 후 확정. §4 측정 게이트 결론과 정합.)
 2. **"98% 공유 이해" 임계** — 역면접의 *정량 종료 조건*. 우리 dispatch-builder 역면접엔 "모호 해소"만 있고 수치 게이트 없음. → done-gate 후보.
 3. **explore/implement 라벨 + triage 큐** — hermes-loop dispatch 의 구체 라벨 운영법.
 

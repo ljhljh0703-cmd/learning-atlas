@@ -105,6 +105,40 @@ graph TD
 
 ---
 
+### 9. Operator Contract — loop_spec 재사용 블록 (델타, exm7777 Fable Loop Library)
+
+> 출처: exm7777 X Article — Fable Loop Library (via Codex teardown, 2026-07-06, SHA 28/28 OK). Fable `/loop`·`/goal` 명령어명은 source-reported(미검증).
+
+기존 14단계를 실제 루프 설계 시 빠르게 채우는 **한 페이지 운영 계약**으로 압축. 대부분 개념은 Tier1~3과 겹치므로 겹치는 필드는 대응 섹션을 괄호로 표기(이론 재서술 아님 — 압축 체크리스트):
+
+- **Cadence** (→ Tier2 Automations): 언제 깨어나는가 — cron/트리거/사건.
+- **One-change rule** (신규): 이번 라운드 허용 최소 단위 변경 1개만. Ralph Wiggum 방어(3회 반복 halt)와 상호보완 — one-change="얼마나 작게", Ralph Wiggum="반복 시 언제 멈출지".
+- **Stable check** (→ Tier1 4-Condition + 6. Objective Gates): 매 라운드 동일 테스트/쿼리/루브릭.
+- **State file** (→ Tier3 7. Persistent State Manifest): 무엇이 일어났고 무엇이 남았는지 상태 파일.
+- **Stop/block rule** (→ Token Budget Cap + Ralph Wiggum Defense): 최대 라운드·완료·차단 조건.
+- **Risk color** (신규): green=읽기전용 / yellow=초안·사람 승인 필요 / red=사람 승인 없는 자율 절대 금지(돈·이메일·고객메시지·repo push·계정변경).
+- **Cost route** (신규, cf. §4 Intelligent Model Routing): 평상시=저가 모델, 기록된 실패 후·종합 필요 시에만 고가 프런티어.
+- **Judge-visible proof** (→ 6. Objective Gates + [Dynamic Workflows — 작업마다 하네스 (Claude Code)](dynamic-workflows-harness.md)): 판정자가 채팅만 본다면 "테스트 통과"만으론 부족 — proof를 판정자 컨텍스트에 실제 붙여야 "완료"가 claim 아닌 proof.
+
+### 10. 참고 카탈로그 — 재사용 practical loop (exm7777 대조 완료분)
+
+- **Source-to-Asset Loop**: 이미 운영 중 — hermes-loop ①~③ + research-relay가 정본. 상호참조만.
+- **Public-Claim Gate Loop** (신규): 포트폴리오·릴리스노트·데모 공개 직전, 공개 주장을 verified/source-reported/rejected/pending 4단 분류. 라이브 URL·빌드·스크린샷·금지주장 대조. risk color=yellow(공개 전 사람 승인 필수). 근거 0건이면 공개 차단.
+- **Repeat-Offender Digest Loop**: dual-track-review 주간 Memory 회고와 개념 중복 — 새 루프 도입 X, 기존 회고가 이 역할. 회고 권한은 CLAUDE.md Dual-Track Protocol에 따라 vault Claude 단독.
+
+### 11. 구현 kit 델타 (2026-07-09, codex-gate-sweep — 새 개념 아님, 구현 델타)
+<!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-07-10. 비헌법 methods 노트 addendum. additive. -->
+- **loop-engineering repo**(`cobusgreyling`, `919b72f`, MIT): readiness scoring(loop-audit L0-L3 rubric) · machine-readable pattern registry · cost estimator(loop-cost) · deterministic circuit breaker + context pruning(loop-context) · config/state drift check(loop-sync). 파일럿 = 비핵심 repo에 Codex Daily Triage L1(전역 자동화 X, infra-0 유지).
+- **공식 Claude loop primitive 매핑**(claude-getting-started-loops): turn=check 넘김 / goal(`/goal`)=stop condition(단 transcript-visible evidence만 judge) / time(`/schedule`)=trigger(cloud preview·connector/write risk) / proactive=prompt/routine. + `verify-frontend-change` 후보(dev server→interact→before/after screenshot→console→CWV trace).
+- **fable-agentic-os narrow**: cheap quiet invariant tick(위 §9 Cost route·agent-harness 컨텍스트 경제 델타와 동일 관점).
+
+### 12. Meta-Loop / 메커니즘-레벨 탐색 델타 (2026-07-10, codex-gate)
+<!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-07-10. karpathy-loop-check 패킷 tiny-merge(신규 개념 1종만 — 나머지 100% 중복). karpathy-guidelines(4원칙 authority)와 무관. -->
+- **Bilevel Autoresearch = 아티팩트 최적화 vs 메커니즘 최적화**: 기존 [Autoresearch — Karpathy의 자동 연구 루프](autoresearch-karpathy.md)·§10 루프는 *산출물*(train.py 결과)을 개선. 신규 델타 = 외부 루프가 *내부 루프의 탐색 메커니즘 자체*(proposal policy·verifier rubric·state schema)를 진단·수정. Ralph Wiggum 가드("3회 반복 halt")의 상보 = **Meta-Loop Intervention Rule**: 반복 실패 시 멈추기만 X, *메커니즘을 진단·패치*.
+- ⚠ **가드**: ① scope = 좁은 val_bpb 벤치 한정(일반 생산성 5배 아님) ② arXiv 2603.23420 val_bpb 수치(`-0.045 vs -0.009`)는 **미검증**(2026-03 미래 arXiv, Codex-reported) — 인용 전 확인 ③ Fortune "Karpathy Loop"·Shopify 19%/overnight half-size 주장 = **source-reported only**(미검증). `loop_trace` ledger·`mechanism_patch_candidate` schema = Codex 자체 제안(source 아님) → park(infra-0, 자동화 X).
+
+---
+
 ## 핵심 위험 및 가드레일 (Anti-Patterns)
 
 ### 1. "랄프 위검" 실패 모드 (Ralph Wiggum Mode)

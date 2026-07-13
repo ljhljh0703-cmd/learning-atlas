@@ -1,9 +1,9 @@
 ---
 created: 2026-06-22
-updated: 2026-06-22
+updated: 2026-07-11
 type: learning
 tags: [game, teardown, deterministic-sim, ai-gamedev, architecture, rsi-apply, track1]
-source: "https://github.com/levy-street/world-of-claudecraft (MIT, v0.9.1 / 63c7ca4)"
+source: "https://github.com/levy-street/world-of-claudecraft (MIT, v0.9.1 / 63c7ca4 · v0.23 refresh 0f0a4c5 2026-07-11)"
 authors: [levy-street]
 year: 2026
 category: technique
@@ -87,3 +87,16 @@ vanilla WoW류 MMO(TS·Three.js·Node·PostgreSQL). **LLM 통합 0**(이름만 C
 
 - **"AI가 강한 건 파일 많이 읽기가 아니라 경계 선명한 코드에서 작은 결정을 정확히 바꾸기"** — 역기획 전체가 *경계·계약·proof gate*로 수렴. 작가 헌법(Karpathy #3·③Gate·proof-ready≠accepted)과 동형.
 - 정적 구조(01~03)는 1차 WebFetch로도 잡히지만, *동적 실행*(06 tick·결정성·RNG draw 함정)은 **전 소스 통독**에서만 나온다 — [리서치는 전문 통독 — 인접한 것까지 뽑아 박제](../methods/research-thoroughly-extract-adjacent.md) 실증.
+
+## 11. v0.23 refresh 델타 + 오버클레임 교정 (2026-07-11, codex-gate)
+<!-- Codex WoC refresh(v0.23 0f0a4c5) 해체 ③Gate(SHA·commit·version 검증). proposed_by: external_ai (via codex), 판정 by claude. upstream 스터디(작가 renewed fork는 별개). -->
+> ⚠ **upstream 스터디**(원저 levy-street MIT) — 작가 renewed fork(`~/Downloads/AI Game/ClaudeCraft/`)는 이걸 clean-room 패턴 소스로 봄. clean-room 전제 유지.
+
+**2개 오버클레임 교정 (본문 대비 — 핵심)**:
+- ⚠ 위 "게이트가 사람 리뷰어 대체" → **교정**: AI review = *informational/non-blocking*, **결정론 CI가 merge floor**(`.github/workflows/pr-ai.yml`). AI 리뷰는 사람 대체 아님.
+- ⚠ 위 §7 "prediction 절대금지" → **분할**: outcome-prediction=여전히 금지 / **display-only locomotion anticipation=허용**(350ms 캡, `src/render/self_motion.ts`). 권위(서버) vs 체감(표현) 분리.
+
+**v0.10→v0.23 신규 델타 (v0.9.1 노드에 없음)**:
+- bounded display-anticipation(권위 vs feel 분리, 350ms) · bank append-only ledger + replay audit(`src/sim/bank.ts`) · REST route-registry 정책 파이프라인 · mobile/desktop parity-as-security · tooltip/telegraph=testable design-truth · 관측성 metrics(tick→business→client).
+- **§3.3 SimContext-as-service-locator 경고**: SimContext를 service locator로 쓰면 은닉 결합. AI 속도가 만든 god files 실측(`hud.ts` 6,696→14,482줄·`server/db.ts` 662→2,765) = **모듈화 ≠ 복잡도 감소**(AI 속도의 integration debt가 측정 가능).
+- **Cards A~E**(재사용 설계카드): Deterministic Core / Authoritative-vs-Speculative / Reachability Ledger / Economy Ledger / AI Change Conveyor — [AI NPC 기억·신념 아키텍처 (Memory + Belief)](ai-npc-memory-belief-architecture.md) ledger·게임 파이프라인 훅.

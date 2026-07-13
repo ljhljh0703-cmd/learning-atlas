@@ -86,6 +86,8 @@ Fable급을 **쓰지 말 곳**:
 3. Sub-brain 연속성의 단일 지점.
 4. 증거·테스트·출처링크·작가/vault Claude Gate의 *대체물*.
 
+> 니모닉(2026-07-10 codex-gate, ⚠ 2차·홍보성 출처 — 권위 아님): **"10-80-10"** — 어려운 10%(설계·비평·검증)=frontier / 반복 80%=싼 모델·외주 / 위험 10%(비가역·authority write)=사람. + **수작업-시간 임계**("손으로 몇 주" 작업=frontier, "몇 분"=싼 모델). 위 §F 정책의 기억용 재진술일 뿐 신규 메커니즘 아님(§4 Intelligent Model Routing 정본).
+
 ## G. 관련 학습→반영
 
 이 노트의 헌법·하네스 반영 후보는 별도 스테이징 패치 agent-observability-integration-2026-07-03 및 agent-observability-inbox 서브시스템에서 다룬다. 관측성 record가 `model`·`blocked_by_safeguard`·`fallback_model`을 추적하는 근거가 여기(C·D)다.

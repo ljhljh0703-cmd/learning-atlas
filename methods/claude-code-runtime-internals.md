@@ -73,6 +73,13 @@ category: method
 - **tool_search 로 도구폭발 억제**: 대규모 MCP 는 upfront 주입 X, `ENABLE_TOOL_SEARCH=auto:N`.
 - **병렬은 subagent 격리**: 조사/검증/리뷰는 subagent, parent 엔 final summary 만. edit 가능 ↔ read-only subagent 분리.
 
+## 소비자 표면 / 권한 사다리 / 캐싱 (2026-07-11, codex-gate merge-small)
+<!-- claude-feature-guide teardown 3넉킷(나머지 ~70% 중복=기존 페이지·헌법). proposed_by: external_ai (via codex), 판정 by claude. -->
+- **R0–R3 권한 사다리** (산재 개념의 형식화 — deny>ask>allow의 소비자판): R0 read-only(기본) → R1 sandbox(격리 쓰기) → R2 scoped write(명시 경로) → R3 external/side-effect(승인 필요). web-reach "read-only→sandbox→external"·CLAUDE.md CLI write-block 규율과 정합.
+- **Task-contract YAML** (디스패치 계약 패턴, vault 대응물 없음): `freshness / write_scope / side_effects / acceptance / on_failure`. 자율 작업 지시에 이 5필드 명시 → dispatch-builder 슬롯 보강 후보.
+- **Prompt-caching 비용 역학** (⚠ 수치 = 가이드 주장, **`claude-api` 스킬과 대조 후 잠금**): TTL 5분/1시간, read ~0.1×·write ~1.25×, 프리픽스 순서 tools→system→messages. 버전 드리프트 취약 zone — 인용 전 claude-api 정본 확인.
+- ⚠ 나머지(SSOT-not-memory·Artifacts 저장·권한/샌드박스)는 본 페이지·[Fable 5 프롬프팅 (공식 가이드)](fable-5-prompting.md)·헌법 §0에 기보유 → 재흡수 X.
+
 ## 관계
 - agent-harness §leak대조군 L-1·L-2·L-4·L-5 = 본 페이지로 de-fence(공식 확증). L-3 = 위 B1(명칭 confirmed 본문출처, 임계치/공식/모델 부재 확정).
 - [Fable 5 프롬프팅 (공식 가이드)](fable-5-prompting.md) §4~6 = 본 페이지가 공식 정본(leak 대조군은 역사 보존).

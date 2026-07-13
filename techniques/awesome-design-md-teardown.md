@@ -66,3 +66,8 @@ authors: [VoltAgent/Bergside LLC]
 - **refero.design / styles** (Beta) — **2,000+ 제품 사이트의 AI-readable 디자인 시스템** 라이브러리 + **Refero MCP**(Cursor·Claude·Windsurf 연결). 스타일별 DESIGN.md(색·타이포·스페이싱·컴포넌트)와 라이브 영상 프리뷰. → **우리 레퍼런스 보드(36→)의 상위 소스**: 보드가 "느낌 빌릴 곳 38선"이라면 refero는 "그 38을 찾는 곳". MCP라 에이전트가 빌드 전 실제 제품 화면을 검색·학습 가능.
 - **흡수 결론**: 우리 파이프라인의 결손은 *데이터*가 아니라 **(a) DESIGN.md 커스텀 위저드(oh-my-design)** 와 **(b) MCP 기반 실시간 레퍼런스 검색(refero)**. 우리 design-presets/캐털로그는 정적 큐레이션 → 다음 L2는 oh-my-design식 *A/B 토큰 빌더*가 후보. 외부 자산은 사용·재배포 아님(링크·방법만 차용), 상표 각 권리자 소유.
 - 보드 반영: `docs/_publish/references.json`(+2 = 38) · `build_references.py` 카운트 동적화(__TOTAL__/__APPROX__) · `docs/design-references.html` 재빌드. 관련 [충실 추출 — Manavarya09/design-extract (designlang)](design-extract.md) · [getdesign.md AI 디자인 시스템 분석 보고서](getdesign-teardown.md) · design-index.
+
+## H. 문서 정합 정정 + 출처 신뢰도 정책 (2026-07-10, codex-gate delta-refresh)
+<!-- awesome-design-md-delta-refresh 패킷 merge-small(2 델타만 — core는 §A~G 기흡수). proposed_by: external_ai (via codex), 판정 by claude. 2026-06-19 스냅샷 사실은 위에 보존, 아래는 최신 HEAD(commit 664b3e78) 정정. -->
+- **문서정합 정정 (snapshot-backed)**: 현재 HEAD 기준 `DESIGN.md` = **74개**(위 §B·§D의 "55 사이트"는 2026-06-19 스냅샷 값 — 상류 증가). **`preview.html`/`preview-dark.html` 는 현 HEAD에 부재**(0개) — 위 §B(line 31)·§D(line 60)의 "부속 preview.html" 서술은 *과거 스냅샷 기준*, 현재는 존재 안 함. 토큰 필요 시 repo `design-md/<site>/DESIGN.md` 직접 인출(preview 파일 없음).
+- **source-confidence 3-tier 정책** (§G "dry 관측·근사 라벨"의 형식화): 레퍼런스 흡수 시 각 사실을 **A 관측(로컬 클론서 직접 확인) / B source-reported(README·문서 주장, 미재현) / C illustrative-inferred(근사·추정)** 로 태깅. 카운트·존재 주장은 A만 confirmed, B/C는 caveat 유지. (본 정정 자체 = A: 클론 HEAD 실카운트.)

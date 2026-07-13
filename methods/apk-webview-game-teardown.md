@@ -51,6 +51,44 @@ WebView 래퍼가 아니라 **native 엔진(Unity)** 으로 판정되면 정적 
 - **Unity IL2CPP 빌드**: managed 디컴파일 불가(네이티브 컴파일) → 난이도 급상승, 별도 도구(Il2CppDumper 등) 전제.
 - **§6 IP 가드 그대로 적용**: 디컴파일해도 *역할·구조·개수·앵커*만 — 카드 텍스트·전체 코드·저작권 콘텐츠(예: 팬게임의 원작 IP 테마 자산)는 vault 반입 금지. 라이선스 미확인 팬빌드는 케이스 태그 1줄까지만.
 
+## 2.6 영상 인테이크 병행 (BA_TCG YouTube 데모, 2026-07-06 delta)
+
+정적 빌드 디컴파일과 별개로, 팬게임 공개 데모 **영상**을 병행 인테이크하면 UI/UX·릴리스 신호·유저 피드백을 IP 위험 없이 추가 확보 가능:
+
+- **파이프라인**: yt-dlp 메타데이터/영상 다운로드 → ffprobe(해상도·코덱·길이) → 1fps 프레임 추출 → scene-change 프레임 분리 → contact sheet 합성 → 선별 프레임 tesseract OCR(스타일라이즈 UI 텍스트는 노이즈 많음 — PARTIAL 감안) → 댓글 캡처(유저 리서치 입력이지 규칙의 authority 아님).
+- **소스 락 권고**: YouTube 메타데이터/영상/댓글 파일 + (허용 시) 링크된 빌드 파일을 SHA-256 으로 락한 뒤 분석 착수.
+- **clean-room 카테고리 분리** — §6 IP 가드에 대응하는 영상 인테이크판: `observed behavior`(영상에서 직접 관찰) / `inferred system`(관찰로부터 추론) / `source-reported`(제작자 설명·description) / `comment-reported`(댓글 — 미검증) / `forbidden IP content`(카드 원화·텍스트·캐릭터 자산 — vault 반입 금지). 5분류로 evidence 등급을 명시적으로 나눠 §6 위반(구현물 그대로 옮겨적기)을 막는다.
+- **정적+영상 결합 이점**: 정적 디컴파일이 클래스/구조/개수를 주는 반면, 영상은 보드 레이아웃·턴 전환 피드백·카드/컬렉션 UI·FX/컷인 패턴·릴리스 준비도·팬 피드백(모바일/APK 요청·번역·밸런스 불만)을 준다 — 상호 보완.
+- **§6 그대로 적용**: 영상에서도 카드 원화·정확한 텍스트·캐릭터 자산은 반입 금지. 역할·구조·타임라인 앵커·UX 마찰 후보만 추출.
+
+<!-- source: external_ai (via codex) `2026-07-06-ba-tcg-youtube-video-intake-RETURN.md` — 실제 풀 티어다운은 미수행, 인테이크 feasibility + 방법론 델타만. status: provisional -->
+
+## 2.7 라이브 웹 SPA 변형 + 8-Atom 분해 프레임 (AOS 해체 2026-07-06 merge)
+
+*출처: Codex `aos-ggplab-teardown` 세션(2026-07-06), 대상은 배포된 APK가 아닌 라이브 React SPA(팬메이드 보드게임 웹앱). 기존 §1 6단계는 APK 전제 — 웹 SPA는 번들/네트워크 계층이 달라 별도 절차 병기.*
+
+### 웹 SPA 해체 절차 (APK 대신)
+1. `curl -I` + 브라우저 오픈으로 가용성/타이틀 확인 → 즉시 다운로드 번들(JS/CSS) SHA-256 해시 락.
+2. `/api/*` 엔드포인트를 정적 라우트 스캔이 아닌 **실측 probe**로 확인(health/leaderboard/save 등) — 응답 스키마·상태값까지 기록.
+3. 데스크톱+모바일 스크린샷으로 레이아웃 실측(모바일 crop/fit 리스크는 별도 QA 플래그).
+4. **⚠️ §6 IP 가드레일 재확인** — 이번 소스 세션 산출물 중 minified 번들의 난독화 변수명·file:line 근거를 제시한 부분이 있었으나, §6 "흡수 금지: 함수 맵(함수명·시그니처)"에 정면 저촉되어 **본 merge에서 제외**했다. 웹 SPA 해체도 clean-room 원칙(동작 관찰로 재구성, 변수명/라인 인용 금지) 동일 적용.
+
+### 8-Atom 분해 프레임 (룰 헤비 보드/카드/텍스트 게임 공통 — 구조만 차용, 원작 콘텐츠명 제외)
+- **State Atom**: 게임 상태를 원자 필드로 완전 분해(맵/턴/페이즈/플레이어/보드/임시상태/로그/최종점수).
+- **Rule Atom**: `legalMoves(state) -> applyMove(state, move) -> nextState` 계약. AI/UI/리플레이 전부 이 계약만 호출 — "적당히 진행해"류 자유생성 금지가 핵심.
+- **Phase Atom**: 진행 단계를 UI 상단 상시 노출("외워서 하는 게임"이 아니라 "상태가 알려주는 게임").
+- **Map/Scenario Atom**: 콘텐츠 데이터를 엔진과 분리된 데이터팩으로(엔진 1개에 시나리오 교체).
+- **AI Atom**: 성격을 대사가 아닌 선택 가중치(성향 프로필)로 — 재현 가능한 행동 차이. (ai-npc-game 방향과 정합)
+- **UI Atom**: 상태 비은닉(중요 수치 항상 노출) + 현재 행동만 하단 압축.
+- **Feedback Atom**: 선택 전 합법 선택지, 선택 후 비용/보상/로그/되돌리기 범위 노출.
+- **Persistence Atom**: 로컬+서버 이중 저장, 버그 신고 시 상태 스냅샷 동봉.
+
+### 신규 델타 (muranyi-tesana-game-harness와 구분)
+- **학습가중치 런타임 핫스왑**: 코드 재배포 없이 `learned-weights.json` 같은 외부 파일로 AI 가중치만 교체(self-play/유저로그 튜닝을 코드 변경 없이 반영).
+- **LLM = candidate-id selector, never state authority**: `legalActions -> scoredCandidates -> LLM이 후보 id 중 1개 선택(JSON) -> 검증 실패/타임아웃 시 휴리스틱 폴백`. 자유 서술/판정 금지, 유한 후보 중 택1만 — [Muranyi-3 (Tesana) — 프롬프트→게임 product/studio 하네스 스터디](../techniques/muranyi-tesana-game-harness.md) 'LLM tie-breaker'를 구체 계약으로 보강.
+
+<!-- source: external_ai (via codex) `aos-ggplab-teardown` — 핵심 패턴은 기존 흡수분(muranyi/apk/ai-npc-game)과 동형, 8-Atom·핫스왑·selector 계약만 신규. IP 위반 소재(함수명/라인) 배제 merge. status: provisional -->
+
 ## 6. IP 가드레일 규칙 (박제 — 비협상)
 
 **철칙: 행동에서 재구성한 것만 vault 에 들어온다. 구현물을 읽고 옮기면 clean-room 이 아니다.**

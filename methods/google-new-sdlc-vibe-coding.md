@@ -73,3 +73,11 @@ category: method
 - 본체: Drive PDF(`raw/papers/google-new-sdlc-vibe-coding.pdf`). 시리즈: Day3 Context Engineering(Sessions/Skills/Memory), Day5 Spec-Driven Production Grade.
 - 인용 근거(endnotes): Karpathy "Vibe Coding"(2025-02)·"agentic engineering"(2026) / METR uplift(숙련개발자 AI로 특정작업 19%↑ — verify/debug 시간) / Deloitte 30-35% 생산성 / Anthropic C compiler multi-agent 실험(2주, Rust) / Google Agents Whitepaper(2025-11)·ADK·A2A·MCP·Agents CLI·Jules.
 - 마지막 문장: *"Generation is solved. Verification, judgment, and direction are the new craft."*
+
+## vibe-code diff 3-게이트 (2026-07-11, codex-gate merge-small)
+<!-- vibe-coding-maintainability(Scott Robinson) MERGE-small — 대부분 karpathy #2/#3·woc §11 중복, 3-게이트 델타만. proposed_by: external_ai (via codex), 판정 by claude. -->
+> "merged code = future-agent context"(합쳐진 코드가 다음 에이전트의 선례가 됨). vibe-code diff는 **테스트 통과가 Behavior 게이트만 통과시킴** — 2 게이트 더:
+- **Behavior**: 동작 맞나(테스트 통과 = 이것만).
+- **Structure**: 이 변경이 *기존 정책의 두 번째 소유자*를 만들었나(중복 소유 = 미래 drift 선례). [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](../techniques/woc-ai-gamedev-teardown.md) §11 "모듈화≠복잡도감소"의 정성 축.
+- **Context**: 이 diff가 남길 *선례*가 다음 에이전트에게 옳은가.
+⚠ "에이전트가 항상 패턴 모방" = 미검증 실무 주장(정량 아님). karpathy #2(speculative abstraction 금지)·#3(one responsibility)와 동형.

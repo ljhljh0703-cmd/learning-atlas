@@ -117,6 +117,19 @@ NPC blueprint 5 레이어 어느 곳에도 영상 perception 은 없음. 억지 
 
 ---
 
+## 자매 primitive — claude-real-video (영상 intake 전처리기)
+
+*HUANGCHIHHUNGLeo/claude-real-video, MIT, commit `2675da2` — Codex ③Gate PASS 2026-07-06(SHA 10/10).*
+
+video-use 가 *읽기/편집* surface 라면, claude-real-video 는 그 앞단 **intake primitive** — 영상을 LLM 이 볼 evidence packet 으로 환원. 세 도구가 "읽기(video-use) / 만들기([광고·영상 제작 파이프라인 (실전)](../techniques/ad-video-production-pipeline.md)) / 흡수(claude-real-video)" 3분할.
+
+- **메커니즘**: `ffmpeg` scene-change + density floor 로 프레임 추출 → **RGB sliding-window dedup** → `MANIFEST.txt + grids/*.jpg + 선별 프레임`(전체 frame dump 아님). smoke 실증: 4추출→3keep→1중복drop.
+- **적용처**: 영상 소스 리서치·게임플레이/데모 리뷰·광고/트레일러 해체·AI NPC 플레이테스트 증거. (= video-use 의 "raw→읽을 surface" 발상을 *비주얼 증거*에 적용.)
+- **과장 가드**(RETURN §6): Claude 가 영상을 네이티브로 보는 게 **아님** · OSS 는 Pro 의 camera/pacing/gesture/emotion 분석 미구현 · manifest 에 per-frame timestamp 없음(skill 문구와 불일치) · rerun 이 output 덮어쓰지 않음 · `--kb` 는 manifest 저장이지 LLM 의미분석 아님 · `_run()` returncode 미검증 · 테스트 없음 · **`--kb` 를 vault 로 기본 지정 금지**.
+- **skill 후보** `video-source-intake-crv` = **park**(실제 영상 intake 1회 입증 후 — RETURN 도 동의).
+
+---
+
 ## 열린 질문
 
 - Layer 1 packed.md 의 ~12KB 한계는 영상 길이 (40초 sample) 기준. 1시간 영상 = 1MB+ 가 되면 hierarchical pack 필요 — 어떻게 처리하나? ([Microsoft GraphRAG — Query-Focused Summarization on Narrative Private Data](../techniques/graphrag.md) community summary 와 동형)
