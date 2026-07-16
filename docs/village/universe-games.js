@@ -1,12 +1,14 @@
 // ============================================================
-// 주형 유니버스 — 은하 퀘스트 미니게임 4종 (v20)
+// 주형 유니버스 — 은하 퀘스트 미니게임 6종 (v20)
 // 하이퍼캐주얼 장르 clean-room + 도메인 아이템(작가 실제 도구):
 //  blast(블록블라스트류·graphify/리랭커) · shooter(고정슈터류·게이트/킬스위치)
 //  runner(러너류·발화분석/가면) · merge(2048류·lint/rollback)
+//  pair(메모리 카드류·지식 짝맞추기) · survivor(뱀서류·중심 지키기)
 // 로직(createLogic)은 순수·시드 결정론 — node에서 결정론 검증 가능.
 // 원본: 주형월드 그린필드 빌드(ES 모듈)를 클래식 스크립트로 이식.
 // ============================================================
 // v24: runner·merge 직관성 폴리시 — 러너 캐릭터/위험물 시각언어 통일 + 머지 슬라이드 트윈·조작 힌트
+// v34-A: pair·survivor 신규(6은하 6퀘스트 체제) + 6종 브릿지 카피 원칙 중심 재작성
 (function (root) {
 "use strict";
 
@@ -1519,33 +1521,430 @@ return { createLogic: createLogic, draw: draw };
 })();
 
 
+const GAME_pair = (function () {
+// ============================================================
+// 메모리 페어 — 학습 은하 퀘스트 게임 (보너스 도전 — 콘텐츠 비잠금).
+// 장르: 카드 뒤집기 짝맞추기(clean-room). 4×3 그리드 12장(6쌍).
+// 아이템 없음 — 지식·연결 은유 이모지 6종을 짝지어 60초 내 완성.
+// ============================================================
+
+
+
+const COLS = 4, ROWS = 3;
+const GLYPHS = ['📄', '🔗', '🧠', '📊', '🗂', '✅'];
+const TIME_LIMIT = 60;
+const MISMATCH_DELAY = 0.8;
+
+const GX = 0.09, GY = 0.16, GW = 0.82, GH = 0.58;
+
+function createLogic(seed, lang = 'ko') {
+  const rng = mulberry32(seed);
+  const deckValues = [];
+  for (let i = 0; i < GLYPHS.length; i++) { deckValues.push(i, i); }
+  // Fisher-Yates 셔플 (시드 결정론)
+  for (let i = deckValues.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    const tmp = deckValues[i]; deckValues[i] = deckValues[j]; deckValues[j] = tmp;
+  }
+
+  const state = {
+    phase: 'playing',
+    cards: deckValues.map((v) => ({ v, flipped: false, matched: false })),
+    firstIdx: null,
+    secondIdx: null,
+    resolveTimer: 0,
+    pairs: 0,
+    total: GLYPHS.length,
+    timeLeft: TIME_LIMIT,
+    toast: null,
+    lang,
+  };
+
+  function toast(text, color) { state.toast = { text, timer: 1.6, color }; }
+
+  function cellAt(x, y) {
+    const c = Math.floor(((x - GX) / GW) * COLS);
+    const r = Math.floor(((y - GY) / GH) * ROWS);
+    if (c < 0 || c >= COLS || r < 0 || r >= ROWS) return null;
+    return r * COLS + c;
+  }
+
+  return {
+    state,
+    events: [],
+    cellAt,
+    step(dt) {
+      if (state.toast && state.toast.timer > 0) state.toast.timer -= dt;
+      if (state.resolveTimer > 0) {
+        state.resolveTimer -= dt;
+        if (state.resolveTimer <= 0) {
+          if (state.firstIdx != null) state.cards[state.firstIdx].flipped = false;
+          if (state.secondIdx != null) state.cards[state.secondIdx].flipped = false;
+          state.firstIdx = null;
+          state.secondIdx = null;
+        }
+        return;
+      }
+      state.timeLeft -= dt;
+      if (state.timeLeft <= 0) {
+        state.timeLeft = 0;
+        if (state.pairs < state.total) state.phase = 'lost';
+      }
+    },
+    tap(x, y) {
+      if (state.phase !== 'playing' || state.resolveTimer > 0) return;
+      const idx = cellAt(x, y);
+      if (idx == null) return;
+      const card = state.cards[idx];
+      if (!card || card.matched || card.flipped) return;
+      card.flipped = true;
+      if (state.firstIdx == null) {
+        state.firstIdx = idx;
+        return;
+      }
+      state.secondIdx = idx;
+      const a = state.cards[state.firstIdx], b = state.cards[state.secondIdx];
+      if (a.v === b.v) {
+        a.matched = true; b.matched = true;
+        state.pairs++;
+        state.firstIdx = null; state.secondIdx = null;
+        this.events.push({ type: 'good', x, y });
+        toast(state.lang === 'en' ? 'match!' : '짝 맞음!', '#4ecdc4');
+        if (state.pairs >= state.total) { state.phase = 'won'; return; }
+      } else {
+        state.resolveTimer = MISMATCH_DELAY;
+        this.events.push({ type: 'bad', x, y });
+      }
+    },
+  };
+}
+
+function draw(ctx, W, H, logic, t) {
+  const s = logic.state;
+  const cw = (GW * W) / COLS, ch = (GH * H) / ROWS;
+
+  ctx.strokeStyle = 'rgba(140,160,220,0.25)';
+  ctx.lineWidth = 1;
+  roundRect(ctx, GX * W - 6, GY * H - 6, GW * W + 12, GH * H + 12, 12);
+  ctx.stroke();
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  for (let i = 0; i < s.cards.length; i++) {
+    const card = s.cards[i];
+    const c = i % COLS, r = Math.floor(i / COLS);
+    const x = GX * W + c * cw, y = GY * H + r * ch;
+    const revealed = card.flipped || card.matched;
+    if (card.matched) {
+      ctx.fillStyle = 'rgba(255,209,102,0.16)';
+      ctx.strokeStyle = KIT.accent;
+      ctx.lineWidth = 2;
+      ctx.shadowColor = KIT.accent;
+      ctx.shadowBlur = 10;
+    } else if (revealed) {
+      ctx.fillStyle = 'rgba(78,205,196,0.14)';
+      ctx.strokeStyle = KIT.good;
+      ctx.lineWidth = 1.5;
+      ctx.shadowBlur = 0;
+    } else {
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      ctx.strokeStyle = 'rgba(140,160,220,0.35)';
+      ctx.lineWidth = 1;
+      ctx.shadowBlur = 0;
+    }
+    roundRect(ctx, x + cw * 0.06, y + ch * 0.08, cw * 0.88, ch * 0.84, 10);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.font = `${Math.floor(ch * 0.36)}px ${KIT.font}`;
+    ctx.fillStyle = KIT.ink;
+    ctx.fillText(revealed ? GLYPHS[card.v] : '❔', x + cw / 2, y + ch / 2);
+  }
+
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  roundRect(ctx, 16, H - 34, W - 32, 10, 5);
+  ctx.fill();
+  ctx.fillStyle = KIT.good;
+  roundRect(ctx, 16, H - 34, (W - 32) * Math.min(s.pairs / s.total, 1), 10, 5);
+  ctx.fill();
+
+  ctx.font = `11px ${KIT.font}`;
+  ctx.fillStyle = KIT.dim;
+  ctx.fillText(
+    s.lang === 'en' ? 'tap two cards to find a matching pair' : '카드 2장을 뒤집어 같은 짝을 찾으세요',
+    W / 2, H - 48
+  );
+
+  drawHUD(ctx, W, H, {
+    lives: null,
+    left: `🃏 ${s.pairs}/${s.total}`,
+    right: `⏱ ${Math.ceil(s.timeLeft)}s`,
+  });
+  drawToast(ctx, W, H, s.toast);
+}
+return { createLogic: createLogic, draw: draw };
+})();
+
+const GAME_survivor = (function () {
+// ============================================================
+// 코어 서바이버 — 어바웃 코어 은하 퀘스트 게임 (보너스 도전 — 콘텐츠 비잠금).
+// 장르: 초미니 뱀서류(clean-room). 30초 생존.
+// 코어(⭐)를 드래그/탭으로 이동해 잡음 입자(회색 원)를 피하고,
+// 골드 오브(●)를 먹으면 근접 입자를 일소(오토 펄스)한다.
+// 반사신경 부담 최소화: 입자 느린 속도 + 스폰 전 예고 링.
+// ============================================================
+
+
+
+const GOAL_TIME = 30;
+const LIVES = 3;
+const CORE_R = 15;
+const PARTICLE_R = 9;
+const ORB_R = 10;
+const WARN_TIME = 0.55;
+const INV_TIME = 1.0;
+const PULSE_RADIUS = 150;
+
+function clamp01(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
+
+function createLogic(seed, lang = 'ko') {
+  const rng = mulberry32(seed);
+  const state = {
+    phase: 'playing',
+    elapsed: 0,
+    goal: GOAL_TIME,
+    lives: LIVES,
+    core: { x: 0.5, y: 0.52 },
+    targetX: 0.5,
+    targetY: 0.52,
+    inv: 0,
+    pulse: 0,
+    particles: [],
+    orbs: [],
+    toast: null,
+    lang,
+  };
+  let spawnT = 1.2;
+  let orbT = 3.5;
+
+  function toast(text, color) { state.toast = { text, timer: 1.6, color }; }
+
+  function spawnParticle() {
+    const edge = Math.floor(rng() * 4);
+    let x, y;
+    if (edge === 0) { x = rng(); y = -0.04; }
+    else if (edge === 1) { x = 1.04; y = rng(); }
+    else if (edge === 2) { x = rng(); y = 1.04; }
+    else { x = -0.04; y = rng(); }
+    const tx = 0.28 + rng() * 0.44, ty = 0.28 + rng() * 0.44;
+    const dx = tx - x, dy = ty - y;
+    const dist = Math.hypot(dx, dy) || 1;
+    const speed = 0.075 + rng() * 0.035; // 화면비 단위/초 — 낮게(반사신경 부담 최소)
+    state.particles.push({
+      x, y, vx: (dx / dist) * speed, vy: (dy / dist) * speed,
+      mode: 'warn', timer: WARN_TIME,
+    });
+  }
+  function spawnOrb() {
+    state.orbs.push({
+      x: 0.18 + rng() * 0.64, y: 0.2 + rng() * 0.56,
+      vx: (rng() - 0.5) * 0.025, vy: (rng() - 0.5) * 0.025,
+    });
+  }
+
+  return {
+    state,
+    events: [],
+    point(x, y) {
+      state.targetX = clamp01(x, 0.07, 0.93);
+      state.targetY = clamp01(y, 0.12, 0.88);
+    },
+    tap(x, y) {
+      if (state.phase !== 'playing') return;
+      this.point(x, y);
+    },
+    step(dt) {
+      state.elapsed += dt;
+      if (state.toast && state.toast.timer > 0) state.toast.timer -= dt;
+      if (state.inv > 0) state.inv -= dt;
+      if (state.pulse > 0) state.pulse -= dt;
+
+      state.core.x += (state.targetX - state.core.x) * Math.min(1, dt * 8);
+      state.core.y += (state.targetY - state.core.y) * Math.min(1, dt * 8);
+
+      spawnT -= dt;
+      if (spawnT <= 0) { spawnParticle(); spawnT = 0.85 + rng() * 0.45; }
+      orbT -= dt;
+      if (orbT <= 0) { spawnOrb(); orbT = 4 + rng() * 2; }
+
+      for (let i = state.particles.length - 1; i >= 0; i--) {
+        const p = state.particles[i];
+        if (p.mode === 'warn') {
+          p.timer -= dt;
+          if (p.timer <= 0) p.mode = 'active';
+          continue;
+        }
+        p.x += p.vx * dt; p.y += p.vy * dt;
+        if (p.x < -0.18 || p.x > 1.18 || p.y < -0.18 || p.y > 1.18) { state.particles.splice(i, 1); continue; }
+        const dx = (p.x - state.core.x) * KIT.W, dy = (p.y - state.core.y) * KIT.H;
+        if (state.inv <= 0 && Math.hypot(dx, dy) < PARTICLE_R + CORE_R) {
+          state.particles.splice(i, 1);
+          state.lives--;
+          state.inv = INV_TIME;
+          this.events.push({ type: 'bad', x: state.core.x, y: state.core.y });
+          if (state.lives <= 0) { state.lives = 0; state.phase = 'lost'; return; }
+        }
+      }
+
+      for (let i = state.orbs.length - 1; i >= 0; i--) {
+        const o = state.orbs[i];
+        o.x += o.vx * dt; o.y += o.vy * dt;
+        if (o.x < 0.08 || o.x > 0.92) o.vx *= -1;
+        if (o.y < 0.12 || o.y > 0.88) o.vy *= -1;
+        const dx = (o.x - state.core.x) * KIT.W, dy = (o.y - state.core.y) * KIT.H;
+        if (Math.hypot(dx, dy) < ORB_R + CORE_R) {
+          state.orbs.splice(i, 1);
+          state.pulse = 0.4;
+          this.events.push({ type: 'good', x: state.core.x, y: state.core.y });
+          toast(state.lang === 'en' ? 'pulse — nearby noise cleared' : '오토 펄스 — 근접 입자 일소', '#ffd166');
+          for (let j = state.particles.length - 1; j >= 0; j--) {
+            const q = state.particles[j];
+            if (q.mode !== 'active') continue;
+            const qdx = (q.x - state.core.x) * KIT.W, qdy = (q.y - state.core.y) * KIT.H;
+            if (Math.hypot(qdx, qdy) < PULSE_RADIUS) {
+              state.particles.splice(j, 1);
+              this.events.push({ type: 'good', x: q.x, y: q.y });
+            }
+          }
+        }
+      }
+
+      if (state.elapsed >= state.goal) { state.elapsed = state.goal; state.phase = 'won'; return; }
+    },
+  };
+}
+
+function draw(ctx, W, H, logic, t) {
+  const s = logic.state;
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // 잡음 입자 — 예고 링(warn) → 활성(회색 원)
+  for (const p of s.particles) {
+    const px = p.x * W, py = p.y * H;
+    if (p.mode === 'warn') {
+      const ringT = 1 - p.timer / WARN_TIME;
+      ctx.save();
+      ctx.globalAlpha = 0.55;
+      ctx.strokeStyle = 'rgba(154,165,196,0.7)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(px, py, PARTICLE_R + ringT * 14, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+      continue;
+    }
+    ctx.fillStyle = 'rgba(154,165,196,0.4)';
+    ctx.strokeStyle = 'rgba(154,165,196,0.75)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(px, py, PARTICLE_R, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  }
+
+  // 골드 오브
+  for (const o of s.orbs) {
+    const ox = o.x * W, oy = o.y * H;
+    const pulse = 1 + Math.sin(t * 4) * 0.08;
+    ctx.fillStyle = KIT.accent;
+    ctx.shadowColor = KIT.accent;
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.arc(ox, oy, ORB_R * pulse, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  // 코어
+  const cx = s.core.x * W, cy = s.core.y * H;
+  if (s.inv <= 0 || Math.floor(t * 12) % 2 === 0) {
+    ctx.save();
+    ctx.shadowColor = s.pulse > 0 ? KIT.accent : '#ffffff';
+    ctx.shadowBlur = s.pulse > 0 ? 22 : 12;
+    ctx.font = `${Math.floor(CORE_R * 2.1)}px ${KIT.font}`;
+    ctx.fillText('⭐', cx, cy);
+    ctx.restore();
+  }
+  if (s.pulse > 0) {
+    const pr = (1 - s.pulse / 0.4) * PULSE_RADIUS;
+    ctx.save();
+    ctx.globalAlpha = s.pulse / 0.4 * 0.6;
+    ctx.strokeStyle = KIT.accent;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, pr, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  ctx.font = `11px ${KIT.font}`;
+  ctx.fillStyle = KIT.dim;
+  ctx.fillText(
+    s.lang === 'en' ? 'drag/tap to move · gold orb clears nearby noise' : '드래그/탭으로 코어를 이동 · 골드 오브 = 근접 입자 일소',
+    W / 2, H - 48
+  );
+
+  drawHUD(ctx, W, H, {
+    lives: s.lives,
+    left: s.lang === 'en' ? 'survive' : '생존',
+    right: `⏱ ${Math.ceil(s.goal - s.elapsed)}s`,
+  });
+  drawToast(ctx, W, H, s.toast);
+}
+return { createLogic: createLogic, draw: draw };
+})();
+
 const JW_GAMES = {
   mountGame: mountGame,
-  games: { blast: GAME_blast, shooter: GAME_shooter, runner: GAME_runner, merge: GAME_merge },
+  games: { blast: GAME_blast, shooter: GAME_shooter, runner: GAME_runner, merge: GAME_merge, pair: GAME_pair, survivor: GAME_survivor },
   meta: {
     blast: {
       title: "스타 블라스트",
       howto: "같은 지식 조각 2+ 뭉치를 탭! graphify 게이지가 차면 [[링크]]를 타고 연결 뭉치를 연쇄 추출 — 환각 👻도 그때 걸러집니다.",
-      teaserLine: "게이지가 차면 열리는 연쇄 추출, 실제로 제가 쓰는 방식이에요. 클리어하면 연결이 보여요.",
-      bridge: "graphify — 시작 노드에서 링크를 hop하며 연결된 지식만 추출. 제 Vault에서 실제로 돌아가는 RAG 방식입니다."
+      teaserLine: "같은 지식을 연결해 한 번에 꺼내는 방식, 실제로 제가 일하는 방식이에요.",
+      bridge: "흩어진 정보는 연결돼 있을 때만 힘이 됩니다. 지식을 그래프로 잇고, 연결을 타고 검색하는 것 — 제가 지식을 다루는 첫 번째 원칙이에요."
     },
     shooter: {
       title: "은하 슈터",
       howto: "드래그/탭 = 조준, 발사는 자동! 5킬마다 |z|>1.65 게이트 더블샷, 위기엔 킬스위치. 편대 전멸이면 클리어.",
-      teaserLine: "더블샷을 열어주는 게이트, 실제 프로젝트의 안전장치예요. 클리어하면 연결이 보여요.",
-      bridge: "게이트가 화력을 승인하고 킬스위치가 위험을 차단 — 현수봇의 통계 게이트·안전 헌법층 그대로입니다."
+      teaserLine: "함부로 쏘지 않는 게이트, 제가 AI 에이전트에 거는 안전장치예요.",
+      bridge: "확신이 없으면 행동을 승인하지 않고(게이트), 위험이 보이면 즉시 멈춥니다(킬스위치). AI에게 일을 맡길 때 제가 지키는 두 가지 원칙이에요."
     },
     runner: {
       title: "코스믹 러너",
       howto: "탭 = 점프(2단)! Claude 문어 🐙로 운석을 피하고 별을 모아 400m를 완주하세요. 빨간 테두리 = 위험!",
-      teaserLine: "가면을 가려내는 이 판단, 실제 프로젝트의 판단 축이에요. 클리어하면 연결이 보여요.",
-      bridge: "가면과 진짜를 발화 분석으로 가르기 — AI 사회추론 시뮬레이션(늑대인간 하네스)의 발화 분석 축입니다."
+      teaserLine: "겉모습이 아니라 움직임으로 가려내는 판단이에요.",
+      bridge: "위험은 겉모습이 아니라 행동 패턴으로 드러납니다. AI의 산출도 똑같이 — 그럴듯한 말이 아니라 검증된 행동만 믿는 게 제 원칙이에요."
     },
     merge: {
       title: "컴포넌트 머지",
       howto: "스와이프(또는 방향키)로 모든 조각이 한 방향으로 미끄러집니다. 같은 컴포넌트가 만나면 합쳐져요! 📄 페이지 조립이면 클리어.",
-      teaserLine: "합쳐질수록 자라는 조각, 실제 제 디자인 시스템의 레이어 구조예요. 클리어하면 연결이 보여요.",
-      bridge: "작은 토큰이 페이지로 자라는 위계 — VDS 디자인 시스템의 3레이어 토큰 구조 그대로입니다."
+      teaserLine: "작은 조각이 합쳐져 시스템이 되는 과정이에요.",
+      bridge: "좋은 화면은 한 번에 그리는 게 아니라 작은 단위를 규칙으로 합쳐 만듭니다. 토큰에서 컴포넌트, 페이지까지 — 디자인을 시스템으로 쌓는 방식이에요."
+    },
+    pair: {
+      title: "메모리 페어",
+      howto: "카드 2장을 탭해 뒤집으세요! 같은 조각이면 고정, 다르면 잠시 후 다시 닫힙니다. 60초 안에 6쌍을 모두 맞추면 클리어.",
+      teaserLine: "흩어진 개념도 짝을 찾으면 지식이 돼요.",
+      bridge: "배운 것은 기록하고, 기록한 것은 연결합니다. 짝을 찾은 지식만 오래 남는다는 게 매주 학습을 공개해 온 이유예요."
+    },
+    survivor: {
+      title: "코어 서바이버",
+      howto: "드래그/탭으로 코어 ⭐를 움직여 잡음 입자(회색 원)를 피하세요! 골드 오브를 먹으면 근처 입자가 한 번에 사라져요. 30초 생존하면 클리어.",
+      teaserLine: "쏟아지는 것들 속에서 중심을 지키는 감각이에요.",
+      bridge: "일은 언제나 한꺼번에 몰려옵니다. 중심을 지키면서 지금 잡아야 할 것 하나를 고르는 것 — 제가 일하는 리듬이에요."
     }
   }
 };
