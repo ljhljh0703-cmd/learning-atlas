@@ -60,7 +60,7 @@ category: method
 *"Run per `references/prompt-expansion.md` to ground intent against brand values and house style, producing a consistent intermediate spec."*
 
 - 사용자 한 줄 요청 → 브랜드·하우스 스타일에 grounding 된 *중간 스펙* 으로 확장
-- 작가 vault 적용 — Gemini 디벨롭 워크플로우의 *Agenda 큐* 등가 (옵션 3-4 제시 + Pillar 정합 점검)
+- 작가 vault 적용 — 외부 LLM 디벨롭 워크플로우(당시 Gemini)의 *Agenda 큐* 등가 (옵션 3-4 제시 + Pillar 정합 점검)
 
 ### Step 4 — Plan (구조 선언)
 *"Declare what, structure (scenes/tracks), rhythm (fast-fast-SLOW pattern), timing, layout, and animation approach **before** coding."*

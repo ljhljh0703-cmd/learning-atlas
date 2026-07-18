@@ -194,7 +194,7 @@ fivetaku의 강점(라우팅·provenance·분리 원칙)을 흡수하되, 우리
 fivetaku가 못 하는 것:
 - 산출물 생성 (html-publish·pptx·graphify)
 - 정체성 기반 (me/identity 앵커)
-- 멀티 에이전트 분업 (Claude·Gemini·Codex)
+- 멀티 에이전트 분업 (당시 Claude·Gemini·Codex — 현행 Claude·Codex)
 - 학습→산출물 반영 루프
 - 실 프로젝트 운용 (hwigi-tower·applications)
 - Hermes Loop (외부 산출물 검증·흡수)

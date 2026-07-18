@@ -121,7 +121,7 @@ open-notebook 이 *어떻게* 텍스트→오디오를 했나의 **개념 grain*
 | "AI 컨텍스트 윈도우 제약" 인식 | 작가 stack 의 *기존* 도구 활용 — Claude Projects (긴 연구), Gemini Gems (반복 토픽), `/graphify` (대규모 자료 그래프화), Claude Code MCP (CodeGraph) |
 | MCP 활용 발상 | 작가 *이미* MCP 운영 중 (CodeGraph, Tolaria, Figma, PlayMCP 등). 새 MCP 도입은 *명확한 트리거* 후에만 |
 
-## 5. 작가에게 주는 가드 (Gemini 발화 패턴 학습)
+## 5. 작가에게 주는 가드 (당시 Gemini 발화 패턴 학습)
 
 본 제안서는 *Gemini 가 자주 하는 실수 패턴* 의 사례. 향후 유사 제안 사전 차단용:
 

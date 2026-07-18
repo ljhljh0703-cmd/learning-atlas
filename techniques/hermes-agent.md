@@ -231,7 +231,7 @@ _write_origin = ContextVar("skill_write_origin", default="foreground")
 | Foreground trigger 4 조건 | Claude 가 5+ tool call 작업 완료 후 자체적으로 "스킬화 제안" 1줄 출력 (= 휴리스틱 nudge) |
 | Provenance ContextVar | 스킬 파일 frontmatter 에 `origin: agent_generated \| user_authored` 필드 |
 | Stale 30d / Archive 90d | 작가 vault `last_used` 추적 (현재 없음 — usage tracking 부재가 약점) |
-| Forked review LLM | Gemini 가 야간에 `~/.claude/skills/` 의 *agent_generated* 만 통합 (Claude SSOT 권한 분리와 일관) |
+| Forked review LLM | (당시 구상) Gemini 가 야간에 `~/.claude/skills/` 의 *agent_generated* 만 통합 — 채택본 = 사용자 트리거 큐레이터(CLAUDE.md §스킬 자가성장, cron 미도입) |
 | Archive-only invariant | 절대 차용 — 삭제는 작가 권한, AI 는 archive 까지만 |
 | `cron_rewrites.json` | 작가 vault 의 wikilink 일괄 갱신 hook |
 

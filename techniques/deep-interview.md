@@ -59,7 +59,7 @@ category: technique
 
 ### 2) 수동 병합 게이트(Gate) 및 충돌 제어
 인터뷰 완료 시 다음 항목을 통제하는 게이트를 의무적으로 통과시킵니다.
-1.  기존 `CLAUDE.md` 및 `GEMINI.md`와의 헌법적 충돌 여부.
+1.  기존 `CLAUDE.md` 와의 헌법적 충돌 여부. (구 `GEMINI.md` = RETIRED 2026-07-04)
 2.  `wiki/projects/decisions.md`에 잠금된 locked 의사결정과의 충돌 여부.
 3.  기존 위키 노드와의 중복성 검토 및 양방향 링크 제안(`_proposed-links.md` 생성).
 

@@ -104,7 +104,7 @@ Tier 3 — Specialists (Sonnet/Haiku, 실무)
 4. **Draft** 산출물 표시
 5. **Approve** 승인 후에만 작성
 
-→ [Karpathy Guidelines — LLM 코딩 함정 4 원칙 (behavioral overlay skill)](karpathy-guidelines.md) #1 (Surface Assumptions) 의 시스템화. 3-AI 분업의 "외부 LLM 디벨롭 워크플로우" (CLAUDE.md §) 와 동형.
+→ [Karpathy Guidelines — LLM 코딩 함정 4 원칙 (behavioral overlay skill)](karpathy-guidelines.md) #1 (Surface Assumptions) 의 시스템화. 분업(당시 3-AI)의 "외부 LLM 디벨롭 워크플로우" (CLAUDE.md §) 와 동형.
 
 ### 7. Review intensity 선택
 
@@ -138,7 +138,7 @@ claude
 
 **도입 X 이유**:
 
-1. **3-AI 분업 구조 충돌** — 본 위키의 Claude (SSOT) / Gemini (디벨롭) / Codex (코드) 분업이 이미 *작가 의사결정 워크플로우* 까지 정의됨 (CLAUDE.md §). Game Studios 의 49 agent 위계가 *Claude 단일 세션* 안에 들어가도록 설계 — Gemini / Codex 가 끼어들 자리 없음.
+1. **3-AI 분업 구조 충돌** — 본 위키의 당시(2026-06) Claude (SSOT) / Gemini (디벨롭) / Codex (코드) 분업이 이미 *작가 의사결정 워크플로우* 까지 정의됨 (CLAUDE.md §). Game Studios 의 49 agent 위계가 *Claude 단일 세션* 안에 들어가도록 설계 — Gemini / Codex 가 끼어들 자리 없음.
 2. **SSOT 패턴 충돌** — hwiglija-tower-gdd 가 권위, 6 종 위성 분리 (AGENTS / tone-bible / design-brief / agenda / journal / progress). Game Studios 는 *agent 가 GDD/ADR 자동 생성* 전제 — 우리 SSOT update protocol §0 4단계와 마찰.
 3. **49 agent = Karpathy #2 위반** — Flick 마감 (D-15) 동안 도입 = 명백 과복잡. Codex AGENTS.md 단일 진실로도 충분히 진행 중.
 4. **GDD 섹션 자동 강제** — 우리 GDD 는 작가 비전 우선, 프레임워크가 8 섹션 강제는 비전 침해 위험.
@@ -149,14 +149,14 @@ claude
 
 | 발상 | 본 위키 어디로 흡수 |
 |------|---------------------|
-| **3 tier delegation + escalation 룰 4종** | 3-AI 분업의 "권한 분리" 표를 *escalation 경로* 추가로 보강. 충돌 시 작가 (= 공통 부모) 까지 escalation — 이미 함의됨, *명시화* 필요 |
+| **3 tier delegation + escalation 룰 4종** | 분업(당시 3-AI)의 "권한 분리" 표를 *escalation 경로* 추가로 보강. 충돌 시 작가 (= 공통 부모) 까지 escalation — 이미 함의됨, *명시화* 필요 |
 | **Path-scoped rules** | hwigi-tower hwiglija-tower-AGENTS 에 path 별 룰 (Scripts/Combat, Scripts/UI, Scripts/AI) 추가 — Codex 가 자동 적용. 현재 단일 AGENTS.md 라 도메인 룰 fuzzy |
-| **`/team-*` orchestration** | `team-combat` 같이 *주제별 multi-agent 동시 호출* 패턴. 현재 우리는 Claude/Gemini 순차 호출만. mirofish-lab 디벨롭 큐를 `team-mirofish` 형태로 묶으면 작가 prompt 1번 → Gemini 가 multi-perspective 동시 처리 |
+| **`/team-*` orchestration** | `team-combat` 같이 *주제별 multi-agent 동시 호출* 패턴. 당시 우리는 Claude/Gemini 순차 호출만이었다(현행 2-AI). mirofish-lab 디벨롭 큐를 `team-mirofish` 형태로 묶으면 작가 prompt 1번 → 외부 LLM(구상 당시 Gemini) 이 multi-perspective 동시 처리 |
 | **`/detect-gaps` hook** | 신규 프로젝트에서 design doc 없이 code 있을 때 경고. Sub brain 에 hook 추가 — `applications/<company>/strategy.md` 없이 essay 작성 중이면 작가에게 경고 |
 | **Review intensity 설정 (full/lean/solo)** | hwigi-tower 작업의 "긴급 fix vs 큰 결정" 구분 — 작은 수정엔 SSOT 4단계 skip 허용, `--review solo` 같은 명시적 오버라이드 |
 | **`/scope-check` skill** | Flick 마감 D-15 같은 시점에 자동 호출 가치. "현재 작업이 출품 critical path 인가" 자동 판정 — Karpathy #2 강제 |
 | **Collaborative 5단계 (Ask→Options→Decide→Draft→Approve)** | 이미 우리 hwiglija-tower-design-agenda 패턴이 동형. 명시화 가치는 있음 |
-| **`active.md` + pre/post-compact hook** | 세션 압축 전후 컨텍스트 보존 — 본 위키 3-AI 분업의 "토큰 절감" 원칙과 직결. Sub brain 에도 도입 후보 |
+| **`active.md` + pre/post-compact hook** | 세션 압축 전후 컨텍스트 보존 — 본 위키 분업(당시 3-AI)의 "토큰 절감" 원칙과 직결. Sub brain 에도 도입 후보 |
 | **hooks (12 종) 발상** | Sub brain 본체에 적용 — `validate-commit.sh` 가 frontmatter 누락 검사, `detect-gaps.sh` 가 SSOT 위성 누락 감지 |
 
 ### 도입 시점 가설 (마감 후 검토 사항)
@@ -173,7 +173,7 @@ claude
 비교:
 | 우리 | Game Studios | 일치도 |
 |------|--------------|--------|
-| 3-AI 분업 (Claude/Gemini/Codex) | 단일 Claude 49 agent | 다른 해법, 같은 문제 |
+| 분업(당시 3-AI Claude/Gemini/Codex — 현행 2-AI) | 단일 Claude 49 agent | 다른 해법, 같은 문제 |
 | SSOT + 6 위성 | GDD + ADR 자동 생성 | 다른 해법, 같은 문제 |
 | 작가 의사결정 5단계 | Ask→Options→Decide→Draft→Approve | **동일** |
 | 권한 분리 표 | 3-tier delegation + escalation | **동일** |
@@ -197,7 +197,7 @@ claude
 
 ## 다음 학습 후보
 
-- **`.claude/skills/start/` 실제 분기 로직** — 4 진입점 (no idea / vague / clear / existing) 의 prompt engineering. `/start` 단일 skill 만 분석해도 본 위키 [Ouroboros — Spec-First Agent OS](ouroboros.md) / 3-AI 분업의 진입점 설계 개선 후보
+- **`.claude/skills/start/` 실제 분기 로직** — 4 진입점 (no idea / vague / clear / existing) 의 prompt engineering. `/start` 단일 skill 만 분석해도 본 위키 [Ouroboros — Spec-First Agent OS](ouroboros.md) / 분업(당시 3-AI) 진입점 설계 개선 후보
 - **`workflow-catalog.yaml` 7-phase pipeline 전문** — 단일 진실 소스 패턴 검증. 본 위키의 9-phase pipeline (bkit) 와 비교
 - **`unity-specialist.md` + 4 sub-specialist 본문** — hwigi-tower hwiglija-tower-AGENTS 도메인 룰 흡수 후보. *1주일 안* 발췌 검토 가능
 - **bkit 9-phase pipeline 문서 (`/development-pipeline`) 재독** — 동족 framework 비교. bkit 가 단일 SaaS 빌드 vs Game Studios 가 단일 게임 빌드. 차이점 분석

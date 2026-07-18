@@ -10,7 +10,7 @@ category: method
 
 *작가 운영 원칙 (메모리 → 그래프 승격 2026-06-18). AI 교차검증 운용 시 상시 적용.*
 
-Adversarial verification(생성자≠검증자)으로 외부 AI(Gemini·GPT·다른 Claude)에게 교차검증을 시킬 때, **검증자의 주장 ≠ 진실**. 특히 "이 출처는 피싱/맬웨어다", "보안 위험" 같은 *강한 주장*일수록 그대로 믿고 vault 에 반영하기 전에 **1차 출처(WebFetch 공식 docs 등)로 직접 재-③Gate** 한다.
+Adversarial verification(생성자≠검증자)으로 외부 AI(GPT·다른 Claude — 당시 사례 Gemini)에게 교차검증을 시킬 때, **검증자의 주장 ≠ 진실**. 특히 "이 출처는 피싱/맬웨어다", "보안 위험" 같은 *강한 주장*일수록 그대로 믿고 vault 에 반영하기 전에 **1차 출처(WebFetch 공식 docs 등)로 직접 재-③Gate** 한다.
 
 ---
 
@@ -26,6 +26,17 @@ Adversarial verification(생성자≠검증자)으로 외부 AI(Gemini·GPT·다
 4. 정본 훼손 방향 변경은 특히 보수적으로
 
 ---
+
+## 보강 — Trap-fixture로 검증기 자체를 검증 (fable-method 델타, 2026-07-17)
+
+위 원칙이 "검증자의 *긍정* 주장을 믿지 마라"라면, 그 짝 = **심어둔 실패로 검증기가 *부정*을 실제로 잡는지 증명하라**. Sahir619/fable-method 해체(commit `b2a24d5b`)에서 이식 가능한 진짜 델타 = 3종 trap fixture(설치 X, A/B 후보만):
+
+- **S2 authority-conflict trap** — 권위 충돌을 심어두면 검증기가 `AssertionError`로 잡아야 정상(재현 확인).
+- **S5 coverage trap** — 테스트가 "all passed"인데 숨은 쌍둥이 버그 존재 → 커버리지 착시 적발.
+- **S7 fraudulent-completion trap** — pristine/worked 둘 다 통과하나 worked가 틀린 반올림을 DEBUG로 감춤 → *거짓 완료* 적발.
+- + **forced decision artifact**(결정을 명시 산출로 강제)·**domain minimum evidence contract**(도메인별 최소 증거 계약).
+
+⚠ **CAVEAT(cold-verify)**: repo headline `159 runs`·raw transcript·full-suite reproducibility는 커밋 증거보다 과표현(독립 재구성 불가). X article "clone"=overclaim(이식가능=행동 스캐폴드뿐). 무료포함 마감 7/12 = 공식 7/7 공지와 충돌. **skill 설치 X** — Sub-brain 원칙층 대부분 선행구현(agent-harness·dispatch-builder). 트리거: 하네스/검증기 신뢰도 스트레스 테스트 필요 시 3-trap A/B. 출처 `~/Documents/Codex/2026-07-14/fable-method-teardown/`.
 
 ## 연결된 페이지
 

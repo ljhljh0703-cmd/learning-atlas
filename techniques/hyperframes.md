@@ -135,7 +135,7 @@ for (let frame = 0; frame <= durationFrames; frame += 1) {
 5. Layout Before Animation → hero frame 정적 HTML+CSS 먼저, 그 다음 GSAP
 ```
 
-→ 이게 작가의 *위성 패턴 (brief→agenda→Gemini 디벨롭→확정→SSOT 반영)* 의 *세부 강제 버전*. SKILL.md 가 에이전트의 *행동 헌법*.
+→ 이게 작가의 *위성 패턴 (brief→agenda→외부 LLM 디벨롭[당시 Gemini]→확정→SSOT 반영)* 의 *세부 강제 버전*. SKILL.md 가 에이전트의 *행동 헌법*.
 
 ---
 

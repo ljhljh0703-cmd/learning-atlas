@@ -21,10 +21,10 @@ category: method
 | :--- | :--- |
 | **AI NPC blueprint 레이어** | 해당 없음 (인간-에이전트 협업/오케스트레이션 방법론) |
 | **직접 적용 vs 개념 수확** | **직접 적용** 및 **개념 수확** (Sub-brain 운영 및 에이전트 하네스 구조 고도화에 즉시 적용 가능) |
-| **시급성** | **지금 / 중기** (3-AI 분업 및 에이전트 자율화의 정합성 확보를 위해 즉시 참고 필요) |
+| **시급성** | **지금 / 중기** (다중 AI 분업[당시 3-AI, 현행 2-AI] 및 에이전트 자율화의 정합성 확보를 위해 즉시 참고 필요) |
 
 > [!NOTE]
-> 본 연구는 게임 내 NPC 설계가 아닌, **생산성 및 소프트웨어 개발 도메인에서 인간과 다중 에이전트가 협업하는 아키텍처**를 다룹니다. 따라서 Tolaria Vault의 3-AI(Claude-Gemini-Codex) 협업 구도와 에이전트 자율성 제어(Doer-Verifier)에 직결되는 실제적 교훈을 제공합니다.
+> 본 연구는 게임 내 NPC 설계가 아닌, **생산성 및 소프트웨어 개발 도메인에서 인간과 다중 에이전트가 협업하는 아키텍처**를 다룹니다. 따라서 Tolaria Vault의 당시 3-AI(Claude-Gemini-Codex — 현행 2-AI Claude+Codex) 협업 구도와 에이전트 자율성 제어(Doer-Verifier)에 직결되는 실제적 교훈을 제공합니다.
 
 ---
 
@@ -89,7 +89,7 @@ category: method
 
 ### Sub-brain 적용 규칙
 - **Autonomy Ledger** — 자율성은 에이전트 단위 총점이 아니라 **task type 별 earned autonomy** 로 관리(원문 line 296–297 "which kinds of tasks each agent has earned autonomy on... per task type"). 예: 문서 요약 PASS 5회 ≠ 코드 변경 자동 승인. `Proof-ready` 가 general acceptance 를 함의하지 않음 — 레인마다 게이트 이력 별개.
-- **Model-change retest** — 모델·도구·권한 레이어가 바뀌면 기존 skill/prompt/gate 를 그대로 신뢰 말고 대표 task 재실행(원문 line 271–274). 더 똑똑한 모델엔 낡은 guardrail 이 창의적 해결을 막을 수 있음. Claude/Gemini/Codex 를 스왑하는 vault 에 직결.
+- **Model-change retest** — 모델·도구·권한 레이어가 바뀌면 기존 skill/prompt/gate 를 그대로 신뢰 말고 대표 task 재실행(원문 line 271–274). 더 똑똑한 모델엔 낡은 guardrail 이 창의적 해결을 막을 수 있음. 모델을 스왑하는 vault 에 직결(당시 로스터 Claude/Gemini/Codex — 현행 Claude/Codex).
 - **Human-only decision boundary** — 에이전트는 backlog triage·complexity scoring·medium/low 변경을 맡되, **hard tradeoff·owner 없는 결정은 인간에게 직접 상신**(원문 line 307–310). Sub-brain: 외부 AI 가 gate evidence 를 만들어도 `accepted` 판정은 작가 verdict.
 - **Roster = 역할 + memory + credentials/tool + scope + verification** — roster 항목을 "에이전트 이름"이 아니라 5요소로 정의(원문 line 161–166: 데이터분석=BigQuery, QA=Playwright MCP, 복잡도↑ 시 release manager 추가, 코드유지=triage/planning/coding/review/reporting 분할).
 - **Communication hygiene** — 질문 batch + 핵심 맥락 반복 + 인간이 한 번에 보는 항목 수 제한. **단 이건 CLAUDE.md §5.6 (Decision-Ask Batching) 으로 이미 헌법 구현** — 재유도 X, §5.6 참조.
@@ -103,16 +103,16 @@ category: method
 ## 내 생각 — AI NPC 및 Sub-brain 관점
 
 ### 직접적 연결: [높음]
-*   **3-AI 협업 모델의 정당성 확보**: Anthropic이 실증한 "인간-에이전트 단일 명부와 역할 특화"는 현재 Tolaria Vault가 추구하는 `Claude(두뇌/감독) - Gemini(손발) - Codex(실행)`의 3-AI 분업 구조와 정확히 궤를 같이합니다.
+*   **다중 AI 협업 모델의 정당성 확보**: Anthropic이 실증한 "인간-에이전트 단일 명부와 역할 특화"는 흡수 당시(2026-06) Tolaria Vault가 추구하던 `Claude(두뇌/감독) - Gemini(손발) - Codex(실행)` 3-AI 분업 구조와 궤를 같이했습니다(현행 = Claude+Codex 2-AI — 원리는 유지).
 *   **Doer-Verifier의 정교화**: `workflows/dual-track-review.md`에 명시된 외부 AI의 작업물 반영 가드 및 `dispatch-builder` 내의 `done-gate` 검증 로직은 Anthropic의 Doer-Verifier 철학과 일치합니다.
-*   **주의력 보호의 중요성**: 에이전트가 사용자에게 과도한 질문이나 컨텍스트 노이즈를 유발하지 않도록 "질문을 일괄 배치 처리"하고 "가장 임팩트 있는 이슈만 상신"하는 통신 가이드라인은 향후 3-AI 협업 시 반드시 반영해야 할 메타 규칙입니다.
+*   **주의력 보호의 중요성**: 에이전트가 사용자에게 과도한 질문이나 컨텍스트 노이즈를 유발하지 않도록 "질문을 일괄 배치 처리"하고 "가장 임팩트 있는 이슈만 상신"하는 통신 가이드라인은 향후 다중 AI 협업 시 반드시 반영해야 할 메타 규칙입니다.
 
 ### 개념적 수확
 1.  **명부(Roster)의 명시적 정의**: 에이전트가 자신이 맡은 역할과 책임 범위를 명확히 인식하게 하는 `skill.md` 기반의 스코프 정의가 에이전트 수의 확장에 따른 혼란을 방지하는 핵심 열쇠임을 확인하였습니다.
 2.  **공개 문서화의 중요성 (No-Context Cave)**: 에이전트의 지능은 전적으로 '접근 가능한 텍스트'의 양과 질에 비례하므로, Sub-brain 내부의 SSOT 문서와 progress 로그 관리가 에이전트 성능의 절대적 천장(ceiling)을 결정한다는 점을 재확인하였습니다.
 
 ### 블루프린트 연결
-*   **Layer 5 (Orchestration & Governance)**: 3-AI 협업 시 에이전트가 인간의 한정된 주의력을 갉아먹지 않도록 통신을 배치화(batching)하고 게이트를 두는 'Attention-aware Router' 로직 설계에 반영 가능합니다.
+*   **Layer 5 (Orchestration & Governance)**: 다중 AI 협업 시 에이전트가 인간의 한정된 주의력을 갉아먹지 않도록 통신을 배치화(batching)하고 게이트를 두는 'Attention-aware Router' 로직 설계에 반영 가능합니다.
 
 ---
 

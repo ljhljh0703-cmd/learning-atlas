@@ -18,7 +18,7 @@ category: method
 
 ## 1. SCA-Gate (Sufficient Context Assessment) 스킬 규격
 
-SCA-Gate는 에이전트(Codex, Gemini 등)가 쓰기(Write) 작업을 수행하거나 기획 의도를 검증할 때, **"질문에 답하거나 설계를 완성하기에 충분한 근거 컨텍스트를 확보했는가"**를 정량적으로 판정(F1 `0.935` 수준의 1-shot autorater)하는 게이트 시스템입니다.
+SCA-Gate는 에이전트(Codex 등)가 쓰기(Write) 작업을 수행하거나 기획 의도를 검증할 때, **"질문에 답하거나 설계를 완성하기에 충분한 근거 컨텍스트를 확보했는가"**를 정량적으로 판정(F1 `0.935` 수준의 1-shot autorater)하는 게이트 시스템입니다.
 
 ### 1.1 아키텍처 및 제어 흐름
 SCA-Gate는 단순히 정보를 조회하는 것을 넘어, 검색된 컨텍스트가 부족할 경우 **피드백 루프**를 트리거하는 Dynamic Guardrail로 작동합니다.

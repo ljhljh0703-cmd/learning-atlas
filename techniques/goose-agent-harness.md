@@ -24,7 +24,7 @@ category: technique
 - **3-요소**: Interface(데스크톱/CLI) + Agent(상호작용 루프 코어) + Extensions(MCP 툴). Interface 가 agent 인스턴스를 띄우고, 동시 다중 agent 도 가능.
 - **상호작용 루프 6단계**: ① 인간 요청 → ② Provider Chat(요청+툴목록을 LLM 에) → ③ 툴콜 실행(LLM 은 JSON 툴콜 생성만, 실행은 goose) → ④ 결과 환류 → ⑤ **Context Revision**(낡은/무관 정보 제거) → ⑥ 최종 응답. ↔ [Claude Code 런타임 내부 (Layer C)](../methods/claude-code-runtime-internals.md) 루프.
 - **Extension trait**(Rust): `name/description/instructions/tools/status/call_tool`. 툴 = `Value → AgentResult<Value>` async. **에러 = 프롬프트** 설계: 잘못된 툴명·파라미터·툴 실패를 *tool response 로 LLM 에 환류*해 스스로 복구(`ToolUse`/`ToolResult`를 `Result<T, AgentError>`로 전달, thiserror 컬렉션 유지). 에러로 흐름 끊지 않음.
-- **ACP (Agent Client Protocol)** 양방향: ⓐ goose 가 *ACP 서버*(Zed/JetBrains 가 붙음) ⓑ 외부 ACP 에이전트(Claude Code·Codex)를 *provider*로 위임 — **기존 Claude/ChatGPT/Gemini 구독을 API키 없이** 사용. ↔ claude-max-cost-shift.
+- **ACP (Agent Client Protocol)** 양방향: ⓐ goose 가 *ACP 서버*(Zed/JetBrains 가 붙음) ⓑ 외부 ACP 에이전트(Claude Code·Codex)를 *provider*로 위임 — **기존 Claude/ChatGPT/Gemini 구독(외부 도구 기능)을 API키 없이** 사용. ↔ claude-max-cost-shift.
 
 ## 2. 하네스 척추에 직결되는 메커니즘 (높은 순)
 

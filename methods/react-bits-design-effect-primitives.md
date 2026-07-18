@@ -38,6 +38,8 @@ React Bits의 알맹이는 "화려한 컴포넌트 묶음"이 아니라 **효과
 ## 8-point 디자인 게이트 (효과 허용 전)
 purpose(무슨 의미?) · slot(어디?) · layer(CSS만/tiny JS/canvas/WebGL?) · token 준수(rogue 색·폰트 금지) · motion budget(none/subtle/hero-only) · fallback(reduced-motion·print·mobile) · performance(무한 rAF 금지, hero-only·gated 예외) · taste check(warm authority·정밀·one wow, novelty 더미 X).
 
+**autoplay/video 그리드 캡** (MotionSites 해체 ③Gate 2026-07-15) — 다중 autoplay 비디오(예: 홈 34개·46MB)는 poster 기본 → viewport 1칸 전 mount → intersecting 시만 play → **concurrent media cap 2~4** → reduced-motion·saveData 면 poster 고정. (기존 logo-loop 무한캡 선례의 비디오 확장.)
+
 ## 흡수 안 함
 React Bits 전역 설치 / shadcn·jsrepo·MCP registry / 대형 컴포넌트 팩 복사 / Commons Clause 컴포넌트 ParkDal 포트팩 재배포 / WebGL 배경 기본화 / Tailwind를 single-file HTML 요구사항화 / "효과 가용성"이 페이지 목적 우선.
 

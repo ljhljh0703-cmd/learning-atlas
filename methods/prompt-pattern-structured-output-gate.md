@@ -45,6 +45,7 @@ Output MUST match this schema. No prose, no code fence, no trailing comma.
 - 일반: 네이티브 structured output(function calling·JSON schema)은 프롬프트만으로 "JSON 줘"보다 파싱 실패율을 크게 낮춘다 — 형식 강제가 디코딩 단계로 내려가기 때문.
 - SLM(HyperCLOVA 0.5B 등): 네이티브 JSON mode 부재 시, 짧은 스키마 + 폴백값 명시 + 1회 재시도 게이트 조합이 형식 안정성에 효과적 (cf. [Pattern: Outcome-First (결과 중심 정의)](prompt-pattern-outcome-first.md) 의 SLM 관측과 동선 일치).
 - *프로젝트 검증 TBD*: hwiglija-tower-gdd NPC 출력(감정 벡터·액션) 실측치는 구현 후 backfill.
+- **2026 native 계약 refresh** (computer-use video merge-small, 2026-07-17): 2026 API는 native **structured output**(JSON schema 강제) + **strict tool use**(도구 인자 스키마 강제 디코딩)를 제공 → #1·#3을 디코딩 단계로 내림. 단 **정상 예외 2종을 게이트가 반드시 처리**: ① `refusal`(모델 거부 stop_reason) ② `max_tokens` 절단 — 둘 다 "스키마 위반"이 아니라 유효한 종료라 폐기·재요청 로직에서 분기해야(무한 재시도 방지). ⚠ API 계약은 버전 의존 → 구현 시 `claude-api` 스킬(공식 docs) 재확인.
 
 ## ⚠️ 트레이드오프
 - 스키마를 너무 빡빡하게 잠그면 NPC 표현의 *생동감*이 깎인다 — 자유 텍스트 필드(`line`)는 열어두고 *제어 필드*(action/emotion)만 게이트.

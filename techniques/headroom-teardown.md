@@ -96,7 +96,7 @@ $$\theta_{real} \ll \theta_{single}$$
 ### 2) Prompt Layering을 통한 KV 캐시 극대화 (CacheAligner의 이식)
 *   **응용**: 가변 파라미터(현재 시간, absolute path 등)를 프롬프트의 가장 최하단(Suffix)에 배치합니다.
 *   **강화**: `dispatch-builder`가 생성하는 프롬프트를 3개 레이어로 고정 분할하여 구조화하되, 캐시 무력화를 방지합니다.
-    *   **Layer 1 (Static Prefix - 80%)**: 변하지 않는 헌법(CLAUDE.md, GEMINI.md), locked GDD, core workflows.
+    *   **Layer 1 (Static Prefix - 80%)**: 변하지 않는 헌법(CLAUDE.md — 당시 GEMINI.md 포함, RETIRED 2026-07-04), locked GDD, core workflows.
     *   **Layer 2 (Semistatic Middle - 15%)**: hot-cache 로그, progress 현황 (이 영역은 매 턴 변조되기보다 세션 단위로 변동 빈도를 최소화해야 Layer 1의 캐시 이득이 완전히 보존됨).
     *   **Layer 3 (Dynamic Suffix - 5%)**: 현재 시간, cursor 위치, 이번 turn의 ad-hoc query.
 
@@ -104,4 +104,4 @@ $$\theta_{real} \ll \theta_{single}$$
 *   **응용**: 실패한 에이전트 세션을 분석하여 규칙을 보완하는 개념을 차용합니다.
 *   **강화**: 헤드룸의 `headroom learn`처럼 에러 로그 분석 후 규칙을 무차별 append하여 모순을 발생시키는 대신, 우리의 **Dual-Track Review Protocol**을 활용해 지식을 필터링합니다.
     *   에이전트가 실패(컴파일/테스트 에러 등)할 때마다 그 원인과 팁을 `Memory.md`에 `[Rule Candidate]` 마커와 함께 append합니다.
-    *   주간 회고 시점에 정본 Claude가 Candidate들을 수집해 **규칙 모순 검사(Logical Conflict Check)**를 실행하고, 안전한 규칙만 `CLAUDE.md`/`GEMINI.md`/`AGENTS.md`에 격상 반영합니다.
+    *   주간 회고 시점에 정본 Claude가 Candidate들을 수집해 **규칙 모순 검사(Logical Conflict Check)**를 실행하고, 안전한 규칙만 헌법(당시 `CLAUDE.md`/`GEMINI.md`/`AGENTS.md` — 현행 `CLAUDE.md`/`AGENTS.md`)에 격상 반영합니다.

@@ -92,10 +92,21 @@ ponytail은 우리 agent-harness 계열(=Agent=Model+Harness)의 *소형·단일
 
 **도입 결정**: Codex 코드 디스패치에 ponytail 룰셋을 **정적 주입**(static ruleset)으로 채택. **per-turn hook 인프라는 미도입**(= 본 페이지  #2 / 반영 backlog #4 그대로 보류). 근거: ① vault infra-0 원칙 ② README 명시 "짧은 단발 프롬프트엔 매턴 재주입 오버헤드가 절감 상쇄" ③ 06-17 거버넌스 교훈(갓 merge한 주입표면 원칙 위 인프라 적층 신중).
 
-**적용 경계 (3-조건 — 셋 다 충족 시만)**:
+**적용 경계 — 2레인** 🔄 2026-07-17 (디자인 레인 추가, 작가 명시 지시)
+
+**레인 A — Codex 코드 디스패치 (3-조건 — 셋 다 충족 시만)** 🔒 LOCKED 2026-06-17 *(원문 불변)*:
 1. **Codex 코드 디스패치 한정** — Gemini(No-Coding) 무관 · Claude 직접 소량작업 무관(claude-max-cost-shift).
 2. **큰·반복 코드 작업만** — 짧은 단발 코드 디스패치엔 미적용(재주입 오버헤드 > 절감).
 3. **강한 instruction-following 모델 타깃** — 로컬 SLM(llama3.2급) 타깃 작업엔 미적용(Layer A 전이실패, 결정 사다리 불안정).
+
+**레인 B — 디자인 작업** 🔒 LOCKED 2026-07-17 <!-- proposed_by: user · confirmed_by: user · confirmed_date: 2026-07-17 — 작가 명시 지시 "디자인도 포니테일 좀 쓰게 해. 이미 있는 디자인이면 그대로 가져다 써. 새로 만드는 과정에서 기존 것과 다르게 한답시고 망치지 말고." -->:
+1. **주체 무관** — Codex 디스패치뿐 아니라 **vault Claude 직접 작업에도 적용**. 레인 A 조건 1의 "Claude 직접 무관" 단서는 **레인 B에 미적용**(작가 지시가 명시적으로 이를 뒤집음).
+2. **단발도 적용** — 레인 A 조건 2의 근거는 *per-turn 재주입 오버헤드*인데, 디자인 사다리는 design-taste가 이미 상시 라우팅(AGENTS.md §디자인 행)돼 **추가 주입 비용 0** → 조건 2의 전제 자체가 성립 안 함.
+3. **강한 모델 타깃** — 레인 A 조건 3 그대로 상속.
+
+**레인 B 주입 지점** = design-taste §"재사용 사다리 (ponytail 디자인판)" — 디자인판 사다리의 SSOT는 거기다(본 페이지 = 룰셋 원본·코드판 SSOT). 사다리 6단은 코드판(YAGNI→표준라이브러리→네이티브→기설치 의존성→한 줄→최소 코드)을 디자인 자산으로 이식(채택 recipe→vault 라이브러리→기존 산출물 이식→조합→신규 최소 delta). "안 줄이는 축 실명"·`ponytail:` 주석 규율은 양 레인 공통.
+
+review_trigger (레인 B): "디자인 사다리 적용 3회 후 재사용률·작가 만족 검토 / 또는 2026-10-17 — 레인 A trigger 와 독립"
 
 **주입 방법**: dispatch-builder로 Codex 코드 디스패치 조립 시 아래 블록을 슬롯에 포함(또는 Codex repo `AGENTS.md`에 정적 삽입). 실제 ponytail repo clone + 어댑터 설치는 *선택* — 정적 룰셋만으로 효과 대부분 확보, repo 설치 시 provenance 복원은 graphify 사례 준용.
 

@@ -169,7 +169,7 @@ EnvironmentFile=-/home/USER/odysseus-ui/.env
 
 - **Document editor 멀티탭** — 작가는 Obsidian + Tolaria 가 권위. 자체 에디터 X
 - **Image / Theme editor** — 워크스테이션 범위 outside
-- **Compare (멀티모델 blind test)** — 작가의 3-AI 분업 (Claude/Gemini/Codex) 모델은 이미 다름
+- **Compare (멀티모델 blind test)** — 작가의 분업(당시 3-AI Claude/Gemini/Codex — 현행 2-AI) 모델은 이미 다름
 - **Deep Research (Tongyi DeepResearch 이식)** — Claude/Gemini 의 native research 가 훨씬 강력
 - **FastAPI 단일 프로세스 구조 자체** — 작가 vault 가 *파일시스템 기반* 이라면 long-running 서버 *불요* 할 수도. MCP 서버 분산 패턴이 더 정합
 

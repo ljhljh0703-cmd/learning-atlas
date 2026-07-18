@@ -56,7 +56,7 @@ Obsidian vault (Action Tracker / Decision Log / Client files)
 **작가 적용 여지**:
 - 작가는 *통화* 가 아닌 *글쓰기·기획 세션* 중심 — 비대칭 적용 필요
 - 변형 시나리오:
-  - Claude/Gemini 와의 *long-form 대화* → 자동 transcript → vault 자동 ingest (현재는 hot.md 수동 갱신)
+  - Claude/Gemini(당시 로스터) 와의 *long-form 대화* → 자동 transcript → vault 자동 ingest (현재는 hot.md 수동 갱신)
   - Cursor/VSCode 코딩 세션 → 자동 progress.md append (현재는 Codex 수동)
   - [seCall — AI 에이전트 세션을 위한 로컬 퍼스트 검색 엔진](secall.md) 이 비슷한 컨셉 (AI 에이전트 세션 검색) — 이미 archive 됨, 본 패턴과 결합 가능
 

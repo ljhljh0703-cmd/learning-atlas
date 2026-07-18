@@ -533,28 +533,60 @@ const VILLAGE_RESUME_CONFIG = {
       },
       learningCards: [
         {
-          slug: "google-okf-knowledge-format",
-          tag: "방법론",
-          title: "Google OKF v0.1",
-          date: "2026-06-27",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/google-okf-knowledge-format.md",
-          hook: "마크다운·frontmatter·링크 그래프 기반 에이전트 지식 표준을 Sub-brain 운영과 대조"
+          slug: "claude-projects-context-ops",
+          tag: "하네스",
+          title: "Claude Projects — Context Ops",
+          date: "2026-07-11",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/claude-projects-context-ops.md",
+          hook: "프로젝트 지식을 컨텍스트 운영 자산으로 다루는 제품 운영 델타"
         },
         {
-          slug: "codebase-memory-mcp",
-          tag: "도구",
-          title: "codebase-memory-mcp",
-          date: "2026-06-28",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/codebase-memory-mcp.md",
-          hook: "코드 레포를 지식 그래프로 인덱싱하는 MCP 서버를 CodeGraph와 대조"
+          slug: "game-balance-formula-registry",
+          tag: "게임",
+          title: "Game Balance Formula Registry",
+          date: "2026-07-11",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/game-balance-formula-registry.md",
+          hook: "밸런스 결정을 계산 가능하고 검증 가능한 공식 원장으로 관리"
         },
         {
-          slug: "agentic-search-grep-vs-vector",
-          tag: "기술",
-          title: "Grep vs Vector RAG",
-          date: "2026-06-28",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/agentic-search-grep-vs-vector.md",
-          hook: "에이전트 검색에서 grep·그래프·하네스 설계가 갖는 의미를 정리"
+          slug: "game-agent-change-contract",
+          tag: "게임",
+          title: "Game-Agent Change Contract",
+          date: "2026-07-11",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/game-agent-change-contract.md",
+          hook: "게임 에이전트 변경을 Definition-of-Done과 증거 계약으로 통제"
+        },
+        {
+          slug: "proof-carrying-ingestion",
+          tag: "데이터",
+          title: "Proof-Carrying Ingestion",
+          date: "2026-07-11",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/proof-carrying-ingestion.md",
+          hook: "생성 지식에 provenance와 회수 가능성을 함께 싣는 수집 계약"
+        },
+        {
+          slug: "cs336-l3-transformer-architecture",
+          tag: "AI·LLM",
+          title: "CS336 L3 — Transformer Architecture",
+          date: "2026-07-10",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/cs336-l3-transformer-architecture.md",
+          hook: "Transformer 구성요소의 선택 기준과 재현 가능한 빌드 순서를 정리"
+        },
+        {
+          slug: "homegames-browser-game-platform-patterns",
+          tag: "게임엔진",
+          title: "Homegames — Browser Game Platform Patterns",
+          date: "2026-07-10",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/homegames-browser-game-platform-patterns.md",
+          hook: "브라우저 게임 제작·실행·공유 플랫폼의 구조적 패턴을 해체"
+        },
+        {
+          slug: "reicon-icon-library-vds-integration",
+          tag: "디자인",
+          title: "Reicon → VDS Icon Grammar",
+          date: "2026-07-10",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/reicon-icon-library-vds-integration.md",
+          hook: "외부 아이콘 라이브러리를 VDS 문법으로 흡수하는 clean-room 패턴"
         }
       ],
       members: []

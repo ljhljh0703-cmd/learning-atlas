@@ -93,7 +93,7 @@ coco.App(coco.AppConfig(name="docs"), main, src="./docs").update_blocking()
 - Kafka / StreamNative / Confluent (message queue)
 - Neo4j / Kuzu / SurrealDB (graph)
 - pgvector / LanceDB / Qdrant (vector)
-- 파이프라인 자체는 OpenAI / Gemini 등 LLM 호출 ops 도 포함 (예: HN trending 의 Gemini 2.5 Flash 토픽 추출)
+- 파이프라인 자체는 OpenAI / Gemini 등 LLM 호출 ops 도 포함(외부 도구 사실) (예: HN trending 의 Gemini 2.5 Flash 토픽 추출)
 
 ## 6. 우리 프로젝트 매핑
 

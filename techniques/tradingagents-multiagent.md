@@ -127,7 +127,7 @@ _, decision = ta.propagate("NVDA", "2026-01-15")
 | 실현수익 raw + SPY 대비 alpha | 청산 ROE + **BTC 대비 alpha**(크립토 벤치마크) |
 | 결정 로그 `trading_memory.md` | `trade_memory.md`(현수봇 repo, append) |
 | `Reflector` 회고 프롬프트 | 청산 시 Gemini 회고 1문단(맞음/틀림=ROE 기준) |
-| `FinancialSituationMemory`(BM25) | 현재 시장상황 BM25 매칭 → 다음 Gemini 분석에 교훈 주입 |
+| `FinancialSituationMemory`(BM25) | 실시간 시장상황 BM25 매칭 → 다음 Gemini API 분석에 교훈 주입(제품 API) |
 | Bull/Bear 토론 | (2순위) 단일 Gemini 프롬프트 내 강세/약세 자가토론 |
 | 리스크 3파 토론 → PM 승인 | (3순위) Smart Adjuster를 명시적 진입 승인/거부 게이트로 격상 |
 

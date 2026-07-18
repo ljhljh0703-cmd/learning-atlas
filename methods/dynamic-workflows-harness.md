@@ -46,7 +46,7 @@ Anthropic 공식 발표. 코딩에 최적화된 *단일 기본 하네스* 대신
 | Loop until done | 🟡 부분 이식 | 반복은 텍스트 가능. 자동 재실행·테스트·상태유지는 런타임 의존 |
 | Root-cause investigation | 🟡 부분 이식 | 독립 조사 프롬프트는 이식. 격리 worktree·자동 cross-check는 런타임 의존 |
 
-→ 🟢 4종은 외부 AI(Codex/Antigravity/GPT)에 *지금 그대로* 디스패치 가능. 🟡 3종은 "런타임 자동화"만 빠지고 *수동 오케스트레이션*으로 근사.
+→ 🟢 4종은 (2026-06-15 평가 당시) 외부 AI(Codex/Antigravity/GPT)에 그대로 디스패치 가능 판정 — 현행 외주 로스터 = Codex/GPT(CLAUDE.md §4, Antigravity RETIRED). 🟡 3종은 "런타임 자동화"만 빠지고 *수동 오케스트레이션*으로 근사.
 
 > ※ **이식성 한계 (교차검증 정정 2026-06-15)**: 🟢 는 프롬프트 *구조*가 모델독립 이식 가능하다는 뜻이지 *실행 정확도*까지 모델독립은 아니다. 특히 Tournament·Generate-and-filter 의 다수 후보 비교/평가는 LLM 지능(context length·self-enhancement/position bias 제어)에 의존 — **구조는 이식, 실행 품질은 모델 종속**. = agent-harness Layer A(행동·구조는 하네스로 이식, 깊은 추론은 모델 내재) 명제와 정합. "완전 모델독립"은 과장이었음.
 
@@ -80,20 +80,20 @@ Anthropic 공식 발표. 코딩에 최적화된 *단일 기본 하네스* 대신
 - classifier 모델 라우팅 → 작업 복잡도별 지능 할당 최적화
 - 채팅만 보는 판정자(judge)에게는 "테스트 통과"만으론 불충분 — proof가 판정자 컨텍스트에 실제로 붙어야 "완료"가 claim이 아니라 proof가 된다(cf. exm7777 X Article — Fable Loop Library, via Codex teardown 2026-07-06). RETURN 증거·Codex 최종보고 관행과 동일 원리.
 
-## 작가 시스템 응용 (외부 AI 운영 — Codex/Antigravity 중심)
+## 작가 시스템 응용 (2026-06 당시 — 외부 AI 운영 Codex/Antigravity 중심 · 현행 = Codex)
 
 핵심 통찰: 패턴 추출 자체가 agent-harness RSI 의 "특정 모델 능력에서 모델 독립 하네스 추출"과 정확히 같은 작업. JS 런타임은 Claude Code 전용 — 이식성은 위 §"7대 패턴 이식성 등급" 표 참조(🟢 4종 즉시 이식, 🟡 3종 수동 근사, 런타임 전용 기능은 불가).
 
 - **dispatch-builder에 7패턴 슬롯 주입** — 디스패치 작성 시 "이 외주는 7패턴 중 무엇인가?" 명시. Fan-out(여러 Codex 병렬)·Adversarial(Codex 산출을 별도 AI 가 루브릭 검증)·Generate-and-filter(다수 초안 후 선별).
-- **hermes-loop ③Gate = Adversarial verification 의 작가판** — 외부 AI(Codex/Antigravity) 산출을 *생성한 AI 와 다른 컨텍스트*가 검증하는 게 self-preferential bias 차단. 이미 운영 중인 패턴의 이론 근거 보강.
+- **hermes-loop ③Gate = Adversarial verification 의 작가판** — 외부 AI(당시 Codex/Antigravity — 현행 Codex) 산출을 *생성한 AI 와 다른 컨텍스트*가 검증하는 게 self-preferential bias 차단. 이미 운영 중인 패턴의 이론 근거 보강.
 - **dual-track-review Goal drift 방어** — progress/memory 분리 운영이 요약 누적 소실 방어와 동형. `/goal` 등가 = SSOT decisions 박제.
 - **격리 worktree = [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) worktree-accept** — 헌법 §Dual-Track #6 이미 차용한 패턴. 외부 Codex 헤드리스 실행의 안전 격리와 일치.
 
 학습→반영 루프 반영처: dispatch-builder(7패턴 슬롯)·hermes-loop(③Gate 이론 근거). 상세 backlog 는 log 참조.
 
-## 교차 검증 (Gemini — Adversarial verification 인스턴스)
+## 교차 검증 (당시 Gemini — Adversarial verification 인스턴스)
 
-✅ **완료 (2026-06-15, Gemini → vault Claude ④Gate 선별)**. self-preferential bias 차단 위해 생성자(GPT+Claude)와 다른 컨텍스트(Gemini)가 독립 검증.
+✅ **완료 (2026-06-15, Gemini → vault Claude ④Gate 선별)**. self-preferential bias 차단 위해 생성자(GPT+Claude)와 다른 컨텍스트(당시 Gemini)가 독립 검증.
 
 - ✅ **confirm**: 7패턴=블로그 프레이밍(공식 taxonomy 아님)·근거 논문 6건 arXiv 실존·메커니즘(16/1000·script variables·저장경로) 일치.
 - ⚠️ **정정 반영**: 자가박제(status confirmed→provisional, R-04)·이식성 과장(🟢 "완전 모델독립"→구조독립※, 실행은 모델의존=Layer A)·세션 fresh(named session `--resume` 재개).

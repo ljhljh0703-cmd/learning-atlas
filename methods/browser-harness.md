@@ -139,7 +139,7 @@ print(page_info())
 
 1. **`applications/<company>/` 자동화** — 채용 공고 사이트별 applicant tracking system (ATS) 자동 작성. supercent 같은 회사별로 `domain-skills/<company-ATS>/` 가 누적.
 2. **Flick 출품 페이지 (D-15 후)** — 출품 사이트 폼 작성, GDD upload, 응답 monitoring
-3. **외부 LLM 디벨롭 보조** — Gemini Web UI / Claude.ai web 직접 자동 prompt (CLI 한계 보조)
+3. **외부 LLM 디벨롭 보조** — Claude.ai web 직접 자동 prompt (CLI 한계 보조 · 구 Gemini Web UI = RETIRED)
 4. **자료 수집** — 게임 기사·리뷰·아카이브 (이미 [OASIS: Open Agent Social Interaction Simulations with One Million Agents](../techniques/oasis.md) 학습에 했던 작업의 *자동화* 버전)
 5. **포트폴리오 사이트 운영** — 작가 향후 본인 사이트 운영 시 콘텐츠 publish 자동화
 

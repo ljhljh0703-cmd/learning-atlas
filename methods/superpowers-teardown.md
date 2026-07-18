@@ -42,7 +42,7 @@ category: method
 - **using-superpowers (게이트웨이)**: 대화 시작·매 작업 *전* 무조건 스킬 점검. "1%라도 해당되면 응답·역질문 전에 Skill 호출, 선택 아님" + 의사결정 플로우차트 + red-flag 목록("일단 코드베이스 탐색부터" 차단). 우선순위 = 사용자 명시 > 스킬 > 기본동작. → **우리 Hermes ① Dispatch(vault-first) 발동 규율의 강제판.**
 - **test-driven-development**: Iron Law "실패 테스트 먼저". RED(최소 테스트, 올바른 이유로 실패 확인)→GREEN(통과시킬 최소 코드만)→REFACTOR(기능추가 금지, 중복제거·네이밍). 예외(prototype/생성코드/config)는 human 승인. → **우리 ③Gate는 테스트 *재현*은 있으나 작성단계 TDD 강제는 없음.**
 - **systematic-debugging**: Iron Law "근본원인 조사 없이 수정 없음". 4-phase(근본원인 조사→패턴 분석→가설·테스트→구현). **"3번 수정 실패 시 멈추고 아키텍처를 의심"**. → 디버깅은 우리 약점(fablize investigation-protocol 검토 때 스킵했던 결).
-- **subagent-driven-development**: 작업당 *fresh subagent* + 2단 리뷰(spec 준수 → 코드품질 *분리*) + 컨텍스트 사전추출(파일읽기 오버헤드 회피) + 상태(BLOCKED/NEEDS_CONTEXT/DONE_WITH_CONCERNS). "작업 사이 human 체크인 금지"(momentum). → 우리 Codex/Gemini 분업·③Gate와 겹치나 **"spec→quality 2단 분리"는 정련 포인트**. 단 Claude Max 비용상 fan-out 신중.
+- **subagent-driven-development**: 작업당 *fresh subagent* + 2단 리뷰(spec 준수 → 코드품질 *분리*) + 컨텍스트 사전추출(파일읽기 오버헤드 회피) + 상태(BLOCKED/NEEDS_CONTEXT/DONE_WITH_CONCERNS). "작업 사이 human 체크인 금지"(momentum). → 우리 분업(당시 Codex/Gemini — 현행 Codex)·③Gate와 겹치나 **"spec→quality 2단 분리"는 정련 포인트**. 단 Claude Max 비용상 fan-out 신중.
 - **writing-skills (메타)**: Iron Law "실패 테스트 없이 스킬 없음"(스킬 작성에도 TDD). frontmatter 2필수(name + `description: "Use when..."`), **description에 워크플로우 요약 금지**(요약하면 Claude가 본문 안 읽고 description만 따름 = CSO 함정), rationalization 표·red-flags로 bulletproofing, 교차참조는 `@` 금지(컨텍스트 소모)·이름+마커만. → **우리 skill-curator/스킬 작성 컨벤션 강화 후보.**
 
 ## 4. 우리 시스템 대비 — 수렴/차용/주의

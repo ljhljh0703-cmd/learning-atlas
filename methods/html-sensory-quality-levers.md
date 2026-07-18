@@ -30,6 +30,8 @@ year: 2026
 - **Motion/Effect Selection Gate** — 효과는 *목적·위치 1포인트*("입 떡 한 스푼"), 그라데이션/블러/카드 양산 = reject.
 - **Section Polish Loop** — build 후 섹션별 다듬기 필수 단계.
 - **한글 폰트 정책** — 가독성 우선(Noto Sans KR 등 안전 스택).
+- **ASCII 텍스트 렌더 레버** (포트폴리오 flourish) — 이미지/영상을 ASCII로 변환하는 파이프라인 = `source → grid downsample → cell feature → glyph ramp → renderer → export`. **포트폴리오 기본 = 무의존성 `<pre>`**(또는 pre-render); Canvas/WebGL은 영상·3D·색·대형 grid 실필요 시만. 적용 1순위 = 동적 ASCII 캐릭터(예: 커서 추적 고양이)·스크린샷의 짧은 ASCII reveal(full-site terminal은 과잉 → reject). ⚠ **license STOP**: ASCII art/FIGfont/원본 이미지 저작권을 라이브러리 license와 혼동 금지. (출처: ascii-art topic 해체 ③Gate 2026-07-17. 스킬화 `ascii-art-asset-pipeline`=실사용 2회 전 PARK.)
+- **Visual Build Contract** — Reference Packet 확정 *후*, 구현 *전* 중간 실행 명세. `claim_lock`(검증된 주장·placeholder 금지·source_paths) + tokens/typography roles + composition + components(state/responsive) + assets(role/provenance/license/poster/fallback) + motion(budget/reduced-motion/concurrent-media-cap) + responsive viewports + verification(interaction/render/claim_parity). DESIGN.md(장기 시각 언어)의 대체 아님 — *이번 산출물의 실행 계약*. (출처: MotionSites 해체 ③Gate 2026-07-15. 컴파일러 스킬화는 player-trained-army-ai 식 PARK — 실파일럿 2건 전 신설 X.)
 
 ## AI-Tell 밴 리스트 + 기계적 하드락 ★ 열거형 보완
 > 출처: TasteSkill(Leonxlnx/taste-skill @ `b177427`) 해체 ③Gate 2026-07-06. 8축 루브릭이 *정성 판단*이면, 아래는 *기계식 lint*(pass/fail). **적용 스코프 = 가시 HTML 카피/레이아웃 한정**(범용 글쓰기 규칙 X).

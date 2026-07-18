@@ -43,7 +43,7 @@ hot.md ≤500자·log ≤1000줄·frontmatter=1번째줄·provisional→confirme
 **출력**: 각 조건 PASS/증상+수치, active-core만(raw/archive/template 제외), 오탐 구분(false-positive 표기). = Codex 2026-07-11 감사 형식.
 
 ## 관계
-- **집행 스킬**: vault-health-gate (2026-07-13 착수) — 본 노드의 건강 조건을 기존 검증기 read-only 오케스트레이션으로 집계(fail-safe HEALTHY/DEGRADED/UNKNOWN). maintenance-prevention 계획 §5 SLO·§M2 healthcheck 의 v0 구현.
+- **집행 스킬**: SKILL (2026-07-13 착수) — 본 노드의 건강 조건을 기존 검증기 read-only 오케스트레이션으로 집계(fail-safe HEALTHY/DEGRADED/UNKNOWN). maintenance-prevention 계획 §5 SLO·§M2 healthcheck 의 v0 구현.
 - master cause C1 = [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](../techniques/woc-ai-gamedev-teardown.md) §11 KB판 · C2 = cross-agent-artifact-coherence §7 false-green 수정의 일반화 · use-ledger 강등 스캔·weekly-digest와 상보(사용 계측 ↔ 건강 계측).
 - 디스패치: dispatch-builder로 Codex/Fable 감사 지시 조립(vault read-only·RETURN·③Gate 전제).
 - **외부 툴화 제안(park)**: `llm-wiki-reliability-harness`(Codex 2026-07-11) = 본 진단 재도출 + vault 기존 검증기(integrity-lint·wiki-graph-lint·sca-gate·autogate)를 *외부 OSS CLI(`lwrh`) + portable skill*로 추출하는 빌드 스펙. 지식 아닌 **제품 제안** → 작가 go/no-go 대기(승인 전 구현 X). 신규 조각=claim-lock format·finding SARIF·README-first 파일럿. `~/Documents/Codex/2026-07-11/llm-wiki-reliability-harness-design/`.

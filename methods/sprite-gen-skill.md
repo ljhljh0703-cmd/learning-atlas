@@ -1,6 +1,6 @@
 ---
 created: 2026-06-16
-updated: 2026-06-16
+updated: 2026-07-13
 type: learning
 tags: [assets, sprite, game-art, pipeline, image-gen, skill, codex, hitl, runtime-manifest]
 source: https://github.com/aldegad/sprite-gen
@@ -49,6 +49,21 @@ sprite-request.json (숫자 SSoT)
 - **✅ 반영 완료 = libgdx-rogue-os-art-guide §7.5** (2026-06-16): 패턴 #2(manifest frame_layout 절대사각형 계약, "엔진은 격자 추측 금지")를 게임 art-guide 의 *에셋→엔진 export 계약*으로 배선. 단 repo 실제 loader 포맷은 verification-pending(코드 확인 전 데이터포맷 잠금 X). image-gen 파이프라인 자체는 현 손-픽셀아트 게임엔 미적용(향후 AI 스프라이트 도입 시).
 - **반영처 = 분업 규율**: 패턴 #7(run-dir lock)은 외부 AI 동시쓰기 사고(log agy)의 *코드 레벨 예방 사례* — 순수 참조, 추가 배선 불요.
 - 그 외(#1 숫자SSoT·#6 정직라벨)는 이미 vault 보유 원칙의 외부 확증재 → 흡수만.
+
+## v1.56.13 delta 감사 (③Gate 2026-07-13, Codex clone 재통독)
+
+<!-- 2026-06-16 흡수 이후 87커밋 델타 + 결함 감사. 원 노드 원리 무변경 — 신규 정보만 병합. proposed_by: codex(via RETURN), confirmed_by: user 2026-07-13. asset SHA-256 99a9e091… 검증. -->
+
+- **저장 = PASS, 설치 = NOT INSTALLED.** 본 노드는 2026-06-16 confirmed 로 정상 배선(design-index·libGDX art-guide). 지식 저장 ≠ 실행도구 설치 — 여전히 미설치.
+- **업데이트 = MATERIAL DELTA.** 추정 baseline `34852ae…`→`v1.56.13`/`2500c151…`: **87 commits, 193 files, +14,405/−3,451**. 원격 검증 — 최신 release `v1.56.13`(200), GitHub Actions run success, 13/13 outbound URL 200. ⚠ baseline 은 원 노트에 source SHA 부재라 흡수일 직전 커밋 추정(증명된 checkout 아님).
+- **흡수 판정 = 신규 독립 노드 X, 본 노드 delta 갱신 O.** YCbCr/projection/centroid/3-pass loop 원리는 이미 [PerfectPixel Studio — AI 스프라이트 후처리 파이프라인 해체](../techniques/perfectpixel-studio.md)·본 노드에 존재.
+- **정적 코드 감사로 확인된 결함(CONFIRMED, 채택 전 STOP):**
+  1. **correction-loop rank 결함** — `candidate_rank` 가 과다검출 frame 수를 우대 → 자동 `preserved_best` 신뢰 금지(exact-frame correctness 우선 정렬 전까지).
+  2. **package/CLI mismatch** — 문서화된 `sprite-gen` 콘솔 명령 실존 가정 금지, pinned repo wrapper 사용.
+  3. **default histogram threshold `0.0`** · **provenance 필드가 request/runtime manifest 에 부재** · **curator loopback 기본 + 미인증 POST 표면**.
+- **APPLY NOW (포폴):** 후보 큐레이터 + variant-sheet slicer. **PILOT(게임):** 마스코트·몬스터·초상·simple 4-frame action. **PARK:** 자동 correction(위 rank 결함).
+
+**🅿️ Park — pixel-art-pipeline P0 router 재편(작가 판정 대기):** Codex 제안 = pixel-art-pipeline 을 provider-neutral 단일 router 로, sprite-gen 을 raw 이후 정리·분할·큐레이션·simple compose 의 P0 middle layer 로 배치(`$imagegen → sprite-gen → Aseprite(optional) → final manifest → consumer`, PerfectPixel = advanced-motion 대안 레인). **이건 active skill 계약 변경이라 흡수만으로 자동 적용 X** — 작가 승인 후 별도 반영. 근거 자산: `~/Documents/Codex/2026-07-13/sprite-gen/…asset-skill-topology-evidence.md`.
 
 ## 연결
 

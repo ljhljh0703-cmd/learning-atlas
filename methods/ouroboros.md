@@ -66,7 +66,7 @@ Ambiguity ≤ 0.2 게이트: spec 자체가 모호하면 코드 실행 차단.
 | Immutable spec | seed.yaml | GDD §2 잠긴 D-NNN |
 | 평가 gate | 3-stage 자동 | Unity EditMode test (Mechanical) + 작가 검토 (수동) |
 | 진화 loop | ralph 자율 수렴 | 매 토픽 manual |
-| 9 minds | on-demand 로드 | 3-AI 분업 (Claude/Gemini/Codex), mode 명시 X |
+| 9 minds | on-demand 로드 | 분업(당시 3-AI Claude/Gemini/Codex), mode 명시 X |
 | Ambiguity 점수 | 정량 ≤ 0.2 | 정성 (Pillar 점검만) |
 | Lineage | EventStore stateless | progress.md append 수동 |
 
@@ -108,7 +108,7 @@ repo README 기준 2026-05-03 이후 신규. **backfill 대상 = PAL Router 만*
 
 ### 8.1 ⭐ PAL Router — 3-tier 비용 최적화 (1x / 10x / 30x) ← 차용 후보
 `routing/` 의 핵심. 작업 난도에 따라 모델 티어(1x/10x/30x 비용)를 라우팅 — 싼 작업은 싼 티어, 어려운 것만 비싼 티어. (정확한 티어↔모델 매핑·트리거 로직은 본 재조우에서 deep-fetch 안 함 — README grain 까지만 기록, 생성 X.)
-- **우리와의 연결**: CLAUDE.md §4 비용지침(Research=Gemini Pro / Review=Flash / Execution=Claude / Routine=GPT-mini)의 *정량 라우팅 버전*. claude-max-cost-shift 맥락(소량=Claude 직접, 대량·반복만 오프로딩)과 동형.
+- **우리와의 연결**: 구(2026-06) CLAUDE.md §4 비용지침(Research=Gemini Pro / Review=Flash / Execution=Claude / Routine=GPT-mini — 현행 §4 = 2-AI 개정)의 *정량 라우팅 버전*. claude-max-cost-shift 맥락(소량=Claude 직접, 대량·반복만 오프로딩)과 동형.
 - **학습→반영(backlog)**: §4 비용지침은 *헌법(LOCKED)* → 직접 수정 X. PAL 의 "난도→티어" 정량 매핑을 §4 에 차용할지는 **패치 스테이징 후 작가 merge** 대상. 현재는 후보 등재만(Claude Max 결제로 §4 재검토 보류 중 — log#2026-06-16).
 
 ### 8.2 미흡수 (참조용, repo 진화 기록만)

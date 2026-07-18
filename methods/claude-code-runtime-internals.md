@@ -78,6 +78,7 @@ category: method
 - **R0–R3 권한 사다리** (산재 개념의 형식화 — deny>ask>allow의 소비자판): R0 read-only(기본) → R1 sandbox(격리 쓰기) → R2 scoped write(명시 경로) → R3 external/side-effect(승인 필요). web-reach "read-only→sandbox→external"·CLAUDE.md CLI write-block 규율과 정합.
 - **Task-contract YAML** (디스패치 계약 패턴, vault 대응물 없음): `freshness / write_scope / side_effects / acceptance / on_failure`. 자율 작업 지시에 이 5필드 명시 → dispatch-builder 슬롯 보강 후보.
 - **Prompt-caching 비용 역학** (⚠ 수치 = 가이드 주장, **`claude-api` 스킬과 대조 후 잠금**): TTL 5분/1시간, read ~0.1×·write ~1.25×, 프리픽스 순서 tools→system→messages. 버전 드리프트 취약 zone — 인용 전 claude-api 정본 확인.
+- **Telemetry anti-hype: `input_tokens` 단독 ≠ 총 context** (2026-07-17, computer-use video merge-small): 데모의 `108,000 → 11` 은 context가 줄어든 게 *아니라* usage accounting이 **cache read/create + post-breakpoint input**으로 분리된 것. 캐시 히트 시 `input_tokens`는 breakpoint 이후 신규 입력만 세므로 작게 보인다 → 총 context = cache_read + cache_creation + input 합산으로 읽어야. "90% fewer tokens" 류 제목은 회계 착시. (출처: `Building toward Computer Use`(DeepLearning.AI×Anthropic) X 편집본, Anthropic 2026 docs 교차확인. 수치 계약은 `claude-api` 스킬(공식 docs) 우선.)
 - ⚠ 나머지(SSOT-not-memory·Artifacts 저장·권한/샌드박스)는 본 페이지·[Fable 5 프롬프팅 (공식 가이드)](fable-5-prompting.md)·헌법 §0에 기보유 → 재흡수 X.
 
 ## 관계

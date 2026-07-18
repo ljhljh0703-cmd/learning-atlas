@@ -44,7 +44,7 @@ AI 제안은 `decision` 블록(`question`·`selected_option_id` ∈ {yes,no,othe
 → 작가 출처 추적 frontmatter(`source: URL`)의 *고해상도 버전* + "같은 파일 동시 편집 금지"(soft)의 *체크섬 가드(hard)*. 단 작가는 Zotero 회피 철학으로 *의도적 경량* — 이건 delta이지 채택 대상 아님.
 
 ### 4. ChatMode 능력 스코핑 (시스템 프롬프트 + 도구 게이팅 이중)
-`prompts.rs build_system_prompt`: **Ask**(읽기전용) / **Agent**(읽기 + 도구로 편집 제안) / **Inline**(active 파일만, *"Never create, delete, move, or rename files in Inline mode"*). 모드별 능력이 프롬프트 + 도구 노출 둘로 강제. → 작가 3-AI 역할별 권한 분리(Claude/Gemini/Codex)의 *단일 AI 모드별* 판.
+`prompts.rs build_system_prompt`: **Ask**(읽기전용) / **Agent**(읽기 + 도구로 편집 제안) / **Inline**(active 파일만, *"Never create, delete, move, or rename files in Inline mode"*). 모드별 능력이 프롬프트 + 도구 노출 둘로 강제. → 작가 역할별 권한 분리(당시 3-AI Claude/Gemini/Codex — 현행 2-AI)의 *단일 AI 모드별* 판.
 
 ### 5. CJK-aware 인덱서 (`kuku-indexer` crate)
 - `wikilink.rs`: `alias` 추출 시 **코드영역 마스킹**(fenced/inline 코드 내 wikilink 무시) + ordinal.
@@ -95,7 +95,7 @@ packages/contract(protobuf) · infra/docker(local/preview/prod, Cloudflare Tunne
 ## 내 생각 — vault 거버넌스 + Agent World 관점
 
 ### 직접 적용성: **낮음** (도구 도입 X)
-작가 SSOT는 Obsidian + CLI(Claude/Gemini/Codex)이고 infra-0 철학([Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md) Automations 미도입 결정과 같은 결). kuku는 Tauri 앱·Go 서버·Postgres = 초중량 → 도입은 felt-need 미검증(cold-verify-before-adopt). **가치는 도구가 아니라 "내 거버넌스가 독립 제품으로 검증됐다"는 확증** + Agent World의 패턴 수확.
+작가 SSOT는 Obsidian + CLI(당시 Claude/Gemini/Codex — 현행 Claude/Codex)이고 infra-0 철학([Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md) Automations 미도입 결정과 같은 결). kuku는 Tauri 앱·Go 서버·Postgres = 초중량 → 도입은 felt-need 미검증(cold-verify-before-adopt). **가치는 도구가 아니라 "내 거버넌스가 독립 제품으로 검증됐다"는 확증** + Agent World의 패턴 수확.
 
 ### 개념 수확 (이식 가능 발상)
 1. **하드 강제 > 소프트 규율** — FORBIDDEN 도구 리스트로 AI가 commit/apply를 *호출 불가*. 작가 환경(외부 CLI)엔 도구 배제가 불가하나, external-ai-grant-hardcontract(금지축 실명 재진술)가 등가 해법임을 재확인 + per-turn 주입([goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](../techniques/goose-agent-harness.md) MOIM)으로 강화 가능.
