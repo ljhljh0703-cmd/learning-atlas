@@ -4,16 +4,17 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**274편** · Techniques 120 · Methods 149 · 경험 서사 5
+**286편** · Techniques 128 · Methods 153 · 경험 서사 5
 
 ## 🔬 Techniques
 
-*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 120편
+*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 128편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>40편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>41편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [webnovel-writer 해체 — 장편 서사 시스템의 골수 6종](techniques/webnovel-writer-teardown.md) | github.com/lingfengQAQ/webnovel-writer @ mast… | 2026-07-18 |
 | [게임 속 바바리안으로 살아남기 — 장편 문법 해부 v1 (구조 스캔)](techniques/barbarian-webnovel-longform.md) | 게임 속 바바리안으로 살아남기 1~770화 완본 텍스트 (작가 제공, ~/iClo… | 2026-07-17 |
 | [CoC 시나리오 해부 v2 — 직접 해체 완료](techniques/coc-scenario-anatomy.md) | 크툴루의 부름 7판 룰북 15장(꿈의 소집+시나리오의 형식 절) · 2019 공모… | 2026-07-17 |
 | [엘드리치 호러 · 아컴호러 카드게임 — 메커니즘 레퍼런스](techniques/eldritch-arkham-horror-mechanics.md) | namu.wiki/w/엘드리치 호러 | 2026-07-17 |
@@ -55,10 +56,14 @@
 | [Mafia Game Refinement (Ri et al. 2022, JAIST)](techniques/mafia-game-refinement.md) |  | 2026-04-25 |
 | [RoleLLM (Wang et al. 2023) — 캐릭터 단위 역할극 LLM 표준화](techniques/role-llm.md) |  | 2026-04-25 |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>16편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>19편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [12-Factor Agents — 프레임워크 회의론 선언문 (vault 이미 앞섬, delta=F5)](techniques/12-factor-agents.md) | https://github.com/humanlayer/12-factor-agents | 2026-07-18 |
+| [Cerebras Knowledge Base — 하이브리드 검색 융합 (grep 백본 + 벡터 보완)](techniques/cerebras-knowledge-base.md) | https://www.cerebras.ai/blog/how-we-built-our… | 2026-07-18 |
+| [GBrain — 개인 AI 지식 브레인 production 정본](techniques/gbrain.md) | https://github.com/garrytan/gbrain | 2026-07-18 |
+| [MemoHarness — 경험에서 학습하는 에이전트 하네스](techniques/memoharness-experience-learning.md) |  | 2026-07-18 |
 | [Self-Improving Coding Agent (SICA) — DGM·HGM 의 공통 조상](techniques/self-improving-coding-agent-sica.md) | https://arxiv.org/abs/2504.15228 | 2026-07-18 |
 | [ClawCodex 런타임 감사 (white-box 표본, 설치 Reject)](techniques/clawcodex-runtime-audit.md) | https://github.com/agentforce314/clawcodex | 2026-07-17 |
 | [Darwin Gödel Machine — 증명 대신 경험, 단일 진화 대신 아카이브](techniques/darwin-godel-machine.md) | https://arxiv.org/abs/2505.22954 | 2026-07-17 |
@@ -67,7 +72,6 @@
 | [Red Queen Gödel Machine — 평가자까지 같이 진화시키는 자기개선](techniques/red-queen-godel-machine.md) | https://arxiv.org/abs/2606.26294 | 2026-06-30 |
 | [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](techniques/agentic-search-grep-vs-vector.md) | https://arxiv.org/abs/2605.15184 | 2026-06-28 |
 | [TradingCodex — "Codex-native 트레이딩 하네스" (자율봇이 아니다)](techniques/tradingcodex-harness.md) | https://github.com/monarchjuno/tradingcodex | 2026-06-28 |
-| [GBrain — 개인 AI 지식 브레인 production 정본](techniques/gbrain.md) | https://github.com/garrytan/gbrain | 2026-06-17 |
 | [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-06-17 |
 | [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](techniques/hermes-agent.md) |  | 2026-06-17 |
 | [Jawcode (jwc) — 코딩 에이전트 하네스 (IPABCD)](techniques/jawcode.md) | https://github.com/lidge-jun/jawcode | 2026-06-17 |
@@ -76,11 +80,13 @@
 | [Ralph — 자율 코딩 루프 최소 실현체 (snarktank)](techniques/ralph.md) | https://github.com/snarktank/ralph | 2026-06-17 |
 | [에이전트 스크립트 해체 — steipete/agent-scripts](techniques/agent-scripts.md) |  | 2026-06-13 |
 
-### 🧠 AI · LLM 연구 <sub>35편</sub>
+### 🧠 AI · LLM 연구 <sub>37편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Memora — 추상화·구체성 조화 메모리 표현](techniques/memora-harmonic-memory.md) |  | 2026-07-18 |
 | [온디바이스 SLM 특화 파인튜닝 플레이북](techniques/on-device-slm-finetuning.md) |  | 2026-07-18 |
+| [turbovec — TurboQuant 기반 로컬 벡터 인덱스](techniques/turbovec-turboquant.md) |  | 2026-07-18 |
 | [CS336 Lecture 3 — Transformer 아키텍처 선택·빌드 시퀀스](techniques/cs336-l3-transformer-architecture.md) | [http://cs336.stanford.edu/spring2025/, https… | 2026-07-10 |
 | [OpenUI Lang — JSON 대신 스트리밍 UI DSL로 생성형 UI를 압축하는 패턴](techniques/openui-generative-ui.md) |  | 2026-07-06 |
 | [Emotion Concepts and their Function in a Large Language Model](techniques/anthropic-emotions-2026.md) | https://transformer-circuits.pub/2026/emotion… | 2026-07-04 |
@@ -116,10 +122,11 @@
 | [Parcae — Stable Looped Language Models](techniques/parcae-looped-lm.md) | https://github.com/sandyresearch/parcae | 2026-04-21 |
 | [Gemini Agentic RAG & Sufficient Context Implementation](techniques/gemini-agentic-rag.md) |  |  |
 
-### 🎨 디자인 · 프론트엔드 <sub>19편</sub>
+### 🎨 디자인 · 프론트엔드 <sub>20편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Handdraw Story Video — 잉크 추출 커널 + 손그림 스토리 비트 문법](techniques/handdraw-story-video.md) | https://github.com/xiejunjie524/handdraw-stor… | 2026-07-19 |
 | [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](techniques/awesome-design-md-teardown.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-25 |
 | [광고 SB 덱 스타일 시스템 — 무채색 에디토리얼](techniques/ad-storyboard-style-system.md) | 자생 흑삼 스카이틴 SB_Ver.01.pptx (작가 최종본) 분석 | 2026-06-23 |
 | [PerfectPixel Studio — AI × 결정론적 후처리 스프라이트 파이프라인](techniques/perfectpixel-sprite-pipeline.md) | https://github.com/gykim80/perfectpixel-studio | 2026-06-22 |
@@ -140,10 +147,11 @@
 | [픽셀아트 제작 기법 + 연구](techniques/pixel-art-techniques.md) |  | 2026-06-08 |
 | [getdesign.md AI 디자인 시스템 분석 보고서](techniques/getdesign-teardown.md) |  |  |
 
-### 🧰 도구 · 방법론 <sub>10편</sub>
+### 🧰 도구 · 방법론 <sub>11편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [메타데이터 기반 앱 아키텍처 (ERPNext/Frappe DocType 골격)](techniques/metadata-driven-app-architecture.md) |  | 2026-07-18 |
 | [Agentic RL Self-Evolving Agents (arXiv 2607.01120)](techniques/agentic-rl-self-evolving-agents.md) | https://arxiv.org/pdf/2607.01120 | 2026-07-06 |
 | [pxpipe — 이미지 기반 입력 토큰 절감 (teamchong/pxpipe v0.8.0)](techniques/pxpipe-image-transport.md) | https://github.com/teamchong/pxpipe | 2026-07-06 |
 | [Semantic Style-Gallery Prepass (StyleGallery, arXiv 2603.10354)](techniques/semantic-style-gallery-prepass.md) | https://arxiv.org/abs/2603.10354 | 2026-07-06 |
@@ -157,7 +165,7 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 149편
+*도구 · 워크플로우 · 방법론 · 스킬* — 153편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>10편</sub>
 
@@ -250,10 +258,11 @@
 | [free-claude-code — Claude Code를 대체 LLM 프로바이더로 라우팅하는 프록시](methods/free-claude-code.md) | https://github.com/Alishahryar1/free-claude-code | 2026-04-24 |
 | [TransformerLens — mech-interp 실습 라이브러리](methods/transformerlens.md) | https://github.com/TransformerLensOrg/Transfo… | 2026-04-22 |
 
-### 🎨 디자인 · 프론트엔드 <sub>21편</sub>
+### 🎨 디자인 · 프론트엔드 <sub>22편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [StyleSeed — "AI가 강한 UI/UX 디자이너처럼 판단하게" 만드는 디자인-메서드 엔진](methods/styleseed.md) | https://github.com/bitjaru/styleseed | 2026-07-19 |
 | [Animated Infographic Pipeline — 움직이는 한 장을 HTML 정본으로 만드는 법](methods/animated-infographic-pipeline.md) | Codex RETURN 2026-07-14 animated-infographic-… | 2026-07-14 |
 | [sprite-gen 해체 — component-row 스프라이트 아틀라스 생산 파이프라인 (hatch-pet 일반화판)](methods/sprite-gen-skill.md) | https://github.com/aldegad/sprite-gen | 2026-07-13 |
 | [NameThat UI 해체분석](methods/ui-lexicon-adapter.md) | https://namethatui.com/ | 2026-07-13 |
@@ -276,10 +285,13 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>52편</sub>
+### 🧰 도구 · 방법론 <sub>55편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [파생 원장 규율 (Derived Ledger Discipline)](methods/derived-ledger-discipline.md) |  | 2026-07-20 |
+| [온톨로지 설계 입문 — 개념 1개씩 쌓아 만드는 이야기 세계 온톨로지](methods/ontology-design-primer.md) | https://github.com/microsoft/Ontology-Playground | 2026-07-19 |
+| [레거시 바이너리 포맷 재구현 방법론](methods/legacy-binary-format-reimplementation.md) | uzmap-forge 프로젝트 실측 교훈 | 2026-07-18 |
 | [브라우저 포팅: 순수 로직 엔진의 함정과 재발방지](methods/browser-porting-pure-engine.md) | uzmap-forge 에디터 1차 라이브 뷰포트 구동 사고 연쇄 | 2026-07-14 |
 | [Homegames — Browser Game Platform Patterns](methods/homegames-browser-game-platform-patterns.md) | [https://homegames.io/, https://github.com/ho… | 2026-07-10 |
 | [DB 에이전트 안전 게이트 + 안전·멱등 API 계약](methods/db-agent-safety-and-api-contract.md) | [https://github.com/prisma/prisma, https://da… | 2026-07-09 |

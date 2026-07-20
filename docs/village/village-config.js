@@ -533,60 +533,60 @@ const VILLAGE_RESUME_CONFIG = {
       },
       learningCards: [
         {
-          slug: "claude-projects-context-ops",
-          tag: "하네스",
-          title: "Claude Projects — Context Ops",
-          date: "2026-07-11",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/claude-projects-context-ops.md",
-          hook: "프로젝트 지식을 컨텍스트 운영 자산으로 다루는 제품 운영 델타"
+          slug: "derived-ledger-discipline",
+          tag: "도구",
+          title: "파생 원장 규율",
+          date: "2026-07-20",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/derived-ledger-discipline.md",
+          hook: "원본에서 뽑은 파생물을 권위로 쓸 때 커버리지·생성기·반증 절차를 요구하는 검증 규율"
         },
         {
-          slug: "game-balance-formula-registry",
-          tag: "게임",
-          title: "Game Balance Formula Registry",
-          date: "2026-07-11",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/game-balance-formula-registry.md",
-          hook: "밸런스 결정을 계산 가능하고 검증 가능한 공식 원장으로 관리"
-        },
-        {
-          slug: "game-agent-change-contract",
-          tag: "게임",
-          title: "Game-Agent Change Contract",
-          date: "2026-07-11",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/game-agent-change-contract.md",
-          hook: "게임 에이전트 변경을 Definition-of-Done과 증거 계약으로 통제"
-        },
-        {
-          slug: "proof-carrying-ingestion",
-          tag: "데이터",
-          title: "Proof-Carrying Ingestion",
-          date: "2026-07-11",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/proof-carrying-ingestion.md",
-          hook: "생성 지식에 provenance와 회수 가능성을 함께 싣는 수집 계약"
-        },
-        {
-          slug: "cs336-l3-transformer-architecture",
-          tag: "AI·LLM",
-          title: "CS336 L3 — Transformer Architecture",
-          date: "2026-07-10",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/cs336-l3-transformer-architecture.md",
-          hook: "Transformer 구성요소의 선택 기준과 재현 가능한 빌드 순서를 정리"
-        },
-        {
-          slug: "homegames-browser-game-platform-patterns",
-          tag: "게임엔진",
-          title: "Homegames — Browser Game Platform Patterns",
-          date: "2026-07-10",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/homegames-browser-game-platform-patterns.md",
-          hook: "브라우저 게임 제작·실행·공유 플랫폼의 구조적 패턴을 해체"
-        },
-        {
-          slug: "reicon-icon-library-vds-integration",
+          slug: "handdraw-story-video",
           tag: "디자인",
-          title: "Reicon → VDS Icon Grammar",
-          date: "2026-07-10",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/reicon-icon-library-vds-integration.md",
-          hook: "외부 아이콘 라이브러리를 VDS 문법으로 흡수하는 clean-room 패턴"
+          title: "Handdraw Story Video",
+          date: "2026-07-19",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/handdraw-story-video.md",
+          hook: "컬러 원화에서 잉크 선을 추출하고 선·채색 wipe 타임라인으로 숏폼 서사를 만드는 레시피"
+        },
+        {
+          slug: "styleseed",
+          tag: "디자인",
+          title: "StyleSeed",
+          date: "2026-07-19",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/styleseed.md",
+          hook: "디자인을 고정 룩이 아니라 job별 문법·레퍼런스 컴파일러·픽셀 게이트로 다루는 방법론"
+        },
+        {
+          slug: "ontology-design-primer",
+          tag: "도구",
+          title: "온톨로지 설계 입문",
+          date: "2026-07-19",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/ontology-design-primer.md",
+          hook: "인물·세력·장소를 엔티티와 관계로 나눠 이야기 세계를 질의 가능한 구조로 만드는 레슨"
+        },
+        {
+          slug: "12-factor-agents",
+          tag: "하네스",
+          title: "12-Factor Agents",
+          date: "2026-07-18",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/12-factor-agents.md",
+          hook: "LLM 앱에서 프롬프트·컨텍스트·제어흐름을 개발자가 소유해야 한다는 프로덕션 원칙 정리"
+        },
+        {
+          slug: "cerebras-knowledge-base",
+          tag: "하네스",
+          title: "Cerebras Knowledge Base",
+          date: "2026-07-18",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/cerebras-knowledge-base.md",
+          hook: "full-text·vector·IDF·age-decay를 RRF로 융합하는 실전 지식베이스 검색 레시피"
+        },
+        {
+          slug: "deep-document-understanding-deepdoc",
+          tag: "AI·LLM",
+          title: "Deep Document Understanding",
+          date: "2026-07-18",
+          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/deep-document-understanding-deepdoc.md",
+          hook: "검색 전에 OCR·레이아웃·표 구조를 보존해 설명 가능한 청크를 만드는 수집축 메모"
         }
       ],
       members: []

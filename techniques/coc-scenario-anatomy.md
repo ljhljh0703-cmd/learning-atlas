@@ -74,4 +74,4 @@ CoC 목차 구조와 1:1 — 작가가 이미 몸에 익은 형식이라 저작 
 Pack 콘텐츠 생산 시(M0.7·Penelope): 학습 코퍼스 원문과의 **연속 일치 검사**(n-gram 대조)를 콘텐츠 게이트에 추가 — 구조는 배우고 표현은 새로 쓴다. (검사 대상 = 산출물이지 학습이 아님.)
 
 ## 관련
-index(운영 노트 8편 = 실전 정본) · worldbuilding-to-game-pipeline-vision 계약 ⑤ · [엘드리치 호러 · 아컴호러 카드게임 — 메커니즘 레퍼런스](eldritch-arkham-horror-mechanics.md) · [WORLD OF HORROR — 톤·메커니즘 레퍼런스](world-of-horror-tone-mechanics.md)
+index(운영 노트 8편 = 실전 정본) · worldbuilding-to-game-pipeline-vision 계약 ⑤ · [엘드리치 호러 · 아컴호러 카드게임 — 메커니즘 레퍼런스](eldritch-arkham-horror-mechanics.md) · [WORLD OF HORROR — 톤·메커니즘 레퍼런스](world-of-horror-tone-mechanics.md) · baba-hidekazu-mastering-course(외부 GM 이론 — 제2장 "스토리를 게임으로 해체" = 본 스켈레톤과 동형)

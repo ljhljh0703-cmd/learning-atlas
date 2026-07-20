@@ -36,7 +36,7 @@ category: technique
 - **과적용 가드**: "grep이 벡터보다 절대 우월"로 *과장 금지* — 논문 자체가 하네스 교란을 강조. vault가 벡터 RAG를 *안 쓰는* 현 선택의 *근거 보강*이지 벡터 전면 부정 아님.
 
 ## 연결된 페이지
-- [codebase-memory-mcp](../methods/codebase-memory-mcp.md) · agent-harness · graphify · [Google Open Knowledge Format (OKF) v0.1 — 에이전트 지식 표준](../methods/google-okf-knowledge-format.md) · cold-verify-before-adopt
+- [codebase-memory-mcp](../methods/codebase-memory-mcp.md) · agent-harness · graphify · [Google Open Knowledge Format (OKF) v0.1 — 에이전트 지식 표준](../methods/google-okf-knowledge-format.md) · cold-verify-before-adopt · [Cerebras Knowledge Base — 하이브리드 검색 융합 (grep 백본 + 벡터 보완)](cerebras-knowledge-base.md) (프로덕션 하이브리드 융합 데이터포인트 — "검색법<하네스" 실증)
 
 ## 사설 KB production release-gate (park addendum, 2026-07-11 codex-gate)
 <!-- private-knowledge-base-8-layers PARK 델타(grep>vector 재도출은 중복, release-gate만 신규). 트리거 발동 전 참조. -->

@@ -36,3 +36,4 @@ tags: [determinism, anti-slop, agent-architecture, ssot, state-machine, ai-agent
 - [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md) — 루프 *오케스트레이션*(게이트·Ralph Wiggum·durable) counterpart. 본 노트는 그 루프 *내부* 판단/상태 배치 원칙.
 - [GBrain — 개인 AI 지식 브레인 production 정본](../techniques/gbrain.md) §3 "latent vs deterministic" — 같은 이분법의 다른 어휘(지능=latent, 신뢰=deterministic).
 - ai-npc-blueprint Layer 5 — 세계 상태 영향 범위 제한 열린 과제.
+- [12-Factor Agents — 프레임워크 회의론 선언문 (vault 이미 앞섬, delta=F5)](../techniques/12-factor-agents.md) F5 — "실행 상태와 비즈니스 상태를 한 갈래로" = 본 노트 게임 NPC 매핑(world/quest/memory 상태 통합)의 외부 확인. 결정성 축(F1/4/8/12)은 본 노트가 더 깊음.
