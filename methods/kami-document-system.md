@@ -50,5 +50,5 @@ architecture·flowchart·quadrant·bar/line/donut·state-machine·timeline·swim
 - **🎯 작가 취업 (최우선)**: Kami로 *이력서·포트폴리오 직접 생성 가능*(KO 템플릿). resume-writing §2 + AI 엔지니어 가이드를 resume-design-system·libgdx-rogue-os-case-study와 결합 → 작가 AI-native 경력(harness·③Gate·hermes)을 Impact 공식으로 서술. **단기 목표 직격**(goal-hierarchy).
 - **ParkDal 혈통 확정**: Kami = kami-design-system 철학 + 본 운영. ParkDal은 Kami+DESIGN.md 융합 파생. 토큰·invariant 동일.
 - **다이어그램**: Kami 14종 ÷4·focal 규율 = [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](../techniques/editorial-grid-design-canon.md)·diagram-design 통합. 발표/문서 다이어그램에 인출.
-- **writing 품질바 + anti-patterns 48** = 모든 외부 공개 문서(이력서·포폴·블로그·지원서) 검수 게이트. juhyeong-voice(작가 문체)와 상보(품질바=구조/논증, juhyeong=톤).
+- **writing 품질바 + anti-patterns 48** = 모든 외부 공개 문서(이력서·포폴·블로그·지원서) 검수 게이트. juhyeong-blog-voice(작가 문체)와 상보(품질바=구조/논증, juhyeong=톤).
 - clean-room: 방법론·토큰·규율만. 템플릿/스크립트 코드 복제 X(필요 시 `npx skills add` 또는 직접 설치).

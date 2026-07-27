@@ -128,6 +128,25 @@ NVIDIA 가 KOSIS 통계청 + 대법원 공공데이터 분포에 grounding 한 *
 - **편향 자각** — KOSIS·대법원 데이터의 sampling bias 가 페르소나에 전이 → 소수자·해외 거주 한국인 underrepresented
 - **합성 ≠ 실측** — 시뮬레이션 결과를 실제 시장 반응으로 단정 금지, 실측 검증 병행
 
+### 8.1 사용 규율 (2026-07-25 ③Gate — 창작·NPC 적용 시)
+
+> **row 원문을 그대로 쓰지 않는다.** public claim·캐릭터 원문으로 재사용 금지 — **tokenized fixture 로 압축**해서 쓴다. (합성이라도 통계 기반이라 실존 인물과 우연 일치 가능 + 클리셰·편향 전이.)
+
+**L0→L3 허구화 계층** — 데이터를 인물로 바꾸는 단계를 강제한다. 건너뛰면 데이터셋 편향이 캐릭터가 된다.
+
+```text
+L0 raw seed      → 원본 row (그대로 사용 금지)
+L1 archetype     → 인구학·직업 묶음으로 추상화
+L2 story function→ 서사 기능·욕망·결핍·압력·발화 리듬·갈등 후보로 변환
+L3 canon character → 작가가 선택·변형해 확정
+```
+
+- **군상극 캐스팅**: row 를 직접 고르지 말고 L2 축으로 압축한 뒤 *조합 점수*로 선발.
+- **직업군 리서치**: 사실 단정이 아니라 `반복 업무 / 도구 / 실패 모드 / 전문어 / 피로 / 관계망 / **검증 질문**` 을 뽑는다. **직업 디테일을 작품 핵심 소재로 쓰기 전 별도 1차 자료 검증 필수.**
+- 자동 생성 도구가 아니다 — **후보군 탐색 + 작가 선택**을 돕는 구조.
+
+<!-- 출처: Codex 2026-06-29 creative-application 패킷 ③Gate 2026-07-25. 템플릿 3종(ensemble-casting-optimizer·occupation-cluster-card·persona-to-character-card)과 skill 후보 `creative-persona-sampler` 는 park — 미승인. -->
+
 ## 9. 다음 액션 (작가 결정 대기)
 
 - [ ] portfolio/ai-agents/02 content 에 *Nemotron 통합 로드맵* 한 줄 추가 (면접 hook)

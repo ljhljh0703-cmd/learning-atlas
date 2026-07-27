@@ -533,60 +533,60 @@ const VILLAGE_RESUME_CONFIG = {
       },
       learningCards: [
         {
-          slug: "derived-ledger-discipline",
-          tag: "도구",
-          title: "파생 원장 규율",
-          date: "2026-07-20",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/derived-ledger-discipline.md",
-          hook: "원본에서 뽑은 파생물을 권위로 쓸 때 커버리지·생성기·반증 절차를 요구하는 검증 규율"
+          "slug": "deep-document-understanding-deepdoc",
+          "tag": "AI·LLM",
+          "title": "Deep Document Understanding",
+          "date": "2026-07-18",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/deep-document-understanding-deepdoc.md",
+          "hook": "OCR·레이아웃·표 구조를 보존해 설명 가능한 문서 청크를 만드는 수집 설계"
         },
         {
-          slug: "handdraw-story-video",
-          tag: "디자인",
-          title: "Handdraw Story Video",
-          date: "2026-07-19",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/handdraw-story-video.md",
-          hook: "컬러 원화에서 잉크 선을 추출하고 선·채색 wipe 타임라인으로 숏폼 서사를 만드는 레시피"
+          "slug": "self-improving-coding-agent-sica",
+          "tag": "하네스",
+          "title": "Self-Improving Coding Agent (SICA)",
+          "date": "2026-07-18",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/self-improving-coding-agent-sica.md",
+          "hook": "코딩 에이전트가 평가 결과를 바탕으로 도구와 워크플로우를 개선하는 자기개선 구조"
         },
         {
-          slug: "styleseed",
-          tag: "디자인",
-          title: "StyleSeed",
-          date: "2026-07-19",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/styleseed.md",
-          hook: "디자인을 고정 룩이 아니라 job별 문법·레퍼런스 컴파일러·픽셀 게이트로 다루는 방법론"
+          "slug": "open-lovable-teardown",
+          "tag": "도구",
+          "title": "open-lovable teardown",
+          "date": "2026-07-18",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/open-lovable-teardown.md",
+          "hook": "웹사이트 재현 에이전트의 수집·생성·실행·검증 파이프라인을 해체한 기록"
         },
         {
-          slug: "ontology-design-primer",
-          tag: "도구",
-          title: "온톨로지 설계 입문",
-          date: "2026-07-19",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/ontology-design-primer.md",
-          hook: "인물·세력·장소를 엔티티와 관계로 나눠 이야기 세계를 질의 가능한 구조로 만드는 레슨"
+          "slug": "on-device-slm-finetuning",
+          "tag": "AI·LLM",
+          "title": "온디바이스 SLM 파인튜닝",
+          "date": "2026-07-18",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/on-device-slm-finetuning.md",
+          "hook": "소형 언어모델을 기기 제약 안에서 학습하고 실행하기 위한 파인튜닝 설계"
         },
         {
-          slug: "12-factor-agents",
-          tag: "하네스",
-          title: "12-Factor Agents",
-          date: "2026-07-18",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/12-factor-agents.md",
-          hook: "LLM 앱에서 프롬프트·컨텍스트·제어흐름을 개발자가 소유해야 한다는 프로덕션 원칙 정리"
+          "slug": "coc-scenario-anatomy",
+          "tag": "게임",
+          "title": "CoC 시나리오 해부",
+          "date": "2026-07-17",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/coc-scenario-anatomy.md",
+          "hook": "단서·조사·공포·진실 공개의 순서로 크툴루 시나리오 구조를 해부한 설계 노트"
         },
         {
-          slug: "cerebras-knowledge-base",
-          tag: "하네스",
-          title: "Cerebras Knowledge Base",
-          date: "2026-07-18",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/cerebras-knowledge-base.md",
-          hook: "full-text·vector·IDF·age-decay를 RRF로 융합하는 실전 지식베이스 검색 레시피"
+          "slug": "world-of-horror-tone-mechanics",
+          "tag": "게임",
+          "title": "WORLD OF HORROR 톤·메커니즘",
+          "date": "2026-07-17",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/world-of-horror-tone-mechanics.md",
+          "hook": "불확실성과 자원 압박을 공포의 톤과 플레이 메커니즘으로 연결하는 방법"
         },
         {
-          slug: "deep-document-understanding-deepdoc",
-          tag: "AI·LLM",
-          title: "Deep Document Understanding",
-          date: "2026-07-18",
-          link: "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/deep-document-understanding-deepdoc.md",
-          hook: "검색 전에 OCR·레이아웃·표 구조를 보존해 설명 가능한 청크를 만드는 수집축 메모"
+          "slug": "animated-infographic-pipeline",
+          "tag": "디자인",
+          "title": "Animated Infographic Pipeline",
+          "date": "2026-07-14",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/animated-infographic-pipeline.md",
+          "hook": "한국어 텍스트와 데이터 시각화를 GIF·MP4로 안정적으로 만드는 제작 파이프라인"
         }
       ],
       members: []

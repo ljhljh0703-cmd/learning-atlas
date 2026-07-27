@@ -8,7 +8,7 @@ authors: [DeepSeek-AI]
 year: 2026
 category: technique
 ---
-<!-- DeepSpec/DSpark: speculative decoding용 draft model 훈련·평가 스택 (LLM 추론 가속, infra) -->
+cncj<!-- DeepSpec/DSpark: speculative decoding용 draft model 훈련·평가 스택 (LLM 추론 가속, infra) -->
 
 # DeepSpec / DSpark — speculative decoding draft-model 스택
 

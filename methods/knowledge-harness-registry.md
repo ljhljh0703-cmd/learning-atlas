@@ -255,7 +255,17 @@ ai_harness:
 
 ---
 
+## 참고 후보 (외부 논문 — 비권위, 채택 결정 아님)
+<!-- proposed_by: claude · status: candidate_reference · 2026-07-21 — 작가 승인("C ㄱㄱ")으로 반영. 외부 벤치마크가 vault 아키텍처를 검증+업그레이드 제안. 채택·박제 아님, 판단은 작가. user_authored 본문 무변경. -->
+> ⚠️ 아래는 [Multimodal Resource → Skill Wiki (RESOURCE2SKILL 해체)](../techniques/multimodal-resource-to-skill.md)(RESOURCE2SKILL, arXiv 2606.29538)이 *실측으로* 제안하는 업그레이드 3종. vault가 이미 하는 것(grep+계층 검색·provenance·③Gate)은 이 논문이 **재확인**([Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](../techniques/agentic-search-grep-vs-vector.md) 정당화). 아래는 vault에 *아직 없는* 것 — 고려 재료지 결정 아님.
+
+1. **멀티모달 스킬 포맷** — 현 SKILL.md/learnings는 text+meta 위주. 논문은 `visual` 바디·`code` 바디를 *분리 필드*로 두면 각 ~2pp 기여(합 +3.9pp vs text-only)를 실측. → 스킬 엔트리에 시각 예시·실행 코드 조각을 *구조적으로* 분리하는 개편 *검토 가능*.
+2. **영상 비대체성** — 영상 자료가 텍스트·코드로 대체 불가(빼면 −9.5pp, 영상-only가 3-소스-무영상 이김). vault는 영상 자료를 과소활용 → *튜토리얼/데모 영상 해체를 1급 소스로 승격* 고려.
+3. **파라미터 바인딩이 스킬 품질의 진짜 축** — "스킬은 에이전트가 파라미터를 바인딩하는 능력만큼만 유용". 레지스트리 활성화 판단에 *바인딩 가능성*을 한 축으로 넣는 것 검토.
+
+⚠ 한계: 논문은 *프로그래밍 도구 인터페이스 있는 저작 도메인*(PPT·Blender 등) + LLM-저지 심미 루브릭(α=0.58). vault는 정체성·창작 포함 더 넓고 수작업 큐레이션이라 *그대로 이식 금지* — 개념만. 적용 여부·범위는 작가 판단.
+
 ## 연결
 
-index · agent-harness-rsi · index · hermes-loop · [하네스 이력 — Harness History](harness-history.md)
+index · agent-harness-rsi · index · hermes-loop · [하네스 이력 — Harness History](harness-history.md) · [Multimodal Resource → Skill Wiki (RESOURCE2SKILL 해체)](../techniques/multimodal-resource-to-skill.md)
 - [Kuku — 작가 Sub-brain 거버넌스를 제품화한 로컬 Markdown 앱 (외부 ground-truth)](kuku-second-brain.md) · [llm-wiki (fivetaku)](llm-wiki.md) — 지식 거버넌스·세컨드브레인 운영 패턴 자매(본 페이지=코드지식 레지스트리 / kuku=제품 거버넌스 확증 / llm-wiki=위키 스키마 원리)

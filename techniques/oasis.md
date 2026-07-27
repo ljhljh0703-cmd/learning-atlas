@@ -234,7 +234,7 @@ OASIS 가 직접 지원하지 않는 것 (확장 필요):
 
 - [ ] Python 3.11/3.12 환경 (Codex 작업과 분리, uv venv 권장)
 - [ ] OpenAI API key (gpt-4o-mini 사용량 한도 확인)
-- [ ] [Nemotron-Personas-Korea — 활용 레포트](nemotron-personas-korea.md) 데이터셋 다운로드 (700만 페르소나 중 100명 샘플 추출)
+- [ ] [Nemotron-Personas-Korea — 활용 레포트](nemotron-personas-korea.md) 데이터셋 다운로드 (100만 페르소나 중 100명 샘플 추출)
 - [ ] OASIS arXiv PDF 다운로드 (2411.11581) — 통근/이동 시 정독용
 - [ ] 첫 실험 도메인 1개 결정 (한국 공론장 이슈) — 작가가 미리 1개 픽
 

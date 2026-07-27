@@ -11,6 +11,9 @@ category: method
 
 # llm-wiki (fivetaku)
 
+> ⚠️ **이름 혼동 주의 (2026-07-25)** — 본 노드는 **`fivetaku/llm-wiki`**(MIT, 콘텐츠 없는 *템플릿*)다. 별개로 **`nashsu/llm_wiki`**(GPL v3, 14.3k★, Tauri 데스크톱 *제품*)가 있고 그쪽 해체는 [nashsu/llm_wiki 해체 — "RAG를 죽였다"는 문구의 실제](nashsu-llm-wiki-teardown.md). 이름이 거의 같아 자동 dedup 이 둘을 하나로 본다 — 판정 시 주의.
+> 특히 그쪽 홍보문구 **"traditional RAG destroyed" 는 사실이 아니다**(질의 파이프라인에 optional vector retrieval 포함). 헌법 §4 `grep > vector` 의 외부 확증으로 인용하지 말 것.
+
 Karpathy "LLM Wiki" 패턴 구현 템플릿. Claude Code 전용 마크다운 위키 워크스페이스.
 raw 소스를 LLM이 합성·유지하는 영구 지식 베이스 — 매 질문마다 재검색하는 RAG가 아니라 한 번 합성하고 최신 상태로 누적.
 
