@@ -96,5 +96,5 @@ category: method
 
 - **[포트폴리오 포지셔닝 피드백 (멋사 멘토)](../narrative/portfolio-positioning-feedback.md)** — 일반 전달·포지셔닝 짝. 두 노트를 함께 로드.
 - **bespoke-html-direction** — §4 7대죄악을 포폴 HTML 렌더 체크리스트로 배선(가독성·밀도·템플릿 티·수치 정합).
-- **juhyeong-voice §6** — 자소서/포폴 문장 톤(준격식).
+- **~~juhyeong-voice~~(폐기 2026-07-30) §6** — 자소서/포폴 문장 톤(준격식).
 - **`applications/<회사>/strategy.md`** — 게임사 지원 시 §3 포지션별 주제 선정 + §1 3세대 전략 재적용.

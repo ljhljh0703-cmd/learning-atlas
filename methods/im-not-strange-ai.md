@@ -58,4 +58,4 @@ category: method
 
 ## 연결된 페이지
 
-[Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md)(A~J 분류 체계 본진·파이프라인 1차) · juhyeong-voice(2차 개성화)
+[Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md)(A~J 분류 체계 본진·파이프라인 1차) · ~~juhyeong-voice~~(폐기 2026-07-30)(2차 개성화)

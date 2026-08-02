@@ -21,7 +21,7 @@ category: method
 
 ## 한 줄 요약
 
-> AI가 쓴 한글 글의 "티"(번역투·AI 관용구·기계적 구조·이모지 남용)를 **10대 카테고리 60+ 패턴**으로 심각도(S1/S2/S3) 탐지 → 내용 불변·수술적 윤문해 중립적 자연 한국어로. 작가 파이프라인의 **1차(de-AI 중립화)** → juhyeong-voice **2차(개성화)** 전 단계.
+> AI가 쓴 한글 글의 "티"(번역투·AI 관용구·기계적 구조·이모지 남용)를 **10대 카테고리 60+ 패턴**으로 심각도(S1/S2/S3) 탐지 → 내용 불변·수술적 윤문해 중립적 자연 한국어로. 작가 파이프라인의 **1차(de-AI 중립화)** → ~~juhyeong-voice~~(폐기 2026-07-30) **2차(개성화)** 전 단계.
 
 ---
 
@@ -84,7 +84,7 @@ references: ai-tell-taxonomy(SSOT 60+패턴) · rewriting-playbook(치환 레시
 ## 내 생각 — 작가 윤문 워크플로우 관점
 
 ### 직접 적용성: **높음** (vault 스킬 해체 흡수 — 설치 X)
-작가 felt-need 명확 = **외부 공개 글**(블로그·회고·지원서·소개글, juhyeong-voice 적용 대상과 동일). 1차 humanize로 AI 티 정밀 제거 → 2차 juhyeong 개성. 파이프라인 완성. **플러그인 설치 대신 룰셋 해체 → `skills/humanize-korean/` vault 스킬**(infra-0·[외부 도구는 설치 말고 해체해 흡수 (Dissect, Don't Install)](dissect-not-install-external-tools.md)). 플러그인의 실체 = 에이전트 오케스트레이션(인프라, 불요) + 룰셋(알맹이, 흡수). Claude가 Fast 모드로 직접 적용.
+작가 felt-need 명확 = **외부 공개 글**(블로그·회고·지원서·소개글, ~~juhyeong-voice~~(폐기 2026-07-30) 적용 대상과 동일). 1차 humanize로 AI 티 정밀 제거 → 2차 juhyeong 개성. 파이프라인 완성. **플러그인 설치 대신 룰셋 해체 → `skills/humanize-korean/` vault 스킬**(infra-0·[외부 도구는 설치 말고 해체해 흡수 (Dissect, Don't Install)](dissect-not-install-external-tools.md)). 플러그인의 실체 = 에이전트 오케스트레이션(인프라, 불요) + 룰셋(알맹이, 흡수). Claude가 Fast 모드로 직접 적용.
 
 ### 개념 수확
 1. **순서 규칙(humanize→juhyeong)** = 운영 핵심. 역순이 작가 개성 깎는 함정 = 박제 가치 최대.
@@ -93,7 +93,7 @@ references: ai-tell-taxonomy(SSOT 60+패턴) · rewriting-playbook(치환 레시
 
 ### 반영처 (학습→반영 루프)
 - ✅ **vault 스킬 신설** (2026-06-18) — `skills/humanize-korean/SKILL.md`(origin: agent_generated·MIT 출처). quick-rules v2.0 해체 → Fast 룰셋 재구성(10카테고리 패턴표·6원칙·자체검증·순서규칙). Claude 직접 적용.
-- ✅ **juhyeong-voice SKILL 연결** — §3 절차 앞 "0차: humanize-korean 1차 먼저(역순 금지)" 추가.
+- ✅ **~~juhyeong-voice~~(폐기 2026-07-30) SKILL 연결** — §3 절차 앞 "0차: humanize-korean 1차 먼저(역순 금지)" 추가.
 - ✅ **규율 박제** — [외부 도구는 설치 말고 해체해 흡수 (Dissect, Don't Install)](dissect-not-install-external-tools.md)(앞으로 플러그인 설치 X·해체 흡수 기본).
 - 🟡 backlog: humanize 패턴 중 juhyeong Before→After에 없는 것(C-11 연결어미 뒤 쉼표·E-1 단문·D 결산피벗) = juhyeong 보강 후보(작가 다음 글쓰기 시).
 
@@ -112,5 +112,5 @@ references: ai-tell-taxonomy(SSOT 60+패턴) · rewriting-playbook(치환 레시
 ---
 
 ## 연결된 페이지
-- juhyeong-voice(2차 개성화 — humanize 1차 뒤 / 역순 금지) · [Academic Research Skills (ARS) — 작가 거버넌스·검증 철학의 학술논문 도메인 쌍둥이](academic-research-skills.md)(영어권 Writing Quality Check 한글 대응) · cold-verify-before-adopt(humanizer=품질 도구로 검증)
+- ~~juhyeong-voice~~(폐기 2026-07-30)(2차 개성화 — humanize 1차 뒤 / 역순 금지) · [Academic Research Skills (ARS) — 작가 거버넌스·검증 철학의 학술논문 도메인 쌍둥이](academic-research-skills.md)(영어권 Writing Quality Check 한글 대응) · cold-verify-before-adopt(humanizer=품질 도구로 검증)
 - *(research-thoroughly·#3 Surgical = 작가 운영 메모리, 본 도구가 정합)*

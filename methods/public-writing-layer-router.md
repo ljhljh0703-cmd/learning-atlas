@@ -12,7 +12,7 @@ category: method
 
 # 공개 글쓰기 레이어 라우터 + 부서형 피치 템플릿
 
-> ③Gate 통과(2026-07-09). 외부 skill pack wholesale import 금지 — method 델타만. 기존 [Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md)·juhyeong-voice 파이프라인 라우팅.
+> ③Gate 통과(2026-07-09). 외부 skill pack wholesale import 금지 — method 델타만. 기존 [Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md)·~~juhyeong-voice~~(폐기 2026-07-30) 파이프라인 라우팅.
 
 ## 1. Public Writing Layer Router (artemnovitckii/content-skills, MIT)
 
@@ -23,7 +23,7 @@ fact lock → humanize-korean(필요시) → storytelling(서사면) → viral-h
 → dumbify(밀도 높으면) → anti-ai(제네릭하면) → juhyeong-voice/portfolio-refiner → fidelity recheck
 ```
 
-- `/dumbify` = 인지부하 단순화 · `/storytelling` = 서사 구조 · `/viral-hooks` = 오프너/제목 audit(클릭베이트 생성기 X) · `/anti-ai` = specificity/hollow-contrast/hype 필터([Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md) 중첩) · `/voice-dna` = 프로파일 구축법(깨끗한 작가 corpus 한정, juhyeong-voice §7 중첩).
+- `/dumbify` = 인지부하 단순화 · `/storytelling` = 서사 구조 · `/viral-hooks` = 오프너/제목 audit(클릭베이트 생성기 X) · `/anti-ai` = specificity/hollow-contrast/hype 필터([Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](humanize-korean.md) 중첩) · `/voice-dna` = 프로파일 구축법(깨끗한 작가 corpus 한정, ~~juhyeong-voice~~(폐기 2026-07-30) §7 중첩).
 - **STOP 경계**: Claude 앱 skill 업로드·`~/.claude/skills/` 설치·리터럴 슬래시 동작·vault skill 승격은 라우터가 안 함.
 
 ## 2. 부서형 기술 피치 템플릿 (ClaudeKit 기사)
@@ -39,7 +39,7 @@ packaging 델타(신규 method core 아님). 재사용 공개언어 = **6-field 
 
 ## 2.5 조립 계약 5단계 (Alex Lieberman creator-owned loop — 2026-07-25 ③Gate)
 
-라우터가 *어느 층으로 보낼지*를 정한다면, 이 계약은 **그 앞뒤를 어떻게 잇는지**를 정한다. 부품(humanize·juhyeong-voice·fact lock·deep interview·feedback ledger)은 vault 에 이미 다 있었고, 없던 것은 **순서와 소유권 규칙**뿐이었다.
+라우터가 *어느 층으로 보낼지*를 정한다면, 이 계약은 **그 앞뒤를 어떻게 잇는지**를 정한다. 부품(humanize·~~juhyeong-voice~~(폐기 2026-07-30)·fact lock·deep interview·feedback ledger)은 vault 에 이미 다 있었고, 없던 것은 **순서와 소유권 규칙**뿐이었다.
 
 1. **초안보다 먼저 인간의 경험·판단을 인터뷰로 채굴한다.** AI 가 빈 화면에서 시작하지 않는다.
 2. **인간 확정본을 파생 콘텐츠의 유일한 anchor 로 둔다.** 파생물(요약·스레드·발췌)은 전부 확정본에서 갈라져 나온다. AI 초안에서 파생시키지 않는다.

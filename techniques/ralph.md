@@ -48,7 +48,7 @@ Ryan Carson(snarktank)의 [Geoffrey Huntley "Ralph" 패턴](https://ghuntley.com
 
 ## 4. ⚠ Cold-verify — 결정적 충돌 1건
 
-- **`--dangerously-skip-permissions` / `--dangerously-allow-all` 전면 자율 쓰기 루프** = 작가가 **2026-06-14 잠근 바로 그 위험**(헌법 "외부 AI CLI 호출 시 쓰기 차단 강제" — agy 무단 회고+쓰기 사고 log 실증). Ralph 철학(완전 자율·HITL 0)은 작가 **HITL 스테이징·③Gate fail-safe 와 정면 충돌**. → *기법(루프·메모리·게이트)은 차용하되, 자율 권한은 작가 가드 하에서만*(sandbox/worktree-accept·HITL 정지).
+- **`--dangerously-skip-permissions` / `--dangerously-allow-all` 전면 자율 쓰기 루프** = 작가가 **2026-06-14 잠근 바로 그 위험**(헌법 "외부 AI CLI 호출 시 쓰기 차단 강제" — agy 무단 회고+쓰기 사고 2026-06 실증). Ralph 철학(완전 자율·HITL 0)은 작가 **HITL 스테이징·③Gate fail-safe 와 정면 충돌**. → *기법(루프·메모리·게이트)은 차용하되, 자율 권한은 작가 가드 하에서만*(sandbox/worktree-accept·HITL 정지).
 - **infra 도입 X** — Ralph 는 도구라기보다 *패턴*(bash 개념). agent-harness ②Apply 의 *돌려볼 수 있는 루프 레퍼런스*로 가치.
 
 ## 5. 학습→반영 (학습→반영 루프, B 범위 실행)

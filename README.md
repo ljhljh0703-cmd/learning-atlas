@@ -4,7 +4,7 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**311편** · Techniques 139 · Methods 167 · 경험 서사 5
+**316편** · Techniques 139 · Methods 172 · 경험 서사 5
 
 ## 🔬 Techniques
 
@@ -176,12 +176,14 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 167편
+*도구 · 워크플로우 · 방법론 · 스킬* — 172편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>11편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>13편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Analytic Presence Schedule — 틱 없이 사는 세계](methods/analytic-presence-schedule.md) | [https://github.com/achimala/TheLongSilence] | 2026-07-30 |
+| [Game Economy Control Loop — 순환은 서사가 아니라 계측이다](methods/game-economy-control-loop.md) | ["https://on.com2us.com/press/컴투스-대작-mmorpg-제… | 2026-07-30 |
 | [Meng To Skills 라이브러리 해체 — 데모 게이트가 본체다](methods/mengto-skills-library-teardown.md) | https://github.com/MengTo/Skills (MIT, 21b278… | 2026-07-26 |
 | [Game-Agent Change Contract + AI NPC Definition-of-Done](methods/game-agent-change-contract.md) | https://github.com/dextune/gpt5.6-sol-action-… | 2026-07-11 |
 | [제약 기반 게임 창의성 — 불편한 조건이 설계를 끌고 가게 하기](methods/constraint-driven-game-design.md) |  | 2026-07-02 |
@@ -254,10 +256,11 @@
 | [Codex CLI Prompting — 내재화 노트](methods/codex-cli-prompting.md) | https://developers.openai.com/cookbook/exampl… | 2026-04-28 |
 | [Everything Claude Code (ECC) — 에이전트 harness 성능 최적화 시스템](methods/everything-claude-code.md) | https://github.com/affaan-m/everything-claude… | 2026-04-24 |
 
-### 🧠 AI · LLM 연구 <sub>19편</sub>
+### 🧠 AI · LLM 연구 <sub>20편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [사내 AI 도구 배포·운영·측정 플레이북](methods/internal-ai-enablement-playbook.md) |  | 2026-08-02 |
 | [Higgsfield 영상 프롬프트 공예 (AI Filmmaking as Directed Craft)](methods/higgsfield-video-prompt-craft.md) | higgsfield.ai/community — 프로젝트 상세 '4K Blockbu… | 2026-07-25 |
 | [nashsu/llm_wiki 해체 — "RAG를 죽였다"는 문구의 실제](methods/nashsu-llm-wiki-teardown.md) | ["https://github.com/nashsu/llm_wiki"] | 2026-07-25 |
 | [Deep Document Understanding (RAGFlow / DeepDoc) — RAG 의 레버는 검색이 아니라 *수집*이다](methods/deep-document-understanding-deepdoc.md) | https://github.com/infiniflow/ragflow | 2026-07-18 |
@@ -305,10 +308,12 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>60편</sub>
+### 🧰 도구 · 방법론 <sub>62편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [게임업계 사내 AI 조직·도구 지형 (2025~2026)](methods/game-industry-ai-org-landscape.md) |  | 2026-08-02 |
+| [UE5 자동화·AI 접점 진입점 지도](methods/ue5-automation-entrypoints.md) |  | 2026-08-02 |
 | [AI 드림팀 장르 해체 — 열린 지식 재포장 vs 거버넌스 해자](methods/ai-dream-team-genre-teardown.md) |  | 2026-07-25 |
 | [Hackathon Judgeability Gate (v0)](methods/hackathon-judgeability-gate.md) | ["https://jocodingax.notion.site/AX-1-3a5cb33… | 2026-07-25 |
 | [화면·플로우 명세 골격 (Screen-Flow Spec Skeleton)](methods/screen-flow-spec-skeleton.md) | Threads @launchscreen post DbIZf_1AfSk — mini… | 2026-07-25 |

@@ -12,7 +12,7 @@ category: method
 
 > 이 노트는 2026-07-04 Codex 가 해체한 Toss Tech 블로그 9개 카테고리 intake 를 **하나로 합친 지도**다.
 > 9개 패킷은 ~70% 중복이라 개별 노트 대신 이 map 하나로 승격했다. 딥다이브가 아니라 **heading-level 지도** — 개별 기법은 필요할 때 원문/PARK 백로그에서 판다.
-> 관련 정본: [토스 앱인토스 — 플랫폼 개요](toss-overview.md) · [토스 UX 라이팅 가이드 — 보이스톤](toss-ux-writing.md). 원고 적용: juhyeong-voice. 다중에이전트 적용: agent-harness.
+> 관련 정본: [토스 앱인토스 — 플랫폼 개요](toss-overview.md) · [토스 UX 라이팅 가이드 — 보이스톤](toss-ux-writing.md). 원고 적용: ~~juhyeong-voice~~(폐기 2026-07-30). 다중에이전트 적용: agent-harness.
 
 ## 1. 한 줄 결론 (전 직무 공통 문법)
 
@@ -51,7 +51,7 @@ Toss 블로그의 모든 직무 글은 같은 재프레이밍을 반복한다 �
 6. **남은 리스크** — 자동화 이후에도 사람이 책임질 영역을 남긴다.
 7. **"적용해보기"** — 독자가 자기 프로젝트에서 바로 점검할 질문으로 닫는다.
 
-→ juhyeong-voice 로 워싱 시 이 7단 스캐폴드를 골격으로 쓴다. 단 Toss 문체/브랜드 모방 금지 — *구조만* 차용.
+→ ~~juhyeong-voice~~(폐기 2026-07-30) 로 워싱 시 이 7단 스캐폴드를 골격으로 쓴다. 단 Toss 문체/브랜드 모방 금지 — *구조만* 차용.
 
 ## 4. 포지셔닝/취업 델타 (job-hunting)
 
@@ -97,7 +97,7 @@ Toss 블로그의 모든 직무 글은 같은 재프레이밍을 반복한다 �
 
 이 지도는 *노트*로 끝나지 않는다. 구체 반영처:
 
-1. **juhyeong-voice 블로그 스캐폴드** — §3 Toss 7단 원고 구조를 juhyeong-voice 의 블로그/회고 원고 골격 옵션으로 등록(구조만, 문체 모방 X). ← 즉시 반영 가능한 1순위.
+1. **~~juhyeong-voice~~(폐기 2026-07-30) 블로그 스캐폴드** — §3 Toss 7단 원고 구조를 juhyeong-voice 의 블로그/회고 원고 골격 옵션으로 등록(구조만, 문체 모방 X). ← 즉시 반영 가능한 1순위.
 2. **applications/*/resume 포지셔닝** — §4 를 지원서 self-framing 앵글로: 산출물 담당 → 시스템·기준·owner 설계자, repo-over-resume, AI=추상화 역량.
 3. **[토스 UX 라이팅 가이드 — 보이스톤](toss-ux-writing.md) / domains** — §6 확장 앵글(에러 메시지 시스템·팀 언어 시스템·비조작 마케팅)은 기존 스킬 *중복 승격 없이* 확장 backlog 로만. 마케팅 문구는 domains/marketing 라우팅.
 4. **agent-harness** — §5 Software 3.0 조직 하네스·MCP 도구계약·TPM식 회색지대 구조화를 다중에이전트(Claude/Codex) dispatch 규율의 참조 델타로. 기존 하네스와 중복이라 *조직 생산성 언어만* 흡수.

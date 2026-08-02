@@ -20,7 +20,7 @@ vault 기억(취향·판단 원장·me 코어)이 실제로 작동하는지를 3
 
 ## 왜 필요했나 (실사고)
 
-2026-07-17, design-taste 원장이 3주에 2건으로 굶은 걸 발견했다. 그런데 **굶었다는 걸 "카운트"로만 진단했다** — 그건 양이지 능력이 아니다. 그리고 급식 규율을 세우며 `review_trigger: "개인화 체감 검토"`라는 **측정 불가 기준**을 심었다 = [Karpathy Guidelines — LLM 코딩 함정 4 원칙 (behavioral overlay skill)](karpathy-guidelines.md) #4(검증 가능 성공 기준) 위반. 헌법이 자동 거부하라고 명시한 "잘 해봐" 류를 AI 스스로 저지른 사고다. 본 척도가 그 교정이다. (작가 "교체해" → log.)
+2026-07-17, design-taste 원장이 3주에 2건으로 굶은 걸 발견했다. 그런데 **굶었다는 걸 "카운트"로만 진단했다** — 그건 양이지 능력이 아니다. 그리고 급식 규율을 세우며 `review_trigger: "개인화 체감 검토"`라는 **측정 불가 기준**을 심었다 = [Karpathy Guidelines — LLM 코딩 함정 4 원칙 (behavioral overlay skill)](karpathy-guidelines.md) #4(검증 가능 성공 기준) 위반. 헌법이 자동 거부하라고 명시한 "잘 해봐" 류를 AI 스스로 저지른 사고다. 본 척도가 그 교정이다. (작가 "교체해" → 2026-07.)
 
 ## 3층 (vault판)
 

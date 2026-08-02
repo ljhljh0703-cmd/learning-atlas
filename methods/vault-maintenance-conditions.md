@@ -63,6 +63,12 @@ hot.md ≤500자·log ≤1000줄·frontmatter=1번째줄·provisional→confirme
 
 ## 관계
 - **집행 스킬**: SKILL (2026-07-13 착수) — 본 노드의 건강 조건을 기존 검증기 read-only 오케스트레이션으로 집계(fail-safe HEALTHY/DEGRADED/UNKNOWN). maintenance-prevention 계획 §5 SLO·§M2 healthcheck 의 v0 구현.
+**R-7. AST 는 마크다운도 판다 — `code` 파일만 먹이면 그래프가 3/4 사라진다.** 2026-07-31 실측: graphify 스킬 문서의 Part A 예시를 그대로 따라 `detect['files']['code']`(90개)만 `extract()` 에 넘겼더니 AST 3,149노드. 전량(code+document+paper 1,609파일)으로 다시 돌리니 **22,225노드** — 7배. 그대로 빌드했으면 정본 22,935 → 5,827(**-75%**)로 붕괴할 뻔했다. 검출은 *빌드 전 정본 대조*가 잡았다(`lessons.md` 단건 실측 = AST 가 섹션 노드 3개 생성). **다음 재빌드에서도 AST 입력은 code 가 아니라 전량이다.** 이것이 그간 "캐시 열화 -73%"로 기록돼 온 현상의 실체일 가능성이 높다(같은 자릿수 — 미확정 가설).
+
+**R-8. 실패는 디스크로 판정하되, 실패 *사유*까지 봐야 조치가 갈린다.** R-5 의 후속. 2026-07-31 한 라운드에서 실패 유형 2종이 동시에 났고 조치가 정반대였다 — ①**세션 한도**(3청크) = 리셋 후 *그대로 재실행*하면 복구 ②**출력 토큰 64k 초과**(1청크, 22파일 237KB) = 재실행하면 *또 죽는다*, **분할이 유일한 답**(5/5/12로 쪼개니 전건 통과). 보고 문구만 보고 일괄 재실행했으면 같은 청크에서 무한 반복했을 것이다. 분할 시 프롬프트에 출력 예산을 명시(`~40-70 노드`)하면 에이전트가 스스로 큐레이션한다.
+
+**R-9. `save_manifest` 는 교체가 아니라 병합이다 — 절대/상대 키가 겹쳐 freshness 를 UNKNOWN 으로 만든다.** 2026-07-31 실측: 재빌드 후 `save_manifest()` 가 신규 **절대경로 키 1,656개**를 기존 상대경로 키 1,702개 위에 얹어 3,358 엔트리가 됐고, freshness 체커가 정규화 단계에서 `duplicate normalized manifest path: .claude/hooks/digest-reminder.py` 로 거부 → 축 **UNKNOWN**(07-26 과 같은 실패, 그때는 git 복원으로 회피했을 뿐 원인 미기록). 조치 = 절대키만 남겨 root prefix 를 떼고 상대경로로 재기록(1,656). **R-3 의 "쌍으로 갱신"은 필요조건일 뿐 — 쓴 *형식*이 체커가 받는 형식인지까지 확인해야 한다.** hot.md `A2 MANIFEST 절대경로 정규화 = PARK` 와 같은 뿌리.
+
 - master cause C1 = [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](../techniques/woc-ai-gamedev-teardown.md) §11 KB판 · C2 = cross-agent-artifact-coherence §7 false-green 수정의 일반화 · use-ledger 강등 스캔·weekly-digest와 상보(사용 계측 ↔ 건강 계측).
 - 디스패치: dispatch-builder로 Codex/Fable 감사 지시 조립(vault read-only·RETURN·③Gate 전제).
 - **외부 툴화 제안(park)**: `llm-wiki-reliability-harness`(Codex 2026-07-11) = 본 진단 재도출 + vault 기존 검증기(integrity-lint·wiki-graph-lint·sca-gate·autogate)를 *외부 OSS CLI(`lwrh`) + portable skill*로 추출하는 빌드 스펙. 지식 아닌 **제품 제안** → 작가 go/no-go 대기(승인 전 구현 X). 신규 조각=claim-lock format·finding SARIF·README-first 파일럿. `~/Documents/Codex/2026-07-11/llm-wiki-reliability-harness-design/`.

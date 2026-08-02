@@ -47,7 +47,7 @@ sprite-request.json (숫자 SSoT)
 ## 학습→반영 (학습→반영 루프)
 
 - **✅ 반영 완료 = libgdx-rogue-os-art-guide §7.5** (2026-06-16): 패턴 #2(manifest frame_layout 절대사각형 계약, "엔진은 격자 추측 금지")를 게임 art-guide 의 *에셋→엔진 export 계약*으로 배선. 단 repo 실제 loader 포맷은 verification-pending(코드 확인 전 데이터포맷 잠금 X). image-gen 파이프라인 자체는 현 손-픽셀아트 게임엔 미적용(향후 AI 스프라이트 도입 시).
-- **반영처 = 분업 규율**: 패턴 #7(run-dir lock)은 외부 AI 동시쓰기 사고(log agy)의 *코드 레벨 예방 사례* — 순수 참조, 추가 배선 불요.
+- **반영처 = 분업 규율**: 패턴 #7(run-dir lock)은 외부 AI 동시쓰기 사고(2026-06 agy)의 *코드 레벨 예방 사례* — 순수 참조, 추가 배선 불요.
 - 그 외(#1 숫자SSoT·#6 정직라벨)는 이미 vault 보유 원칙의 외부 확증재 → 흡수만.
 
 ## v1.56.13 delta 감사 (③Gate 2026-07-13, Codex clone 재통독)
