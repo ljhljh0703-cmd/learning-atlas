@@ -3,9 +3,9 @@ created: 2026-08-02
 updated: 2026-08-02
 type: learning
 category: methods
-tags: [ai-enablement, internal-platform, llm-gateway, governance, dev-productivity, measurement, wemade-xr]
+tags: [ai-enablement, internal-platform, llm-gateway, governance, dev-productivity, measurement]
 ---
-<!-- 사내 AI 도구 배포·운영·측정 플레이북 — JD "AI 도구의 사내 배포 및 운영 관리" 정면 대응 자료. -->
+<!-- 사내 AI 도구 배포·운영·측정 플레이북 — "AI 도구의 사내 배포 및 운영 관리" 직무 범위 자료. -->
 
 # 사내 AI 도구 배포·운영·측정 플레이북
 
@@ -67,7 +67,6 @@ Day1 외부 연사 + 사내 얼리어답터 사례 / Day2 도구 심화 / Day3 *
 - GitHub "Roll out at scale" — https://docs.github.com/en/copilot/tutorials/roll-out-at-scale
   라이선스 셀프서브 / **AI 매니저(챔피언) 지정** / 미사용자 리마인드 / 기능·모델 파일럿 / 다운스트림 임팩트 설계.
 
-> 🔗 **위메이드 맥락** — 사내에 이미 **"AI 챔피언 협의체"**가 있다(stories.wemade.com AI 챔피언 노트 #1). 위 두 플레이북의 "챔피언 식별" 단계를 회사가 **이미 밟아 놓은 상태**다. 우리 팀이 붙을 자리는 그다음 — 플랫폼·계측·거버넌스. `[추정]`
 
 ### 🇰🇷 국내·게임 도메인 최근접 사례
 **LINE Games "Nexus AI"** (AWS 기술블로그, 2025-12) — https://aws.amazon.com/ko/blogs/tech/linegames-ai-agent-for-accelerating-game-publishing
@@ -96,7 +95,6 @@ Day1 외부 연사 + 사내 얼리어답터 사례 / Day2 도구 심화 / Day3 *
 - 모델 카탈로그 **매시간 갱신 + ZDR 자동 강제**
 - MCP 툴 스키마를 **2개 포털 툴로 접어 요청당 약 15,000 토큰 절감** ← 같은 계열 기법 = Anthropic "Code execution with MCP"
 
-> 🔗 **작가 vault와의 동형** — `AGENTS.md` 자동 생성 = Sub-brain의 라우팅 맵 · Engineering Codex 인용 = 헌법 §근거 인용 의무 · MCP 툴 접기 = **RTK/progressive disclosure 그 자체**. **이미 하고 있는 걸 조직 규모로 옮기는 것**이라고 말할 수 있다.
 
 ---
 
@@ -111,11 +109,11 @@ Day1 외부 연사 + 사내 얼리어답터 사례 / Day2 도구 심화 / Day3 *
 | **Langfuse** | https://github.com/langfuse/langfuse | 오픈소스 LLM 옵저버빌리티/평가/프롬프트 관리. OTel·LiteLLM 연동 |
 | 국내 검토기 | https://tech.osci.kr/ai-gateway-architecture-and-security/ | 한국어 아키텍처·보안 관점 |
 
-⭐ **`LiteLLM + Langfuse`가 자체 구축의 사실상 표준 조합**이다. 가상 키·팀별 예산·감사 로그·비용 대시보드를 **몇 시간 안에 데모 가능** → 입사 초기 성과물로 최적. `[추정]`
+⭐ **`LiteLLM + Langfuse`가 자체 구축의 사실상 표준 조합**이다. 가상 키·팀별 예산·감사 로그·비용 대시보드를 **몇 시간 안에 데모 가능**하다. `[추정]`
 
 ### 코딩 에이전트를 조직 정책으로 통제하는 표면 (Claude Code 기준)
 `[확인]` `⚠벤더편향` — https://code.claude.com/docs/en/admin-setup
-JD 문구를 문장 대 문장으로 대응시킬 수 있는 유일한 수준의 실무 문서다.
+이 직무 범위를 문장 대 문장으로 대응시킬 수 있는 유일한 수준의 실무 문서다.
 - 정책 전달 우선순위(관리콘솔 > OS 정책 > 파일 > 사용자 설정), 권한 룰은 병합되며 **사용자가 추가는 가능하나 제거는 불가**
 - 강제 가능 항목: 권한 룰 / 권한 우회 모드 차단 / **OS 레벨 샌드박스 + 네트워크 도메인 allowlist** / **조직 공통 CLAUDE.md 강제 주입** / **MCP 서버 allow·deny** / 플러그인·훅 제한 / 로그인 조직 강제 / 사용 가능 모델 제한 / 최소·최대 버전 강제
 - ⭐ **설계 통찰**: *"WebFetch를 막아도 Bash가 열려 있으면 curl로 나간다"* — 권한 룰과 샌드박스는 **다른 계층**이고 네트워크 통제는 OS 레벨에서 해야 한다.
@@ -137,7 +135,7 @@ JD 문구를 문장 대 문장으로 대응시킬 수 있는 유일한 수준의
   원칙: **단일 지표 금지, 최소 3개 차원 동시 측정.**
 - **DORA 2025 State of AI-assisted Software Development** — https://dora.dev/dora-report-2025/ · **AI Capabilities Model** https://dora.dev/ai/capabilities-model/report/
   표본 약 5,000명 + 정성 인터뷰 100시간+. AI 사용 90%, 생산성 향상 체감 80%+, **반면 AI 생성 코드를 거의/전혀 신뢰하지 않음 30%**. AI 도입은 처리량·제품성과와 **양(+)**, **배포 안정성과는 여전히 음(−)**.
-  > 🔑 **한 줄 결론 = 우리 팀의 논리 무기**: **"AI는 팀을 고치지 않는다. 이미 있는 것을 증폭한다."** 테스트 자동화·버전관리 성숙도·빠른 피드백 루프가 없으면 도구 배포는 불안정성만 키운다.
+  > 🔑 **한 줄 결론**: **"AI는 팀을 고치지 않는다. 이미 있는 것을 증폭한다."** 테스트 자동화·버전관리 성숙도·빠른 피드백 루프가 없으면 도구 배포는 불안정성만 키운다.
   AI Capabilities Model 7종(정책 명문화·사내 컨텍스트 연결·기본기 우선·안전망 강화·**내부 플랫폼 투자**·최종 사용자 중심 등)은 **AI 인에이블먼트 팀 로드맵 항목으로 그대로 사용 가능**.
 - **DX Core 4** `⚠벤더편향` — https://getdx.com/dx-core-4/ · AI 측정 https://getdx.com/research/measuring-ai-code-assistants-and-agents/
   실무적으로 유용한 3가지: ① **선도 조직도 실사용률 약 60%** — 100% 목표는 비현실적 ② **에이전트를 따로 재지 말고 팀 산출물에 포함**해 측정 ③ 하향식 강제·개인 평가 사용 금지.
@@ -152,13 +150,13 @@ JD 문구를 문장 대 문장으로 대응시킬 수 있는 유일한 수준의
 - MIT NANDA "95%가 ROI 못 냄" `[추정]` **피어리뷰 아님, 방법론 논쟁 있음.** 경영진 슬로건으로는 강력하나 **엔지니어링 근거로 쓰지 말 것.**
 
 > 🔑 **종합 판단 `[추정]`** — 현재 공개 증거로는 "AI 도구가 조직 생산성을 몇 % 올린다"를 **단정할 수 없다**. 신입으로서 가장 안전하고 설득력 있는 포지션: **벤더 수치를 옮기지 말고, 사내에서 DORA 4지표 + SPACE 다차원 + 사용률·리텐션·비용을 직접 계측하는 파이프라인을 만든다. 계측 자체가 산출물이 된다.**
-> 🔗 vault 동형 = [하네스 개선 판정 계약 (Vault-lite)](harness-gain-evaluation-contract.md) (하네스 이득 ≠ 같은 과제 점수 상승). **작가는 이미 이 사고를 갖고 있다.**
+> 🔗 vault 동형 = [하네스 개선 판정 계약 (Vault-lite)](harness-gain-evaluation-contract.md) (하네스 이득 ≠ 같은 과제 점수 상승).
 
 ---
 
 ## 5. 컨텍스트·에이전트 엔지니어링 최신 1차 자료 (2025~2026)
 
-**Anthropic 엔지니어링** — 전부 JD 우대사항("Context/Prompt/Harness/Loop 엔지니어링")의 공식판
+**Anthropic 엔지니어링** — Context/Prompt/Harness/Loop 엔지니어링의 공식판
 - Effective context engineering for AI agents (2025-09) — https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 - **Effective harnesses for long-running agents** (2025-11) — https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents
 - ⭐ **Demystifying evals for AI agents** (2026-01) — https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents ← "이 도구가 실제로 되는가"를 판정하는 방법론
@@ -171,9 +169,3 @@ JD 문구를 문장 대 문장으로 대응시킬 수 있는 유일한 수준의
 **Google** — The AI agent handbook(한국어판 있음) https://cloud.google.com/resources/content/intl/ko-kr/ai-agent-handbook · Kaggle Introduction to Agents 화이트페이퍼
 
 ---
-
-## 6. 반영 (학습→반영 루프)
-
-- **즉시 반영** — wemade-xr-internship-study-atlas P0/P1의 근거. Day-1 질문 3번(사내 AI 스택 배포·권한·비용 관리 주체)과 5번(3개월 평가 기준)은 §3·§4에서 나왔다.
-- **파킹(트리거)** — LiteLLM+Langfuse 로컬 데모 구축 = **사내가 이미 게이트웨이를 쓰는지 확인 후**(중복 구축 방지). 트리거 = Day-1 질문 3번 응답.
-- **vault 반영 후보** — 헌법 §"비용·모델 운용 지침"에 *"조직 스케일 = 게이트웨이·귀속·감사가 개인 스케일의 RTK를 대체한다"* 한 줄 추가는 **작가 승인 후**(L-STAGE — 헌법 변경은 패치 스테이징).

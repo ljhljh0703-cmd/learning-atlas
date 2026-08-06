@@ -3,18 +3,17 @@ created: 2026-08-02
 updated: 2026-08-02
 type: learning
 category: methods
-tags: [unreal-engine, ue5, automation, mcp, ci, qa-automation, wemade-xr]
+tags: [unreal-engine, ue5, automation, mcp, ci, qa-automation]
 ---
-<!-- UE5에 AI·자동화를 붙이는 공식 진입점 지도 — vault 최대 갭이었던 축(기존 unreal 언급 3건뿐). -->
+<!-- UE5에 AI·자동화를 붙이는 공식 진입점 지도. -->
 
 # UE5 자동화·AI 접점 진입점 지도
 
-> ⚠️ **임시(provisional).** 출처는 대부분 Epic 공식 문서라 신뢰도는 높으나, **작가가 아직 UE를 실제로 만져본 적이 없다.** 읽은 것과 할 수 있는 것을 구분한다.
-> **vault 갭 메우기**: 2026-08-02 기준 `wiki/learnings`·`tech` 스코프 grep 실측 — `unreal` 3건(전부 곁다리 언급), `UE5` 1건(강연 pptx), `Perforce`·`Gauntlet` **0건**. 회사가 UE5 MMORPG 개발사인데 vault엔 축 자체가 없었다.
+> ⚠️ **임시(provisional).** 출처는 대부분 Epic 공식 문서라 신뢰도는 높다. **문서 기반 정리이며 실기 검증은 미수행** — 읽은 것과 할 수 있는 것을 구분한다.
 
 ## 0. 왜 이게 우리 직무인가
 
-`[추정]` PR기술개발팀 JD의 상위 범위가 "UE5 기반 게임 기술 R&D + AI". AI 워크플로우를 만든다는 건 결국 **엔진·빌드·에셋·테스트 파이프라인 어딘가에 자동화를 꽂는 것**이다. 어디에 꽂을 수 있는지의 지도가 아래다.
+`[추정]` 사내 AI 툴링 직무의 상위 범위가 "UE5 기반 게임 기술 R&D + AI"인 경우가 많다. AI 워크플로우를 만든다는 건 결국 **엔진·빌드·에셋·테스트 파이프라인 어딘가에 자동화를 꽂는 것**이다. 어디에 꽂을 수 있는지의 지도가 아래다.
 
 ---
 
@@ -29,7 +28,6 @@ tags: [unreal-engine, ue5, automation, mcp, ci, qa-automation, wemade-xr]
 - 켜는 법: `Edit > Plugins` → "Unreal MCP" → `Editor Preferences > Model Context Protocol`에서 auto-start → `ModelContextProtocol.GenerateClientConfig ClaudeCode`
 - 상태: **Experimental**(배포 빌드 주의), 동일 머신 접속만
 
-> 💡 **작가 강점과의 접점** — Sub-brain은 이미 MCP 배선·권한 분리·게이트를 일상 운영한다. "에이전트에게 엔진의 무엇을 어디까지 열어줄 것인가"는 vault의 §권한 분리와 같은 문제다. **여기가 첫 기여 지점으로 가장 유력하다.** `[추정]`
 
 ### 커스텀/서드파티 MCP (전부 GitHub 실존 확인)
 
@@ -117,6 +115,4 @@ tags: [unreal-engine, ue5, automation, mcp, ci, qa-automation, wemade-xr]
 
 ## 7. 반영 (학습→반영 루프)
 
-- **파킹(트리거 명시)** — 실제 손을 대는 건 **사내 UE 버전·Horde/Perforce 사용 여부 확인 후**. 트리거 = Day-1 질문 7번("UE5 접점이 실제로 얼마나 되나") 응답.
-- **즉시 반영 0** — 지금 UE를 설치해 실습하는 건 우선순위가 낮다. 사내 스택을 모르는 상태의 실습은 헛돈다. 대신 **§1 Unreal MCP 문서 1개만 통독**(Karpathy #2 — 요청 외 학습 금지).
 - **미확인 목록**: 사내 UE 버전 / Horde·Perforce 사용 여부 / 사내에 이미 있는 에디터 툴 / Data Validation 공식 문서 URL / UGS Epic 공식 문서 URL.
