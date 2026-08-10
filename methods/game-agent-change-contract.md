@@ -17,6 +17,21 @@ category: method
 ## 1. 핵심 — 데이터 선언 = 계약
 콘텐츠(zone·몬스터·장비·스킬)를 *1급 인터페이스*로: 스킬 = 숫자가 아니라 combat block + input key + unlock + anim clip + effect handler + VFX + audio + timeline. "스킬 추가" 요청을 *완전한 스키마*로 검증 → 반쪽 UI 버튼·미검증 데미지 함수 방지. **데이터 소유 / 규칙 소유 / 표현 소유 분리** = 에이전트에게 *one-owner map* 제공 → 밸런스 요청이 조용히 player feel·카메라·렌더 비용을 바꾸는 vibe-code 회귀 차단.
 
+### 1.1 Feel Contract — 손맛도 소유자를 갖는다 (2026-08-05 ③Gate 델타)
+
+§1 의 *데이터/규칙/표현 소유 분리* 를 **입력→피드백 경로**로 연장한다. 게임 필(feel)은 "잘 만들면 나오는 것"이 아니라 **계약으로 고정되는 파이프라인**이다.
+
+```text
+Input Adapter → deterministic Resolver → semantic event → Feedback Bundle
+```
+
+- **Resolver 가 진실을 소유한다** — 판정은 결정론이고, 표현(VFX·SFX·카메라·hitstop)은 그 결과를 *구독*할 뿐 판정을 바꾸지 않는다. 기존 *"AI expresses. Engine decides."* 의 입력측 짝.
+- **semantic event 로 끊는다** — 표현층이 원시 입력이 아니라 *의미 사건*(`stomp`·`block_hit`·`damage`·`course_clear`)을 받게 하면, 같은 사건에 기기별로 다른 피드백을 붙여도 판정이 안 흔들린다.
+- **device command parity** — 데스크톱/모바일은 **같은 semantic command 를 공유**하되 control surface·정보 위계·safe area·동시 입력·resume·performance tier·canonical flow 는 **별도 acceptance** 로 둔다. (하나의 acceptance 로 두 기기를 덮으려 하면 둘 다 어정쩡해진다.)
+
+<!-- 출처: Codex `k3-mario-game-engine-application` ③Gate 2026-08-05. 원본 영상 125.76초 실측 관찰(타이틀·이동·stomp/block/damage/death/course-clear 흐름)에서 역산한 구조. -->
+⛔ **범위 제한(중요)**: ① **K3 벤치마크 주장 기각** — 게시자 표기 외에 repo·프롬프트·빌드로그·엔진·사람 개입 증거가 **없다**. 제작량·코드 품질을 인용하지 말 것. ② **시각·IP 레퍼런스 기각** — 마리오풍 외형·레벨 문법·음악을 자산 기준값으로 삼지 않는다(구조만 차용). ③ **수치 미확인** — hit-stop·screen shake·coyote time·input buffering·물리값은 **영상에서 확인 불가**. 튜닝값은 프로젝트 플레이테스트로만 정한다. ④ 방향 승인 ≠ 구현 권한.
+
 ## 2. Game-Agent Change Contract (feature 요청마다 — 프로젝트 로컬 카드)
 | 필드 | 예 |
 |---|---|
