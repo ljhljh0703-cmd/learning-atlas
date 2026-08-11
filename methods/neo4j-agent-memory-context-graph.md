@@ -1,6 +1,6 @@
 ---
 created: 2026-06-28
-updated: 2026-06-28
+updated: 2026-08-11
 type: learning
 tags: [method, graph-db, neo4j, agent-memory, context-graph, knowledge-graph, provenance]
 source: https://www.youtube.com/watch?v=tcVK3ufL36E
@@ -44,6 +44,14 @@ category: method
 ## 5. 살릴 것 / 과장 금지
 
 **살릴 것**: context graph=동적 부분그래프 / 메모리는 vector chunk 만 아닌 *관계 구조* 중요 / 3계층 분리 / 추론 메모리는 personalization 아닌 *프로세스 검증*에 유용 / entity resolution 명시·신중 / POLE+O 는 입문용(범용 아님, 커스텀 온톨로지 필요).
+
+**entity resolution 을 *측정*하는 계약** <!-- 2026-08-11 codex-gate: Anthropic claude-cookbooks knowledge_graph --> — 위 §3 은 "확신 merge 아니면 분리" 로 *태도*를 정했다. 그 태도를 검사 가능하게 만드는 4항:
+- **보존 불변식(conservation)** — raw alias 는 전건이 *정확히 하나의* cluster 에 귀속되거나 singleton 으로 남는다. resolver 가 못 붙인 이름은 **버리지 않고 singleton 으로 보존**한다(조용한 소실 금지).
+- **under-merge ⟂ over-merge 를 따로 센다** — 파편화(같은 것이 갈림)와 정밀도 손상(다른 것이 합쳐짐)은 한 지표로 상쇄돼 서로를 숨긴다.
+- **추출 성능과 resolution 성능을 분리** 측정한다. predicate 를 무시한 relation recall 은 *upper bound* 로만 표기한다.
+- **증분 갱신은 영향 범위만** — 신규 문서는 새 entity 만 기존 canonical set 과 resolve 하고, source set 이 바뀐 entity 의 요약만 재생성한다.
+
+→ 반영처 = Myth Atlas 의 동명이인·이명 병합 Gate + 소규모 gold triple 회귀셋(⏸️ Atlas 레인 후순위, 작가 지시 2026-08-11). 인용 게시물의 `graph engineering 1000배` 소문·인사 뉴스는 버림(추천 정본과 첨부 article 불일치 = 게시물 자체 신뢰도 하락 근거).
 
 **과장 금지**: 현 vault lookup(grep+map+graphify) 보다 낫다고 주장 X / "지금 Neo4j 도입" 결정 X(개념 영상, 1/3) / 자동추출 엔티티를 Gate 전 진실 취급 X / Graphiti 와 동일시 X / Decoding AI 기사 주장은 미검증(링크 200 만 확인).
 

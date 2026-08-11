@@ -47,6 +47,18 @@ naive 파서가 파일을 못 열면 "보호/암호화됐다"로 성급히 결�
 - 세션 오너/디스패치가 준 기술 orientation(예: "이 필드를 신뢰")이 실맵 바이트와 충돌하면 → orientation을 *검증 대상*으로 취급하고 정본 소스(StormLib 원문 등)를 재확인해 정정.
 - 디스패치 프롬프트의 "verify against real bytes; do not trust blindly" 문구가 이 동작을 유도 — 기술 디스패치 표준 슬롯으로 재사용 가치.
 
+## 6. 엔진째 이식 — 호환막·추적가능 교체·실행 수증 (OpenNox 차용)
+
+<!-- 2026-08-10 ③Gate 보강 · 출처 = opennox/opennox `dev` `b184030e` shallow clone 구조 해체 · 패킷 `~/Documents/Codex/2026-08-08/opennox/` · draft: external_ai (via codex), gate: vault Claude. §1~5 는 *포맷 하나*를 읽는 방법론이고 본 §은 *엔진 전체*를 옮길 때의 3패턴. dedup 확인: clean-room 경계·리더 견고성·수요주도 = §2·§1·§3 기보유 / generic Strangler Fig + parity fixture = [WoC 역기획 — AI 게임 생산 방법론 (10종 해체 종합)](../techniques/woc-ai-gamedev-teardown.md) 기보유(그쪽 §"Strangler Fig + parity fixture") → 아래 3개만 신규. -->
+
+포맷 리더를 넘어 *실행되는 레거시 엔진*을 재구현할 때 반복 가능한 3패턴. OpenNox(Nox 엔진 Go 재구현)가 근거를 남긴 형태다.
+
+1. **주소-호환막(address-compatible substrate)** — 32-bit/CGO 와 typed memory blob 을 *임시 호환 기판*으로 두고, 새 도메인 코드는 그 **바깥에서** 자란다. 레거시 메모리 레이아웃을 즉시 없애려 들지 않고 격리된 층으로 가둔다.
+2. **추적 가능한 교체(traceable migration)** — 원본 주소형 심볼을 버리지 않고 **`name → type → body` 순의 작은 단계**로 의미를 회수한다. 이름을 먼저 주고, 타입을 주고, 마지막에 본문을 바꾼다. 각 단계가 원본 주소로 되짚어지므로 "어디서 온 코드인지" 가 유지된다.
+3. **실행 수증(virtual-platform E2E evidence)** — **가상 시계 + 결정적 RNG + 입력 record/replay + save hash** 로 리팩터 전후 *행동*을 비교한다. §5 의 "정본은 실바이트" 를 런타임으로 확장한 것 — 정적 바이트 일치가 아니라 *같은 입력에 같은 궤적*을 증거로 삼는다.
+
+⚠️ **적용은 별건(park)** — OpenNox 자체는 **GPL-3.0** 이고 소스/코드 반입은 제안조차 하지 않았다(패턴만). README·CONTRIBUTING 이 가리키는 EA C&C Modding FAQ 엔드포인트는 **수집 시점 HTTP 404** 였으므로 **현행 법적 허가 근거로 쓰지 않는다.** 검증 한계 정직: shallow `dev` 스냅샷(전체 history audit 아님) · tracked path list hash(파일 내용 archive checksum 아님) · `go test ./common/memmap/...` 만 통과(전체 suite/build/런타임 검증 아님). **트리거: `uzmap-forge` 미래 호환 runtime seam 착수 시 / 또는 libgdx-rogue-os replayable runtime 테스트 하네스 착수 시** — 그때 3패턴을 설계 후보로 인출한다. 해당 repo·SSOT 변경은 그 시점 작가 지시 없이 금지.
+
 ## 연결
 
 - uzmap-forge — 본 방법론의 실측 프로젝트(WC3 `.w3x` 런타임 재현)

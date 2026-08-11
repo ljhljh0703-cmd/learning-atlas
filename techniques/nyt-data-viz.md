@@ -1,6 +1,6 @@
 ---
 created: 2026-06-16
-updated: 2026-06-16
+updated: 2026-08-11
 type: learning
 tags: [data-viz, charts, d3, editorial, nyt, design-system]
 category: technique
@@ -32,6 +32,21 @@ connected scatterplot("Driving Shifts Into Reverse" — 양 축 monotonic일 때
 
 ## Pre-publish 체크 (요지)
 domain=`d3.max`(D) · hover rect를 marks `<g>`에(A) · voronoi proximity(B) · gliding tooltip(C) · halo+leader 주석(E) · connected-scatter는 양축 monotonic만 · inline `<script>` `node --check` + 데이터 `JSON.parse` · headless 가능하면 desktop+375px 스크린샷 · 에디토리얼 텍스트는 초안 본능의 ~절반으로 컷.
+
+## 상류 델타 — 의미 계약(semantic chart contract) <!-- 2026-08-11 codex-gate: Flint(microsoft/flint-chart, commit 84a8e8d) -->
+
+위 5규율은 *출력 표현*을 다룬다. 그 상류에 **의미를 먼저 고정하고 축·집계를 기계가 파생시키는 층**이 하나 더 있다 — vault 전역에 부재했던 델타(`semantic chart` grep 0건).
+
+```text
+field meaning + aggregation role + zero baseline + unit/format + sensitivity/provenance
+→ compiler → backend output → validator/render QA
+```
+
+- **선언이 규칙을 파생한다** — 필드에 의미·집계 역할을 선언하면 "Price 는 합계 금지 · Temperature 는 zero축 회피 · Rank 는 ordinal" 이 사람 기억이 아니라 registry 에서 결정론적으로 나온다. 위 5규율 #3(`bar는 0부터`)은 그 파생 결과 *하나*를 손으로 적어둔 것에 해당한다.
+- **parity 검증** — 같은 데이터셋을 두 backend 로 컴파일해 *의미·축·집계가 일치하는지* 대조한다. 렌더 결과가 예뻐 보이는 것과 의미가 보존된 것은 다르다.
+- **민감도는 필드 속성** — local data file 참조가 기본 허용인 도구는 민감 데이터에 별도 차단 플래그가 필요하다.
+
+⚠️ 출처 수치 교정: 게시물·README 의 `70+ semantic types` 는 pinned registry 실측 **44 entries**, backend 도 3종(Plotly·Excel 은 library lane). 테스트 1,012 PASS·typecheck/build PASS 는 검사 commit 에서 실행 확인, 그 외 성능 주장은 `source-reported`. **도입 결정 아님** — 계약만 흡수(도구 설치·MCP 연결 보류).
 
 ## 적용
 포폴/리포트/슬라이드의 차트에 적용. [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](editorial-grid-design-canon.md)(그리드·타이포)와 한 쌍 — canon=레이아웃, 본 규율=데이터. 산출=PublishWebpage용 self-contained HTML(임베드 미디어는 공개 URL 먼저).

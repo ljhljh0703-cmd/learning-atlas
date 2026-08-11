@@ -183,6 +183,8 @@ CodeGraph 가 명시적으로 **Hermes Agent** 를 1급 지원 대상으로 표�
 - **`codegraph install --yes` 금지** (헌법 자동 주입 차단 — CLAUDE.md)
 - **`.codegraph/` commit 금지** (gitignore 의무, vault 이미 적용)
 - **세션 보고 라인** (외부 AI 의무): `[CodeGraph] used yes/no — <baseline, fresh/stale status, key findings>`
+- **그래프는 read model 이고 권위는 소스에 있다** 🔄 2026-08-10 보강 <!-- 출처 = Ix(ix-infrastructure/Ix `52c18a3`) 해체 · 패킷 `~/Documents/Codex/2026-08-08/x-loopx-ix-prime-agent-teardown/` · draft: external_ai (via codex), gate: vault Claude. 대조: 위 "Stale 인덱스 = 증거 X" 는 *조회 전 상태 확인*을 규정하고, 본 항은 *응답이 자기 출처를 들고 다니게* 한다 — 별개 층 -->: 파생 코드그래프를 `shared source of truth` 로 말하지 않는다. 권위는 **소스 코드와 현재 런타임 증거**이고 그래프는 그 위의 projection 이다. 따라서 구조 질의의 결과를 인용할 때는 **`graph 리비전·source commit·확신도·source anchor(파일:라인)` 를 함께 들고 온다** — 앵커 없는 구조 답변은 "예쁜 다이어그램이 미문서화 권위로 승격"하는 경로다. 실무 형태: 그래프로 *좁히고* 소스로 *확인*한다(`구조 질의 → 소스 앵커 → 실독 검증`). 위 stale 규율이 *언제 믿지 말지*라면 이 항은 *무엇을 함께 제시할지*다.
+  - ⛔ **Ix 도입은 기각**(`SKIP`) — 기존 CodeGraph 레인과 중복이고 Docker/backend 운영비가 붙는데 아직 `alpha`. 헤드라인 수치(`30~99.7% 토큰 절감`·`최소 43% 일일 사용 증가`)는 pin 된 repo 안에 실험 프로토콜·과제셋·원자료·재현 벤치마크가 **없다** → 독립 재현까지 마케팅으로 취급. 가져온 것은 위 원리 1줄뿐.
 
 ### 병용 라우팅 — CodeGraph = Tier 1 (일상 손) 🔒 LOCKED 2026-06-28
 

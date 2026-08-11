@@ -150,6 +150,10 @@ vault Claude 는 `θ` 를 못 건드린다. 모델 라우팅(§4 비용 지침)�
 
 → vault 매핑: `p` = CLAUDE.md·hot.md 주입 표면 / `m` = wiki 전체 + preference-ledger + memory/ / `T` = skills/ + MCP + graphify / `g` = §5.7 3레인·③Gate·HITL·worktree-accept.
 
+**제품 구현 실례 — Prime Agent 의 4-store.** <!-- 2026-08-10 ③Gate 보강 · 출처 Prime Intellect Prime Agent · 패킷 `~/Documents/Codex/2026-08-08/x-loopx-ix-prime-agent-teardown/` · draft: external_ai (via codex), gate: vault Claude --> 이 `Σ=(p,m,T,g)` 분해가 상품 코드로 어떻게 나오는지의 표본이 생겼다 — Prime Agent 는 지속 항목을 **prompt notes / memory / skill descriptions / subagent specs 네 store 로 분리**하고, `/refine` 이 trajectory + 이전 refinement 이력을 읽어 **가장 작은 근거 기반 CRUD 수정**을 제안하며, 스냅샷·결과·동시변경 검사·refinement ID 단위 롤백을 남긴다. **base prompt 는 self-refiner 에게 불변.** 즉 서베이의 `U` 를 *가역 changeset 원장*으로 구현한 것 — `트리거 → 근거 → 수정 → 기대결과 → held-out 결과 → 롤백 ID`.
+
+두 가지가 이 분해의 실전 가치를 확인해준다. ① **버킷이 서로를 사칭하면 안 된다** — Prime Agent README 가 "지속 refinement 는 새 실행가능 skill 의 패키징·리뷰를 대체하지 않는다"고 명시한다. 즉 `m`(스킬 *설명*)과 `T`(실행가능 스킬)는 다른 store 이고, 저장된 설명이 자동으로 신뢰 가능한 실행체가 되지 않는다 — vault 의 `skills/.incubator/` ⟂ `active` 구분과 정확히 같은 경계. ② 그럼에도 그 skill store 가 **exploit 축적 매체가 될 수 있다**([Darwin Gödel Machine — 증명 대신 경험, 단일 진화 대신 아카이브](darwin-godel-machine.md) §5.4 Factorio) — 4분해는 *무엇이 바뀌는지 추적 가능하게* 만들지만 *무엇이 바뀌어도 되는지* 는 정하지 않는다. 그건 `g` 의 일이다.
+
 ### 6.3 skill = U 렌즈가 실제로 무언가를 바꾼다
 
 vault 의 `skills/` 는 지금 *폴더·SKILL.md 파일*로 정체성이 정의된다. 논문 렌즈로 보면 그건 **기판(주소)이지 정체성이 아니다**. 스킬의 정체성 = *그것이 인코딩하는 갱신*.

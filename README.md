@@ -62,6 +62,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-08-11 |
 | [Re:Cart 해체 — "머리 vs 손" 결정 계층 + 승리 요인 해부](techniques/recart-decision-layer-teardown.md) | [https://github.com/ronut01/recart-ecommerce-… | 2026-07-20 |
 | [12-Factor Agents — 프레임워크 회의론 선언문 (vault 이미 앞섬, delta=F5)](techniques/12-factor-agents.md) | https://github.com/humanlayer/12-factor-agents | 2026-07-18 |
 | [Cerebras Knowledge Base — 하이브리드 검색 융합 (grep 백본 + 벡터 보완)](techniques/cerebras-knowledge-base.md) | https://www.cerebras.ai/blog/how-we-built-our… | 2026-07-18 |
@@ -75,7 +76,6 @@
 | [Red Queen Gödel Machine — 평가자까지 같이 진화시키는 자기개선](techniques/red-queen-godel-machine.md) | https://arxiv.org/abs/2606.26294 | 2026-06-30 |
 | [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](techniques/agentic-search-grep-vs-vector.md) | https://arxiv.org/abs/2605.15184 | 2026-06-28 |
 | [TradingCodex — "Codex-native 트레이딩 하네스" (자율봇이 아니다)](techniques/tradingcodex-harness.md) | https://github.com/monarchjuno/tradingcodex | 2026-06-28 |
-| [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-06-17 |
 | [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](techniques/hermes-agent.md) |  | 2026-06-17 |
 | [Jawcode (jwc) — 코딩 에이전트 하네스 (IPABCD)](techniques/jawcode.md) | https://github.com/lidge-jun/jawcode | 2026-06-17 |
 | [Oh My OpenAgent (OmO) — opencode 위 하네스 레이어](techniques/oh-my-openagent.md) | https://github.com/code-yeongyu/oh-my-openagent | 2026-06-17 |
@@ -131,6 +131,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [NYT-discipline Data Visualization](techniques/nyt-data-viz.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-08-11 |
 | [결정론적 이미지 크래프트 파이프라인 (Canvas 디더 + 후처리)](techniques/deterministic-image-craft-pipeline.md) | [https://www.ascii-magic.com/] | 2026-07-20 |
 | [Handdraw Story Video — 잉크 추출 커널 + 손그림 스토리 비트 문법](techniques/handdraw-story-video.md) | https://github.com/xiejunjie524/handdraw-stor… | 2026-07-19 |
 | [Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템](techniques/awesome-design-md-teardown.md) | https://github.com/VoltAgent/awesome-design-md | 2026-06-25 |
@@ -144,7 +145,6 @@
 | [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](techniques/editorial-grid-design-canon.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-06-16 |
 | [HTML PPT Studio (html-ppt) — 현행 teardown](techniques/html-ppt-studio-teardown.md) | https://github.com/lewislulu/html-ppt-skill | 2026-06-16 |
 | [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](techniques/hyperframes.md) | https://github.com/heygen-com/hyperframes | 2026-06-16 |
-| [NYT-discipline Data Visualization](techniques/nyt-data-viz.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-06-16 |
 | [PerfectPixel Studio — AI 스프라이트 후처리 파이프라인 해체](techniques/perfectpixel-studio.md) | https://github.com/gykim80/perfectpixel-studio | 2026-06-15 |
 | [디자인 해체 — designlang.app 랜딩 페이지 (Landing Teardown)](techniques/designlang-app-teardown.md) |  | 2026-06-13 |
 | [충실 추출 — Manavarya09/design-extract (designlang)](techniques/design-extract.md) | https://github.com/Manavarya09/design-extract | 2026-06-10 |
@@ -260,6 +260,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](methods/neo4j-agent-memory-context-graph.md) | https://www.youtube.com/watch?v=tcVK3ufL36E | 2026-08-11 |
 | [사내 AI 도구 배포·운영·측정 플레이북](methods/internal-ai-enablement-playbook.md) |  | 2026-08-02 |
 | [Higgsfield 영상 프롬프트 공예 (AI Filmmaking as Directed Craft)](methods/higgsfield-video-prompt-craft.md) | higgsfield.ai/community — 프로젝트 상세 '4K Blockbu… | 2026-07-25 |
 | [nashsu/llm_wiki 해체 — "RAG를 죽였다"는 문구의 실제](methods/nashsu-llm-wiki-teardown.md) | ["https://github.com/nashsu/llm_wiki"] | 2026-07-25 |
@@ -269,7 +270,6 @@
 | [memory-bank (conversation-memory layer) 해체](methods/memory-bank.md) | https://github.com/jung-wan-kim/memory-bank | 2026-07-04 |
 | [Graph DB / Neo4j — 지식 누적 노트 (학습 진행형)](methods/graph-db-neo4j.md) | https://neo4j.com/docs/ | 2026-06-30 |
 | [codebase-memory-mcp](methods/codebase-memory-mcp.md) | https://github.com/DeusData/codebase-memory-mcp | 2026-06-28 |
-| [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](methods/neo4j-agent-memory-context-graph.md) | https://www.youtube.com/watch?v=tcVK3ufL36E | 2026-06-28 |
 | [insane-search 해체 분석 — 포기를 모르는 웹 접근 아키텍처](methods/insane-search.md) | https://github.com/fivetaku/insane-search | 2026-06-21 |
 | [llm-wiki (fivetaku)](methods/llm-wiki.md) | https://github.com/fivetaku/llm-wiki | 2026-06-20 |
 | [Academic Research Skills (ARS) — 작가 거버넌스·검증 철학의 학술논문 도메인 쌍둥이](methods/academic-research-skills.md) | https://github.com/imbad0202/academic-researc… | 2026-06-18 |

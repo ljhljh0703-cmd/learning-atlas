@@ -1,6 +1,6 @@
 ---
 created: 2026-06-17
-updated: 2026-06-17
+updated: 2026-08-11
 type: learning
 tags: [agent-harness, rsi, mcp, acp, recipes, subagents, hooks, context-engineering, model-independent, clean-room, north-star]
 source: https://github.com/aaif-goose/goose
@@ -68,6 +68,7 @@ category: technique
 - **Plugins** = skills+hooks 번들. `goose plugin install <git>`·`update`. 네임스페이스 `plugin:skill`. ↔ 작가 스킬 incubator.
 - **Skills 표준 수렴**: goose 가 Agent Skills 표준(`SKILL.md`, `~/.agents/skills/`) 채택 + **`.claude/skills/` 하위호환 읽기** + Claude Desktop 호환(agentskills.io). → 작가 스킬 시스템이 *수렴하는 개방표준 위*에 있다는 확인. (블로그 "Did Skills Kill MCP?")
 - **Permission modes**: Auto(기본)/Manual/Smart(리스크 기반 자동승인)/Chat. read/write 툴 분류는 LLM 해석. CLI provider(Claude Code) 권한을 goose UI 로 라우팅(Claude Agent SDK 동일 메커니즘).
+- ⭐ **대비 — 권한을 모델 해석이 아니라 *단계*가 소유한다** <!-- 2026-08-11 codex-gate: Statewright(commit d05fe1c) --> : goose 는 read/write 분류를 LLM 이 해석하지만(위 줄), Statewright 는 **`작업 단계 == 권한 단계`** 를 엔진이 LLM 바깥에서 결정론적으로 강제한다 — 단계별 allowed tools · 편집 파일·라인 예산 · 명령 allowlist · 환경변수 차단 · 모델 tier · 승인 요구가 상태에 붙어 있고, 계획 단계는 read-only, 검증 단계는 제한된 명령만 연다. **전이는 증거를 요구**한다(`tests_passed`·static check·HITL). 부작용 큰 설계 지점 2개: ① read-only→deploy 처럼 권한이 크게 뛰는 전이는 승인 강제 ② **거부 응답이 "지금 허용된 행동 + 필요한 전이 조건"을 함께 반환**한다(거부가 막다른 길이 아니라 다음 수를 알려준다). ↔ 작가 §5.7 3레인은 *판정 기준*은 있으나 레인마다 허용 도구·예산이 기계로 묶여 있지 않고, 거부 시 해제 조건을 함께 반환하는 계약도 없다 = **반영 후보**(헌법 변경이므로 L-STAGE, 작가 판단 대기). ⚠️ `2/10→10/10` 은 5 task×2 모델 저자 실행 소규모 subset — 작은 모델 일반론으로 확대 금지. core engine Apache-2.0 이나 MCP gateway 는 시간부 FSL(`전부 Apache` 는 부정확). 무검토 MCP 연결 X.
 - **Sandbox**(macOS seatbelt + egress proxy): `GOOSE_SANDBOX=true`. SSH키/`.zshrc`/config.yaml 쓰기차단, 모든 트래픽 프록시 강제, `nc/socat/telnet`·raw socket 차단, `blocked.txt` 도메인 차단(live reload `fs.watch`), SSH 는 git host 화이트리스트. ↔ 작가 외부 CLI `--sandbox` 강제룰의 production 모델.
 - **Allowlist**: `GOOSE_ALLOWLIST`=YAML URL → 설치 가능 MCP 만 화이트리스트(기업용). HTTPS 권장.
 - **Code Mode**(pctx Deno 런타임): LLM 이 JS 작성해 MCP 툴 *programmatic* 호출(3 meta-tool: list_functions/get_function_details/execute_typescript), 콜 batch·중간결과 로컬 체이닝·on-demand 툴 발견. **5+ 확장**서 컨텍스트 절감.

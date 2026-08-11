@@ -113,6 +113,15 @@ graph TD
 단순한 `while True`나 메모리 상의 대기 루프는 프로세스 재시작, 서버 다운, 네트워크 에러 시 중간 상태가 모두 소실됩니다. 
 - 프로덕션 등급의 루프 엔지니어링을 위해서는 **Temporal, Inngest** 등 상태 저장형(Stateful) 워크플로우 엔진을 활용하여, 네트워크 장애나 시스템 셧다운 중에도 에이전트의 작업 루프가 중단된 지점부터 정확히 이어서 실행(Durable Execution)되도록 아키텍처를 설계합니다.
 
+**설명 불변식 2종 (LoopX 차용, 2026-08-10)** <!-- 출처 = huangruiteng/loopx `4ed56ee` 해체 · 패킷 `~/Documents/Codex/2026-08-08/x-loopx-ix-prime-agent-teardown/` · draft: external_ai (via codex), gate: vault Claude. 처분 `MERGE_EXISTING` — 실체(objective/gate/todo/evidence/quota 상태·bounded turn·doer-verifier 분리·인간 권위)는 본 노드·agent-harness·Hermes 가 이미 보유. 아래 2줄은 *설명 압축*이지 신규 메커니즘 아님 -->
+
+이 절의 지속 상태를 *어떻게 부를지*가 흐려지면 배선이 흔들린다. 두 문장으로 고정한다.
+
+1. **컨트롤 플레인은 런타임이 아니다.** 지속 상태 커널(목표·게이트·todo·스코프·증거·쿼터·핸드오프·소유권·claim·lease)은 *일을 하지 않는다*. 일은 에이전트 런타임이 하고, 커널은 **다음 슬라이스를 돌려도 되는지 판정**한다. 이 분리가 있어야 계속함이 "에이전트가 계속하고 싶어서"가 아니라 **타입 있는 결정**이 된다.
+2. **보드는 projection 이고 권위는 상태에 있다.** 대시보드·진행률 표시는 파생 뷰다. 보드를 고쳐서 상태를 바꾸려 하면 안 되고, 보드와 상태가 어긋나면 **상태가 이긴다**.
+
+⛔ 같은 출처의 미입증분은 흡수하지 않았다 — `1,000 에이전트 관리`(용량 시험·보장 없음) · `Karpathy auto-research`(오귀속 — repo 의 proposer/executor/evaluator 데모는 재현 가능하나 그게 Karpathy 의 연구는 아니다) · `200+ 시간`(연속 자율 실행이 아니라 bounded turn 누적 경과) · `2,700+ stars`(시점 사회증거, 역량 증거 아님) · `1인 사업 인프라`(성과 미검증). 도입 기각 — 기존 loop-engineering·agent-harness·Hermes 통제가 실체를 이미 커버한다.
+
 ---
 
 ### 9. Operator Contract — loop_spec 재사용 블록 (델타, exm7777 Fable Loop Library)
