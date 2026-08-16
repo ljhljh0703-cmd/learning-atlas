@@ -79,6 +79,23 @@ trigger = anecdote 아닌 **trajectory statistics**(evaluator score·correction 
 
 **skill 후보** `agentic-rl-trajectory-intake`(park, needs approval). **후속 소스**: Agent Data Protocol(ADP) 비교 · AReaL original · AgentPRM · RLDS/D4RL trajectory standard.
 
+## Harness Edit Claim Card (2026-08-16 ③Gate 보강 — AHE 델타)
+
+<!-- 출처 = Lilian Weng "Harness Engineering"(HTTP 200 본문 확인) + arXiv 2604.25850(AHE)·2606.09498(Self-Harness) 초록 직접 대조 · 사용자 제공 GeekNews 본문 324줄 전건 · 패킷 `~/Documents/Codex/2026-08-16/harness-self-improvement-delta/` · draft: external_ai (via codex), gate: vault Claude -->
+
+원문 대부분(workflow automation·persistent state·subagents·meta-loop·held-out·evaluator evolution·기각 후보 보존)은 **본 노트와 vault 자산에 이미 있다**. 신규로 남는 것은 **하네스를 고칠 때 채우는 카드 1종**이다.
+
+```
+evidence → causal hypothesis → target surface → bounded edit
+        → expected fix → at-risk regression → held-in/out verdict
+```
+
+**왜 이게 델타인가**: vault 는 *제안·승격 안전장치*(HITL·L-STAGE·Archive-only)는 강한데, **하네스 diff 하나가 이후 과제 성능을 실제로 올렸는지 귀속하는 칸이 없다.** 이 카드는 `at-risk regression`(이 수정이 깨뜨릴 수 있는 것)과 `held-in/out verdict`(보류분에서도 유지되는가)를 **수정 시점에** 강제한다.
+
+⚠️ **정직한 간극(원 패킷이 스스로 적은 것)** — *"self-improving 은 운영 목표이지 전면 입증 완료 상태가 아니다."* vault 도 같다. 반복 실험으로 귀속을 증명한 적이 없다.
+
+▶ **첫 소비처 = park-registry PK-022**(RSI ④Recur A/B). 그 측정이 정확히 이 카드의 `held-in/out verdict` 칸을 채우는 일이다. **카드 단독 도입은 하지 않는다** — PK-022 부활 시 함께 쓴다.
+
 ## ACE context-as-ledger 델타 (2026-07-11, codex-gate — Lilian Weng)
 <!-- lilian-weng "Harness Engineering for Self-Improvement"(lilianweng.github.io, 2026-07-04) MERGE. 대부분 red-queen N-3.5·본 노드 ATDP 중복, ACE 메커니즘만 신규. proposed_by: external_ai (via codex), 판정 by claude. -->
 > Lilian Weng 종합(권위 소스, vault 첫 등장). 본 노드 ATDP는 *trajectory* 중심 — ACE는 *prompt-context mutation* 중심(신규 축):

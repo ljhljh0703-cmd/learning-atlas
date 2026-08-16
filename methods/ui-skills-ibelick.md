@@ -37,7 +37,7 @@ category: method
 - 공통 형식: `우선순위 표 + quick reference(카테고리별 규칙) + tool boundaries(critical: 라이브러리 임의 마이그레이션 금지) + common fixes(before/after 코드) + review guidance`.
 - **리뷰모드**: `/skill <file>` → violations(정확한 라인/스니펫 인용) + why(1문장) + concrete fix(코드 수준).
 
-### 3. `registry.ts` = 외부 skill 큐레이션 (111개)
+### 3. `registry.ts` = 외부 skill 큐레이션 (~~111개~~ → **213 skills · 56 sources**, 2026-08-12 실측)
 - topic 분류(accessibility·motion·systems·visual·interaction·performance·craft·taste·typography·color·3d·frontend·frameworks…)로 외부 저자 skill 라우팅. 저자: addyosmani·antfu·anthropics·microsoft·emilkowalski·dimillian·nextlevelbuilder([UI/UX Pro Max — 제품타입→디자인시스템 자동추천 reasoning DB 스킬 (NextLevelBuilder)](ui-ux-pro-max-skill.md) 저자) 등. = UI skill 생태계 인덱스.
 
 ---
@@ -57,7 +57,8 @@ category: method
 1. **★MUST/SHOULD/NEVER 규칙 + `/skill <file>` 리뷰모드** — html-publish lint(색상 차단)보다 넓은 *UI 코드 품질 게이트*. 리뷰 출력(violations 인용→why→concrete fix)이 spec-to-prompt text gradient 의 **디자인 코드 실전 형식**. baseline-ui = "deslop" 강제 baseline(스택 무관 원칙 多).
 2. **★렌더링 파이프라인 기반 모션 성능 규칙** — composite/paint/layout 글로서리 + 9우선순위(never patterns→mechanism→measurement→scroll→paint→layers→blur→view transitions→tool boundaries). vault 모션 지식의 체계화. FLIP·scroll-timeline·blur ≤8px 등 구체.
 3. **라우팅 레이어 skill 패턴**(ui-skills-root) — "최소 컨텍스트 선택" 을 *메타 skill 로 명시화*. vault Lookup Protocol 의 디자인 도메인 인스턴스 + skill 라우팅 형식.
-4. **topic 기반 외부 skill 레지스트리**(111개) — UI skill 생태계 큐레이션 인덱스 구조.
+4. **topic 기반 외부 skill 레지스트리**(~~111개~~ → **213**) — UI skill 생태계 큐레이션 인덱스 구조.
+5. **★`improve-ui` 3층 증명 게이트** <!-- 2026-08-13 codex-gate: pin 146fcd0b · v0.2.4 · MIT --> — 지적 하나가 살아남으려면 세 층이 전부 있어야 한다. **`Contract`**(이 표면을 지배하는 실제 디자인 결정이 존재하는가) → **`Runtime`**(그 token/component/owner 가 해당 렌더 경로에 *실제로 도달*하는가) → **`Correction`**(증거가 하나의 구체적 수정으로 수렴하는가). 하나라도 없으면 finding 을 버리고 **`No supported findings` 를 정상 출력으로 허용**한다. 이게 §3 리뷰모드(violations→why→fix)보다 한 겹 위다 — 리뷰모드는 *어떻게 말할지*를, 이건 *말할 자격이 있는지*를 정한다. 취향 기반 잔소리와 실제 결함을 가르는 축.
 
 ---
 
@@ -65,7 +66,9 @@ category: method
 
 - **React/Tailwind/motion.react 스택 편향**: baseline-ui 가 Tailwind·`motion/react`·`cn`·Base UI 전제. 작가 html-publish(single-file HTML/PPT)엔 *원칙만 부분 적용*, 코드 규칙 직접 이식 X.
 - **품질 정량 검증 없음**: 규칙은 ibelick 의 opinionated 큐레이션. 외부 벤치 없음(단 저자 신뢰도 높음 — motion-primitives 등).
-- **registry 111개 = 링크 인덱스**: 각 외부 skill 품질은 개별 미검증(rawUrl 참조만).
+- **registry ~~111개~~ 213개 = 링크 인덱스**: 각 외부 skill 품질은 개별 미검증(rawUrl 참조만). **수량은 품질 증거가 아니다** — 111→213 증가를 성숙도로 읽지 말 것.
+- ⚠️ **registry 는 authority 가 아니다**(2026-08-13 실측): CLI `get` 이 ui-skills.com registry 를 *런타임 원격 조회*하고, 항목들이 여러 GitHub 의 `main` raw URL 을 가리킨다 → **snapshot pin 없이 authority 로 쓰면 내용이 시간에 따라 drift**. source/provenance/version pin 을 붙이기 전엔 참조용.
+- ⚠️ **`npm ci` audit = 12 vulnerabilities**(1 low · 1 moderate · 10 high, 2026-08-12 실측). 곧바로 exploitable product vulnerability 라는 뜻은 아니지만 **"그냥 `npx` 로 실행" 전에 dependency audit 필요**. `npm test` 자체는 48/48 PASS.
 
 ---
 

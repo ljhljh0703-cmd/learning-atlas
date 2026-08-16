@@ -30,6 +30,20 @@ AI가 구현 비용을 낮추면 병목은 "코드를 쓸 수 있나"가 아니�
 ## 거부할 anti-pattern
 "PRD는 죽었다, 이제 prototype만" / "돌아가니 ship" / "AI가 코드 100% 썼으니 frontier" / "PM·design 없애고 다 builder" / "loop 걸어두면 알아서 개선" / "모델이 좋아질 예정이니 현재 실패를 성공으로 간주".
 
+## 역량 증거 5칸 + Gate 비례 원칙 (2026-08-15 ③Gate 보강)
+
+<!-- 출처 = Threads canonical 200 + 첨부 이미지 · 패킷 `~/Documents/Codex/2026-08-15/ai-engineer-capability-map-delta/` · draft: external_ai (via codex), gate: vault Claude · ⚠️ 원 패킷 자기선언: 5칸은 "저자 스레드의 재현이 아니라 확인된 본문 + Andrew Ng 1차 자료 기반 Codex 의 명시적 synthesis"(후속 답글 회수 실패) — 출처 등급은 *합성*이지 인용이 아니다 -->
+
+원문 주장 대부분은 본 노트·[Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md)·[Agent GPA — Hermes·Agent Harness·AI NPC에 factorized trace diagnosis를 붙이는 법](../techniques/agent-gpa.md)·[스펙→프롬프트 Closed-loop — 스펙 변경이 프롬프트 자동 최적화로 흐르는 파이프라인 (NAVER, 정영훈·김규철·박세)](spec-to-prompt-closed-loop.md) 와 중복이다. 남는 두 가지만 적는다.
+
+**① 역량을 프로젝트 증거로 묶는 5칸** — `WHAT / SPEC / DIRECT / EVAL / LEARN`
+포폴·이력서에서 *"무엇을 할 줄 안다"* 를 **그 역량이 발현된 프로젝트 증거**에 결박하는 격자다. vault 전역 grep 결과 이 5칸 조합의 선례 **0건**. → 첫 소비처 후보 = package-project-evidence Evidence Packet(현재 claim/evidence parity 는 있으나 *역량 축* 분해는 없다).
+
+**② Gate 비례 원칙** — `결정 위험 · 결정 변화 · 검사 비용` 에 비례해 게이트 강도를 정한다.
+⭐ **이건 지금 vault 에 필요한 쪽이다** — 2026-08-17 실측: 하루에 게이트·축·절차를 5종 신설했고, 그중 `log 항목 8KB` 같은 축은 비용 대비 효용이 아직 미검증이다. *"게이트를 늘리는 것"* 자체가 부채가 될 수 있다는 반대 방향 압력을 이 원칙이 준다.
+
+▶ **둘 다 즉시 적용 아님** — ①은 다음 포폴 작업에서, ②는 다음 게이트 신설 시 판정 기준으로 꺼낸다.
+
 ## 반영처 (학습→반영 루프)
 시스템 파일 패치 후보는 §시스템 잠금 대상이라 `스테이징 영역/` 스테이징으로 분리(작가 merge):
 - dispatch-builder 슬롯1~3 앞 `medium_gate` 질문 추가

@@ -130,6 +130,30 @@ diagram-design/
 - **Variants ship together** — minimal light/dark + full editorial + sketchy filter. 사용자 선택 폭 ≠ 자유도 폭주.
 - **Single self-contained HTML 출력** — embedded CSS, inline SVG, no JS. 의존성 0.
 
+## 진화 델타 — 원칙에서 *실행 QA* 로 (2026-08-13 재조사)
+<!-- codex-gate merge: cathrynlavery/diagram-design pin c5805a0c · MERGE_EVOLUTION_DELTA -->
+
+위 6패턴은 최초 흡수 시점(원칙층)이다. 저장소는 이후 **type reference 27종 · reference file 34 · example HTML 92**(loop·bar·line·Gantt·scatter·process·data-flow·medallion·security matrix 등 추가, MIT)로 진화했고, 새 델타는 타입 수가 아니라 **5단계 실행 QA 사슬**이다.
+
+> `type selection → complexity budget → mechanical lint → semantic invariant → rendered taste review`
+
+**A. 그리기 *전* 형식 선택 Gate** — 표나 문단이 더 잘 설명하면 **다이어그램을 만들지 않는다**. 관계가 시간인지·상태인지·계층인지·책임 분할인지 먼저 분류하고 type-specific reference *하나만* 로드(= 패턴 1 의 상류). 노드 9개 안팎을 넘으면 overview/detail 로 분리.
+
+**B. 타입별 complexity budget** — 노드·화살표뿐 아니라 chart series·radar axis·Gantt task·scatter point·annotation 수를 **타입마다 다르게** 제한한다. "모든 다이어그램에 같은 최대치"가 아니라 표현 문법별 예산.
+
+**C. 기계 Gate ⟂ 의미 Gate 분리** — 세 층을 섞지 않는 게 핵심이다.
+| 층 | 검사 | 잡는 것 |
+|---|---|---|
+| `lint-skin.py` | 금지 색·토큰·타이포·geometry drift | 반복 기계 오류 |
+| `verify-sequence-*.py` | ALT fragment · async arrow · OAuth return path | **타입 의미** 위반 |
+| Taste Gate(사람) | node/arrow 제거 가능성 · focal signal · connector overlap · label mask | 미감·가독 |
+
+→ **`lint green` = "좋은 설명" 이 아니다.** 이 분리가 그 착각을 막는다. 패턴 6(Taste Gate)의 상류에 기계층 2개가 생긴 것.
+
+⛔ **가져오지 않음**: 저장소 전체를 새 vault skill 로 중복 설치(기존 노드가 정본) · 27/29 숫자를 품질 증거로 사용(README·type file 은 27, GitHub About 은 29 — **판정엔 27 사용**) · lint 통과를 정보 정확성·미감 승인으로 간주 · 모든 설명을 다이어그램으로 변환.
+
+**held-out 검증(미실행)**: loop·sequence·게임경제 data-flow 각 1개 생성 → lint/semantic/browser render 각각 실행 → 독자가 10초 안에 핵심 흐름과 focal 1~2개를 맞히는지 → **표/문단 baseline 보다 이해가 나아지지 않으면 그 type 은 채택하지 않는다.**
+
 ## 차이점 (이 skill vs 일반 design-system 스펙)
 
 | 차원 | 보통 design system | Diagram-Design Skill |
@@ -169,6 +193,27 @@ npc-harness/
 ```
 
 **다음 액션:** 이 디렉토리 초안 사용자 컨펌 → A 단계 시작.
+
+## 🇰🇷 한국어 로컬라이제이션 게이트 (2026-08-15 ③Gate 보강)
+
+<!-- 출처 = Threads 공개 게시물(canonical `@qjc.ai/Db-oErtk-Bj` 200) + upstream HEAD `09df49d8d1a1c7fb2efdfcdc7a2a0713534350a6`(320 tracked) 직접 대조 · 패킷 `~/Documents/Codex/2026-08-15/diagram-design-korean-localization-delta/` · draft: external_ai (via codex), gate: vault Claude · 신규 노드·스킬·설치 0 -->
+
+**한국어는 번역 후처리가 아니라 *입력*이다** — font·tracking·line-break·node geometry·export parity 를 바꾼다.
+
+🩸 **upstream 실측 = 문서와 집행이 어긋난다.** `output-spec.md` 는 CJK fallback 을 요구하는데, `lint-skin.py` allowlist 는 **문서가 제시한 해결책인 `Noto Sans KR` 자체를 unsupported 로 거부**한다(Korean fixture 실행으로 확인). repo 전체에 **KR font stack·Korean fixture·Hangul bbox 게이트가 부재**하다. 즉 "CJK 지원"은 선언돼 있고 검증은 없다.
+
+**기존 실행 QA 5단**(`type selection → complexity budget → mechanical lint → semantic invariant → rendered taste review`)에 **locale 축을 앞뒤로 덧댄다**:
+
+```
+script detect → KR font truth → rendered bbox → typography policy → export parity → human comprehension
+```
+
+- `script detect` = 입력에 한글이 있으면 이 레인을 강제 발동(선택 아님)
+- `KR font truth` = allowlist 가 실제로 렌더 가능한 폰트인지 **fixture 로 확인**(선언 신뢰 금지)
+- `rendered bbox` = 한글 글리프가 노드 경계를 넘지 않는지 기계 측정
+- `export parity` = SVG/PNG 간 자소 깨짐·폰트 미임베드 대조
+
+▶ **적용 조건**: 한글 다이어그램을 실제로 뽑을 때. 상세 기준·bilingual held-out = 패킷 asset. **upstream 수정은 우리 몫이 아니다**(fork·PR 계획 없음 — 우리 쪽 게이트만 세운다).
 
 ## 연결
 

@@ -1,6 +1,6 @@
 ---
 created: 2026-07-09
-updated: 2026-07-09
+updated: 2026-08-15
 type: learning
 tags: [context-engineering, harness, dispatch, taxonomy, superpowers]
 source: [https://arxiv.org/abs/2604.04258, https://github.com/obra/superpowers]
@@ -46,6 +46,30 @@ category: method
 vault 와의 관계 — 이건 `RTK`·`Progressive Disclosure`(헌법 §4)의 **상류 일반화**다. RTK 는 "불필요한 읽기를 하지 마라"는 *절제* 규율이고, 이쪽은 "읽을 대상을 주소 지정 가능한 데이터로 두고 필요한 조각만 산다"는 *기판* 설계다. 실제 vault 등가물이 이미 있다 — grep·line-range Read·🗺️라우팅맵으로 좁혀 읽는 흐름이 정확히 "전량 적재 없이 슬라이스 구매"다([Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](../techniques/agentic-search-grep-vs-vector.md) 의 grep 우위와 같은 방향). **즉 새 도구가 아니라 기존 습관의 이름과 근거**.
 
 ⚠️ 논문이 스스로 적은 한계 — **무제한 컨텍스트가 아니다**. 서브콜 비용 폭발 위험 · 런타임·비용 분산이 큼 · 순차 호출로 느림 · 모델별 프롬프트 수정 필요 · 최종 답 신호가 brittle · 약한 코딩 모델에선 열화. **일부 과제는 이 스캐폴드에서 오히려 나빠졌다.** 따라서 "context rot 해결"·"무한 컨텍스트" 류로 인용 금지 — 조건부 기법이다.
+
+## 3.6 반대 방향 축 — *주의력 임대료(attention rent)*
+
+<!-- 2026-08-15 ③Gate 보강 · 출처 = X @kevinma_dev_zh(2087820511099203769) + 연결된 Matt Pocock 글 · 패킷 `~/Documents/Codex/2026-08-15/five-source-independent-teardown/` asset `2026-08-15-agents-md-attention-budget-asset.md` · draft: external_ai (via codex), gate: vault Claude · disposition = MERGE_EVIDENCE_ONLY_NO_NEW_NODE(신규 노드 만들지 않음). -->
+
+§1~3 은 컨텍스트를 *무엇으로 채울지*의 축이다. 이 절은 **반대 방향** — 이미 상시 로드되는 문장을 *무엇으로 빼는지*. 핵심 명제: **상시 규칙은 전부 주의력 임대료를 낸다.** 루트 문서의 한 줄은 그 줄이 무관한 모든 작업에서도 주의를 점유한다.
+
+원문 주장(요지) — `/init` 자동생성 루트 문서를 검토 없이 권위화하지 말 것 · 코드에서 바로 발견 가능한 구조나 빨리 낡는 사실을 루트에 반복하지 말 것 · 루트에는 목적·안정적 제약·도구·전역 원칙만 · 세부 지시는 스코프 문서/스킬로 내려보낼 것.
+
+**감사 5축** (루트 문장 1개당):
+
+| 축 | 질문 |
+|---|---|
+| 안정성 | 이 규칙은 한 달 뒤에도 맞는가? |
+| 발견 가능성 | 코드·도구가 스스로 알려줄 수 있는가? |
+| 범위 | 모든 작업에 필요한가, 일부 폴더에만 필요한가? |
+| 근거 | 왜 존재하는지 설명 가능한가? |
+| 집행 위치 | 자연어 지시보다 lint/hook 가 더 확실한가? |
+
+**처분은 4분류만** — `keep root` / `route to scoped doc` / `enforce mechanically` / `needs human decision`. **분류가 곧 삭제가 아니다**: 자동 축약·자동 삭제·자동 재작성 금지, 충돌과 절단은 작가 판단(§5.7 L-HITL).
+
+⚠️ **과장 교정** — 연결 글의 "150–200 instructions" 는 공식 한계가 **아니다**. 원출처(HumanLayer)가 스스로 "충분히 연구되지 않았다" 고 적었고 "300줄 미만" 도 경험적 합의다. **줄 수를 하드 게이트로 쓰지 말 것.**
+
+vault 와의 관계 — 신규성은 거의 없다(얇은 루트 라우터·Progressive Disclosure·RTK·하위 문서 분리가 이미 같은 원칙). 남는 건 **감사 도구**뿐이고, 그 도구가 걸리는 살아 있는 표면은 있다: `hot.md` 총량 ≤120줄 가드(헌법 §대화 시작 시) · `CLAUDE.md` 751줄 · `AGENTS.md` 140줄. 임계를 *줄 수*가 아니라 *5축 판정*으로 읽는 것이 이 절의 실제 용도다.
 
 ## 4. 오버클레임 가드 (③Gate 마킹)
 

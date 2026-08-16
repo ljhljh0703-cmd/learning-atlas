@@ -20,7 +20,7 @@ category: method
 decay를 잡아야 할 검증기 자체가 *조용히 통과*한다: graphify `check-update` silent·integrity-lint 코드펜스 오탐(14 중 10 false-positive)·coherence false-green(접근불가 조용한 skip, 이번 세션 수정)·use-ledger 엔트리가 `<!-- -->`에 갇혀 invisible. **검증 안 했는데 통과처럼 보임 = decay가 안 보이게 쌓임.** 철칙: **검증기는 fail-safe(모르면 "모름"이라 큰소리) — fail-open(조용한 pass) 금지.** ([Shepherd — Reversible Execution Traces (하네스 자가수리 기판)](shepherd-reversible-execution-traces.md) `trace_incomplete`·헌법 "자기보고 불신" 동형.)
 
 ### C3. 손-집행 불변식의 drift (forcing function 부재)
-hot.md ≤500자·log ≤1000줄·frontmatter=1번째줄·provisional→confirmed — *문서화된 규칙*이지만 손으로 집행. 차단 훅/게이트 없어 누군가 눈치챌 때까지 drift(hot.md 넘침·log 초과·provisional 적체·frontmatter 콜론 미인용 YAML깨짐). infra-0(데몬0) = 세션이 기억해야 하는데, 30패킷 게이트 중엔 housekeeping이 샌다.
+hot.md ≤500자·~~log ≤1000줄~~·frontmatter=1번째줄·provisional→confirmed — *문서화된 규칙*이지만 손으로 집행. <!-- 2026-08-15 부분 해소: hot.md·log.md 두 축이 `vault-health-gate` `hot_log_bounds` 로 기계 집행 전환(hot 4축 = 줄수·topic·바이트·최장줄 / log 4축 = 950줄·총400KB·세션슬라이스20KB·항목8KB). 본 C3 가 지목한 forcing function 부재의 *두 사례*가 닫힌 것이고, frontmatter·provisional 축은 그대로 손 집행이라 진단 자체는 유효하다. -->  차단 훅/게이트 없어 누군가 눈치챌 때까지 drift(hot.md 넘침·log 초과·provisional 적체·frontmatter 콜론 미인용 YAML깨짐). infra-0(데몬0) = 세션이 기억해야 하는데, 30패킷 게이트 중엔 housekeeping이 샌다.
 
 ### C4. 멀티세션 동시편집 + 유지보수 주인 부재
 여러 세션(이 세션·엘드리치·포폴·Codex)이 공유파일(log·hot) 동시 append. **유지보수를 *소유*한 세션이 없음** → 청소가 틈으로 떨어짐(digest 11일 지연·gate:pending 5·staged 4 = 아무도 안 주인). coherence "쓰기 주인" 문제의 유지보수판.

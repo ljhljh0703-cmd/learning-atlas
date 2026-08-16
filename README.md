@@ -4,11 +4,11 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**316편** · Techniques 139 · Methods 172 · 경험 서사 5
+**319편** · Techniques 141 · Methods 173 · 경험 서사 5
 
 ## 🔬 Techniques
 
-*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 139편
+*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 141편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>43편</sub>
 
@@ -58,10 +58,12 @@
 | [Mafia Game Refinement (Ri et al. 2022, JAIST)](techniques/mafia-game-refinement.md) |  | 2026-04-25 |
 | [RoleLLM (Wang et al. 2023) — 캐릭터 단위 역할극 LLM 표준화](techniques/role-llm.md) |  | 2026-04-25 |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>20편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>22편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Catastrophic Remembering — 규칙은 왜 지워지지 않는가](techniques/catastrophic-remembering.md) | https://arxiv.org/abs/2608.11095 | 2026-08-16 |
+| [ReasoningBank — 실패를 *예방 규칙*으로 증류하는 에이전트 메모리](techniques/reasoningbank-failure-distilled-memory.md) | https://arxiv.org/abs/2509.25140 | 2026-08-13 |
 | [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-08-11 |
 | [Re:Cart 해체 — "머리 vs 손" 결정 계층 + 승리 요인 해부](techniques/recart-decision-layer-teardown.md) | [https://github.com/ronut01/recart-ecommerce-… | 2026-07-20 |
 | [12-Factor Agents — 프레임워크 회의론 선언문 (vault 이미 앞섬, delta=F5)](techniques/12-factor-agents.md) | https://github.com/humanlayer/12-factor-agents | 2026-07-18 |
@@ -176,7 +178,7 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 172편
+*도구 · 워크플로우 · 방법론 · 스킬* — 173편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>13편</sub>
 
@@ -200,6 +202,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Context Engineering — 5 역할 분류 + 구현계획 컴파일러](methods/context-engineering-five-roles.md) | [https://arxiv.org/abs/2604.04258, https://gi… | 2026-08-15 |
 | [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](methods/claude-code-official-concept-map.md) | https://code.claude.com/docs | 2026-07-27 |
 | [Graph Engineering — 실행 토폴로지 (≠ 지식 그래프)](methods/graph-engineering-execution-topology.md) | https://x.com/angeldot_/article/2081061068516… | 2026-07-27 |
 | [하네스 개선 판정 계약 (Vault-lite)](methods/harness-gain-evaluation-contract.md) | ["https://arxiv.org/abs/2607.12227"] | 2026-07-25 |
@@ -216,7 +219,6 @@
 | [App Privacy Risk Red Flags — 게임·앱 개인정보 리스크 게이트](methods/app-privacy-risk-redflags.md) | 작가 실무 노트 (Codex 세션, 2026-07-09) + 국가법령정보센터 공개 법령 | 2026-07-10 |
 | [Shepherd — Reversible Execution Traces (하네스 자가수리 기판)](methods/shepherd-reversible-execution-traces.md) | [https://github.com/shepherd-agents/shepherd,… | 2026-07-10 |
 | [System-Prompt Leak Corpus — Operating Patterns (부분 흡수)](methods/system-prompt-leak-corpus-operating-patterns.md) | system-prompt leak corpus (CC0-1.0 repo) — 상세… | 2026-07-10 |
-| [Context Engineering — 5 역할 분류 + 구현계획 컴파일러](methods/context-engineering-five-roles.md) | [https://arxiv.org/abs/2604.04258, https://gi… | 2026-07-09 |
 | [Deterministic Core, Fuzzy Edge — 안티슬롭 아키텍처 원칙](methods/deterministic-core-fuzzy-edge.md) | https://www.youtube.com/watch?v=uMvTAF280so | 2026-07-04 |
 | [EdgeBench — 환경 학습을 "시간-점수 곡선"으로 측정하는 벤치마크](methods/edge-bench.md) | https://edge-bench.org/ | 2026-07-04 |
 | [sim-use — 모바일 화면을 "structured perception + action handle"로 압축하는 agent 하네스](methods/sim-use.md) | https://github.com/lycorp-jp/sim-use | 2026-07-04 |
@@ -256,10 +258,11 @@
 | [Codex CLI Prompting — 내재화 노트](methods/codex-cli-prompting.md) | https://developers.openai.com/cookbook/exampl… | 2026-04-28 |
 | [Everything Claude Code (ECC) — 에이전트 harness 성능 최적화 시스템](methods/everything-claude-code.md) | https://github.com/affaan-m/everything-claude… | 2026-04-24 |
 
-### 🧠 AI · LLM 연구 <sub>20편</sub>
+### 🧠 AI · LLM 연구 <sub>21편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [OpenClaw (methods)](methods/openclaw.md) | https://github.com/openclaw/openclaw README | 2026-08-13 |
 | [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](methods/neo4j-agent-memory-context-graph.md) | https://www.youtube.com/watch?v=tcVK3ufL36E | 2026-08-11 |
 | [사내 AI 도구 배포·운영·측정 플레이북](methods/internal-ai-enablement-playbook.md) |  | 2026-08-02 |
 | [Higgsfield 영상 프롬프트 공예 (AI Filmmaking as Directed Craft)](methods/higgsfield-video-prompt-craft.md) | higgsfield.ai/community — 프로젝트 상세 '4K Blockbu… | 2026-07-25 |

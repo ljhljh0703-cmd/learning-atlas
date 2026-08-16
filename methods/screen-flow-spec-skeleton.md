@@ -42,6 +42,38 @@ minispace는 *정적 화면 맵*으로 훌륭하나, 상위호환의 핵심 = **
 
 **상위호환 1줄 논지**: 예쁘지만 정적인 그림 → **screens.yml + FSM guard + 커버리지/계측 매트릭스로 lint·drift-proof·분석배선된 SSOT**(캔버스는 거기서 render). = vault 강점(SSOT 위성·render 파생·done-gate·review_trigger)이 그대로 전이(흡수 4대 규율 ③ 시너지).
 
+## §I 변형 — 화면이 *사람*이 아니라 *에이전트*의 작업 표면일 때 🔄 2026-08-15 보강
+
+<!-- 출처 = beautifului.dev(MIT, 19 프리미티브 데모) 해체 · 패킷 `~/Documents/Codex/2026-08-14/four-source-independent-teardown/` · draft: external_ai (via codex), gate: vault Claude ③Gate. 위 §A~H 는 *사람의 여정*을 단계화하고, 본 §는 *에이전트의 작업 단위*를 상태화한다 — 별개 축이라 §A~H 무변경. -->
+
+AI 가 일하는 화면에서는 §C 의 최소 단위(화면 = 해시태그 ID)가 안 맞는다. 최소 단위가 `message` 도 `screen` 도 아니라 **work unit = 상태 + 근거 + 제안된 행동 + 인간 통제** 이기 때문이다. 데모의 19 프리미티브를 역할로 접으면 4묶음뿐이다.
+
+| 역할 | 프리미티브 | 사람에게 답하는 질문 |
+|---|---|---|
+| 진행 가시성 | loading · task rows · tool chips · streaming | 지금 뭘 하고 어디까지 왔나 |
+| 판단 가시성 | recommendation · confidence · alternatives | 왜 이 선택이며 다른 선택지는 뭔가 |
+| 근거 가시성 | context cards · sources · diff · records | 무엇을 근거로 무엇이 바뀌나 |
+| 인간 통제 | approval · accept/discard · selection actions | 어디서 멈추고 인간이 개입하나 |
+
+**슬롯**(§C 레지스트리의 에이전트판 — `screens.yml` 과 같은 층에 둔다):
+
+```text
+pattern_id
+work_state: idle | running | waiting_human | failed | completed
+observable_evidence
+proposed_action
+alternatives
+confidence_or_unknown
+human_control
+error_and_recovery
+```
+
+- ⛔ **`Thinking` 패널 = chain-of-thought 공개로 읽지 않는다.** 원문 데모는 reasoning 을 노출하지만, 흡수 시엔 agent-harness N-5 와 충돌하지 않게 **`operation trace + decision rationale`** 로만 번역한다 — 수행 단계·호출 도구·성공/실패/대기·공개 가능한 근거·다음 행동과 승인 필요 여부. 신뢰는 사고과정 노출이 아니라 관찰 가능한 작업증거에서 온다.
+- **승인 UI 는 예/아니오 버튼이 아니다** — 권장안·대안·신뢰도·검토 필요 옵션·**근거 신호가 없는 옵션**을 같이 보인다. 이건 §상위호환 2(guard 있는 FSM)의 인간 인터페이스판이고, vault Gate 화면·배포 전 결정 카드에 그대로 응용된다.
+- **변경은 완성본보다 diff 가 먼저**(diff → 국소 검토 → 수락/폐기) = vault 의 Gate·creator approval 경계와 동형.
+- ⛔ **버릴 것**: 사이트 시각 스타일의 vault 전역 채택 · **버전 pin 없는 라이브 페이지 코드 반입**(독립 저장소·버전 태그·테스트·package manifest 미확인, 소스가 `liveline`/`glimm`/`iconoir-react` 참조라 무의존성 copy-paste 아님) · 예쁜 데모를 접근성·성능 PASS 로 간주.
+- 검증 = 동일 기능을 기존 UI ⟂ 패턴 적용 UI 로 나눠 5과제 비교(현재 상태 맞히기 · 근거 출처 도달 시간 · 승인 전 변경 범위 이해 · 실패 후 복구 행동 · **내부 reasoning 비노출로도 신뢰 유지되나**) + §상위호환 3 매트릭스(keyboard/focus · reduced-motion · narrow viewport · empty/error/permission-denied).
+
 ## 반영처 후보 (승격 시)
 - 작가 앱/서비스 화면 기획 착수 시 = 본 골격 §A~H 인스턴스화 + 상위호환 §6 템플릿부터.
 - **구체 near-term 타깃 (작가 명시 2026-07-25)**: ① **텀블벅 상세페이지** — 펀딩 페이지는 §상위호환 6(phase-템플릿)·7(빈상태→활성화 CTA) + 마케팅 상세페이지 각도(index). ② **젤리패닉 앱 배포** — 앱스토어 상세·온보딩·화면 플로우에 §A~H 골격. 앞으로 앱·웹 배포·펀딩 반복 = 본 골격 상시 인출 대상(작가 "필수").

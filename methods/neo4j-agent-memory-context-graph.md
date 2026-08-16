@@ -53,6 +53,24 @@ category: method
 
 → 반영처 = Myth Atlas 의 동명이인·이명 병합 Gate + 소규모 gold triple 회귀셋(⏸️ Atlas 레인 후순위, 작가 지시 2026-08-11). 인용 게시물의 `graph engineering 1000배` 소문·인사 뉴스는 버림(추천 정본과 첨부 article 불일치 = 게시물 자체 신뢰도 하락 근거).
 
+**결정 추적 계약 — `explicit` ⟂ `inferred` 는 다른 edge 다** <!-- 2026-08-13 codex-gate: semantica-agi/semantica pin 7bf7474 --> — §3 의 *추론 계층*은 "어떻게 도달했나"를 남기라고만 했다. Semantica 코드가 그 계층의 **함정을 실증**한다: 같은 저장소가 두 종류의 인과를 한 이름 아래 둔다.
+- `add_causal_relationship()` + `get_causal_chain()` = **사람이 명시한** typed edge 를 따라간다.
+- `trace_decision_causality()` = **같은 엔티티를 공유하고 시간이 앞선** 결정을 potential cause 로 *추정*한다.
+
+후자는 시간적 선행 + 공동 엔티티일 뿐 **인과 증명이 아니다**. 따라서 결정 노드를 그래프로 남길 때 `origin: explicit | inferred` 를 edge 속성으로 **강제**하고, inferred 는 자동으로 `CAUSED` 로 승격되지 않는다. `inference_method`·`confidence`·`reviewer` 를 함께 단다.
+
+```text
+DecisionNode: id · actor · input_snapshot_refs[] · evidence_refs[]
+              rule_or_model_version · reasoning_summary · outcome · confidence
+              valid_time · recorded_time · supersedes
+Edges: SUPPORTED_BY · CAUSED · INFLUENCED · PRECEDENT_FOR · SUPERSEDED_BY
+       (+ origin · inference_method · confidence · reviewer)
+```
+
+이건 vault 가 이미 다른 표면에서 지키는 규율의 그래프판이다 — §5.7 *"AI 가 추론한 취향 = candidate only, 작가 결정으로 박제 금지"* · lessons *"'없음' 은 주장이지 관측이 아니다"*. **독립 수렴이지 새 규율이 아니다.** 파일럿 성공 기준 = 모든 결정이 최소 1개 immutable evidence snapshot 에 연결 · 같은 input+rule version 의 replay 동일 · `CAUSED` edge 100% 가 명시 근거 또는 human approval 보유 · superseded 는 삭제 아닌 valid/recorded time 구분.
+
+⛔ **가져오지 않은 것**: "오픈소스 Palantir" 등가 주장(포지셔닝 문구) · Semantica 스택 도입(기본 의존성 42 + optional 46 = 과도) · release note 의 `production-ready`/`100% coverage`(255 test file·4476 test function 은 실재 확인했으나 **기본 CI 가 pytest 를 호출하지 않고** 조사 세션도 pytest 미설치로 미실행) · "전체 파이프라인 결정론적"(추출·ontology 생성 모듈엔 선택적 LLM 경로 있음). 🅿️ **Semantica 도입 자체 = PARK** — 트리거는 park backlog 참조.
+
 **과장 금지**: 현 vault lookup(grep+map+graphify) 보다 낫다고 주장 X / "지금 Neo4j 도입" 결정 X(개념 영상, 1/3) / 자동추출 엔티티를 Gate 전 진실 취급 X / Graphiti 와 동일시 X / Decoding AI 기사 주장은 미검증(링크 200 만 확인).
 
 ## 6. 응용
