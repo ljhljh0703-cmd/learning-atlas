@@ -1,6 +1,6 @@
 ---
 created: 2026-07-25
-updated: 2026-07-25
+updated: 2026-08-25
 type: learning
 category: method
 tags: [harness, evaluation, held-out, transfer, promotion-gate, attempt-budget, skill-quality]
@@ -54,6 +54,7 @@ year: 2026
 - **Secondary**: `pass@K` · time-to-first-useful-artifact · user correction rate
 - **Cost**: input/output 토큰 · tool calls · wall-clock · model calls · 달러 추정 **또는 명시적 `not measured`**
 - **Integrity**: artifact hash · model/config/version · attempt index · feedback visibility
+- **Historical retention** 🆕 2026-08-25: `historical_anchor_loss` — 후보가 *과거* 고정 사례를 얼마나 깎았나. **현재 이득만 재면 하네스 갱신이 과거 능력을 잠식하는 것을 못 본다**([Harness Continual Learning — 하네스도 과거를 잊는다](../techniques/harness-continual-learning.md) 저자 보고: 가소성 우선 설정에서 망각 10.94, 더 자유로운 갱신이 오히려 최종 성능을 낮춘 sweep 존재). 함께 기록할 것 = `changed_component`(I/M/C/R 중 어디를 바꿨나) · `commit_decision`. ⚠️ **anchor PASS 는 무망각 증명이 아니다** — anchor 가 유한하면 held-out 과거 사례의 망각은 남는다. 그리고 *새 평가 기준을 설계한 사례*는 anchor 가 아니라 `discovery` 로 분리한다(자기 기준으로 자기를 통과시키지 않기).
 
 ## 5. Routing 적응 — 3결과를 따로 본다
 
@@ -98,3 +99,5 @@ generalization  = 설계에 쓰지 않은 case 에서도 B1 보다 나음
 - **gate-eval-set-v0**: anchor 케이스도 *평가자에게 보이는 것* 과 *평가자 전용 held-out* 을 나눠야 한다(같은 논리를 평가자 자신에게 적용).
 - **hermes-loop** ⑤ Distill: `usefulness`(1회 유용) 와 `generalization`(전이) 를 구분 — 현행 승격 요건은 전자만 본다.
 - **선행**: vault 는 이미 arms×models×tasks×N·worst-of-N·hidden judge·frozen anchor·provisional+pilot+HITL 을 보유. **없던 것은 `B1`(고정 하네스 동일 예산) 이라는 baseline 하나와 split 분리다.**
+
+> 🆕 확장 후보 (2026-08-25): [ACES — 스킬 문서 점수와 실제 에이전트 성능을 분리한다](aces-skill-evaluation.md) — H arm 을 H-iso(target만)/H-group(target+고정 decoy)으로 쪼개 `content_lift ⊥ routing_premium` 분리 측정. 본 계약(B0/B1/H)을 교체하지 않는 additive arm. 다음 M/G급 skill shadow pilot 에서만 시험.

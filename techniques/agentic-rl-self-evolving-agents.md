@@ -1,6 +1,6 @@
 ---
 created: 2026-07-06
-updated: 2026-07-06
+updated: 2026-08-25
 type: learning
 tags: [agentic-rl, self-evolving-agents, trajectory, atdp, control-plane, observability, rsi]
 source: https://arxiv.org/pdf/2607.01120
@@ -103,3 +103,12 @@ evidence → causal hypothesis → target surface → bounded edit
 - **동기**: full-rewrite 압축이 컨텍스트를 붕괴시킴 → ledger merge가 보존. (ACE 논문 "18,282→122 토큰 collapse" 인용 — ⚠ **Weng 글 아닌 ACE 원논문 arXiv 2510.04618 귀속·offline 미검증**.)
 - 관계: [Red Queen Gödel Machine — 평가자까지 같이 진화시키는 자기개선](red-queen-godel-machine.md) N-3.5 frozen-anchor(중복 — held-out 승격)·agent-harness와 상보. context ledger = shepherd settlement의 컨텍스트판.
 - **② Park**: `context_delta.tsv`/`failure_record.tsv` operating deltas = frozen set 생기기 전 evidence-free → Apply-trial 시. skill 기각(red-queen N-3.5 중복).
+
+## ClawGym II 델타 (2026-08-25, codex-gate — 8소스 해체분석 S5)
+<!-- 패킷 2026-08-21/eight-source-independent-teardown. proposed_by: external_ai (via codex) · confirmed_by: user 2026-08-25 · 판정 by vault Claude ③Gate. SHA256SUMS 10/10 대조 통과. -->
+> **대부분 본 노드 Pillar 2(안정된 I/O 경계의 data proxy)와 중복.** 신규는 두 가지뿐이라 신설하지 않고 여기 붙인다.
+
+- **파편 호출의 prefix-tree 재조립** (신규) — 하네스 *내부*를 계측하지 않고 model-serving 경계에서 모든 호출을 캡처한 뒤, 분기·재시도·중복 호출을 prefix tree 로 복원한다. dead leaves·보조 trajectory·과도 분기는 제외. 즉 **불투명한 하네스도 밖에서 궤적을 되살릴 수 있다**는 방법.
+- **mix-harness training** (신규) — 서로 다른 하네스의 rollout 을 같은 모델에 학습.
+- 저자 보고(⚠ 기준선 주의): Qwen3-30A3B ClawGym-Bench Pass@1 은 **45.11→62.62 가 아니라** cold-started policy **52.64→62.62(+9.98)**. Claude Code 37.06→51.87(+14.81). PinchBench +11.71 / +17.28.
+- 🅿️ **파킹 — 우리는 모델 파라미터를 훈련하지 않는다.** 우리에게 필요한 건 하네스 *평가*이므로 full proxy 로 프롬프트 전문을 저장하지 않는다. 응용 단초는 **privacy-preserving tree** = `trace ID · 호출 부모 · tool class · result hash · gate result` 만 남기는 축소판. 트리거 = 하네스 A/B(park-registry PK-022)가 부활해 궤적 비교가 실제로 필요해질 때.

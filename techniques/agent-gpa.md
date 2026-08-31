@@ -215,7 +215,7 @@ TC는 test identification P=.879 / R=.969 / F1=.922로 가장 균형이 좋았�
 
 ## 6. Connect — Sub-brain과의 중복/델타
 
-Based on Sub-brain의 workflows/hermes-loop.md §③·§③.E, workflows/agent-harness.md H-02·H-14·Doer-Verifier·N-3.5, skills/npc-eval/SKILL.md와 BEHAVIOR.md, wiki/learnings/techniques/agentbench-evaluation-taxonomy.md, wiki/learnings/techniques/webarena-osworld-eval-contracts.md를 기준으로 판정한다.
+Based on Sub-brain의 workflows/hermes-loop.md §③·§③.E, workflows/agent-harness.md H-02·H-14·Doer-Verifier·N-3.5, skills/game-ai-harness/npc-eval/SKILL.md와 BEHAVIOR.md, wiki/learnings/techniques/agentbench-evaluation-taxonomy.md, wiki/learnings/techniques/webarena-osworld-eval-contracts.md를 기준으로 판정한다.
 
 ### 6.1 Hermes와의 정확한 관계
 

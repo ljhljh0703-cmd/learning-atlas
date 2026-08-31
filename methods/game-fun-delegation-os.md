@@ -92,7 +92,7 @@ AI 산출물은 *작동*만으로 pass 안 함. 8축 검수: ① Concentration(�
 
 ## 5++. 실행 다리 + 계약 압축 (Codex 2026-06-30 후속, 비판적 수용)
 - ✅ **combat-sim-harness-spec** 신규 — §4 지표 카탈로그의 *개념→실행* 다리(결정론 전투 시뮬 하네스 v0.1, repo 디스패치 후보). 이 OS의 진짜 payoff(재미 지식→runnable 밸런스 증거).
-- ❌ **8-계약 팩 dedup 기각** — Codex가 Card 01-16을 8 계약(game-ai-delegation·output-review-gate·feature-template·tone·npc-memory·quest-clue 등)으로 압축했으나 **§3 계약 + game-research-card-gate의 재명명(~85% 중복)** → 신규 노드 X(Karpathy #3). 카드→계약 매핑이 필요하면 외부 분류매트릭스(`~/Documents/Codex/2026-06-30/game-card-contract-compression/outputs/card-01-16-classification-matrix.md`) 참조.
+- ❌ **8-계약 팩 dedup 기각** — Codex가 Card 01-16을 8 계약(game-ai-delegation·output-review-gate·feature-template·tone·npc-memory·quest-clue 등)으로 압축했으나 **§3 계약 + `game-research-card-gate` 의 재명명(~85% 중복)** → 신규 노드 X(Karpathy #3). 카드→계약 매핑이 필요하면 외부 분류매트릭스(`~/Documents/Codex/2026-06-30/game-card-contract-compression/outputs/card-01-16-classification-matrix.md`) 참조. <!-- 2026-08-26 링크 수리: `game-research-card-gate` 는 08-25 큐레이터가 game-design `references/research-card-intake.md` 로 흡수(스킬 archive·규격 존치). 판정 내용(85% 중복·신규 노드 X)은 무변경. -->
 
 ## 6. 학습→반영 (이 OS가 바꾸는 곳)
 

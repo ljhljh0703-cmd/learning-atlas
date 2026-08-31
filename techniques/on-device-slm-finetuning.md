@@ -1,6 +1,6 @@
 ---
 created: 2026-07-18
-updated: 2026-07-18
+updated: 2026-08-27
 type: learning
 tags: [slm, finetuning, lora, quantization, on-device, local-ai, gemma, peft, playbook]
 source:
@@ -67,6 +67,37 @@ category: technique
 1. **게임 NPC 의도 분류·대사 라우팅** — ai-npc-game / libgdx-rogue-os에 로컬 SLM을 붙일 때. 이 파이프라인이 후보 스택. (cf. [Fixed-Persona SLMs with Modular Memory — 소비자급 하드웨어 다중 NPC 대화](slm-dynamic-content-generation.md) = persona를 LoRA로 고정하고 메모리 분리하는 인접 아키텍처)
 2. **앱/도구에 오프라인 특화 기능** — 텍스트 분류·추출·포맷팅을 서버 없이 온디바이스로. 프라이버시·지연·비용이 걸릴 때.
 3. **거대모델 API 비용이 병목** — 반복적·좁은 태스크를 초소형 특화모델로 오프로딩([The New SDLC With Vibe Coding (Google / Addy Osmani)](../methods/google-new-sdlc-vibe-coding.md) Intelligent Model Routing의 극단값 = self-hosted tiny).
+
+## 행동 결정기 특화 — 대화가 아니라 도구 호출만 시킨다 (2026-08-27 · Needle 2 해체 흡수)
+
+> 위 ①~⑤ 가 *어떻게 작게 만드나*라면, 이 절은 *작게 만든 걸 무슨 역할에 앉히나*다. 출처 = Cactus Compute `needle` 공식 README(패킷 스냅샷 실측) + 2차 기사. **기사 단독 수치는 승격하지 않았다.**
+
+로컬 초소형 모델에게 **"무엇을 말할까"를 시키지 않고 "어떤 도구를 어떤 인자로 부를까"만** 풀게 한다. 그 위에 오작동을 줄이는 세 겹:
+
+1. **스키마를 문법으로 컴파일** — 선언된 도구 스키마를 byte-level grammar 로 바꿔 **디코딩 자체를 제약**한다. 존재하지 않는 함수·인자가 문자열로도 안 나온다. (vault 선행 0건 = 신규)
+2. **도구 검색 선행 (top-5)** — 카탈로그가 커도 매 턴 상위 5개만 렌더하고 grammar 도 그 부분집합으로 좁힌다. (vault 선행 0건 = 신규)
+3. **confidence 임계 승격** — 학습된 confidence head 점수가 임계 이상일 때만 실행, 이하면 재질문하거나 상위 모델로 올린다.
+   🔗 **같은 기전이 다른 도메인에 이미 있다** — [DeepSpec / DSpark — speculative decoding draft-model 스택](deepspec-dspark.md) §4 는 confidence head 를 *검증 예산 게이트*(임계 아래 suffix 를 verify 에서 trim)로 쓴다. **점수를 임계로 잘라 비싼 단계를 아낀다**는 뼈대가 같다. 한쪽을 고칠 때 다른 쪽을 같이 본다.
+
+**⛔ 문법상 유효한 호출 ≠ 안전한 호출.** 로컬 모델은 "실행 후보"까지만 만들고, 게임 규칙 엔진이 precondition·쿨다운·권한·현재 상태를 **다시** 검사한다. 이 검사기를 빼면 위 3겹이 무의미하다.
+
+**⛔ Hermes 라우터로 쓸 때** — 읽기 전용·되돌릴 수 있는 분류까지만. vault 쓰기·publish·삭제·결제는 tiny-model confidence 만으로 허용하지 않는다.
+
+**평가 지표를 바꾼다** — BLEU·대화 매력 대신 `도구 선택 정확도 / 인자 정확도 / no-tool 거절률 / 잘못된 실행률 / escalation recall`. 성공 조건은 정확도가 아니라 **잘못된 실행 0 + 모호·위험 요청 승격**이다. 임계값을 고른 셋과 통과 판정 셋을 **분리**한다(같은 셋으로 고르고 통과시키면 누수 — [검증자의 주장도 환각이다 — 강한 주장은 1차 출처로 재-Gate](../methods/verifier-claims-need-regate.md) §누수 8패턴 ⑥).
+
+**검증 상태 (공식 README 실측 / 기사 단독 구분)**
+
+| 주장 | 상태 |
+|---|---|
+| 45M params · 단일 14MB 바이너리 · 세션 RAM 28MB · CQ2-bit · schema→grammar · confidence head · top-5 retrieval · 256-token sliding window + KV sink | 공식 README 확인 (RAM 은 vendor 주장) |
+| Raspberry Pi 5 500+ tok/s · Samsung A 300~700 tok/s · vocabulary projection 98% 생략 | 🔴 **기사 단독. 공식 README 0건 → 미검증** |
+| 경쟁 모델 대비 일반 우위 | vendor benchmark only — 독립 재현 전 주장 금지 |
+
+**⛔ 도입 조건** — 실제 온디바이스 행동 라우터 병목이 생길 때 격리 파일럿부터. 추론 엔진이 최초 1회 Hugging Face 에서 내려받으므로 **"오프라인 추론"과 "무설치·무다운로드"는 다르다.**
+
+파일럿 최소 규격 = 도구 5~10개 · 한국어 요청 60개(정상 30 · 표현 변형 10 · 모호 10 · no-tool/위험 10) · 대상 기기 latency·peak RAM 동시 측정.
+
+<!-- 흡수 2026-08-27 · Codex 패킷 four-source-independent-teardown ③Gate 후 작가 승인("1, 2는 ok"). 게이트 기록 = four-source-teardown-gate-2026-08-27 -->
 
 ## 인접 지식
 

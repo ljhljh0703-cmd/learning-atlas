@@ -113,3 +113,5 @@ owner: 누가 삭제를 승인하는가
 ## 관계
 
 [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](goose-agent-harness.md)(comment = why not what — 원칙층) · agent-skill-quality-gate(pruning A/B · hard guardrail ablation 제외) · [하네스 개선 판정 계약 (Vault-lite)](../methods/harness-gain-evaluation-contract.md)(held-out transfer·비용 측정 — **경로는 `learnings/methods/`**) · [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](../methods/claude-code-official-concept-map.md)(파일 비대·조건부 로딩) · CLAUDE.md §"LOCKED 결정에 재검토 조건 의무"(`review_trigger` = 이 논문이 없다고 지적한 것의 vault 선행 구현)
+
+> 반대 축 (2026-08-26): [Compaction Cliff — 규칙과 로그를 같은 비율로 요약하면 안전성이 무너진다](compaction-cliff.md) — 이 노드는 규칙이 *너무 남는* 문제, 그쪽은 압축에서 필요한 규칙이 *지워지는* 문제. 둘을 한 축으로 합치지 않는다.

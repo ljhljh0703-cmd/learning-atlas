@@ -43,10 +43,23 @@ vault는 Doer-Verifier로 *검증자 독립*까지 갔으나, **검증자 *개�
 - ✅ **hermes-loop §③.E Gate Evolution** 반영 — epoch freeze·anchor 우선·selective re-gate·HITL 승인.
 - ✅ **agent-harness N-3.5 Verifier 개선** 반영 — anchor-gated(엄격해 보여서 X, anchor 성능 개선 시만).
 - ✅ **gate-eval-set-v0** 신규 — ③Gate anchor 정답집(vault 실사건 시드: PASS·false accept·verifier 환각·latent bug·low-value reject).
-- ✅ **incubator 스킬** evaluator-evolution-gate(provisional, 패치 merge 후 active 검토).
+- 🗄️ **incubator 스킬 `evaluator-evolution-gate` = archived 2026-08-25**(큐레이터 판정 = **중복** — 내용이 이미 위 hermes-loop §③.E + gate-eval-set-v0 정본에 있다). 사유 정본 = `skills/.curator-runs/2026-08-25/REPORT.md` C2 · 보존 위치 = `skills/.archive/2026-08-25_evaluator-evolution-gate/`(Archive-Only 불변식 — 삭제 아님). 구 기재의 「패치 merge 후 active 검토」는 만료됐다: 그 스킬이 대기하던 패치는 이미 merge 됐고(본 절 상단 3줄), merge 결과가 스킬을 *불필요하게* 만들었다.
 
 ## 적용 금지
 - 장기 전역 수렴 보장처럼 인용 X(preliminary). vault ③Gate를 *자동 진화*로 전환 X — anchor 없는 evaluator 자가변동은 보상해킹 위험.
 
+## 생산 환경 사례 — Netflix Judge Lifecycle (arXiv 2608.18300, 보강 2026-08-25)
+
+<!-- three-x-harness-delta RETURN S2 (Codex, 원본 sha256 eb3cbbbc…5e8f) · 작가 판정 "기존 노드 보강" 2026-08-25. lifecycle 대부분은 본 노드와 중복 — 아래 델타 5필드만 남긴다. -->
+
+judge 를 Birth→Training→Deployment→Monitoring 으로 유지보수한 Netflix 운영기. 본 노드의 epoch freeze·anchor·selective re-gate 와 대부분 겹치고, 남는 델타는:
+1. **verdict/reason 분리** — 판정이 맞았어도 *이유*가 틀리면 별도로 잡는다(틀린 이유가 다음 revision 을 오염).
+2. **outcome 3버킷 층화 표본** — 무수정 통과 / 수정 후 통과 / 최종 drop 을 모두 본다(pass 만 보지 않음).
+3. **generator drift ⊥ judge drift** — k=0 pass rate 하락 + judge-human agreement 안정이면 generator 쪽 회귀.
+4. bad output 통과 비용 > good output 재생성 비용 → specificity 를 recall 보다 가중.
+5. 기록 5필드 후보 = `verdict_match` · `reason_match` · `outcome_bucket` · `judge_version` · `generator_version`.
+
+⚠️ 미흡수: 단일 judge 의 gate+critic 겸임(Doer-Verifier 분리보다 약함) · 자동 judge 재훈련 · Netflix 규모 복제(주 300건 3인 평가 등). meta-judge 와 primary judge 는 상관될 수 있음(논문 자인 한계).
+
 ## 연결
-[Recursive Self-Improvement — "When AI builds itself" (Anthropic)](recursive-self-improvement.md) · hermes-loop · agent-harness · [Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md) · [검증자의 주장도 환각이다 — 강한 주장은 1차 출처로 재-Gate](../methods/verifier-claims-need-regate.md) · [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](hermes-agent.md)
+[Recursive Self-Improvement — "When AI builds itself" (Anthropic)](recursive-self-improvement.md) · hermes-loop · gate-eval-set-v0 · harness-atlas · agent-harness · [Gnosis — 파인튜닝 없이 헌법·메모리·루프로 성장하는 자가개선 에이전트 (vault 아키텍처 수렴 ground-truth #5)](../methods/gnosis-self-improving-agent.md) · [검증자의 주장도 환각이다 — 강한 주장은 1차 출처로 재-Gate](../methods/verifier-claims-need-regate.md) · [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](hermes-agent.md)

@@ -43,6 +43,7 @@ Table 1 accepted-length/round (Qwen3-4B): DSpark 6.11(GSM8K)/5.70(MATH)/... 로 
 
 ## 연결
 - ai-npc-blueprint (Layer 2/5 — Gate 후 한 줄 연결만) · [eLLM — CPU 만으로 GPU 보다 빠른 long-context LLM 추론](ellm.md) (CPU/local serving 대비 GPU speculative) · [MLXP — Kubernetes LLM Serving 최적화 (NAVER, 정지윤·장혁진)](mlxp-k8s-llm-serving.md) (같은 deployment 축) · [Odysseus — 자가 호스팅 AI 워크스테이션 참조 구현](../methods/odysseus.md) (local serving wrapper backend 선택지) · [Fixed-Persona SLMs with Modular Memory — 소비자급 하드웨어 다중 NPC 대화](slm-dynamic-content-generation.md)
+- 🔗 **같은 기전, 다른 도메인**: [온디바이스 SLM 특화 파인튜닝 플레이북](on-device-slm-finetuning.md) §행동 결정기 특화 — 거기서는 confidence head 가 *도구 호출 승격 게이트*(임계 미만이면 재질문·상위 모델)로 쓰인다. 여기의 *검증 예산 게이트*와 뼈대가 같다(점수를 임계로 잘라 비싼 단계를 아낀다). 한쪽 임계 보정법이 바뀌면 다른 쪽도 본다. <!-- 2026-08-27 Codex four-source 게이트에서 발견 — 외부 AI dedup 이 못 본 인접 -->
 - 이름만 겹치고 무관: [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](../methods/forge-spec-gate.md)·[스펙→프롬프트 Closed-loop — 스펙 변경이 프롬프트 자동 최적화로 흐르는 파이프라인 (NAVER, 정영훈·김규철·박세)](../methods/spec-to-prompt-closed-loop.md) (agent/workflow spec gate, inference와 무관).
 
 ## 다음 학습 후보

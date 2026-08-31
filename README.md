@@ -4,16 +4,17 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**319편** · Techniques 141 · Methods 173 · 경험 서사 5
+**331편** · Techniques 145 · Methods 181 · 경험 서사 5
 
 ## 🔬 Techniques
 
-*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 141편
+*논문 · 아키텍처 · 알고리즘 · 연구 기법* — 145편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>43편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>44편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [결과물 위에서 판단하게 하는 제작 — BotW CEDEC 2017](techniques/botw-world-anchored-production.md) | CEDEC 2017 젤다의 전설 브레스 오브 더 와일드 세션 | 2026-08-25 |
 | [결정화(Determinization) 불완전정보 게임 AI — 고스톱 해체](techniques/determinization-imperfect-info-game-ai.md) | [https://github.com/civilian7/gostop] | 2026-07-21 |
 | [Agent–Human Parity — AI 행위자 참여 아키텍처](techniques/agent-human-parity-architecture.md) | [https://github.com/Julian-adv/OpenMMO] | 2026-07-20 |
 | [webnovel-writer 해체 — 장편 서사 시스템의 골수 6종](techniques/webnovel-writer-teardown.md) | github.com/lingfengQAQ/webnovel-writer @ mast… | 2026-07-18 |
@@ -58,10 +59,13 @@
 | [Mafia Game Refinement (Ri et al. 2022, JAIST)](techniques/mafia-game-refinement.md) |  | 2026-04-25 |
 | [RoleLLM (Wang et al. 2023) — 캐릭터 단위 역할극 LLM 표준화](techniques/role-llm.md) |  | 2026-04-25 |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>22편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>25편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Compaction Cliff — 규칙과 로그를 같은 비율로 요약하면 안전성이 무너진다](techniques/compaction-cliff.md) | ten-x-independent-teardown RETURN S9 (Codex 2… | 2026-08-26 |
+| [AI Post-Training Strategy Lock — 실행 반복은 전략 수정이 아니다](techniques/ai-post-training-strategy-lock.md) | three-x-harness-delta RETURN | 2026-08-25 |
+| [Harness Continual Learning — 하네스도 과거를 잊는다](techniques/harness-continual-learning.md) | https://arxiv.org/abs/2608.19013 | 2026-08-25 |
 | [Catastrophic Remembering — 규칙은 왜 지워지지 않는가](techniques/catastrophic-remembering.md) | https://arxiv.org/abs/2608.11095 | 2026-08-16 |
 | [ReasoningBank — 실패를 *예방 규칙*으로 증류하는 에이전트 메모리](techniques/reasoningbank-failure-distilled-memory.md) | https://arxiv.org/abs/2509.25140 | 2026-08-13 |
 | [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](techniques/goose-agent-harness.md) | https://github.com/aaif-goose/goose | 2026-08-11 |
@@ -89,10 +93,10 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [온디바이스 SLM 특화 파인튜닝 플레이북](techniques/on-device-slm-finetuning.md) |  | 2026-08-27 |
 | [ESAT — 환경 없이 API-에이전트 훈련 데이터 합성 (Apple)](techniques/esat-environment-free-agent-data.md) | [https://arxiv.org/abs/2607.16900] | 2026-07-21 |
 | [Verbalizable Workspace (J-space) & Jacobian Lens — LLM 내부 "말할 준비된" 표현](techniques/llm-verbalizable-workspace-jlens.md) | [https://arxiv.org/abs/2607.15495] | 2026-07-21 |
 | [Memora — 추상화·구체성 조화 메모리 표현](techniques/memora-harmonic-memory.md) |  | 2026-07-18 |
-| [온디바이스 SLM 특화 파인튜닝 플레이북](techniques/on-device-slm-finetuning.md) |  | 2026-07-18 |
 | [turbovec — TurboQuant 기반 로컬 벡터 인덱스](techniques/turbovec-turboquant.md) |  | 2026-07-18 |
 | [CS336 Lecture 3 — Transformer 아키텍처 선택·빌드 시퀀스](techniques/cs336-l3-transformer-architecture.md) | [http://cs336.stanford.edu/spring2025/, https… | 2026-07-10 |
 | [OpenUI Lang — JSON 대신 스트리밍 UI DSL로 생성형 UI를 압축하는 패턴](techniques/openui-generative-ui.md) |  | 2026-07-06 |
@@ -159,13 +163,13 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Agentic RL Self-Evolving Agents (arXiv 2607.01120)](techniques/agentic-rl-self-evolving-agents.md) | https://arxiv.org/pdf/2607.01120 | 2026-08-25 |
 | [Involuti 서사 엔진 해체 — 무엇이 무너지는가](techniques/involuti-narrative-engine-teardown.md) | ["https://involuti.com"] | 2026-07-25 |
 | [Penelope GM 판정 — 흡수 맵과 결정 기록](techniques/penelope-gm-adjudication-map.md) |  | 2026-07-25 |
 | [SkillOpt — 스킬 문서를 "학습 가능 상태"로 훈련 (Microsoft 해체)](techniques/skillopt-skill-as-trainable-state.md) | [https://arxiv.org/abs/2605.23904, https://gi… | 2026-07-22 |
 | [Multimodal Resource → Skill Wiki (RESOURCE2SKILL 해체)](techniques/multimodal-resource-to-skill.md) | [https://arxiv.org/abs/2606.29538] | 2026-07-21 |
 | [슬라임 대소동 — 모바일 호드 ARPG의 HUD·피드백 해체](techniques/slime-commotion-hud-juice-teardown.md) | ["https://www.threads.com/@minimum_studio_gam… | 2026-07-21 |
 | [메타데이터 기반 앱 아키텍처 (ERPNext/Frappe DocType 골격)](techniques/metadata-driven-app-architecture.md) |  | 2026-07-18 |
-| [Agentic RL Self-Evolving Agents (arXiv 2607.01120)](techniques/agentic-rl-self-evolving-agents.md) | https://arxiv.org/pdf/2607.01120 | 2026-07-06 |
 | [pxpipe — 이미지 기반 입력 토큰 절감 (teamchong/pxpipe v0.8.0)](techniques/pxpipe-image-transport.md) | https://github.com/teamchong/pxpipe | 2026-07-06 |
 | [Semantic Style-Gallery Prepass (StyleGallery, arXiv 2603.10354)](techniques/semantic-style-gallery-prepass.md) | https://arxiv.org/abs/2603.10354 | 2026-07-06 |
 | [WebArena / OSWorld — 에이전트 평가 계약 (final-state grading)](techniques/webarena-osworld-eval-contracts.md) | https://www.youtube.com/watch?v=N0eMLp6-no8 | 2026-07-06 |
@@ -178,7 +182,7 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 173편
+*도구 · 워크플로우 · 방법론 · 스킬* — 181편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>13편</sub>
 
@@ -198,14 +202,15 @@
 | [Claude Code Game Studios — Claude Code 를 게임 스튜디오로 변환하는 49 agent 템플릿](methods/claude-code-game-studios.md) | https://github.com/Donchitos/Claude-Code-Game… | 2026-05-03 |
 | [Codex Game Dev Pipeline Lessons](methods/codex-game-dev-pipeline-lessons.md) |  |  |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>55편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>56편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [ACES — 스킬 문서 점수와 실제 에이전트 성능을 분리한다](methods/aces-skill-evaluation.md) | three-x-harness-delta RETURN | 2026-08-25 |
+| [하네스 개선 판정 계약 (Vault-lite)](methods/harness-gain-evaluation-contract.md) | ["https://arxiv.org/abs/2607.12227"] | 2026-08-25 |
 | [Context Engineering — 5 역할 분류 + 구현계획 컴파일러](methods/context-engineering-five-roles.md) | [https://arxiv.org/abs/2604.04258, https://gi… | 2026-08-15 |
 | [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](methods/claude-code-official-concept-map.md) | https://code.claude.com/docs | 2026-07-27 |
 | [Graph Engineering — 실행 토폴로지 (≠ 지식 그래프)](methods/graph-engineering-execution-topology.md) | https://x.com/angeldot_/article/2081061068516… | 2026-07-27 |
-| [하네스 개선 판정 계약 (Vault-lite)](methods/harness-gain-evaluation-contract.md) | ["https://arxiv.org/abs/2607.12227"] | 2026-07-25 |
 | [제약을 상류로 — 계약을 늦은 리뷰가 아니라 조기·구체물로 증명하라](methods/pin-constraints-upstream.md) | W29 dual-track 회고 — uzmap-forge memory + Pene… | 2026-07-22 |
 | [에이전트 스웜 모델 경제학 (Cursor 해체)](methods/agent-swarm-model-economics.md) | ["https://cursor.com/ko/blog/agent-swarm-mode… | 2026-07-21 |
 | [한글 리터럴 I/O 하네스 (오타 재발방지)](methods/hangul-literal-io-harness.md) |  | 2026-07-20 |
@@ -258,10 +263,11 @@
 | [Codex CLI Prompting — 내재화 노트](methods/codex-cli-prompting.md) | https://developers.openai.com/cookbook/exampl… | 2026-04-28 |
 | [Everything Claude Code (ECC) — 에이전트 harness 성능 최적화 시스템](methods/everything-claude-code.md) | https://github.com/affaan-m/everything-claude… | 2026-04-24 |
 
-### 🧠 AI · LLM 연구 <sub>21편</sub>
+### 🧠 AI · LLM 연구 <sub>22편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [사람 프로필을 파일로 붙드는 법 — polysona 구현 흡수](methods/persona-file-contract.md) | https://github.com/LilMGenius/polysona | 2026-08-27 |
 | [OpenClaw (methods)](methods/openclaw.md) | https://github.com/openclaw/openclaw README | 2026-08-13 |
 | [Neo4j Agent Memory — Context Graph 기반 에이전트 메모리 입문](methods/neo4j-agent-memory-context-graph.md) | https://www.youtube.com/watch?v=tcVK3ufL36E | 2026-08-11 |
 | [사내 AI 도구 배포·운영·측정 플레이북](methods/internal-ai-enablement-playbook.md) |  | 2026-08-02 |
@@ -311,10 +317,17 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>62편</sub>
+### 🧰 도구 · 방법론 <sub>68편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [회고 — 자산 흡수 2026-08-30](methods/자산흡수-회고-2026-08-30.md) | 2026-08-30 창작 원고 + VD 외주 업무 자산 전량 흡수 세션 | 2026-08-30 |
+| [접근성·포용성 작업 계보 (2023 ~ 2024)](methods/접근성-작업-계보-2023-2024.md) | 업무 자산 5건 + 창작 1건 실측 — raw/vd-assets/_text/ · … | 2026-08-30 |
+| [설명은 결정권자에게 하듯 한다](methods/explain-to-decider.md) |  | 2026-08-27 |
+| [paperthin 해체 — 설치하지 않고 반사행동만 가져왔다](methods/paperthin-reflexes.md) | https://github.com/LilMGenius/paperthin | 2026-08-27 |
+| [검증자의 주장도 환각이다 — 강한 주장은 1차 출처로 재-Gate](methods/verifier-claims-need-regate.md) |  | 2026-08-27 |
+| [vault 검색 규율 — 감사 이력](methods/vault-search-discipline-audit.md) | CLAUDE.md §4 감사 이력 이관 — 정본 패치 [[.proposed-pat… | 2026-08-26 |
+| [한국 공공부문 문제 원장 — AI정부 공개 GitLab](methods/korean-public-sector-problem-corpus.md) | AI정부 공개 GitLab | 2026-08-25 |
 | [게임업계 사내 AI 조직·도구 지형 (2025~2026)](methods/game-industry-ai-org-landscape.md) |  | 2026-08-02 |
 | [UE5 자동화·AI 접점 진입점 지도](methods/ue5-automation-entrypoints.md) |  | 2026-08-02 |
 | [AI 드림팀 장르 해체 — 열린 지식 재포장 vs 거버넌스 해자](methods/ai-dream-team-genre-teardown.md) |  | 2026-07-25 |
@@ -344,7 +357,6 @@
 | [Humanize KR (im-not-ai) — 한글 AI 티 제거기 = juhyeong 전 1차 윤문](methods/humanize-korean.md) | https://github.com/epoko77-ai/im-not-ai | 2026-06-18 |
 | [Kuku — 작가 Sub-brain 거버넌스를 제품화한 로컬 Markdown 앱 (외부 ground-truth)](methods/kuku-second-brain.md) | https://github.com/kuku-mom/kuku | 2026-06-18 |
 | [리서치는 전문 통독 — 인접한 것까지 뽑아 박제](methods/research-thoroughly-extract-adjacent.md) |  | 2026-06-18 |
-| [검증자의 주장도 환각이다 — 강한 주장은 1차 출처로 재-Gate](methods/verifier-claims-need-regate.md) |  | 2026-06-18 |
 | [WebFetch 는 lossy 요약 — 충실 학습은 clone 통독](methods/webfetch-is-lossy-clone-for-fidelity.md) |  | 2026-06-18 |
 | [Scrapling — 차단·동적 페이지를 뚫는 적응형 스크래핑 (on-demand escalation 도구)](methods/scrapling.md) | https://github.com/d4vinci/Scrapling | 2026-06-17 |
 | [Apify Agent Skills](methods/apify-agent-skills.md) | https://github.com/apify/agent-skills | 2026-06-16 |
