@@ -1,6 +1,6 @@
 ---
 created: 2026-06-28
-updated: 2026-06-28
+updated: 2026-08-31
 type: learning
 tags: [method, design, frontend, html, skill-routing, selection-matrix, gate]
 source: https://www.youtube.com/watch?v=gkxv6PCaAhw
@@ -41,6 +41,24 @@ category: method
 4. **코드 전 짧은 디자인 플랜** — 주제·청중 / 시각 방향 / 토큰 / 컴포넌트 전략 / 모션 전략 / 검증 뷰포트.
 
 5. **렌더로 검증** (서술 아닌 렌더) — desktop·mobile 스크린샷, 오버랩/텍스트핏, 모션이면 성능 체크.
+
+## 2.5 Surface 다음 축 — fidelity 를 먼저 고정한다 🆕 2026-08-31
+
+surface 라우팅이 *어떤 스킬*을 고른다면, fidelity 는 **무엇을 결정하려고 만드는 산출물인가**를 고정한다. 이걸 안 정하면 wireframe 을 예쁘게 완성해 구조 토론을 막거나, prototype 을 실제 제품처럼 과장한다.
+
+```text
+구조가 미정        → wireframe   (의도적으로 미완성 유지)
+시각 방향 검토     → mockup      (mostly static)
+작동 흐름 검토     → prototype   (하나의 credible flow + loading/success/failure/empty/disabled)
+순서·소유·의존성   → plan        (근거 없는 timeline·progress 추가 금지)
+관계 이해          → diagram     (motion·color 없이도 의미 보존)
+```
+
+**파일럿 = `review_question` + `fidelity_mode` 두 필드만.** six-skill collection 은 기존 도구와 중복이라 **설치하지 않는다**.
+
+⛔ 이 축은 bespoke-html-direction 의 시각 스타일 결정을 대체하지 않는다 — 그건 그대로다.
+
+<!-- 출처: effective-html(github plannotator/effective-html MIT, HEAD d95debba) — ten-x S7, ③Gate 2026-08-26 「보강 후보(조건부)」. dedup: active 스코프 0건(hit 는 .archive/yuriring 뿐 = 봉인 계보 아님, 주제어가 아니라 사유로 판정). -->
 
 ## 3. 살릴 규칙
 

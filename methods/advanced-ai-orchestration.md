@@ -1,6 +1,6 @@
 ---
 created: 2026-05-05
-updated: 2026-05-05
+updated: 2026-08-31
 type: learning
 tags: [ai-orchestration, team-create, claude-code, ddd, workflow]
 ---
@@ -61,3 +61,16 @@ AI의 컨텍스트 최적화와 할루시네이션 감소를 위해 **도메인 
 *   **RTK (Reduce Token Kontext)**: 토큰 절감을 위한 상시 최적화 모드.
 *   **Context Requires**: 프런트엔드 마크다운에 "컴포넌트 재사용" 명시하여 중복 코드 방지.
 *   **Noisy Command 필터링**: 불필요한 출력 억제로 토큰 소모 최소화.
+
+## 5. 합성 단계의 두 금칙 (Apodex 차용, 2026-08-31)
+
+멀티에이전트·task board·bounded parallelism 자체는 기존 자산과 중복이다. 신규 델타는 **끝내는 방법** 둘뿐이다.
+
+1. **Task Board = external memory + finalization gate** — 모든 필수 branch 가 terminal 이 아니면 **완료 불가**. 갈래 하나가 미종결이면 전체 미완이다.
+2. **Synthesis is non-authoritative** — 최종 문장은 압축해도 되지만 **각 갈래의 evidence·verdict 를 변경할 수 없다.**
+
+→ 여러 subagent 결과를 예쁘게 합치면서 **반대 증거나 실패 기록을 지우는 사고**를 막는다.
+
+⛔ Apodex 설치 0. coordinator 는 read-only inspection + board operation 으로 제한하고, shared artifact 에는 lease/journal 을 쓴다는 원설계만 참조한다.
+
+<!-- 출처: Apodex — ten-x 해체분석 S10, ③Gate 2026-08-26 「보강 후보」. dispatch-builder §6 「합칠 때 증거를 바꾸지 않는다」의 상류 근거. -->

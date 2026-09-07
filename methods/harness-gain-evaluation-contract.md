@@ -1,10 +1,10 @@
 ---
 created: 2026-07-25
-updated: 2026-08-25
+updated: 2026-09-02
 type: learning
 category: method
 tags: [harness, evaluation, held-out, transfer, promotion-gate, attempt-budget, skill-quality]
-source: ["https://arxiv.org/abs/2607.12227"]
+source: ["https://arxiv.org/abs/2607.12227", "https://arxiv.org/abs/2608.27454"]
 year: 2026
 ---
 <!-- "같은 문제를 여러 번 풀어 오른 점수"와 "다른 문제에도 전이되는 하네스 개선"을 분리하는 승격 판정 계약. -->
@@ -48,12 +48,31 @@ year: 2026
 
 > **최소 판정은 `H vs B1`.** `H vs B0` 만으로 승격 금지.
 
+### 3.1 지식 우회 격리 — 평가받는 수행자에게 뒷받침 지식을 보여주지 않는다 🆕 2026-08-31
+
+**철칙: 스킬의 완결성을 재는 arm 에서는 그 스킬을 낳은 지식층을 수행자에게 숨긴다.**
+
+| Arm | 수행자가 보는 것 | 무엇을 재나 |
+|---|---|---|
+| **H-solo** | 과제 맥락 + 후보 스킬 | **승격의 주 판정.** 스킬이 지식을 실제로 컴파일했나 |
+| **H-wiki** | 과제 맥락 + 후보 스킬 + 뒷받침 지식(vault 노트·패턴) | 보조. 여기서만 통과하면 **스킬이 아니라 지식이 푼 것** |
+
+- `H-wiki` 만 통과 = 스킬 미완성 판정. 승격 금지.
+- 지식층은 *후보를 만드는 쪽*(제안자·정리자)은 봐도 된다. 숨기는 대상은 **평가받는 수행자**뿐이다.
+- ⚠️ **적용 스코프 = 스킬 평가 arm 한정.** 실제 프로젝트 작업의 vault 조회를 막는 규칙이 아니다(① Dispatch 철칙과 충돌 금지).
+
+**근거**(WikiSkill, arXiv:2608.27454): 제안자만 지식층을 볼 때 48.7%→63.7%로 올랐으나, **수행 agent 까지 보게 하자 63.7%→60.9%로 내려갔다.** 저자 해석 = 수행자가 지식층에서 답을 직접 얻으면 rollout 이 *스킬의 결함을 드러내는 신호*로서 쓸모를 잃는다. ⚠️ 저자 보고 수치이며 공식 코드 부재로 독립 재현 안 됨 — 방향은 채택하되 수치는 근거로 쓰지 않는다.
+
+**§3 의 다른 확장과 축이 다르다 — 겹치지 않는다.** 2026-08-25 후보 [ACES — 스킬 문서 점수와 실제 에이전트 성능을 분리한다](aces-skill-evaluation.md) 의 `H-iso/H-group` 은 **미끼 스킬**을 넣어 *라우팅 프리미엄*을 분리한다. 본 절의 `H-solo/H-wiki` 는 **뒷받침 지식**을 넣어 *지식 의존*을 분리한다. 셋은 배타가 아니라 각각 다른 누수를 본다.
+
+
 ## 4. 지표
 
 - **Primary**: held-out `pass@1` · wrong-route/error rate · regression count
 - **Secondary**: `pass@K` · time-to-first-useful-artifact · user correction rate
 - **Cost**: input/output 토큰 · tool calls · wall-clock · model calls · 달러 추정 **또는 명시적 `not measured`**
 - **Integrity**: artifact hash · model/config/version · attempt index · feedback visibility
+- **Skill provenance** 🆕 2026-08-31: `evolved_by_model`(그 스킬을 만든 모델) · `validated_on_models` · `known_negative_transfer` · `model_specific_workaround`. **「모델 독립」은 선언이 아니라 `만든 모델 × 쓸 모델 × 과제군` 으로 검증되는 주장이다.** 근거(WikiSkill, arXiv:2608.27454): 약한 모델이 만든 스킬이 강한 모델에 잘 전이된 조합이 있는가 하면, 반대로 **한 조합에서는 no-skill 50.5% 를 18.1% 로 떨어뜨렸다**(작은 모델용 우회로·분절 절차가 강한 모델의 end-to-end 실행을 막고 tool 예산을 태움). ⚠️ **§2 의 `transfer` 와 혼동 금지** — §2 는 *트리거 문구*의 분리(열람 금지 코퍼스)이고, 본 항은 *모델 간* 이식이다. 이름이 같을 뿐 축이 다르다.
 - **Historical retention** 🆕 2026-08-25: `historical_anchor_loss` — 후보가 *과거* 고정 사례를 얼마나 깎았나. **현재 이득만 재면 하네스 갱신이 과거 능력을 잠식하는 것을 못 본다**([Harness Continual Learning — 하네스도 과거를 잊는다](../techniques/harness-continual-learning.md) 저자 보고: 가소성 우선 설정에서 망각 10.94, 더 자유로운 갱신이 오히려 최종 성능을 낮춘 sweep 존재). 함께 기록할 것 = `changed_component`(I/M/C/R 중 어디를 바꿨나) · `commit_decision`. ⚠️ **anchor PASS 는 무망각 증명이 아니다** — anchor 가 유한하면 held-out 과거 사례의 망각은 남는다. 그리고 *새 평가 기준을 설계한 사례*는 anchor 가 아니라 `discovery` 로 분리한다(자기 기준으로 자기를 통과시키지 않기).
 
 ## 5. Routing 적응 — 3결과를 따로 본다
@@ -77,6 +96,26 @@ generalization  = 설계에 쓰지 않은 case 에서도 B1 보다 나음
 - **M/G** = generalization 증거 없으면 **provisional 유지**.
 - `pass@K` 만 오르고 `pass@1`·비용·회귀가 개선 안 되면 **search gain 이지 harness gain 아님**.
 - **task-specific fact 는 project memory/runbook 으로.** global harness 승격 금지 — 일반 전략만 올린다.
+
+## 6.5 진단 순서 — capability 를 steering 보다 먼저 본다 🆕 2026-08-31
+
+**철칙: 실패가 구조적 capability gap 인지 먼저 확인하고, capability 가 존재할 때만 steering 문구를 조정한다.**
+
+"프롬프트를 고쳐보자"가 기본 반응이 되는 것을 막는다.
+
+| patch 종류 | 무엇을 바꾸나 | 저자 보고 fix rate | 저자 보고 regression |
+|---|---|---|---|
+| **Capability** | 실행 가능한 tool·middleware·control flow | 55% | **8%** |
+| **Steering** | prompt·description 등 문구 | 58% | **17%** |
+
+→ fix rate 는 비슷한데 **regression 은 steering 이 2배 이상**이다. 문구를 고치면 다른 데가 깨진다.
+
+**Harness Edit Claim Card 확장(shadow 사용)**: `failure_layer = capability | steering | unknown` + `why_not_other_layer` 두 필드만 추가해 관측한다. 아직 판정 기준으로 승격하지 않는다.
+
+⛔ **AutoSaddler 설치 0.** 공개 V2 는 fake harness·Meta-ARE/GAIA2 만 지원하고 논문 실험은 V1 이라 범위가 다르다. 에이전트가 active harness 를 자동 수정하거나 EvoDAG 를 권위 memory 로 승격하지 않는다.
+⚠️ 위 수치는 **저자 자기보고**(GAIA2 +9.0pp·SWE-Bench Pro +9.6pp·Terminal-Bench 2.0 +10.0pp)다. vault 사실로 인용하지 말 것.
+
+<!-- 출처: AutoSaddler(arXiv 2608.23041 · microsoft/AutoSaddler MIT, HEAD 30e20ce) — ten-x 해체분석 S8, ③Gate 2026-08-26 「보강 후보」. dedup: `capability|steering` vault grep 0건 = 비중복. -->
 
 ## 7. STOP
 

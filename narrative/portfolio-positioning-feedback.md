@@ -16,6 +16,8 @@ category: technique
 >
 > 캐빗: 피드백(1번 Notion)은 Jina Reader 경유 충실 distill. **Q&A(2번 Notion)는 작가 제공 verbatim** — 아래 프로젝트 실명·❌/✅ 예시·서술 3축은 원문 그대로.
 
+> 🔗 **작가 확정 3기둥은 positioning-pillars** (2026-09-01). 본 문서는 *전달·문체 일반론*, 그쪽은 *무엇으로 서는가*의 정본. 충돌 시 3기둥이 우선한다.
+
 ## 어필 대원칙 (한 줄) 🎯
 
 > **1순위 타깃 = AI 프로덕트/엔지니어** (2026-07-02 확정). 아래 대원칙·앵커는 이 타깃 기준. 게임사 지원 시 [게임 기획자 포폴·취업 지식 베이스 (유리링)](../methods/game-planner-portfolio-guide.md) 병용.

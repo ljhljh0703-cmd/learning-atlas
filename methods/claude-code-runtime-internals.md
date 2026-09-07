@@ -1,6 +1,6 @@
 ---
 created: 2026-06-15
-updated: 2026-06-15
+updated: 2026-08-31
 type: learning
 tags: [claude-code, agent-sdk, runtime, layer-c, permissions, sandbox, compaction, mcp, autonomous-dispatch]
 source: https://code.claude.com/docs/en/
@@ -80,6 +80,24 @@ category: method
 - **Prompt-caching 비용 역학** (⚠ 수치 = 가이드 주장, **`claude-api` 스킬과 대조 후 잠금**): TTL 5분/1시간, read ~0.1×·write ~1.25×, 프리픽스 순서 tools→system→messages. 버전 드리프트 취약 zone — 인용 전 claude-api 정본 확인.
 - **Telemetry anti-hype: `input_tokens` 단독 ≠ 총 context** (2026-07-17, computer-use video merge-small): 데모의 `108,000 → 11` 은 context가 줄어든 게 *아니라* usage accounting이 **cache read/create + post-breakpoint input**으로 분리된 것. 캐시 히트 시 `input_tokens`는 breakpoint 이후 신규 입력만 세므로 작게 보인다 → 총 context = cache_read + cache_creation + input 합산으로 읽어야. "90% fewer tokens" 류 제목은 회계 착시. (출처: `Building toward Computer Use`(DeepLearning.AI×Anthropic) X 편집본, Anthropic 2026 docs 교차확인. 수치 계약은 `claude-api` 스킬(공식 docs) 우선.)
 - ⚠ 나머지(SSOT-not-memory·Artifacts 저장·권한/샌드박스)는 본 페이지·[Fable 5 프롬프팅 (공식 가이드)](fable-5-prompting.md)·헌법 §0에 기보유 → 재흡수 X.
+
+## 긴 세션 컨텍스트 4층 분리 (Scroll 차용, 2026-08-31)
+
+compaction 이 "무엇을 지울까"라면 이건 **"원본을 어디에 남길까"**다. 네 층을 섞지 않는 것이 델타다.
+
+```text
+Event Log        = lossless ground truth   — append-only, 안정 주소(삭제 없음)
+Resident namespace = typed execution state — tool 결과·파생 상태를 변수로 보유
+Working view     = 현재 추론용 lossy projection — 예산 차면 오래된 span 만 evict
+Eviction index   = view 밖 원문으로 돌아가는 주소 지도 (landmark ↔ log address)
+```
+
+**핵심**: 예산이 차도 *원문을 지우지 않는다* — working view 에서만 내리고, eviction index 가 되돌아갈 주소를 들고 있다. [Compaction Cliff — 규칙과 로그를 같은 비율로 요약하면 안전성이 무너진다](../techniques/compaction-cliff.md) 의 「무엇을 요약하면 안 되는가」와 직교하는 축(이쪽은 *어디에 남는가*).
+
+⛔ **persistent Python kernel 은 도입하지 않는다** — code-execution surface 라 memory DB 처럼 무권한 도입 금지(생산자 STOP 승계).
+⚠️ `context as environment`·REPL 변수 사용은 기존 RLM 자산과 중복. 위 4층 분리만 신규다. 저자 보고 수치(LongMemEval-S 94.8% 등)는 vault 사실로 인용하지 않는다.
+
+<!-- 출처: Scroll — ten-x 해체분석 S1, ③Gate 2026-08-26 「보강 후보」. -->
 
 ## 관계
 - agent-harness §leak대조군 L-1·L-2·L-4·L-5 = 본 페이지로 de-fence(공식 확증). L-3 = 위 B1(명칭 confirmed 본문출처, 임계치/공식/모델 부재 확정).

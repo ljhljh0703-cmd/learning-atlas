@@ -1,6 +1,6 @@
 ---
 created: 2026-06-28
-updated: 2026-06-28
+updated: 2026-08-31
 type: learning
 tags: [agentic-search, retrieval, grep, vector-rag, harness, llm, benchmark]
 source: https://arxiv.org/abs/2605.15184
@@ -34,6 +34,19 @@ category: technique
 - **반영처 2**: CLAUDE.md §"불변 규율" **검색 방법(grep/그래프>벡터) 규율** 신설 ✅ — vault lookup grep+graphify=검증된 선택.
 - **반영처 3**: agent-harness §**"검색방법 < 하네스 설계"** 신설(LOCKED) ✅ — 도구 평가축=하네스 통합 품질. + dispatch-builder **검색·RAG 설계 가드**(grep/메타 우선·벡터 1신호, 사주 RAG 자기보정) ✅.
 - **과적용 가드**: "grep이 벡터보다 절대 우월"로 *과장 금지* — 논문 자체가 하네스 교란을 강조. vault가 벡터 RAG를 *안 쓰는* 현 선택의 *근거 보강*이지 벡터 전면 부정 아님.
+
+## 보안 addendum — embedding 은 원문급 민감정보다 (vec2vec 차용, 2026-08-31)
+
+> **embedding 은 익명화된 숫자 배열이 아니라 원문에서 파생된 민감정보다.**
+
+paired data 없이 서로 다른 embedding space 사이 translator 를 학습할 수 있고, **translated embedding 만으로** topic·질병 속성 추론과 불완전한 text inversion 이 보고됐다(일부 pair 에서 email 80%·tweet 67%).
+
+→ **Vector DB 에는 원문과 같은 수준의 접근제어·보존기간·삭제 전파·유출 대응이 필요하다.** vault 는 벡터 RAG 미도입이라 지금 노출은 없지만, 도입을 검토할 때 이 축이 비용에 들어간다.
+
+⚠️ **"모든 LLM 이 같은 의미 기하로 수렴했다"는 과장이다** — 논문은 *유사한 text distribution* 의 모델들에서 강한 가설을 지지한다고 주장하며 CLIP 은 preliminary 다.
+⛔ **translator 코드 반입 금지 — LICENSE 부재.** 런타임 재현은 park(약 176 GPU-day training).
+
+<!-- 출처: vec2vec — ten-x 해체분석 S4, ③Gate 2026-08-26 「보안 규칙만 · 런타임 PARK」. -->
 
 ## 연결된 페이지
 - [codebase-memory-mcp](../methods/codebase-memory-mcp.md) · agent-harness · graphify · [Google Open Knowledge Format (OKF) v0.1 — 에이전트 지식 표준](../methods/google-okf-knowledge-format.md) · cold-verify-before-adopt · [Cerebras Knowledge Base — 하이브리드 검색 융합 (grep 백본 + 벡터 보완)](cerebras-knowledge-base.md) (프로덕션 하이브리드 융합 데이터포인트 — "검색법<하네스" 실증)
