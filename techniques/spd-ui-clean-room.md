@@ -18,6 +18,8 @@ category: technique
 
 > ⚠️ **Clean-room 원칙**: SPD 는 GPLv3. 본 노트는 *책임 분리(역할) 개념*만 정리하며 **코드·아트·텍스트·메서드 시그니처를 복사하지 않는다.** libgdx-rogue-os 구현은 이 역할 분리를 *발상으로만* 참고하고 독립 작성한다.
 >
+> ⚠️ **Contradiction (2026-09-12 게이트 발견)**: 위 원칙은 「SPD 코드·아트·텍스트 복사 금지, 발상만」인데, 게임 repo `design/decision-log.md` **D-053**(2026-07-01 잠금·작가 확인)은 **GPLv3 준수 하에 SPD 소스 열람·이식·개작 허용**으로 D-008/D-032/D-044 clean-room 금지를 대체했다. repo `AGENTS.md` 는 이미 정정됨(libgdx-rogue-os-progress). **미해결** — vault 문구 정정은 작가 판단. 근거 codex-gate-record-2026-09-12 §7.
+>
 > 검증된 클래스 계층: `Gizmo → Group → Scene → PixelScene → GameScene` (UI 컴포넌트는 GameScene 이 보유).
 
 ---

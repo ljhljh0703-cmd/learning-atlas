@@ -3,7 +3,7 @@ created: 2026-08-26
 updated: 2026-09-05
 type: learning
 tags: [vault, search-discipline, dedup, use-ledger, audit]
-source: "CLAUDE.md §4 감사 이력 이관 — 정본 패치 [[.proposed-patches/claude-md-resident-trim-2026-08-19]] 변경 A"
+source: "CLAUDE.md §4 감사 이력 이관 — 정본 패치 [[.proposed-patches/_archive/claude-md-resident-trim-2026-08-19]] 변경 A"
 ---
 <!-- CLAUDE.md §4 검색 규율의 판정 이력·실측 근거 보관소. 규율 본문과 재검토 조건은 CLAUDE.md 에 상주한다 — 여기 있는 건 근거뿐이다. -->
 

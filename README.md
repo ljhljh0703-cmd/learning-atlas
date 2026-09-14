@@ -206,6 +206,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Graph Engineering — 실행 토폴로지 (≠ 지식 그래프)](methods/graph-engineering-execution-topology.md) | https://x.com/angeldot_/article/2081061068516… | 2026-09-12 |
 | [병렬 에이전트 격리 3층 — git worktree · 인스턴스 분리 · 화면 조율](methods/parallel-worktree-isolation.md) | https://nurimedia.ninehire.site/tech017 | 2026-09-03 |
 | [하네스 개선 판정 계약 (Vault-lite)](methods/harness-gain-evaluation-contract.md) | ["https://arxiv.org/abs/2607.12227", "https:/… | 2026-09-02 |
 | [고성능 AI 오케스트레이션 및 명령 표준 (Advanced Orchestration)](methods/advanced-ai-orchestration.md) |  | 2026-08-31 |
@@ -214,7 +215,6 @@
 | [ACES — 스킬 문서 점수와 실제 에이전트 성능을 분리한다](methods/aces-skill-evaluation.md) | three-x-harness-delta RETURN | 2026-08-25 |
 | [Context Engineering — 5 역할 분류 + 구현계획 컴파일러](methods/context-engineering-five-roles.md) | [https://arxiv.org/abs/2604.04258, https://gi… | 2026-08-15 |
 | [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](methods/claude-code-official-concept-map.md) | https://code.claude.com/docs | 2026-07-27 |
-| [Graph Engineering — 실행 토폴로지 (≠ 지식 그래프)](methods/graph-engineering-execution-topology.md) | https://x.com/angeldot_/article/2081061068516… | 2026-07-27 |
 | [제약을 상류로 — 계약을 늦은 리뷰가 아니라 조기·구체물로 증명하라](methods/pin-constraints-upstream.md) | W29 dual-track 회고 — uzmap-forge memory + Pene… | 2026-07-22 |
 | [에이전트 스웜 모델 경제학 (Cursor 해체)](methods/agent-swarm-model-economics.md) | ["https://cursor.com/ko/blog/agent-swarm-mode… | 2026-07-21 |
 | [한글 리터럴 I/O 하네스 (오타 재발방지)](methods/hangul-literal-io-harness.md) |  | 2026-07-20 |

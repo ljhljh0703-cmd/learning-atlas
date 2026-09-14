@@ -1,6 +1,6 @@
 ---
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-09-12
 type: learning
 tags: [graph-engineering, dynamic-workflows, orchestration, subagents, execution-topology, agent-harness, claude-code]
 source: "https://x.com/angeldot_/article/2081061068516798931 (@angeldot_, 'GRAPH ENGINEERING CON OPUS 5', 스페인어, 2026-07-26경 · 조회 170K)"
@@ -27,6 +27,7 @@ vault 에는 이미 "그래프"가 있다. **둘은 다른 대상이다.**
 | 수명 | 영속(vault 자산) | 실행 1회(스크립트는 `.claude/workflows/` 에 영속) |
 
 → **혼동 금지**: 오케스트레이션에 graphify 를 쓰거나, 지식 탐색에 workflow 를 쓰는 건 대상 오인이다.
+→ 세 번째 그래프(한 에이전트의 *다음 행동* 안내 = 절차 그래프)는 **§9**.
 
 ## 1. 작가 읽음 정정 — "하네스 → 루프 → 그래프"는 사다리가 아니다
 
@@ -115,6 +116,49 @@ vault 에는 이미 "그래프"가 있다. **둘은 다른 대상이다.**
 - **③순수 참조** — 14단계 서사·6개 예시 그래프·체크리스트 전문(본 노트가 보유).
 - **반영 diff 0** — 즉시 고친 파일 없음. 정직 선언.
 
+## 9. 제3의 그래프 — 절차 그래프 (Procedural Graphs 흡수 2026-09-12)
+<!-- proposed_by: external_ai (via Codex RETURN) · confirmed_by: user (2026-09-12 「A」 = 합치기) · gate: vault Claude 원문 대조 -->
+
+> 출처 = arXiv:2609.09153v1 (Lu·Chen·Wu·Arik, 2026-09-08). 공식 코드 없음 → **아래 수치는 전부 저자 보고이며 독립 재현하지 않았다.** 해체 원문 = ASSET.
+
+§0 의 두 그래프 옆에 세 번째가 있다. **한 에이전트가 긴 작업 중 "지금 어디고, 다음에 뭘 하나"** 를 답하는 그래프다.
+
+| | 지식 그래프 (graphify) | 실행 토폴로지 (§1~8) | **절차 그래프** |
+|---|---|---|---|
+| 노드 | 개념·엔티티 | 일감 1건 | 도구 행동·추론 단계·상태 |
+| 엣지 | 의미 관계 | 데이터 핸드오프 | 허용되는 다음 전이 |
+| 질문 | 무엇인가 | 무엇이 무엇을 기다리는가 | **지금 다음에 무엇을 하나** |
+| 수명 | 영속 | 실행 1회 | 작업 유형별 지속 |
+
+→ 실행 토폴로지는 여러 에이전트를 *펼치는* 그래프, 절차 그래프는 한 에이전트의 *발걸음을 안내하는* 기억(procedural memory)이다.
+
+### 9.1 흡수한 델타 3건
+1. **3종 분리** — 위 표. 셋을 섞으면 대상 오인(§0 경고의 확장).
+2. **엣지 계약 3칸** `condition / guidance / pitfalls` — 전이마다 *언제 유효한가 / 무엇을 왜 하나 / 흔한 실수*. 단순 순서표와 다른 점은 **전이 조건과 실패 함정이 엣지에 붙는다**는 것. (관계 어휘 = `LEADS_TO`·`TRIGGERS`·`PROVIDES_INPUT_FOR`·`CONVERGES_TO`.)
+3. **현재 위치 먼저, 주변만(localize-first)** — 최근 행동으로 현재 노드를 찾고 **2-hop 이웃만** 안내 모델에 준다. 저자 ablation(Gemini 3.5 Flash, ALFWorld): 2-hop 81.53 · 전체 그래프 54.48 · 그래프 없음 72.58 — **전체를 주면 그래프가 없을 때보다도 나빠졌다.** 단 그래프 없음 대비 토큰은 GDPval +33.4% · ALFWorld +55.4%. 가치는 "싸다"가 아니라 **추가 비용을 내고 긴 작업의 순서 오류를 줄이는 것**. HotpotQA 같은 짧은 작업은 이득 −0.90~+1.30pt 로 사실상 없다.
+
+부수 근거: 전문가가 손으로 그린 그래프가 오히려 성공률을 87.50% → 58.93% 로 떨어뜨렸고, 검증 루프를 붙여서야 92.86% 로 올라갔다(MultiChallenge). **"전문가가 그렸다"는 채택 근거가 아니다 — 검증·롤백이 본체.** [하네스 개선 판정 계약 (Vault-lite)](harness-gain-evaluation-contract.md) 와 같은 결론.
+
+### 9.2 들이지 않는 것 (논문 원문에서 확인한 약점)
+| 논문 설계 | 왜 막나 | vault 쪽 대응 |
+|---|---|---|
+| validation 점수 **동점도 채택**(`≥`) | 개선 없는 drift·비대 허용 | 실제 개선만 채택 |
+| ACTION 노드가 실제 도구 목록에 있는지 **구조 검사기가 안 봄**(논문 스스로 인정) | 없는 도구로 안내 | 도구 존재 검사 = 결정적 검산기 |
+| 위치 찾기 실패 시 **전체 그래프 주입** | 자기 실험에서 악화된 방식으로 되돌아감 | `unlocalized` STOP 또는 제한된 이웃 |
+| 안내·풀이·수정을 **같은 LLM** 이 담당 | 합의 ≠ 검증 (§6 자기 채점 금지) | 판정 주체 분리(절대룰 #7) |
+| **자동 자기진화** 파이프라인 | 사람 확인 없이 절차가 바뀜 | PARK — 파일럿 PASS 전 열지 않음 |
+
+(순환 허용 시 진행 척도·라운드 상한 부재는 Codex 지적이며 게이트에서 원문 미확인. vault 는 §2-11 loop-until-dry·라운드 상한으로 이미 막는다.)
+
+### 9.3 이웃 노트 (Codex dedup 누락분 — 게이트가 추가)
+- [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](../techniques/goose-agent-harness.md) Statewright 대비 줄 — *단계가 권한을 쥐는* 결정론 엔진. 절차 그래프는 **안내(advisory)**, Statewright 는 **강제(enforcing)**. 게임 NPC·FDE 에 쓸 때도 이 분업이다 — 그래프가 행동을 권하고, 결정론 코어가 합법 전이를 검증한다.
+- [ReasoningBank — 실패를 *예방 규칙*으로 증류하는 에이전트 메모리](../techniques/reasoningbank-failure-distilled-memory.md) — 실패 궤적에서 pitfall·예방 규칙을 뽑는 메모리. 절차 그래프 `pitfalls` 칸의 공급원 후보.
+- [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md) — 그래프 = 구조축, 루프 = 경험으로 구조를 고치는 시간축(§1 "사다리 아님"과 같은 결).
+
+### 9.4 반영 판정 (3-way)
+- **①반영 diff** = 본 §9 (3종 분리·엣지 3칸·localize-first + 차단 5건 + 이웃 3).
+- **②파킹 + 트리거** — FDE 업무 절차 1건 수동 모델링(노드 7~12 · 엣지 10~20, 3칸 작성 후 담당자 확인): 트리거 = **작가가 실제 고객·사내 업무 절차를 그릴 일이 생길 때**. 게임 NPC 안내층 파일럿: 트리거 = NPC 행동 설계 착수 시. 공식 코드 공개 시 노드 매칭·검증기 직접 검산.
+
 ## 연결
 
-[Dynamic Workflows — 작업마다 하네스 (Claude Code)](dynamic-workflows-harness.md) · agent-harness · hermes-loop · dispatch-builder · graphify · [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) · [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](claude-code-official-concept-map.md) · [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](../techniques/agentic-search-grep-vs-vector.md)
+[Dynamic Workflows — 작업마다 하네스 (Claude Code)](dynamic-workflows-harness.md) · agent-harness · hermes-loop · dispatch-builder · graphify · [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) · [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](claude-code-official-concept-map.md) · [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](../techniques/agentic-search-grep-vs-vector.md) · [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](../techniques/goose-agent-harness.md) · [ReasoningBank — 실패를 *예방 규칙*으로 증류하는 에이전트 메모리](../techniques/reasoningbank-failure-distilled-memory.md) · [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md)
