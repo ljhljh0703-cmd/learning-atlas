@@ -120,3 +120,10 @@ CLAUDE.md §4 의 해당 항은 P3 의 *use-ledger 축만* 정식화한 것이�
 - **[#2]** **계측**: 역인출을 돌린 세션은 use-line 끝에 **`revlookup: hit`**(과거 실패·미사용을 실제로 잡음) 또는 **`revlookup: miss`**(조회했으나 새 정보 없음) 1토큰. 집계 = `grep -c "· revlookup:" wiki/use-ledger.md` (**구분자 `· ` 포함 필수** — 안 넣으면 규약 설명 줄까지 세어 부풀려진다, dedup2 에서 실측 교정한 함정).
 
 - **[#2]** <!-- proposed_by: claude · confirmed_by: user · confirmed_date: 2026-08-13 (작가 명시 "머지해") · 정본 p3-use-ledger-reverse-lookup-2026-08-13 -->
+
+## 헌법에서 이관된 판정 이력 (2026-09-18, /doctor 정리)
+
+> CLAUDE.md §4 에 상주하던 아래 2줄을 이리로 옮겼다. 규칙(개념-dedup 2-패스 · 역인출 1패스)과 포인터는 헌법에 그대로 있고, *판정 경위*만 여기 있다.
+
+- **P3 전제 반증(2026-08-13 실측)** — 원안이 전제한 registry 활성화는 **모집단이 없어** 채택하지 않았다(태깅 5/1,127 · `last_reviewed` 전건 미갱신). 경위·수치 = [vault 검색 규율 — 감사 이력](vault-search-discipline-audit.md) §P3-전제반증. **반증 명령**: `grep -rl "^ai_harness:" wiki/ | wc -l` 이 6 을 넘거나 `grep -r "last_reviewed" wiki/ | grep -v 2026-06-2` 가 결과를 내면 본 판정은 무효다.
+- **P3 registry 축은 미해결** — [지식 하네스 레지스트리 — Knowledge Harness Registry](knowledge-harness-registry.md) 는 `provenance: user_authored` 라 **archive·삭제 대상 아님**(§Archive-Only 상속). "P3 완료"라 적지 않는다. 경위 = [vault 검색 규율 — 감사 이력](vault-search-discipline-audit.md) §P3-미해결.

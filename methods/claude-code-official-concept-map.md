@@ -71,6 +71,17 @@ category: method
 | 주요 Claude Code 노드 최신성 | 문서 = W29(07-17) | `everything-claude-code` 04-24 · `runtime-internals`/`dynamic-workflows-harness` 06-15 | **6~13주 지연** |
 | 깊게 반영된 축 | — | skills 81 · MCP 60 · hooks 52 · sandbox 50 · plugins 43 · subagents 39 · worktree 25 | ✅ 문서보다 깊음(자체 게이트 상재) |
 
+## 3.1 델타 (2026-09-20 · 부분 대조 — 기준선 재설정 아님)
+
+> 계기 = 「앤트로픽이 CLAUDE.md 대신 AGENTS.md 를 쓰기로 했다」는 전언 확인 요청. **전언은 사실과 다르다.** 아래 2건만 1차 출처로 대조했고, W29 기준선의 나머지 축은 **미대조**다 — `review_trigger`(4주 누적) 는 **발동 상태로 남는다**(현 지연 ≈9주).
+
+| 항목 | 1차 출처 확인분 | vault 영향 |
+|---|---|---|
+| `AGENTS.md` 직접 읽기 | v2.1.277 신설. **작업 디렉토리와 그 상위에 `CLAUDE.md`·`.claude/CLAUDE.md`·`CLAUDE.local.md` 가 하나라도 있으면 `AGENTS.md` 는 안 읽는다.** 기본값 = `claude-md-or-agents-md`. `/config` → **Project instructions** 로 `claude-md-and-agents-md`(둘 다) · `claude-md` · `managed-only` 선택 가능. 설정 파일로 박을 땐 `pluginConfigs`→`agents-md@builtin`→`options.instructionFiles`, **사용자/관리 설정에서만 유효**(프로젝트·로컬 설정은 무시). Bedrock·Vertex·Foundry·텔레메트리 차단 세션에선 기능 자체가 없음 | **현 vault = 변경 0.** 루트에 `CLAUDE.md` 가 있으므로 `AGENTS.md` 는 vault Claude 컨텍스트에 안 들어온다(본 세션 실측 = 로드 목록에 없음, 런타임 v2.1.278). ⚠ 다만 설정을 `claude-md-and-agents-md` 로 바꾸면 **외부 AI 전용 계약(Read-Only·[AGENTS-ACK]·회고 금지)이 vault Claude 지시로 섞여 들어온다** — 기본값을 벗어날 때의 알려진 부작용 |
+| CLAUDE.md 길이 | 공식 권고 "200줄 이하" 불변 | 885줄 → **657줄 / 46,080자**(09-20 실측). 축소는 진행됨. `OPUS-DISPATCH-claude-md-tiering-2026-08-29` 의 1차 목표 **40,000자**까지 남은 폭 ≈6,080자. 단 그 디스패치는 산출 0 · `review_trigger`(산출 없이 2주) **발동 경과** |
+
+원문 = `https://code.claude.com/docs/en/memory` §AGENTS.md · `anthropics/claude-code` CHANGELOG v2.1.277.
+
 ## 4. 흡수 포인트 — 우선순위
 
 ### P1. `.claude/rules/` + `paths:` 스코핑 — 885줄 문제의 정본 해법

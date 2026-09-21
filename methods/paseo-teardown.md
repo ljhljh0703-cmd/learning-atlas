@@ -1,6 +1,6 @@
 ---
 created: 2026-08-31
-updated: 2026-08-31
+updated: 2026-09-20
 type: learning
 category: method
 tags: [remote-work, orchestration, daemon, multi-agent, security, infra-0, dissect]
@@ -105,6 +105,8 @@ source: https://github.com/getpaseo/paseo
 | 8 | vault 경로는 **워크스페이스에 넣지 않는다** | 파일 API 의 루트가 클라이언트 지정이라 `/` 도 정당화된다. 헌법·SSOT 는 사거리 밖에 둔다 |
 | 9 | ③Gate 는 **Paseo 밖에 남긴다** | 부모 에이전트가 자식을 승인하는 구조를 게이트로 쓰면 절대룰 #7 위반 |
 
+> 09-20: 위 1·8 은 작가 선언으로 파기 → paseo-adoption-2026-08-31 §0-b · §8.
+
 ⛔ **Hub 는 도입 후보에서 뺀다.** GitHub·Slack·Discord 이벤트가 내 기계에서 에이전트를 띄우는 구조인데, 데몬 쪽 cwd 검사가 **"절대경로이고 비어있지 않다"가 전부**다. 허용목록도 프로젝트 제한도 없다. 문서 자신이 *"프로바이더 프로세스를 샌드박스하지 않고 외부 텍스트를 안전하게 만들지도 않는다"* 고 적는다.
 
 ## 6. 성숙도 (도입 판단 재료)
@@ -127,6 +129,35 @@ source: https://github.com/getpaseo/paseo
 - Hub 서버 본체(별도 배포) — 트리거 매칭·`from_users` 강제·토큰 발급.
 - **실행 검증 0** — 설치·기동을 하지 않았다. 위 판정은 전부 소스 판독이다.
 - 모바일/데스크톱 UI 가 서버에 없는 안전장치를 추가로 걸어주는지.
+
+## 9. 오케스트레이션층 추가 조사 (2026-09-20 · 공식 문서·릴리스 기준, 소스 재판독 아님)
+
+**버전.** 최신 = v0.8.0(2026-09-10). 플러그인 구조 개편(0.7 → 0.8 이관 필요) · 데스크톱 macOS 13 이상. 8/31 해체 기준(0.7.0-beta.3) 이후 올라왔으므로 계약 설정 키는 설치본에서 다시 확인한다.
+
+**에이전트가 에이전트를 부리는 길 2개.**
+- Paseo 도구(MCP): 설정 → 호스트 → Agents → 「Enable Paseo tools」. 도구 = `create_agent` · `send_agent_prompt` · `get_agent_status` · `list_agents` · `cancel/archive/kill_agent` · `create_workspace`(worktree 격리) · 터미널 5종 · 예약 9종 · `create/delete_heartbeat` · `list_pending_permissions` · **`respond_to_permission`** · `list_profiles` · `list_providers/models` · 내장 브라우저 조종.
+- CLI: 셸 권한이 있는 에이전트는 도구 없이 `paseo run --provider codex --background` 로 부하를 띄운다. **CLI 에도 `paseo permit allow <id>` 가 있다.** 8/31 계약 ①(도구 끄기)만으로는 대리 승인이 막히지 않았다. 도구를 꺼도 셸을 가진 에이전트는 승인할 수 있었다.
+
+**공식 스킬**(`npx skills add getpaseo/paseo`, 또는 설정 → Orchestration skills. 호스트가 시작할 때 자동 갱신).
+- `/paseo` 기본 사용법 · `/paseo-handoff` 맥락째 다른 에이전트에 인계(9칸 브리핑 템플릿 · 조사 전용이면 「파일 수정 금지」 문구 유지) · `/paseo-committee` 서로 다른 provider 2개에 같은 질문 → 이견 왕복 → 종합(분석 전용) · `/paseo-advisor` 다른 provider 1개에 두 번째 의견(분석 전용).
+- `/paseo-loop` 작업자 → 검증자 반복(`paseo loop run`). `~/.paseo/orchestration-preferences.json` 에서 작업자·검증자 provider 를 고른다.
+- `/paseo-epic` 조사 → 계획 → 구현 → 전달을 몇 시간 단위로 돌리는 무거운 오케스트레이터. 계획 파일 `~/.paseo/plans/<slug>.md` 가 정본. 역할 = 계획자 · 적대적 검토자 · 조사자 · 구현자 · 감사자. `paseo-orchestrate` 는 이 이름으로 바뀜.
+- 그 밖에 `paseo-help` · `paseo-plugin` · `paseo-chat` · 릴리스용 2종. skills.sh 보안 감사에서 일부 경고 표기(Snyk).
+- 인계·위원회·자문 스킬은 전부 `create_agent` 를 쓴다. **Paseo 도구를 켜야 돈다.**
+
+**에이전트 프로필.** 설정에서 provider·모델·모드·사고 수준을 묶고 「언제 쓰나」 메모를 단다. 오케스트레이터가 `list_profiles` 로 메모를 읽고 골라 쓴다. 호스트별 저장.
+
+**공식 작업 흐름 8종.** 다른 모델에 구현 보내기 · 조사 팬아웃 · worktree 로 충돌 없는 병렬 수정 · 구현 후 다른 에이전트 검토 · ID 로 다른 에이전트에 지시 · 진행 확인·방향 전환 · 다른 기계에서 실행 · heartbeat 로 계속 일하게 하기.
+
+**플러그인.** 공식 등록소 없음(npm·Git·로컬 경로로 설치). 샌드박스 없음, 데몬 사용자 권한 그대로. 화면 패널·사이드바·명령·첨부 소스·데몬 RPC 를 추가할 수 있고 모바일 앱에도 뜬다. 지금 가져다 쓸 공개 플러그인은 찾지 못했다.
+
+**팀장·팀원 역할 만드는 길(2026-09-20 조사).**
+- 에이전트 프로필(설정 → 호스트 → Agents): provider·모델·모드·사고 수준 + 「언제 쓰나」 메모. 팀장이 `list_profiles` 로 읽고 고른다. 역할별 전용 시스템 프롬프트 칸은 없다.
+- 커스텀 provider(`~/.paseo/config.json` `agents.providers`): `extends`(claude·codex) · `label` · `command`(실행 인자 전체 대체) · `env` · `models` · **`disallowedTools`** · `params`. 같은 Claude 를 역할별로 여러 벌 등록하고 역할마다 막을 도구를 다르게 줄 수 있다. `command` 인자로 역할 지시문을 붙이는 방식은 문서 예시가 없어 미검증.
+- 내장 역할: `/paseo-epic` = 계획자·적대적 검토자·조사자·구현자·감사자 · `/paseo-loop` = 작업자·검증자(`~/.paseo/orchestration-preferences.json` 에서 provider 선택) · `/paseo-committee`·`/paseo-advisor` = 분석 전용.
+- 역할별 권한을 강제하는 팀 구조는 Paseo 본체에 없다. 커뮤니티 팩 paseo-pi-team(Lead·Peer·Supervisor, 도구 허용목록 강제)이 있으나 Pi provider 전용이라 Claude+Codex 체제에는 안 맞는다.
+
+**요청 중인 기능.** 여러 저장소에 같은 작업을 병렬로 돌리는 「멀티 프로젝트 작업」은 일급 기능이 아니다(이슈 #4963 중복 처리). 부품으로는 가능.
 
 ## 연결
 
