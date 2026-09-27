@@ -531,63 +531,63 @@ const VILLAGE_RESUME_CONFIG = {
         link: "https://github.com/ljhljh0703-cmd/learning-atlas",
         note: "공개 학습 노트를 모아 둔 지식 허브"
       },
-      lastUpdated: "2026-08-06",
+      lastUpdated: "2026-09-27",
       learningCards: [
         {
-          "slug": "harness-gain-evaluation-contract",
-          "tag": "평가",
-          "title": "하네스 개선 판정 계약 (Vault-lite)",
-          "date": "2026-07-25",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/harness-gain-evaluation-contract.md",
-          "hook": "후보 하네스에 K번 시도를 주고 점수가 오르면 개선처럼 보인다"
-        },
-        {
-          "slug": "adversarial-gate-asymmetry",
-          "tag": "평가",
-          "title": "적대적 게이트 비대칭 (Adversarial Gate Asymmetry)",
-          "date": "2026-07-20",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/adversarial-gate-asymmetry.md",
-          "hook": "2026-07-20 uzmap-forge 세션에서 오케스트레이터(지시를 짜는 상위 AI)가 전제 오류를 9건…"
-        },
-        {
-          "slug": "analytic-presence-schedule",
-          "tag": "게임",
-          "title": "Analytic Presence Schedule — 틱 없이 사는 세계",
-          "date": "2026-07-30",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/analytic-presence-schedule.md",
-          "hook": "플레이어가 실제로 사는 것은 모든 개체가 계속 계산됐다는 사실이 아니라 \"세계가 내가 없는 동안에도 움직였다…"
-        },
-        {
-          "slug": "determinization-imperfect-info-game-ai",
-          "tag": "게임",
-          "title": "결정화(Determinization) 불완전정보 게임 AI — 고스톱 해체",
-          "date": "2026-07-21",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/determinization-imperfect-info-game-ai.md",
-          "hook": "불완전정보(hidden state)를 다루는 표준 근사"
-        },
-        {
-          "slug": "esat-environment-free-agent-data",
+          "slug": "on-device-slm-finetuning",
           "tag": "AI·LLM",
-          "title": "ESAT — 환경 없이 API-에이전트 훈련 데이터 합성 (Apple)",
-          "date": "2026-07-21",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/esat-environment-free-agent-data.md",
-          "hook": "1"
+          "title": "온디바이스 SLM 특화 파인튜닝 플레이북",
+          "date": "2026-08-27",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/on-device-slm-finetuning.md",
+          "hook": "좁은 단일 태스크를 LoRA·int4로 기기 안에서 돌리는 특화 파인튜닝 레시피"
         },
         {
-          "slug": "claude-code-official-concept-map",
+          "slug": "compaction-cliff",
           "tag": "하네스",
-          "title": "Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)",
-          "date": "2026-07-27",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/claude-code-official-concept-map.md",
-          "hook": "공식 프레이밍의 핵심은 \"기능 목록\"이 아니라 에이전트 루프의 어느 지점에 꽂히는가다"
+          "title": "Compaction Cliff — 규칙과 로그를 같은 비율로 요약하면 안전성이 무너진다",
+          "date": "2026-08-26",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/compaction-cliff.md",
+          "hook": "권위 규칙은 요약 경쟁에 넣지 않고, 현재 범위에 맞춰 원문으로 먼저 주입한다"
         },
         {
-          "slug": "higgsfield-video-prompt-craft",
+          "slug": "botw-world-anchored-production",
+          "tag": "게임",
+          "title": "결과물 위에서 판단하게 하는 제작 — BotW CEDEC 2017",
+          "date": "2026-08-25",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/botw-world-anchored-production.md",
+          "hook": "레벨 설계와 제작 관리를 분리하지 않고, 작업 맥락을 월드 좌표에 붙인 제작 시스템"
+        },
+        {
+          "slug": "catastrophic-remembering",
+          "tag": "하네스",
+          "title": "Catastrophic Remembering — 규칙은 왜 지워지지 않는가",
+          "date": "2026-08-16",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/catastrophic-remembering.md",
+          "hook": "규칙이 왜 생겼는지를 보존해야, 쌓이기만 하는 지침 파일을 정리할 수 있다"
+        },
+        {
+          "slug": "nyt-data-viz",
           "tag": "디자인",
-          "title": "Higgsfield 영상 프롬프트 공예 (AI Filmmaking as Directed Craft)",
-          "date": "2026-07-25",
-          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/higgsfield-video-prompt-craft.md",
-          "hook": "\"AI를 슬롯머신이 아니라 연출된 공예로.\" 1인·무크루로 studio-scale 액션 단편(13,491 생…"
+          "title": "NYT-discipline Data Visualization",
+          "date": "2026-08-11",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/techniques/nyt-data-viz.md",
+          "hook": "차트는 예쁜 렌더가 아니라 데이터·축·집계의 의미를 보존하는 편집 규율로 다룬다"
+        },
+        {
+          "slug": "game-industry-ai-org-landscape",
+          "tag": "도구",
+          "title": "게임업계 사내 AI 조직·도구 지형 (2025~2026)",
+          "date": "2026-08-02",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/game-industry-ai-org-landscape.md",
+          "hook": "게임 안의 AI와 만드는 사람의 AI를 나눠, 사내 도구·조직의 확산 방식을 살핀다"
+        },
+        {
+          "slug": "ue5-automation-entrypoints",
+          "tag": "도구",
+          "title": "UE5 자동화·AI 접점 진입점 지도",
+          "date": "2026-08-02",
+          "link": "https://github.com/ljhljh0703-cmd/learning-atlas/blob/main/methods/ue5-automation-entrypoints.md",
+          "hook": "UE5의 MCP·Python·빌드·QA 자동화 표면을 한 장의 진입 지도로 정리한다"
         }
       ],
       members: []
