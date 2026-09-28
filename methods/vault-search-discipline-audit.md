@@ -98,6 +98,14 @@ CLAUDE.md §4 의 해당 항은 P3 의 *use-ledger 축만* 정식화한 것이�
 
 <!-- proposed_by: claude · confirmed_by: user · confirmed_date: 2026-08-13 (작가 명시 "머지해") · 정본 p3-use-ledger-reverse-lookup-2026-08-13 -->
 
+## §완전성-표시 — 「끝났다」 ≠ 「다 봤다」 (2026-09-24 흡수)
+
+<!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-09-24(선택 버튼 「반영」). 출처 = codex-gate-record-2026-09-24 · agent-harness-returns/2026-09-21-aside-codemode-teardown(lidge-jun/aside-codemode b76c911 · 저장소 시험 1,059/1,060 통과 · Aside 실연결 미검증). -->
+
+- **검색 결과엔 「끝남」과 「범위를 다 봄」을 따로 적는다.** 작업이 오류 없이 끝났다는 것(ok)은 검색 범위를 전부 봤다는 뜻이 아니다. 결과마다 ① 잘렸나(truncated) ② 일부만 봤나(partial) ③ 처음부터 뺀 범위(ignore·숨김·바이너리·제외 패턴·심링크)를 함께 적는다.
+- **0건은 「범위가 충분했다」는 주장이 아니다** — lessons `"없음" 은 주장이지 관측이 아니다` 의 도구 결과판. 검색이 0건이면 그 검색이 뺀 범위부터 말한다(09-24 실측: 링크 검사가 숨김 폴더 속 위키 전체 사본까지 대상으로 삼아 「모호」 5,177곳을 냈다 — 범위 공개가 있었으면 첫날 보였다).
+- 🅿️ Aside 상시 설치는 파킹(쓰기 도구가 같은 창에 있고 기본 범위가 홈 폴더 전체). 트리거 = Aside 에서 다파일·다페이지 작업이 반복될 때.
+
 ## 관계
 
 - 규율 본문·재검토 조건 = `CLAUDE.md` §4 (상주)

@@ -4,7 +4,7 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**334편** · Techniques 145 · Methods 184 · 경험 서사 5
+**338편** · Techniques 145 · Methods 188 · 경험 서사 5
 
 ## 🔬 Techniques
 
@@ -137,6 +137,7 @@
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](techniques/hyperframes.md) | https://github.com/heygen-com/hyperframes | 2026-09-25 |
 | [NYT-discipline Data Visualization](techniques/nyt-data-viz.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-08-11 |
 | [결정론적 이미지 크래프트 파이프라인 (Canvas 디더 + 후처리)](techniques/deterministic-image-craft-pipeline.md) | [https://www.ascii-magic.com/] | 2026-07-20 |
 | [Handdraw Story Video — 잉크 추출 커널 + 손그림 스토리 비트 문법](techniques/handdraw-story-video.md) | https://github.com/xiejunjie524/handdraw-stor… | 2026-07-19 |
@@ -150,7 +151,6 @@
 | [Brand Identity Generation — 3-route 방법론](techniques/brand-identity-generation.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-06-16 |
 | [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](techniques/editorial-grid-design-canon.md) | https://github.com/alexmcdonnell-airtable/hyp… | 2026-06-16 |
 | [HTML PPT Studio (html-ppt) — 현행 teardown](techniques/html-ppt-studio-teardown.md) | https://github.com/lewislulu/html-ppt-skill | 2026-06-16 |
-| [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](techniques/hyperframes.md) | https://github.com/heygen-com/hyperframes | 2026-06-16 |
 | [PerfectPixel Studio — AI 스프라이트 후처리 파이프라인 해체](techniques/perfectpixel-studio.md) | https://github.com/gykim80/perfectpixel-studio | 2026-06-15 |
 | [디자인 해체 — designlang.app 랜딩 페이지 (Landing Teardown)](techniques/designlang-app-teardown.md) |  | 2026-06-13 |
 | [충실 추출 — Manavarya09/design-extract (designlang)](techniques/design-extract.md) | https://github.com/Manavarya09/design-extract | 2026-06-10 |
@@ -182,12 +182,13 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 184편
+*도구 · 워크플로우 · 방법론 · 스킬* — 188편
 
-### 🎮 게임 · 로그라이크 · NPC AI <sub>13편</sub>
+### 🎮 게임 · 로그라이크 · NPC AI <sub>14편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Unity 공식 Agent Plugin — Unity 6 전용 지식층](methods/unity-agent-plugin.md) | https://github.com/Unity-Technologies/unity-a… | 2026-09-24 |
 | [Analytic Presence Schedule — 틱 없이 사는 세계](methods/analytic-presence-schedule.md) | [https://github.com/achimala/TheLongSilence] | 2026-07-30 |
 | [Game Economy Control Loop — 순환은 서사가 아니라 계측이다](methods/game-economy-control-loop.md) | ["https://on.com2us.com/press/컴투스-대작-mmorpg-제… | 2026-07-30 |
 | [Meng To Skills 라이브러리 해체 — 데모 게이트가 본체다](methods/mengto-skills-library-teardown.md) | https://github.com/MengTo/Skills (MIT, 21b278… | 2026-07-26 |
@@ -202,10 +203,12 @@
 | [Claude Code Game Studios — Claude Code 를 게임 스튜디오로 변환하는 49 agent 템플릿](methods/claude-code-game-studios.md) | https://github.com/Donchitos/Claude-Code-Game… | 2026-05-03 |
 | [Codex Game Dev Pipeline Lessons](methods/codex-game-dev-pipeline-lessons.md) |  |  |
 
-### 🤖 에이전트 하네스 · 자가개선 <sub>58편</sub>
+### 🤖 에이전트 하네스 · 자가개선 <sub>60편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [에이전트형 참조 이미지→영상 하네스 (장소 홍보영상 해체)](methods/agentic-reference-to-video-harness.md) | YouTube 페이퍼로지 「오늘, GPT가 영상업계를 죽였습니다.」 https:/… | 2026-09-27 |
+| [문학 기법 학습 입구](methods/literary-corpus-study-guide.md) | literary-corpus-returns/2026-09-21-learning-r… | 2026-09-21 |
 | [Paseo 해체 — 전송층은 사고 싶고, 오케스트레이션층은 사면 안 된다](methods/paseo-teardown.md) | https://github.com/getpaseo/paseo | 2026-09-20 |
 | [Graph Engineering — 실행 토폴로지 (≠ 지식 그래프)](methods/graph-engineering-execution-topology.md) | https://x.com/angeldot_/article/2081061068516… | 2026-09-12 |
 | [병렬 에이전트 격리 3층 — git worktree · 인스턴스 분리 · 화면 조율](methods/parallel-worktree-isolation.md) | https://nurimedia.ninehire.site/tech017 | 2026-09-03 |
@@ -319,10 +322,11 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>69편</sub>
+### 🧰 도구 · 방법론 <sub>70편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [홍보·광고·교육·마케팅 이론·기법 정예 65장](methods/comm-theory-arsenal.md) |  | 2026-09-25 |
 | [사본은 합치지 말고 각각 보존한다 — 서술 층 출처 충실](methods/source-fidelity-in-writing.md) |  | 2026-09-06 |
 | [설명은 결정권자에게 하듯 한다](methods/explain-to-decider.md) |  | 2026-09-05 |
 | [vault 검색 규율 — 감사 이력](methods/vault-search-discipline-audit.md) | CLAUDE.md §4 감사 이력 이관 — 정본 패치 [[.proposed-pat… | 2026-09-05 |

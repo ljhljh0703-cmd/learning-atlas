@@ -10,6 +10,8 @@ source: "higgsfield.ai/community — 프로젝트 상세 '4K Blockbuster Breakdo
 
 # Higgsfield 영상 프롬프트 공예 (AI Filmmaking as Directed Craft)
 
+> ➕ 후속 (2026-09-27): 에셋을 **웹 실사진 조사로부터** 만들고 컷표 문안으로 참조형 영상을 뽑는 에이전트 하네스 = [에이전트형 참조 이미지→영상 하네스 (장소 홍보영상 해체)](agentic-reference-to-video-harness.md).
+
 > ⚠️ **provisional** — Claude 브라우저 실독·제안, 작가 컨펌 전. **범위 정직**: 완전 방법론은 "Breakdown/Academy" *교육형* 프로젝트에만 노출(4K Blockbuster = 플래그십). 일반 프로젝트는 영상+통계뿐 → 사실상 n=1 심층 샘플. PK-015 부활 = 작가 실제 영상작업 착수 시 추가 샘플 심층.
 
 ## 핵심 철학

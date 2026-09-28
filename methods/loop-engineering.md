@@ -154,7 +154,12 @@ graph TD
 ### 12. Meta-Loop / 메커니즘-레벨 탐색 델타 (2026-07-10, codex-gate)
 <!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-07-10. karpathy-loop-check 패킷 tiny-merge(신규 개념 1종만 — 나머지 100% 중복). karpathy-guidelines(4원칙 authority)와 무관. -->
 - **Bilevel Autoresearch = 아티팩트 최적화 vs 메커니즘 최적화**: 기존 [Autoresearch — Karpathy의 자동 연구 루프](autoresearch-karpathy.md)·§10 루프는 *산출물*(train.py 결과)을 개선. 신규 델타 = 외부 루프가 *내부 루프의 탐색 메커니즘 자체*(proposal policy·verifier rubric·state schema)를 진단·수정. Ralph Wiggum 가드("3회 반복 halt")의 상보 = **Meta-Loop Intervention Rule**: 반복 실패 시 멈추기만 X, *메커니즘을 진단·패치*.
-- ⚠ **가드**: ① scope = 좁은 val_bpb 벤치 한정(일반 생산성 5배 아님) ② arXiv 2603.23420 val_bpb 수치(`-0.045 vs -0.009`)는 **미검증**(2026-03 미래 arXiv, Codex-reported) — 인용 전 확인 ③ Fortune "Karpathy Loop"·Shopify 19%/overnight half-size 주장 = **source-reported only**(미검증). `loop_trace` ledger·`mechanism_patch_candidate` schema = Codex 자체 제안(source 아님) → park(infra-0, 자동화 X).
+- ⚠ **가드**: ① scope = 좁은 val_bpb 벤치 한정(일반 생산성 5배 아님) ② arXiv 2603.23420 val_bpb 수치(`-0.045 vs -0.009`)는 **미검증**(2026-03 미래 arXiv, Codex-reported) — 인용 전 확인 ③ Fortune "Karpathy Loop"·Shopify 19%/overnight half-size 주장 = **source-reported only**(미검증). 
+
+### 13. 장기 실험 기억 분리 — 파킹 델타 (2026-09-24, codex-gate)
+<!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-09-24(선택 버튼 「반영」). 출처 = codex-gate-record-2026-09-24 · agent-harness-returns/2026-09-13-auto-recsys-teardown(arXiv 2609.10922, 미재현). -->
+- **① 실행 기억 ≠ 아이디어 기억** — 명령·버전·장비·막다른 길은 *실행 기록*, 가설·지표·퇴보는 *아이디어 이력*에 따로 둔다. **② 병렬 고비용 실험은 아이디어마다 상태 격리** — 기준 리비전·작업/증거 포인터·담당·복구 조건을 아이디어 단위로 묶는다.
+- 🅿️ **트리거 = 며칠짜리 원격/GPU 실험이 처음 생길 때만.** 지금 일반 작업엔 새 저장소·실험 OS 도입 X. 제외(원문 경계 그대로): 에이전트 판단만으로 기록 자동 수정 · 성숙했다고 사람 승인 생략 · cron 무인 장기 실행. 저자도 정식 검증 게이트 부재를 인정 — vault 독립 Gate 는 보존 대상.`loop_trace` ledger·`mechanism_patch_candidate` schema = Codex 자체 제안(source 아님) → park(infra-0, 자동화 X).
 
 ---
 

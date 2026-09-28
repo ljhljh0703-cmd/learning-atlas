@@ -159,6 +159,13 @@ vault 에는 이미 "그래프"가 있다. **둘은 다른 대상이다.**
 - **①반영 diff** = 본 §9 (3종 분리·엣지 3칸·localize-first + 차단 5건 + 이웃 3).
 - **②파킹 + 트리거** — FDE 업무 절차 1건 수동 모델링(노드 7~12 · 엣지 10~20, 3칸 작성 후 담당자 확인): 트리거 = **작가가 실제 고객·사내 업무 절차를 그릴 일이 생길 때**. 게임 NPC 안내층 파일럿: 트리거 = NPC 행동 설계 착수 시. 공식 코드 공개 시 노드 매칭·검증기 직접 검산.
 
+## 10. 네 번째 구분 — 구조 배선 그래프 (초파리 수컷 CNS 커넥톰 흡수 2026-09-24)
+<!-- proposed_by: external_ai (via codex), 판정 by claude, confirmed_by: user 2026-09-24(선택 버튼 「반영」). 출처 = codex-gate-record-2026-09-24 · agent-harness-returns/2026-09-13-male-cns-connectome-teardown(2026-09-03 정식 출판 · 독립 재현 미실행). -->
+- **구조 배선 그래프 ≠ 지식 그래프·실행 토폴로지·절차 그래프.** 배선은 *연결 가능성의 지도*이지 행동 정책이 아니다 — 「무엇이 무엇에 닿을 수 있나」와 「실제로 무엇이 흐르나」를 같은 그래프로 읽지 않는다.
+- **그래프 둘을 비교하는 순서(계약)** = 역할 정렬 → 노드 변화 → 엣지 변화 → 실제 결과 → 인과 실험 또는 보류. 노드 이름이 같다고 같은 역할로 치지 않는다(정렬이 먼저).
+- ⛔ **들이지 않는 것** — 생물 데이터를 게임에 이식하거나 「뇌 에뮬레이터」라 부르기 · 대용량 데이터 도입 · 「연결도만 있으면 행동을 재현한다」 · 생물학적 성차를 개인화 규칙으로 쓰기.
+- 🅿️ **파킹** — 커넥톰 제약 제어기(그래프 구조 + 단순 동역학 + 과제/강화학습 + 몸 어댑터 분리 연결): 트리거 = **몸을 가진 creature AI 를 실제로 만들 때.**
+
 ## 연결
 
 [Dynamic Workflows — 작업마다 하네스 (Claude Code)](dynamic-workflows-harness.md) · agent-harness · hermes-loop · dispatch-builder · graphify · [Forge Spec-Gate (why-was-fable-banned) — 차용 해체](forge-spec-gate.md) · [Claude Code 공식 개념 지도 — vault 대조 기준선 (W29)](claude-code-official-concept-map.md) · [Is Grep All You Need? — 에이전트 검색에서 grep vs 벡터 RAG (arXiv 2605.15184)](../techniques/agentic-search-grep-vs-vector.md) · [goose — 모델독립 에이전트 하네스 (production 오픈소스 정본)](../techniques/goose-agent-harness.md) · [ReasoningBank — 실패를 *예방 규칙*으로 증류하는 에이전트 메모리](../techniques/reasoningbank-failure-distilled-memory.md) · [Loop Engineering (Addy Osmani & Neyzis) — 프롬프터에서 루프 디자이너로 가는 14단계 로드맵](loop-engineering.md)

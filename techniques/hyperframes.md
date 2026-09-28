@@ -1,6 +1,6 @@
 ---
 created: 2026-05-25
-updated: 2026-06-16
+updated: 2026-09-25
 type: learning
 tags: [html, animation, video-rendering, agent-first, gsap, ffmpeg, puppeteer, deterministic, frame-adapter]
 source: https://github.com/heygen-com/hyperframes
@@ -15,6 +15,8 @@ category: technique
 관련 — [Hyperframes Skill 패턴 — 5-step 강제 워크플로우 + Hard Gate](../methods/hyperframes-skill-pattern.md) (운영 메타 패턴 추출) · [Unity ML-Agents — Unity 환경을 RL 학습장으로 쓰는 오픈 툴킷](unity-ml-agents.md) (결정론적 시뮬레이션 사상 공통) · [Parcae — Stable Looped Language Models](parcae-looped-lm.md) · [Hermes Agent — Nous Research 자가개선형 에이전트 플랫폼](hermes-agent.md) (skill 자가성장) · graphify (작가 vault 의 skill 운영 패턴) · [광고·영상 제작 파이프라인 (실전)](ad-video-production-pipeline.md) · design-index
 
 > 🔄 **2026-06-16 clone 전문 재검증**: 본 페이지 본문(§1~5)은 *충실*하나 repo가 크게 진화해 드리프트 — **skills 14→16종(목록·아키텍처 재편)**, **packages 8→11**(+gcp-cloud-run·sdk·sdk-playground), 설치 `npx skills add heygen-com/hyperframes`, Node 22+. **신개념 `frame.md` 추가**(↓ §2.5, 우리 디자인+광고영상 작업 직결). §6 skills·§4 packages 갱신. 본문 코어(frame-adapter·결정론·파이프라인)는 유효.
+
+> 🔄 **2026-09-25 원문 재확인(`@7129340`, CLI 0.8.74)** — ① 스킬 재편: `hyperframes-media` → **`media-use`**(음성·음악·이미지 조달 통합), `+hyperframes-audio·keyframes·studio·slideshow·talking-head-recut·music-to-video` ② **로컬 음성 Kokoro = 한국어 미지원**(영·스·프·힌·이·포·일·중) → 한국어 내레이션은 일레븐랩스·HeyGen·Gemini TTS ③ ⚠ **`npx hyperframes init` 이 전역 스킬 10종을 자동 설치**(`~/.claude/skills`·`~/.agents/skills` + 잠금파일) — 보관 이동 `~/.claude/skills/.archive/hyperframes-autoinstall-2026-09-25/`. `render`·`check`·`snapshot` 은 설치 부작용 없음 ④ `check` 에 글자 대비(WCAG) 자동 검사 내장. → 반영처 = SKILL(대본→TTS→강의·숏폼 대량 생산).
 
 ## 2.5 🆕 frame.md — design.md를 *카메라용으로 뒤집은* 스펙 (2026-06-16 신규, 핵심)
 
