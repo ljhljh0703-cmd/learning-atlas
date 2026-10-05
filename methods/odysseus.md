@@ -213,7 +213,7 @@ EnvironmentFile=-/home/USER/odysseus-ui/.env
 - 빈도 매우 높은 write (초당 100+회) 면 `fsync` 비용 누적 — 그 경우 *별도 패턴* (WAL 등) 필요
 
 **도입 *안 함* 결정 사례** (현재 적용):
-- `skills/html-publish/build.py` 의 `out.write_text(html)` 2 지점 — 빌더 idempotent + Git 추적 + 실패 시 즉시 눈에 띔 = atomic 의 *진짜 가치* (silent corruption 차단) 적용 안 됨. **재실행으로 회복 가능한 파생물에는 도입 X**
+- `skills/.archive/2026-10-03_html-publish/build.py` 의 `out.write_text(html)` 2 지점 — 빌더 idempotent + Git 추적 + 실패 시 즉시 눈에 띔 = atomic 의 *진짜 가치* (silent corruption 차단) 적용 안 됨. **재실행으로 회복 가능한 파생물에는 도입 X**
 
 ---
 

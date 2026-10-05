@@ -124,7 +124,7 @@ codegraph uninit         # 프로젝트 .codegraph/ 제거
 | 트랙 | 직접 연결 | 근거 |
 |---|---|---|
 | **hwiglija-tower** (Unity C#) | **🔴 즉시 도입** | C# Full support. Codex 가 Unity 코드 헤맬 때 token 폭주 — 본 도구로 차단. hwiglija-tower-AGENTS 의 Codex 운영 비용 직접 절감. |
-| **Sub-brain repo 자체** (TS/JS/Python 빌더) | **🔴 즉시 도입** | `skills/html-publish/`·`workflows/`·빌더 스크립트의 코드 의존 그래프 미리 박제. Claude/Gemini 의 grep 폭주 감소. |
+| **Sub-brain repo 자체** (TS/JS/Python 빌더) | **🔴 즉시 도입** | `skills/.archive/2026-10-03_html-publish/`·`workflows/`·빌더 스크립트의 코드 의존 그래프 미리 박제. Claude/Gemini 의 grep 폭주 감소. |
 | **AI Game roadmap Phase 2-7** | 🟡 곧 | Unity ML-Agents 프로젝트 셋업 직후 첫 액션으로 `codegraph init`. Phase 1 결과물 (`Model Training/`) 부터 적용. |
 | **com2us-2026 지원** | 🟢 낮음 | 지원 자료 자체엔 코드 적음. 단 RL 시뮬레이터 PoC 작성 시 합류. |
 
