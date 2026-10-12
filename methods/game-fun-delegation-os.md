@@ -41,6 +41,8 @@ year: 2026
 
 > 게임 작업을 AI에 위임할 때 *입력·출력·금지·검증* 계약으로 변환하는 틀. dispatch-builder 게임 디스패치에 직접 환류(§6).
 
+> 적용 범위 보완 후보: 아래 계약은 현재 도전 원천·경험 가설·기능 역할에 맞게 적용/해당 없음/미확인을 구분한다. 수행형 게임의 반복 입력·전략 선택 부재는 자동 실패 조건이 아니다. 필수 지원 기능은 보호할 사용 행동·예방할 실패·확인 방법으로 검증하며 직접적인 재미 지표를 강제하지 않는다. 과거 사용자 취향 앵커는 보존하고 현재 게임에의 적용은 별도 판단한다.
+
 ### 3.1 MDA Trace Contract
 모든 게임 기능은 trace를 가진다 — **Aesthetics**(느낄 감정) → **Dynamics**(발생할 행동패턴) → **Mechanics**(규칙·데이터·코드) → **Telemetry**(그 패턴 발생 검증 지표).
 - **금지 요청**(모호): "재미있게 만들어줘" · "전투 더 좋게" · "스킬 여러 개" · "AI NPC 똑똑하게".
@@ -48,19 +50,21 @@ year: 2026
 - (기존 [MDA 프레임워크 — Mechanics, Dynamics, Aesthetics](../techniques/mda-framework.md) 보강 — 새 이론 아닌 *위임 계약 관점*.)
 
 ### 3.2 AI Output Review Gate (GameFlow 8축)
-AI 산출물은 *작동*만으로 pass 안 함. 8축 검수: ① Concentration(잡무가 판단 방해 X) ② Challenge(실패+대응 가능, 실패원인 읽힘) ③ Player Skills(향상 여지) ④ Control(선택이 결과에 영향·랜덤이 agency 안 죽임) ⑤ Clear Goals(장기+단기 가시) ⑥ Feedback(원인→결과→다음판단 연결) ⑦ Immersion(말투·톤 유지) ⑧ Social/World Response(세계가 선택 기억).
+AI 산출물은 *작동*만으로 pass 안 함. 8축 검수: ① Concentration(잡무가 판단 방해 X) ② Challenge(실패+대응 가능, 실패원인 읽힘) ③ Player Skills(향상 여지) ④ Control(선택이 결과에 영향·랜덤이 agency 안 죽임) ⑤ Clear Goals(장기+단기 가시) ⑥ Feedback(원인→결과→다음판단 연결) ⑦ Immersion(말투·톤 유지) ⑧ Social Interaction(사회적 상호작용; 세계의 선택 기억은 특정 게임의 적용 가설).
 
 ### 3.3 Active DDA Contract
-난이도 조절 = 몰래 수치 보정 X. 플레이어가 *플레이 안에서* 위험·보상·속도·회복을 선택. 각 run segment에 `safe / standard / risky / recovery / wildcard` 옵션을 *메뉴 아닌 방·적·보상·루트*에 박음.
+전략적 위험·자원 선택이 목표 경험인 게임의 적용 예시다. 몰래 수치를 바꾸는 대신 플레이 안에서 위험·보상·속도·회복을 선택하게 하는 방식을 검토한다. `safe / standard / risky / recovery / wildcard`는 후보 예시이며 모든 구간에 다섯 종류를 넣을 의무가 아니다. 지각·타이밍·운동 수행이 중심인 게임에는 선택 메뉴를 이 계약 때문에 추가하지 않는다.
 
 ### 3.4 Motivation / Reward Contract (SDT)
-반복 동기 = 보상량 X, **need satisfaction**: Autonomy(선택이 이후 플레이에 차이) · Competence(더 잘하게 됨·원인 읽힘) · Relatedness(세계가 선택 기억). 모든 보상은 셋 중 ≥1로 태그.
+반복 동기 = 보상량 X, **need satisfaction**: Autonomy(선택이 이후 플레이에 차이) · Competence(더 잘하게 됨·원인 읽힘) · Relatedness(타인과 연결되는 감각; 세계/캐릭터의 기억으로 이를 지원하는지는 별도 가설). 모든 보상은 셋 중 ≥1로 태그.
 - **금지 동기**: 접속 강박 · 손실 회피 압박 · 과금 없이 피로한 성장 · 판단 없는 자동반복 · 수치만 오름 · 선택 결과 안 남음.
 
 ### 3.5 Immersion Guardrail
 몰입 = graded experience. 실패 추적 5종: Cognitive(자동반복·무의미 클릭·정보과다) · Real-world dissociation(메타설명·세계관밖 UI·반복 확인창) · Emotional(이겨도 져도 감정차 없음) · Challenge(쉬움/어려움/원인불명/수치벽) · Control(랜덤사망·동일결과 선택지·회복수단 없음).
 
 ## 4. 지표·테스트 카탈로그 (proxy 신호 — 재미 증명 아님)
+
+아래 반복·무판단 지표는 원인을 조사할 신호다. 조작 숙련을 위한 반복과 피로·강박을 동일시하지 않고, 수행 변화·실패 원인·부담 발화·사용 맥락을 함께 본다. 점수의 즉시 상승, 지연 유지, 새 조건 전이는 서로 다른 주장으로 기록한다.
 
 - **전투/밸런스**: 승률 · 평균 턴수 · 사망원인 분포 · 스킬선택률 · 조합 다양도 · 빌드 편중도 · 보상 의존도 · 반복전투 유사도 · 재도전율 · dominant strategy 유무.
 - **피로도**: meaningless_click · repeated_action_ratio · no_decision_duration · forced_wait · repeated_combat_pattern · tooltip/combat_log_reopen.

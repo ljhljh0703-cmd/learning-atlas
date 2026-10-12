@@ -4,7 +4,7 @@
 > 글은 비공개 Obsidian에 쌓고, 민감한 정보를 걸러낸 것만 자동으로 이 repo에 올려요. 노트끼리 링크로 이어져서 하나의 지식 그래프가 돼요.
 > 어떻게 내보내고 정제하는지는 [`tools/`](tools/)에 정리해뒀어요.
 
-**338편** · Techniques 145 · Methods 188 · 경험 서사 5
+**340편** · Techniques 145 · Methods 189 · 경험 서사 6
 
 ## 🔬 Techniques
 
@@ -182,7 +182,7 @@
 
 ## 🛠️ Methods
 
-*도구 · 워크플로우 · 방법론 · 스킬* — 188편
+*도구 · 워크플로우 · 방법론 · 스킬* — 189편
 
 ### 🎮 게임 · 로그라이크 · NPC AI <sub>14편</sub>
 
@@ -322,10 +322,11 @@
 | [Open Design — DESIGN.md 를 런타임에 소비하는 로컬-퍼스트 디자인 엔진](methods/open-design.md) | https://github.com/nexu-io/open-design | 2026-06-04 |
 | [프리미엄 UI/UX 심리학 전략 (Premium Design Methods)](methods/premium-ui-ux-strategies.md) |  | 2026-05-05 |
 
-### 🧰 도구 · 방법론 <sub>70편</sub>
+### 🧰 도구 · 방법론 <sub>71편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [Argdown — 결정 근거를 논증 지도로 그리기](methods/argdown-argument-map.md) | https://argdown.org | 2026-10-09 |
 | [홍보·광고·교육·마케팅 이론·기법 정예 65장](methods/comm-theory-arsenal.md) |  | 2026-09-25 |
 | [사본은 합치지 말고 각각 보존한다 — 서술 층 출처 충실](methods/source-fidelity-in-writing.md) |  | 2026-09-06 |
 | [설명은 결정권자에게 하듯 한다](methods/explain-to-decider.md) |  | 2026-09-05 |
@@ -399,12 +400,13 @@
 
 ## 📖 경험 서사
 
-*경험과 지식이 함께 엮인 학습 (부트캠프 등)* — 5편
+*경험과 지식이 함께 엮인 학습 (부트캠프 등)* — 6편
 
-### 🧠 AI · LLM 연구 <sub>1편</sub>
+### 🧠 AI · LLM 연구 <sub>2편</sub>
 
 | 글 | 출처 | 최종 수정 |
 |----|------|-----------|
+| [컴퓨터과학 철학 — 학습 체크리스트](narrative/philosophy-of-cs-primer.md) | https://github.com/glennstreet/awesome-philos… | 2026-10-09 |
 | [AI 엔지니어 NLP 부트캠프](narrative/bootcamp-ai-nlp.md) | 멋쟁이사자처럼 AI 엔지니어 NLP 교육과정 | 2026-04-20 |
 
 ### 🎨 디자인 · 프론트엔드 <sub>1편</sub>
