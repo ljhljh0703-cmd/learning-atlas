@@ -8,9 +8,9 @@ source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 authors: [Massimo Vignelli, Josef Müller-Brockmann]
 ---
 
-<!-- 포트폴리오·문서 디자인의 그리드·타이포 정전 — Vignelli Canon + Müller-Brockmann grid 전문 충실. 자체 디자인 시스템 위 규율 레이어. -->
+<!-- 포트폴리오·문서 디자인의 그리드·타이포 정전 — Vignelli Canon + Müller-Brockmann grid 전문 충실. ParkDal 위 규율 레이어. -->
 
-> 출처: hyperagent-public-skills(alexmcdonnell-airtable) `vignelli-canon`·`muller-brockmann-grid` skill JSON **전문 직접 파악**(clone 후 documentation 통독, 2026-06-16). 원리=공개 디자인 정전. 자체 디자인 시스템 `_tokens.css` 위 **규율 레이어**(토큰="무엇", canon="어떻게 절제"). ※ 1차 WebFetch 요약본은 부실해 폐기·재작성.
+> 출처: hyperagent-public-skills(alexmcdonnell-airtable) `vignelli-canon`·`muller-brockmann-grid` skill JSON **전문 직접 파악**(clone 후 documentation 통독, 2026-06-16). 원리=공개 디자인 정전. ParkDal `_tokens.css` 위 **규율 레이어**(토큰="무엇", canon="어떻게 절제"). ※ 1차 WebFetch 요약본은 부실해 폐기·재작성.
 
 # Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)
 
@@ -62,12 +62,12 @@ authors: [Massimo Vignelli, Josef Müller-Brockmann]
 ### B-3. Verify (믿지 말고 측정) — Puppeteer 4종
 여러 폭(>·< `--maxw`, 예 1440/1180/900)에서: ① 컬럼 준수(양 edge 셋 다 — span 끝은 gutter 먼쪽) ② overlay 일치 ③ baseline modulo ④ optical ink(요소별 자기 컬럼 라인). clean = `col=0 overlay=0 baseline≤4 ink=0 → PASS`. 신조: *"토글해 측정 못 하는 그리드는 무드보드지 시스템이 아니다."*
 
-## C. 포트폴리오 적용 (자체 디자인 시스템 + canon)
-- 자체 디자인 시스템 `monochrome` 팔레트(흑백+빨강) = MB white/near-black/Swiss-red(`#e4002b`)·Vignelli ink/paper와 동형.
-- 자체 디자인 시스템 `--space-*` 8px = baseline 8px lock. leading/margin/미디어높이를 8 배수로.
-- 자체 디자인 시스템 6-level headline → **실제론 2~3 레벨만**(Vignelli 절제) + flush-left 고정.
-- 컨테이너 자체 디자인 시스템 base 1080/wide 1280 ≈ MB maxw, 본문 narrow 680.
-- accent 단일·CTA/링크/1포인트(Vignelli "식별자" + 자체 디자인 시스템 accent 일치).
+## C. 포트폴리오 적용 (ParkDal + canon)
+- ParkDal `monochrome` 팔레트(흑백+빨강) = MB white/near-black/Swiss-red(`#e4002b`)·Vignelli ink/paper와 동형.
+- ParkDal `--space-*` 8px = baseline 8px lock. leading/margin/미디어높이를 8 배수로.
+- ParkDal 6-level headline → **실제론 2~3 레벨만**(Vignelli 절제) + flush-left 고정.
+- 컨테이너 ParkDal base 1080/wide 1280 ≈ MB maxw, 본문 narrow 680.
+- accent 단일·CTA/링크/1포인트(Vignelli "식별자" + ParkDal accent 일치).
 - 큰 헤드라인엔 optical ink 보정(B-2.6) 적용 검토.
 
 ## D. 교차 production 함정 (4 스킬 공통 — html-publish·ad-storyboard에도 적용)

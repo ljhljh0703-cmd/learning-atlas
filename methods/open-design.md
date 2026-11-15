@@ -18,7 +18,7 @@ category: method
 Anthropic 의 폐쇄형 Claude Design (2026-04 출시) 에 대한 *오픈소스·로컬-퍼스트 대안*. 이미 내 머신에 깔린 코딩 에이전트 (Claude Code, Cursor, Copilot 등 22+) 를 *디자인 엔진* 으로 쓴다. 클라우드·벤더 종속 없음.
 
 > **포지셔닝 주의**: 이건 [DESIGN.md — 코딩 에이전트용 디자인 시스템 명세](design-md.md) 처럼 *포맷* 도, [awesome-design-md — 브랜드별 DESIGN.md 69종 레퍼런스 컬렉션](awesome-design-md.md) 처럼 *레퍼런스 컬렉션* 도 아니다. **DESIGN.md 를 실제로 읽어 산출물을 뽑는 *실행 엔진/앱*** 이다. 세 페이지는 포맷 → 사례집 → 런타임의 삼각 구도.
-> 분류: method (도구). NPC blueprint 직결성: 없음. 적용성: **직접** (현재 디자인 시스템 명세 + html-publish 작업과 같은 아키텍처). 시급성: 지금~중기.
+> 분류: method (도구). NPC blueprint 직결성: 없음. 적용성: **직접** (현재 parkdal-design-system-spec + html-publish 작업과 같은 아키텍처). 시급성: 지금~중기.
 
 ---
 
@@ -94,7 +94,7 @@ License  : Apache-2.0 (번들 guizang-ppt / html-ppt 는 MIT 유지)
 
 ### 직접적 연결: **높음 (현재 작업)**
 
-디자인 시스템 명세 (PDD) + html-publish `build.py`/`lint.py` 연동 설계가 *정확히 같은 아키텍처* 다 — "디자인 토큰 명세를 렌더 타임에 읽어 산출물을 빌드하고 제약을 lint 한다". open-design 은 이 발상이 **★58k 규모로 검증된 패턴** 임을 보여준다. 내가 혼자 발명하는 게 아니라 업계 표준 계보 위에 있음.
+parkdal-design-system-spec (PDD) + html-publish `build.py`/`lint.py` 연동 설계가 *정확히 같은 아키텍처* 다 — "디자인 토큰 명세를 렌더 타임에 읽어 산출물을 빌드하고 제약을 lint 한다". open-design 은 이 발상이 **★58k 규모로 검증된 패턴** 임을 보여준다. 내가 혼자 발명하는 게 아니라 업계 표준 계보 위에 있음.
 
 ### 개념적 수확
 
@@ -131,7 +131,7 @@ traits "전략" — design-md(포맷)·awesome-design-md(사례)·open-design(�
 
 - [DESIGN.md — 코딩 에이전트용 디자인 시스템 명세](design-md.md) — DESIGN.md *포맷 스펙* (open-design 이 소비하는 입력 규격)
 - [awesome-design-md — 브랜드별 DESIGN.md 69종 레퍼런스 컬렉션](awesome-design-md.md) — 브랜드별 DESIGN.md *사례집* (open-design 의 150 시스템과 같은 계보)
-- 디자인 시스템 명세 — 내 vault 의 *같은 아키텍처* 구현 (PDD + html-publish)
+- parkdal-design-system-spec — 내 vault 의 *같은 아키텍처* 구현 (PDD + html-publish)
 - [Hyperframes — HTML→Video 결정론적 렌더링 프레임워크](../techniques/hyperframes.md) · [Hyperframes Skill 패턴 — 5-step 강제 워크플로우 + Hard Gate](hyperframes-skill-pattern.md) — open-design 의 영상 export 엔진
 - kami-design-system — PDD 의 또 다른 입력 소스
 - index — 메타 도구 컬렉션

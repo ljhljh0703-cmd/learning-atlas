@@ -8,9 +8,9 @@ source: https://github.com/tw93/Kami
 authors: [tw93]
 ---
 
-<!-- tw93/Kami 운영 teardown — AI 에이전트용 문서 생성 시스템(이력서·포폴·슬라이드·백서 등 9종). 자체 디자인 시스템 부모, 작가 취업 직결. 기존 kami-design-system(철학)의 운영 보강. -->
+<!-- tw93/Kami 운영 teardown — AI 에이전트용 문서 생성 시스템(이력서·포폴·슬라이드·백서 등 9종). ParkDal 부모, 작가 취업 직결. 기존 kami-design-system(철학)의 운영 보강. -->
 
-> 출처: `tw93/Kami` v1.7.4 **clone 전문 통독**(2026-06-16, SKILL.md 535 + references 8종 + tokens). 기존 kami-design-system은 *디자인 철학*만 — 본 페이지는 *운영 실체*(9 문서타입·이력서 전략·writing 품질바·14 다이어그램). **Kami = 자체 디자인 시스템의 부모**(tokens 일치), **diagram-design([Diagram-Design Skill — Editorial 다이어그램을 자동화한 Claude Code skill](diagram-design-skill.md)) 크레딧**. 🎯 **작가 취업 직결**(이력서/포폴 생성 + 한국어 템플릿 존재). 방법론만 흡수(코드 clean-room).
+> 출처: `tw93/Kami` v1.7.4 **clone 전문 통독**(2026-06-16, SKILL.md 535 + references 8종 + tokens). 기존 kami-design-system은 *디자인 철학*만 — 본 페이지는 *운영 실체*(9 문서타입·이력서 전략·writing 품질바·14 다이어그램). **Kami = ParkDal의 부모**(tokens 일치), **diagram-design([Diagram-Design Skill — Editorial 다이어그램을 자동화한 Claude Code skill](diagram-design-skill.md)) 크레딧**. 🎯 **작가 취업 직결**(이력서/포폴 생성 + 한국어 템플릿 존재). 방법론만 흡수(코드 clean-room).
 
 # Kami (紙) — AI 문서 생성 시스템 운영 teardown
 
@@ -48,7 +48,7 @@ architecture·flowchart·quadrant·bar/line/donut·state-machine·timeline·swim
 
 ## 7. vault 적용
 - **🎯 작가 취업 (최우선)**: Kami로 *이력서·포트폴리오 직접 생성 가능*(KO 템플릿). resume-writing §2 + AI 엔지니어 가이드를 resume-design-system·libgdx-rogue-os-case-study와 결합 → 작가 AI-native 경력(harness·③Gate·hermes)을 Impact 공식으로 서술. **단기 목표 직격**(goal-hierarchy).
-- **자체 디자인 시스템 혈통 확정**: Kami = kami-design-system 철학 + 본 운영. 자체 디자인 시스템은 Kami+DESIGN.md 융합 파생. 토큰·invariant 동일.
+- **ParkDal 혈통 확정**: Kami = kami-design-system 철학 + 본 운영. ParkDal은 Kami+DESIGN.md 융합 파생. 토큰·invariant 동일.
 - **다이어그램**: Kami 14종 ÷4·focal 규율 = [Editorial Grid Design Canon — Vignelli + Müller-Brockmann (전문)](../techniques/editorial-grid-design-canon.md)·diagram-design 통합. 발표/문서 다이어그램에 인출.
 - **writing 품질바 + anti-patterns 48** = 모든 외부 공개 문서(이력서·포폴·블로그·지원서) 검수 게이트. ~~juhyeong-blog-voice~~(폐기 2026-07-30)(작가 문체)와 상보(품질바=구조/논증, juhyeong=톤).
 - clean-room: 방법론·토큰·규율만. 템플릿/스크립트 코드 복제 X(필요 시 `npx skills add` 또는 직접 설치).

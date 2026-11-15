@@ -370,7 +370,7 @@ Before UI generation:
 
 ### 4.1 전제
 
-외부의 `DESIGN.md`를 CLAUDE.md나 자체 디자인 명세에 바로 직접 병합해서는 안 됩니다. 외부 디자인 토큰은 항상 "시각 계약 후보" 형태로 staging 디렉토리에 격리되어야 합니다.
+외부의 `DESIGN.md`를 CLAUDE.md나 ParkDalDesign.md에 바로 직접 병합해서는 안 됩니다. 외부 디자인 토큰은 항상 "시각 계약 후보" 형태로 staging 디렉토리에 격리되어야 합니다.
 
 권장 파일 구조는 다음과 같습니다.
 ```text
@@ -381,16 +381,16 @@ wiki/inbox/design-sources/getdesign/
 └── _source-index.md
 
 wiki/스테이징 영역
-├── design.getdesign-stripe.patch.md
-├── design.getdesign-vercel.patch.md
+├── ParkDalDesign.getdesign-stripe.patch.md
+├── ParkDalDesign.getdesign-vercel.patch.md
 └── html-publish-theme-map.patch.md
 ```
 
 ### 4.2 Sub-brain 시각 계약 모델
 
-자체 디자인 명세를 상위 시각 헌법으로 고정하고, `getdesign.md`에서 수집한 토큰은 하위 테마 어댑터(Theme Adapter)로 매핑합니다.
+ParkDalDesign.md를 상위 시각 헌법으로 고정하고, `getdesign.md`에서 수집한 토큰은 하위 테마 어댑터(Theme Adapter)로 매핑합니다.
 ```text
-자체 디자인 명세 (시각 헌법)
+ParkDalDesign.md (시각 헌법)
 → local brand principles
 → getdesign adapter (테마 매핑)
 → _tokens.css (원자 토큰)
@@ -398,10 +398,10 @@ wiki/스테이징 영역
 → html-publish template
 ```
 
-외부의 물리적 브랜드를 그대로 복사하는 대신, 자체 디자인 명세의 의미적 규격에 맞게 변환합니다.
-*   Stripe primary gradient → 자체 디자인 시스템 accent-gradient 로 매핑.
-*   Vercel monochrome precision → 자체 디자인 시스템 문서 및 기술 페이지 테마로 매핑.
-*   Apple whitespace → 자체 디자인 시스템 포트폴리오 hero 모드로 매핑.
+외부의 물리적 브랜드를 그대로 복사하는 대신, ParkDalDesign.md의 의미적 규격에 맞게 변환합니다.
+*   Stripe primary gradient → ParkDal accent-gradient 로 매핑.
+*   Vercel monochrome precision → ParkDal 문서 및 기술 페이지 테마로 매핑.
+*   Apple whitespace → ParkDal 포트폴리오 hero 모드로 매핑.
 
 ### 4.3 디자인 토큰 매핑 인터페이스
 

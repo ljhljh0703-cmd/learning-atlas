@@ -232,7 +232,7 @@ mp4 로 대체되긴 했지만 코드엔 살아있는 패턴:
 
 ---
 
-## 10. 자체 디자인 시스템(PDD) 이식 매핑 — 2차 정밀분석 통합 (Gemini 2026-06-12, 작가 confirmed)
+## 10. ParkDal(PDD) 이식 매핑 — 2차 정밀분석 통합 (Gemini 2026-06-12, 작가 confirmed)
 
 > 06-12 2차 해체분석(`proposed_by: gemini · confirmed_by: user`)을 본 노트로 통합(2026-06-30 다이어트, 중복본 archive). 중복 DOM/모션 분석은 §1~8로 흡수, 아래 *PDD 토큰 매핑·슬롯 매핑* 고유분만 보존.
 
@@ -263,5 +263,5 @@ mp4 로 대체되긴 했지만 코드엔 살아있는 패턴:
 - 고정 CTA(하단 스티키 바) → `sticky-bottom-cta`
 - 푸터(약관+라이선스) → `footer-legal-grid`
 
-관련: 자체 디자인 시스템 · archetype-rules
+관련: ParkDal · archetype-rules
 - design-index — 디자인 시스템 허브 · [trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)](../methods/trysmooth-landing-teardown.md) · [Brand Tone References (아카이브 — 검증 토큰값)](brand-tone-references.md) · [Apple 디자인 역분석 — 왜 좋아하나 · 어떻게 내게 적용하나 · 무엇을 더할까](apple-design-teardown.md) — 디자인 시스템 레퍼런스/해체 코퍼스 자매

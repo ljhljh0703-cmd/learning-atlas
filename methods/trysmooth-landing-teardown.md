@@ -7,11 +7,11 @@ source: https://www.trysmooth.ai/ko
 category: method
 ---
 
-<!-- trysmooth.ai 한국어 랜딩 페이지 해체분석 및 자체 디자인 시스템 이식 매핑 가이드입니다. -->
+<!-- trysmooth.ai 한국어 랜딩 페이지 해체분석 및 ParkDal Design System 이식 매핑 가이드입니다. -->
 
 # trysmooth.ai 랜딩 해체분석 (Trysmooth Teardown)
 
-> **한줄**: 실시간 AI 미팅 비서 서비스의 다크 SaaS 랜딩 페이지 UI/UX 해체 및 자체 디자인 시스템(PDD) 이식 매핑 가이드.
+> **한줄**: 실시간 AI 미팅 비서 서비스의 다크 SaaS 랜딩 페이지 UI/UX 해체 및 ParkDal Design System(PDD) 이식 매핑 가이드.
 > **분석 방식**: 시맨틱 흐름과 시각 에셋 관찰 기반의 clean-room 분석.
 
 ---

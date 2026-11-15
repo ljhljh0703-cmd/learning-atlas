@@ -18,10 +18,10 @@ authors: [lewis]
 
 ## 1. 아키텍처 (토큰 중심)
 - **`assets/base.css`** = 토큰 + primitive(에딧 금지). 모든 테마가 같은 변수 오버라이드: `--bg/-soft·--surface/-2·--border·--text-1/2/3·--accent/-2/3·--good/warn/bad·--grad/-soft·--radius*·--shadow*·--font-sans/-display`.
-- **테마 = 토큰 오버라이드 CSS 1파일**(~200줄 이하). `<link id="theme-link">` href 교체 또는 `data-themes="a,b,c"` + **T 키** 순환. → 자체 디자인 시스템 `_tokens.css` 팔레트 스왑과 *동일 사상*(design-index).
+- **테마 = 토큰 오버라이드 CSS 1파일**(~200줄 이하). `<link id="theme-link">` href 교체 또는 `data-themes="a,b,c"` + **T 키** 순환. → ParkDal `_tokens.css` 팔레트 스왑과 *동일 사상*(design-index).
 - **`runtime.js`**(960줄) = 키보드 내비(←→/Space/Home/End)·T(테마)·A(애니)·F(풀스크린)·O(오버뷰 그리드)·**S(presenter)**·N(노트)·`#/N` 딥링크·`?preview=N`(단일 슬라이드 chrome 제거).
 - 슬롯: `.deck-header/.deck-footer/.slide-number`/progress bar 제공. 1 `.slide`=1 논리 페이지, `.slide.is-active`만 표시.
-- 토큰 강제: 슬라이드 마크업에 raw hex 금지(`var(--text-1)` O, `#111` X) — html `lint.py`·자체 디자인 시스템 anti-pattern과 동일 규율.
+- 토큰 강제: 슬라이드 마크업에 raw hex 금지(`var(--text-1)` O, `#111` X) — html `lint.py`·ParkDal anti-pattern과 동일 규율.
 
 ## 2. 카탈로그 (규모)
 - **36 테마** — 그룹: Light&calm(minimal-white·editorial-serif·xiaohongshu-white·solarized-light·catppuccin-latte) / Bold(sharp-mono·neo-brutalism·bauhaus·swiss-grid·memphis-pop) / Cool-dark(catppuccin-mocha·dracula·tokyo-night·nord·gruvbox·rose-pine·arctic-cool) / Effect-heavy(glassmorphism·aurora·blueprint·terminal-green) / v2(corporate-clean·pitch-deck-vc·academic-paper·japanese-minimal·engineering-whiteprint·magazine-bold·news-broadcast·midcentury·retro-tv·cyberpunk-neon·vaporwave·y2k-chrome).
@@ -47,7 +47,7 @@ authors: [lewis]
 
 ## 5. vault 적용 / 차용 후보
 - **presenter mode + 逐字稿 3铁律** = 작가 *강연·기술공유* 직결. pptx-deck-builder·html-publish slide-stack에 逐字稿 가이드 차용 후보.
-- **토큰 테마 스왑** = 자체 디자인 시스템 사상 확증(design-index). 36 테마 명명/그룹핑은 [Brand Tone References (아카이브 — 검증 토큰값)](brand-tone-references.md) 보강 참고.
+- **토큰 테마 스왑** = ParkDal 사상 확증(design-index). 36 테마 명명/그룹핑은 [Brand Tone References (아카이브 — 검증 토큰값)](brand-tone-references.md) 보강 참고.
 - **canvas FX**(knowledge-graph·neural-net·matrix-rain) = 기술 발표·graphify viz 슬라이드 후보.
 - **`?preview=N` 픽셀-완벽 preview 패턴** = "preview=관객과 동일 렌더" 일반 기법(html-publish preview에 응용 가능).
 - **clean-room**: 카탈로그·패턴·아키텍처만 흡수. CSS/JS/템플릿 코드 복제 X(MIT지만 #2 #3 — 필요 시 npx 설치해 직접 사용).

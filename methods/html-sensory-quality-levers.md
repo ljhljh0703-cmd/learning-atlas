@@ -8,11 +8,11 @@ source: "YouTube '클로드코드 핵심 디자인 스킬'(잭PD) → Codex html
 authors: [codex]
 year: 2026
 ---
-<!-- HTML 감각 품질 레버 — bespoke 제작용 *범용* 품질게이트(자체 디자인 시스템 무관). 8축 루브릭·모션 게이트·레퍼런스 패킷. 결정 C 정합(번역 X, 레버). Codex html-sensory ③Gate. -->
+<!-- HTML 감각 품질 레버 — bespoke 제작용 *범용* 품질게이트(ParkDal 무관). 8축 루브릭·모션 게이트·레퍼런스 패킷. 결정 C 정합(번역 X, 레버). Codex html-sensory ③Gate. -->
 
 # HTML Sensory 품질 레버 (bespoke용)
 
-> **프레임**: 자체 디자인 시스템 어댑터가 아닌 **bespoke 제작 품질 레버**(bespoke-html-direction). 아래는 *어떤 HTML에도* 적용되는 범용 검수 도구 — 단일톤 강제 X.
+> **프레임**: ParkDal 어댑터가 아닌 **bespoke 제작 품질 레버**(bespoke-html-direction). 아래는 *어떤 HTML에도* 적용되는 범용 검수 도구 — 단일톤 강제 X.
 
 ## 8축 품질 루브릭 (1~10) ★ 핵심 레버
 초안 직후 1회 + 최종 전 1회 실행. 7점 미만 축은 반드시 개선안. 출력 = 점수표 + top-3 결함 + 묶음 수정안.
