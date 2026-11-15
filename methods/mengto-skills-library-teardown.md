@@ -64,7 +64,7 @@ category: method
 2. **광고된 패밀리가 가장 덜 익었다.** game-development 19개 = 897줄, 5개는 20줄. 라우팅 표(README) 만 60줄 — **인덱스가 본문보다 길다.** 커밋도 `codex/upload-three-game-skills` 가 공지 **하루 전** 머지. 축적된 라이브러리가 아니라 갓 덤프된 층이다.
 3. **★ 그 패밀리가 이 저장소의 최고 자산에서 제외돼 있다.** `demo/` 보유 = web-design **73/79** vs game-development **0/19**. `DEMOS.md` 는 "Every tracked skill has a portable demo"라 쓰지만 문서 전체에 `game` 이 **0회** 등장한다. 즉 **자기 품질 게이트를 광고 대상에 적용하지 않았다.** 20줄 스킬 대부분은 acceptance criterion 도 없다 → *검증 없는 규율*.
 4. **얇음의 이면 = 모델 의존.** 코드 0·스니펫 0이므로 스킬은 모델이 이미 Three.js 를 안다는 전제에 전적으로 기댄다. 프런티어 모델엔 충분하고 약한 모델엔 무의미하며, 어느 쪽이든 저장소만으로는 재현·측정 불가.
-5. **web-design 78개는 *타인의 취향*이다.** `funky-purple-container-tech`·`orange-clean-paper-saas` 처럼 스타일 프리셋의 스킬화 — vault 가 bespoke-html-direction/ParkDal 폐기로 정리한 방향의 반대편이고, 외부 취향 이식은 작가가 봉인한 계보다. **가져오지 않는다.**
+5. **web-design 78개는 *타인의 취향*이다.** `funky-purple-container-tech`·`orange-clean-paper-saas` 처럼 스타일 프리셋의 스킬화 — vault 가 bespoke-html-direction/자체 디자인 시스템 폐기로 정리한 방향의 반대편이고, 외부 취향 이식은 작가가 봉인한 계보다. **가져오지 않는다.**
 6. **실물 증거는 존재하나 호스팅이 취약.** Vesperfall("The Three Tolls", Ashen Causeway 튜토리얼, Vitality/Resolve/Power/Guard/Burden 스탯, asset-catalog)은 실제로 로드된다 = 규약이 공백 이론은 아니라는 앵커. 단 `*.chatgpt.site` 프리뷰 호스트라 링크 부패 위험이 있어 인용 시 날짜 고정 필요.
 
 ## 6. vault 대조 (delta)

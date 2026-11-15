@@ -212,7 +212,7 @@ npx @google/design.md diff old.md new.md                       # 토큰 회귀 �
 ## 반영처 (학습→반영 루프)
 
 - **html-publish** 빌더 `_tokens` / html-publish GUIDE §13 — export 산출물이 출발점
-- **ParkDalDesign** 시각 계약 — 레버 선택이 계약과 충돌 안 하는지 대조
+- **자체 디자인 시스템** 시각 계약 — 레버 선택이 계약과 충돌 안 하는지 대조
 - **게임 UI** — proprietary 웹 토큰을 게임 엔진으로 옮길 때 손실 주의 (CSS 원점 한계)
 
 ## 연결된 페이지

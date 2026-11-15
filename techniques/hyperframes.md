@@ -26,7 +26,7 @@ category: technique
 - **precedence**: `frame.md` → `design.md` → `DESIGN.md`. 영상/hyperframes 프로젝트는 frame.md가 우선·복수 존재 시 승리.
 - **핵심 원칙**(README): "Atoms stay sacred. Composition stays free. Numbers come from the script." (토큰=불가침, 구성=자유, 수치=스크립트서).
 - **hyperframes-creative 스킬**이 처리: `references/video-composition.md`(영상 밀도 — "produced, not generated": 8-10 요소/씬·data bar·registration mark·monospace readout)·`house-style.md`("프롬프트 해석해 *진짜 콘텐츠* 생성, 웹페이지처럼 X")·`design-adherence.md`(사후 스펙 검증).
-- **🌟 우리 작업 직결**: ParkDal `_tokens.css`/`parkdaldesign.md`(웹 design.md) → **frame.md(영상 반전)** → [광고·영상 제작 파이프라인 (실전)](ad-video-production-pipeline.md)(실제 제작). 즉 작가 광고영상이 ParkDal 톤을 유지하며 영상화하는 *공식 다리*. design.md→frame.md 반전이 design-index §7 "html+ppt 파생"의 *영상 축* 확장. (도입 시 ad-storyboard 실제 영상 단계에서 frame.md 생성.)
+- **🌟 우리 작업 직결**: 자체 디자인 시스템 `_tokens.css`/`자체 디자인 명세`(웹 design.md) → **frame.md(영상 반전)** → [광고·영상 제작 파이프라인 (실전)](ad-video-production-pipeline.md)(실제 제작). 즉 작가 광고영상이 자체 디자인 시스템 톤을 유지하며 영상화하는 *공식 다리*. design.md→frame.md 반전이 design-index §7 "html+ppt 파생"의 *영상 축* 확장. (도입 시 ad-storyboard 실제 영상 단계에서 frame.md 생성.)
 - design 템플릿 갤러리: hyperframes.dev/design (Biennale Yellow·BlockFrame·Broadside·Cobalt Grid·Coral 등) — frame.md 예시집.
 
 ---

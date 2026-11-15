@@ -12,7 +12,7 @@ category: method
 
 # Reicon → VDS Icon Grammar (외부 아이콘 라이브러리 흡수 패턴)
 
-> ③Gate 통과(2026-07-10, 경계 clean·자가 오버클레임 교정). SHA `d5daf44`, 로컬 검증 **2680 아이콘**(사이트 "2700+"는 마케팅 shorthand). **durable kernel만 흡수** — VDS 생산화(pack 페이지·빌드)는 park. bespoke-html-direction 반-lock-in 정합(Reicon을 "모든 산출의 공식 아이콘"으로 강제 금지 = ParkDal lock-in 재현 방지).
+> ③Gate 통과(2026-07-10, 경계 clean·자가 오버클레임 교정). SHA `d5daf44`, 로컬 검증 **2680 아이콘**(사이트 "2700+"는 마케팅 shorthand). **durable kernel만 흡수** — VDS 생산화(pack 페이지·빌드)는 park. bespoke-html-direction 반-lock-in 정합(Reicon을 "모든 산출의 공식 아이콘"으로 강제 금지 = 자체 디자인 시스템 lock-in 재현 방지).
 
 ## 1. Icon grammar tokens (durable)
 24px grid · Outline 기본/Filled active · `currentColor` 틴팅 · stroke 1.5px · props(size/color/weight/strokeWidth). 토큰화:

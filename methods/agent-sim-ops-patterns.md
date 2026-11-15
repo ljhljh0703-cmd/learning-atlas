@@ -30,7 +30,7 @@ source: https://github.com/alexmcdonnell-airtable/hyperagent-public-skills
 
 ## C. Landscaping Photo-to-Quote → 전이 가능 패턴
 광고/포폴 무관하나 *인터랙티브 deliverable* 패턴 3종 전이:
-- **One base, many variants(일관성 lock)** — N 디자인을 *같은 before 플레이트*서 생성(같은 vantage/fence/tree 프롬프트 고정) → 정직한 before/after. → design-index ParkDal **팔레트 스왑**(같은 골격, 토큰만)·포폴 톤 변주와 동형. 영상 로고 lock([광고·영상 제작 파이프라인 (실전)](../techniques/ad-video-production-pipeline.md) §2)과 같은 원리.
+- **One base, many variants(일관성 lock)** — N 디자인을 *같은 before 플레이트*서 생성(같은 vantage/fence/tree 프롬프트 고정) → 정직한 before/after. → design-index 자체 디자인 시스템 **팔레트 스왑**(같은 골격, 토큰만)·포폴 톤 변주와 동형. 영상 로고 lock([광고·영상 제작 파이프라인 (실전)](../techniques/ad-video-production-pipeline.md) §2)과 같은 원리.
 - **Connection-points-for-real(데모→프로덕션 배선표)** — 데모(온플랫폼 gen+하드코딩)를 실제 운영으로: intake CRM·geocoding·imagery·measurement·price book·financing·payment·e-sign·delivery 각각 무엇을 연결할지 표로. *minimal viable real version* 명시. → 작가 프로젝트의 "PoC→실서비스" 견적에 재사용 템플릿.
 - **Honesty guardrails** — 렌더=AI 시각화·측정=±추정·가격=비구속 견적·데모는 전부 fictional. UX: lean hero + 디테일 on-demand(`<details>`), 숫자는 snap 아닌 *tween*(신뢰감).
 

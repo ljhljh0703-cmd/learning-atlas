@@ -8,7 +8,7 @@ source: https://github.com/VoltAgent/awesome-design-md
 authors: [VoltAgent/Bergside LLC]
 ---
 
-> 출처: VoltAgent/awesome-design-md(MIT) **직접 통독**(README + Claude/Stripe/Linear DESIGN.md 전문, raw.githubusercontent 2026-06-19). 55개 DESIGN.md(실사이트 디자인 시스템) + 포맷 정의. ParkDal/design-engine 위 **레퍼런스 토큰 라이브러리**로 흡수.
+> 출처: VoltAgent/awesome-design-md(MIT) **직접 통독**(README + Claude/Stripe/Linear DESIGN.md 전문, raw.githubusercontent 2026-06-19). 55개 DESIGN.md(실사이트 디자인 시스템) + 포맷 정의. 자체 디자인 시스템/design-engine 위 **레퍼런스 토큰 라이브러리**로 흡수.
 
 # Awesome Design MD — DESIGN.md(Google Stitch) 포맷 + 55 실사이트 시스템
 
@@ -57,7 +57,7 @@ authors: [VoltAgent/Bergside LLC]
 - **DEVELOP-PLAN L2(token-swap→진짜 theme file) 직접 충족 재료**: 9-섹션 풀 스펙 = "one theme=one look"의 정본 데이터. Claude/Stripe/Linear 3종을 design-presets에 **실토큰 라이브 스타일**로 반영(파일럿).
 - **design-catalog**: `DESIGN.md(Stitch) 메서드`를 workflow-skills 엔트리로 추가(디자인=마크다운 계약).
 - **프로급 갭 메우기**(작가 진단): 이 3종의 *절제·실토큰·do_not·shadow 철학*이 우리 약점(절제·크래프트·색규율)의 구체 본보기. grade 하네스의 레퍼런스 기준으로 사용 가능(verify 대상).
-- **DESIGN.md 발행 후보**: 우리 ParkDal 시스템도 이 포맷으로 `DESIGN.md` 1장 작성 → 외부 에이전트가 작가 톤 재현(추후).
+- **DESIGN.md 발행 후보**: 우리 자체 디자인 시스템도 이 포맷으로 `DESIGN.md` 1장 작성 → 외부 에이전트가 작가 톤 재현(추후).
 
 ## G. 도구화·유통 레이어 흡수 (2026-06-25, 작가 지시) — refero.design · oh-my-design
 > awesome-design-md가 *포맷+데이터*라면, 그 위에 **떠오는 두 도구**를 레퍼런스 보드(38선)에 편입(둘 다 dry 관측·근사 라벨, 메타 리소스 정직 표기).
